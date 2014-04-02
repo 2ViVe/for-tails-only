@@ -1,0 +1,77 @@
+#scrollbar1{margin:68px 0 10px}
+#scrollbar1 > .scrollbar{bottom: 25px;visibility:hidden}
+#scrollbar1 .overview1{width: 400%}
+#scrollbar1 .viewport {height  800px}
+#scrollbar1 section{width:25%}
+
+#trueresults{background:url(../images/trueresultsbg.html) 0 180px no-repeat;overflow:auto}
+#trueresultsdetails{margin:50px 4% 0;padding-right:30px;overflow:auto}
+#trueresults h1{border-bottom:1px solid #712C16;margin-bottom:10px;padding-bottom:10px}
+#trueresults h1 a{float:right;background:url(../images/arrow-left-maroon.png) 0 center no-repeat;padding:5px 0 5px 20px;font-size:16px}
+#trueresults h2{font-size:16px;font-weight:700;clear:both}
+#trueresults h2 span{font-weight:300}
+#trueresults h2 span.sep{display:inline-block;padding:0 25px}
+
+.no{width:80px;height:80px;line-height:80px;background:#DDD;border-radius:100px;float:left;text-align:center;color:#FFF;font-size:40px;font-weight:300;position:absolute;left:0;top:80px;display:none}
+
+#true{border-bottom:1px solid #FFF;border-top:1px solid #E5E5E5;margin-top:20px}
+#true li{position:relative;border-top:1px solid #FFF;border-bottom:1px solid #E5E5E5;padding:20px 0 0;overflow auto}
+#true img{margin:0 25px 0 0;width:200px}
+#true h2{font-size:30px;color:#000;font-weight:300;margin:0;padding:0;clear:none}
+#true h3{line-height:16px;font-size:20px;font-weight:600;margin:0;padding:10px 0 0}
+#true h3 span{font-weight:300}
+#true h3 span.sep{display:inline-block;padding:0 25px}
+#true h4{font-size:18px;color:#38302F;margin:15px 0;padding:10px 0;font-weight:600;border:1px solid #CCC;border-width:1px 0}
+#true p{line-height:24px}
+#true a{display:inline-block;background:url(../images/arrow-right-maroon.png) right center no-repeat;padding:5px 20px 5px 0}
+
+#trueresultcontent{margin-right:525px}
+#trueresultimage,#trueimage ul{width:485px}
+#trueresultimage li img{width:100%}
+#trueresultimage h3{padding-bottom:10px}
+#trueresultimage .videowrap li {padding-bottom: 7px}
+#trueresultsdetails p{padding:10px 0;line-height:24px}
+#trueresultsdetails h2{margin-bottom:20px}
+
+.videowrap{width:480px;margin:0!important;box-shadow:0 0 25px rgba(0, 0, 0, 0.10)}
+.videowrap a,.videowrap a:hover{-webkit-transition:all 0ms ease;-moz-transition:all 0ms ease;-o-transition:all 0ms ease;-ms-transition:all 0ms ease;transition:all 0ms ease}
+
+#trueimage{margin-bottom:20px}
+#trueimage ul{overflow:auto;width:485px}
+#trueimage ul div{background:#FFF}
+#trueimage li{float:left;width:120px;padding:1px 0 1px 1px}
+#trueimage.truetwo ul{width:300px}
+#trueimage.truetwo li{float:left;width:149px;padding:1px 0 1px 1px}
+#trueimage.truethree ul{width:480px}
+#trueimage.truethree li{float:left;width:159px;padding:1px 0 1px 1px;overflow:auto}
+#trueimage p{padding:5px 0;text-align:center;font-weight:600;color:#000;background:#FFF;position:relative;top:-5px}
+
+#trueresultimage2{width:1150px;margin:20px auto;overflow:auto}
+#trueresultimage2 img{width:100%}
+#trueresultimage2 h3{padding-bottom:10px}
+#trueresultimage2 .videowrap li {padding-bottom: 7px}
+#trueresultimage2 #trueimage ul{width:597px}
+#trueresultimage2 #trueimage li{width:148px}
+
+.testimonialwrap{padding:0 4% 0 2%;overflow:auto}
+.testimonialwrap img{background:#FFF url(../images/camera-loader.gif) center no-repeat}
+.tempwrap{margin:80px 4% 0;}
+.tempwrap h1{border-bottom:1px solid #712C16;margin-bottom:10px;padding-bottom:10px}
+.tempwrap h2{font-size:20px;font-weight:600;color:#000}
+.tempwrap h3{font-size:16px;margin:10px 0;font-weight:600}
+.tempwrap p{line-height:24px;padding:5px 0}
+
+#testimonialtabswrap{position:absolute;left:0;top:0;z-index:1;width:100%}
+#testimonialtabs{margin:20px 20px 0 0}
+#testimonialtabs li{float:left}
+#testimonialtabs a{display:block;padding:10px 50px 10px 35px;text-align:center;border:0;background-image:url(../images/testimonialtabs-icons.png);background-repeat:no-repeat;color:#923c21}
+#testimonialtabs a.on,#testimonialtabs a:hover{background-image:url(../images/testimonialtabs-icons-on.png);color:#000}
+#testimonialtabs a#resultstab{background-position:0 5px}
+#testimonialtabs a#historytab{background-position:0 -34px}
+#testimonialtabs a#difftab{background-position:0 -75px}
+#testimonialtabs a#powertab{background-position:0 -115px}
+
+#historycontent{padding-left:320px;background:url(../images/history-image.png) 0 25% no-repeat}
+#zvdiffcontent{padding-left 380px;background url(../images/imh-quote.jpg) 0 25% no-repeat}
+#socialshare{width:315px;margin:0 auto;padding-top:10px;clear:both}
+#socialshare p{float:left;overflow:hidden;width:100px;height:30px}

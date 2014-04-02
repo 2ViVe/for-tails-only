@@ -1,0 +1,241 @@
+<!-- signUpContainer start -->
+<div class='row panel radius signUpContainer' id='step_5' style='display:none;'>
+  <ul class="sign-up-step step-5 text-center MB2 clearfix">
+    <li>SELECTION<a href="#step_1"></a></li>
+    <li>SPONSOR<a href="#step_2"></a></li>
+    <li>PRODUCTS<a href="#step_3"></a></li>
+    <li class="account">ACCOUNT<a href="#step_4"></a></li>
+    <li class="current checkout">CHECKOUT</li>
+  </ul>
+      
+  <h4>
+    CHECK OUT
+  </h4>
+  <!-- signUpCon start -->
+  <div class='panel signUpCon'>
+    <form id='step5' novalidate="novalidate">
+      <div id="autoship_wrapper">
+        <h5>Autoship</h5>
+        <div class="row formItem">
+          <div class='small-12 columns'>
+            <table width='100%'>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th width='60'>PV</th>
+                  <th width="80">Price</th>
+                  <th width="80">Quantity</th>
+                  <th width="100">Total Price</th>
+                </tr>
+              </thead>
+              <tbody class="autoship-preview">
+              
+             
+             
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      <h5>Products</h5>
+      <div class="row formItem">
+        <div class='small-12 columns'>
+          <table width='100%'>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th width='60'>PV</th>
+                <th width="80">Price</th>
+                <th width="80">Quantity</th>
+                <th width="100">Total Price</th>
+              </tr>
+            </thead>
+            <tbody class="line-items-preview">
+              
+             
+             
+            </tbody>
+            <tfoot>
+              <tr>
+                <th colspan="5">
+                  <div class='small-5 columns checkOutNotes'>
+                    <textarea id='special_instructions' class='signUpNote' placeholder='Notes (500 words or less)'></textarea>
+                  </div>
+                  <div class='small-6 columns checkOutFoot '>
+                    <table border="0" cellspacing="0" cellpadding="0" id="checkout-table">
+                      <tbody>
+                        <tr class="_ndel"><td>Subtotal:</td><td>$<span class='subtotal_placeholder'></span></td></tr>
+                        <tr class="_ndel" id="total_price_tr"><td>Total Price:</td><td>$<span class='total_price_placeholder'></span></td></tr>
+                        <tr class="_ndel"><td>PV Total:</td><td class="total_pv_placeholder"></td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+      <h5>Shipping Address</h5>
+      <div class="row formItem">
+        <ul class="vcard shipping_address_placeholder">
+          <li class="locality"><span class='name'></span></li> 
+          <li class="locality"><span class='address'></span></li> 
+          <li class="locality"><span class='city'></span></li> 
+          <li class="locality">Phone: <span class='phone'></span></li> 
+        </ul>
+      </div>
+      <h5>Payment Information</h5>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Payment Option <small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+          <select class="signUpInputW" id="payment-method-id" name='payment-method-id'>
+            
+          </select>
+        </div>
+      </div>
+      
+      <div class="creditcard-wrapper">
+        
+     
+      
+        <div class="row formItem">
+          <div class='small-3 columns'>
+            <label>Name on Card <small class="required"></small></label>
+          </div>
+          <div class='small-3 end columns text-left'>
+            <input name='billing-address[first-name]' type="text" class='required medium' placeholder='first name' >
+            <input name='billing-address[last-name]' type="text" class='required medium'  placeholder='last name'>
+          
+          </div>
+        </div>
+        <div class="row formItem">
+          <div class='small-3 columns'>
+            <label>Credit Card Number <small class="required"></small></label>
+          </div>
+          <div class='small-3 end columns text-left'>
+            <input type="text" name="creditcard[number]" class='required'>
+          </div>
+          <div class="small-3 columns" style="float:left">
+            <%= image_tag 'credit_card_logo.jpg'%>
+          </div>
+        </div>
+        <div class="row formItem">
+          <div class='small-3 columns'>
+            <label>Expiration Date <small class="required"></small></label>
+          </div>
+        
+          <div class='small-1  columns text-left '>
+            <select class="medium" id="customDropdown2" name='creditcard[expiration-month]' class='required'>
+              <option value=""></option>
+              <% 1.upto(12) do |i|%>
+              <option value="<%= i%>"><%= i%></option>
+              <% end %>
+            </select>
+          </div>
+        
+          <div class='small-2 columns text-left end'>
+            <select class="medium required" name='creditcard[expiration-year]'>
+              <option value=""></option>
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+              <option value="2018">2018</option>
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+            </select>
+          </div>
+        
+        
+        
+       
+        
+        </div>
+        <div class="row formItem">
+          <div class='small-3 columns'>
+            <label>Card Code <small class="required"></small></label>
+          </div>
+          <div class='small-3 end columns text-left'>
+            <input type="text" name='creditcard[cvv]' class='required signUpInputW'  style='width:5rem;display:inline-block;'/> 
+            <span data-tooltip class="has-tip" title="Card Code is ..">What's this?</span>
+          </div>
+        </div>
+     
+      
+        <h5>Billing Address<label class="right use_home_address" for="useHomeAddress1">
+          <input type="checkbox"  id="bill_use_home_address"> Same as Shipping Address </label></h5>
+        <div class="row formItem">
+          <div class='small-3 columns'>
+            <label>Address Line 1 <small class="required"></small></label>
+          </div>
+          <div class='small-3 end columns text-left'>
+            <input name='billing-address[street]' type="text" class='required signUpInputW' >
+          </div>
+        </div>
+        <div class="row formItem">
+          <div class='small-3 columns'>
+            <label>Address Line 2 </label>
+          </div>
+          <div class='small-3 end columns text-left'>
+            <input name='billing-address[street-cont]' type="text" class='signUpInputW' >
+          </div>
+        </div>
+        <div class="row formItem">
+          <div class='small-3 columns'>
+            <label>City <small class="required"></small></label>
+          </div>
+          <div class='small-3 end columns text-left'>
+            <input name='billing-address[city]' type="text" class='required signUpInputW' >
+          </div>
+        </div>
+        <div class="row formItem" id="billing-address-state-div">
+          <div class='small-3 columns'>
+            <label>State <small class="required"></small></label>
+          </div>
+          <div class='small-3 end columns text-left'>
+            <%= select_tag "billing-address[state-id]", options_for_select(@states), :class => "signUpInputW"%>
+          </div>
+        </div>
+        <div class="row formItem" id="billing-address-zip-div">
+          <div class='small-3 columns'>
+            <label>ZIP <small class="required"></small></label>
+          </div>
+          <div class='small-3 end columns text-left'>
+            <input name='billing-address[zip]' type="text"  class='required signUpInputW' >
+          </div>
+        </div>
+        <div class="row formItem">
+          <div class='small-3 columns'>
+            <label>Country <small class="required"></small></label>
+          </div>
+          <div class='small-3 end columns text-left'>
+            <%= select_tag "billing-address[country-id]", options_for_select(@countries) %>
+          </div>
+        </div>
+        <div class="row formItem">
+          <div class='small-3 columns'>
+            <label>Phone <small class="required"></small></label>
+          </div>
+          <div class='small-3 end columns text-left'>
+            <input name='billing-address[phone]' type="text"  class='required signUpInputW' >
+          </div>
+        </div>
+      
+      
+      </div>
+      <div class="row formItem">
+        <div class='small-12 columns text-right'>
+          <input type="submit"  value="Continue" class="button tiny" id="step5_submit">
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- signUpCon end -->
+</div>
+<!-- signUpContainer end -->

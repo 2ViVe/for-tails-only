@@ -1,0 +1,69 @@
+
+#scrollbar1{margin:68px 0 10px}
+#scrollbar1 > .scrollbar{bottom: 25px}
+#scrollbar1 .overview1{width: 200%}
+#scrollbar1 section{width:50%;float:left}
+
+#challenge{background:url(../images/challengebg.jpg) 0 0 no-repeat;background-size:100% 100%}
+#challengebanner{background:url(../images/challenge-banner.png) right 0 no-repeat;background-size:auto 100%;position:relative}
+#challenge-left{max-width:806px;position:relative}
+#challenge-left img{width:100%}
+
+#challenge-icons a{display:inline-block;background-image:url(../images/challenge-icons.png);background-repeat:no-repeat;background-size:auto 200%;line-height:auto;width:15%;color:#7b5d0a}
+#challenge-icons a:hover{opacity:0.5;-webkit-transition:opacity 200ms linear;-moz-transition:opacity 200ms linear;-o-transition:opacity 200ms linear;-ms-transition:opacity 200ms linear;transition:opacity 200ms linear}
+#challenge-icons a#challenge-play{background-position:0 0}
+#challenge-icons a#challenge-flyer{background-position:0 bottom}
+
+#challenge-contest{background:url(../images/challenge-contest-sep.png) 53% no-repeat;overflow:auto;font:300 40px Raleway,sans-serif;color:#5d4504;text-align:center;position:absolute}
+#challenge-contest span{font-size:60px;font-weight:900;letter-spacing:-2px}
+#challenge-build,#challenge-lose{background-image:url(../images/challenge-contest-images.png);background-repeat:no-repeat;background-size:auto 200%}
+#challenge-build{background-position:0 0}
+#challenge-lose{background-position:0 bottom}
+#challengestart{position:absolute}
+#challengestart img{width:100%}
+
+
+#challenge-build,#challenge-lose{background-size:auto 200%;padding:18px 0 18px 160px}
+#challengestart{width:12%;right:17%;top:65%}
+#challengestart a:hover{opacity:0.95;-webkit-transition:opacity 200ms linear;-moz-transition:opacity 200ms linear;-o-transition:opacity 200ms linear;-ms-transition:opacity 200ms linear;transition:opacity 200ms linear}
+#challenge-left{width:45%;margin-left:5%;padding-top:1%;background-position:0 5%}
+#challenge-icons{position:absolute;left:5%;top:55%;width:22%;font-size:25px}
+#challenge-icons a{padding:5px 20px 6px 85px}
+#challenge-contest{width:55%; margin-left: 5%;bottom:20px}
+
+@media (max-width:1024px) and (min-height:716px){
+#challenge-left{margin-left:1%!important;padding-top:15%!important;width:40%}
+#challenge-icons{left:1%!important;top:55%}
+#challenge-contest{width: 45%!important; margin-left: 1%!important}
+#challenge-contest{font-size:20px!important}
+#challenge-contest span{font-size:30px!important}
+#challenge-build,#challenge-lose{padding-left:100px}
+#challengestart{width:18%!important;right:28%!important}
+}
+
+
+#isthisforyou h1{border-bottom:1px solid #712C16;margin-bottom:10px;padding-bottom:10px}
+#isthisforyou h2{font-size:20px;margin:35px 0 0;font-weight:600;color:#000}
+#results p{line-height:24px;padding:5px 0}
+
+#page,#testimonials,#advboard,#researchwrap{margin:80px 4% 0;}
+#isthisforyou{padding:0 4% 0 2%;overflow:auto}
+#isthisforyou div{width:47%}
+#isthisforyou h2{margin-bottom:0}
+#isthisforyou p{padding:10px 0}
+#isthisforyou .fleft img{float:left;margin:20px 30px 20px 0}
+
+#innertabswrap{position:absolute;left:0;top:0;z-index:1;width:100%}
+#innertabs{margin:20px 20px 0 0}
+#innertabs li{float:left}
+#innertabs a{display:block;padding:10px 50px 10px 35px;text-align:center;border:0;background-image:url(../images/innertab-icons.png);background-repeat:no-repeat;color:#923c21}
+#innertabs a.on,#innertabs a:hover{background-image:url(../images/innertab-icons-on.png);color:#000}
+#innertabs a#testimonialstab{background-position:0 5px}
+#innertabs a#advisorytab{background-position:0 -34px}
+
+#isthislink a{display:inline-block;color:#FFF;position:absolute;bottom:10%;right:15%;font-size:18px;background:url(../images/pageright.png) 98% center no-repeat;background-size:10px auto;padding:10px 30px 10px 20px}
+#isthislink a:hover{background-position:100% center;color:#DDD}
+
+
+
+

@@ -1,0 +1,63 @@
+
+#scrollbar1{margin:68px 0 10px}
+#scrollbar1 > .scrollbar{bottom: 25px}
+#scrollbar1 .overview1{width: 400%}
+#scrollbar1 section{width:25%}
+
+#company h1{border-bottom:1px solid #712C16;margin-bottom:10px;padding-bottom:10px}
+#company h2{font-size:20px;font-weight:600;color:#000}
+#company h3{font-size:16px;margin:10px 0;font-weight:600}
+#company p{line-height:24px;padding:5px 0}
+
+#mission,#message,#contact{margin:80px 4% 0;}
+
+#productcontent h1{font-size:32px;color:#38302F;line-height:36px}
+#productcontent h2{margin:20px 0;font-size:22px}
+#productcontent p{margin-bottom:15px}
+#mission{background:url(../images/img-mission.png) 45% 20px no-repeat;background-size:35% auto}
+#homemission{width:31%}
+#homevision{width:35%}
+
+#consupport{width:34%;padding:25px 0 0;position:relative}
+#consupport li{padding:20px 15% 0 0}
+#consupport input[type='text']{padding:5px 1.5%;width:96%;border:1px solid #CCC;background:#F0F0F0;font-size:14px}
+#consupport input[type='submit']{padding:10px 0;width:100px;background:#712C16;font-size:14px;color:#FFF;cursor:pointer}
+#consupport textarea{padding:5px 1.5%;width:96%;height:100px;border:1px solid #CCC;background:#F0F0F0;font-size:14px}
+#consuccess,#conerror{position:absolute;top:33%;font-weight:600;text-align:center;width:86%}
+#consuccess p,#conerror p{display:inline-block;background:rgba(255,255,255,0.5);padding:25px;border:2px solid #FFF;position:relative}
+#consuccess span,#conerror span{position: absolute;font-size:20px;font-weight:600;color:#fff;top:3px;right:3px;cursor:pointer;display:inline-block;background:#999;width:15px;border-radius:50px;height:15px;line-height:16px}
+#consuccess{color:#060}
+#conerror{color:#D00}
+.required{border:1px solid #F00!important;box-shadow:0 0 5px rgba(255, 50, 50, 0.5)}
+
+#ccpledge{padding:25px 5% 0 0;width:36%}
+#ccpledge p{margin:10px 0}
+#ccpledge p span{display:inline-block;border-radius:100px;background:#38302F;width:35px;height:35px;line-height:35px;margin-right:5px;text-align:center;color:#FFF}
+#ccpledge p.highlighted{background:#F5F5F5;padding:15px;border:0;border-top:1px solid #FFF;border-bottom:1px solid #DDD}
+
+#ccare{width:24%;padding:25px 0 0}
+#cchours{padding:25px 0}
+#ccdate{padding:15px 0 15px 80px;background:url(../images/cc-date.png) 0 center no-repeat;background-size:auto 58px}
+#ccphone{padding:15px 0 15px 80px;background:url(../images/cc-phone.png) 0 center no-repeat;background-size:auto 58px}
+#company #ccmail{padding:30px 0 30px 80px;background:url(../images/cc-mail.png) 0 center no-repeat;background-size:auto 58px;word-wrap:break-word}
+#company #ccadd{padding-left:80px;background:url(../images/cc-add.png) 0 center no-repeat;background-size:auto 58px}
+
+#companytabswrap{position:absolute;left:0;top:0;z-index:1;width:100%}
+#companytabs{margin:20px 20px 0 0}
+#companytabs li{float:left}
+#companytabs a{display:block;padding:10px 20px 10px 35px;text-align:center;border:0;background-image:url(../images/companytabs-icons.png);background-repeat:no-repeat;color:#923c21}
+#companytabs a.on,#companytabs a:hover{background-image:url(../images/companytabs-icons-on.png);color:#000}
+#companytabs a#missiontab{background-position:0 5px}
+#companytabs a#messagetab{background-position:0 -34px}
+#companytabs a#momentumtab{background-position:0 -75px}
+#companytabs a#contacttab{background-position:0 -115px}
+#companytabs a#familytab{background-position:0 -154px}
+
+#momentumsocial{background:url(../images/social-icons.png) 0 center no-repeat;padding:20px 0 20px 300px}
+#elements{overflow:auto;padding:25px 0}
+#elements div{width:16%;padding:0 2%;float:left}
+#elements h2{border-bottom:1px solid #CCC;text-align:center;margin-bottom:10px;padding-bottom:10px}
+#elements h2 span{font-weight:300;display:block}
+#elements h3{font-weight:600;padding:10px 0;text-align:center}
+.highlighted{background:#F5F5F5;padding:15px;border:0;border-top:1px solid #FFF;border-bottom:1px solid #DDD}
+

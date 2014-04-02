@@ -1,0 +1,786 @@
+html,body,div{
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-size:100%;
+	vertical-align:
+	baseline;
+	font:inherit;
+}
+
+body {
+	background-color: #ebebeb;
+	/*background-image: url('/skins/skin01/images/skin01_bg.jpg');*/
+	background-position: left top;
+	background-repeat: no-repeat;
+	/*background-attachment:fixed;*/
+}
+
+a:active, a:hover {
+	color:#A00203;
+}
+
+#page{
+	height:100%;
+	min-height:100%;
+	height:auto !important;
+	height:100%;
+	margin:0px 0px -20px 0px;
+}
+
+.page{
+	/*background:url(/skins/skin01/images/nav_grad.png) repeat-y left top;*/
+	padding:20px 0;
+	padding-top:0;
+}
+
+.divider{
+	width: 700px;
+	height: 9px;
+	margin: auto;
+	background:url(../images/divider.png);
+	padding:8px;
+	position: relative;
+}
+
+.hideshow {
+    height:17px;
+    background-color: white;
+	border-right: 1px #ccc solid;
+	border-left: 1px #ccc solid;
+	border-bottom: 1px #ccc solid;
+	border-bottom-left-radius:6px;
+	border-bottom-right-radius:6px;
+	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.20);
+    -moz-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.20);
+    -webkit-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.20);
+    /*background-image:url( '/skins/skin01/images/bc_bg_org.png');*/
+    position: relative;
+    margin:0px auto;
+    top: -20px;
+    color: white;
+    font-family: arial, helvetica, sans-serif;
+    font-size: 12px;
+    padding-top: 2px;
+    padding-right: 5px;
+    text-align:right;
+}
+.hideshow a {
+    color: #A00203;
+	text-decoration: none;
+	font-weight:bold;
+}
+.hideshow img {
+    padding-right: 3px;
+}
+.section {
+    width:98%;
+    overflow:auto;
+    margin: auto;
+	padding:10px;
+}
+#promotions {
+    width:100%;
+}
+#promotions .promo {
+	margin: auto;
+	width:230px;
+}
+#promotions .promo img{
+	width:240px;
+	height:156px;
+	padding-left:5px;
+	padding-bottom: 8px;
+}
+
+.bigtitle, .moduletitle {
+	font-size:20px;
+	font-weight:normal;
+	font-style:normal;
+	text-decoration:none;
+	color:#A00203;
+    text-transform:uppercase;
+    font-family: arial, helvetica, sans-serif;
+}
+#section-content {margin-top: -55px;}
+
+#section-header{
+	width:100%;
+	margin: 0pxa
+	margin-top: -20px;
+	/*background-color: #f1f1f1;*/
+	/*background-image: url('/skins/skin01/images/HeaderBkGray.png');*/
+	background-repeat: repeat-x;
+	padding: 0px;
+	height: 167px;
+	overflow: hidden;
+}
+
+#aside-content {
+	width:100%;
+	height: 50px;
+	background-color:white;
+    -moz-box-shadow:0px 0px 10px 1px #a2a2a2;
+    -webkit-box-shadow:0px 0px 10px 1px #a2a2a2;
+    box-shadow:0px 0px 10px 1px #a2a2a2;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+	padding:2px;
+}
+
+.menu-alignment {
+	margin: auto;
+}
+
+.logo-img-out { }
+.logo-img-out #logo{
+    height: 100px;
+    width:280px;
+	margin-left:-8px;
+	padding-top: 3px;
+}
+
+.profile-img {
+	width: 50px;
+	height: 50px;
+}
+
+.top-content {
+	width:100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+#top-center-content {
+	width:1148px;
+	height:165px;
+	margin:auto;
+}
+
+.branding-data { 
+	float:left;
+	margin-top: 5px;
+	margin-left:10px;
+}
+
+#header-links {
+	float:left;
+	padding-top:20px;
+}
+
+#header-links a {
+	font-family:"PillGothic600mglight",Helvetica,Arial,sans-serif;
+    font-size:14px;
+	padding: 0px 10px 0px 10px;	
+	color: white;
+	text-decoration: none;
+}
+
+#header-links a:hover {
+	color: orange;
+}
+
+#header-links .here {
+	border-bottom: solid 20px orange;
+	padding-bottom: 20px;
+}
+
+.logo-img{
+	padding-left:10px;
+}
+
+.logo-img #logo{
+	height: 60px;
+	width:300px;
+}
+
+
+
+.bargraph {
+	width:20px;
+	background-color:orange;
+	background-image:url('../images/bar_graph.png');
+}
+
+.bargraph2 {
+	width:20px;
+	background-color:blue;
+	background-image:url('../images/bar_graph_gold.png');
+}
+
+
+#mystatus {
+    float:left;
+    width:100%;
+    padding:0px;
+    background-color:white;
+    -moz-box-shadow:0px 0px 10px 1px #a2a2a2;
+    -webkit-box-shadow:0px 0px 10px 1px #a2a2a2;
+    box-shadow:0px 0px 10px 1px #a2a2a2;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+
+#mystatus-outer {
+    float:left;
+    width:100%;
+    padding:0px;
+    background-color:white;
+}
+
+#favoritereports {
+    float:left;
+    width:45%;
+    padding:5px;
+    background-color:white;
+    -moz-box-shadow:0px 0px 10px 1px #a2a2a2;
+    -webkit-box-shadow:0px 0px 10px 1px #a2a2a2;
+    box-shadow:0px 0px 10px 1px #a2a2a2;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+
+#performance {
+	margin-top:-10px;
+	margin-right:10px;	
+	padding-left:5px;
+	width:50%;
+	float:left;
+}
+
+#status {
+	margin-top:-10px;
+	margin-right:10px;	
+	padding-left:5px;
+	width:45%;
+	float:left;
+}
+
+
+#PerformanceIndicators {
+	padding-left:0px;
+	overflow: auto;
+	width:400px;
+	padding:0px;
+	min-height:250px;
+	background-color:white;
+    -moz-box-shadow:0px 0px 10px 1px #a2a2a2;
+    -webkit-box-shadow:0px 0px 10px 1px #a2a2a2;
+    box-shadow:0px 0px 10px 1px #a2a2a2;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+
+.PerformanceCategory {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:small;
+	color:#646464;
+}
+
+.PerformancePeriod {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:smaller;
+	margin-left:10px;
+	color:#646464;
+}
+
+.PerformanceChart {
+	-moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+	width:200px;
+	height:30px;
+	border:2px solid;
+	border-color:#d3d3d3;
+	margin-left:10px;
+}
+
+.PerformanceChart0 {
+        height:17px;
+        line-height:17px;
+        font-size:small;
+        text-decoration:none;
+        margin-top:-2px;
+        margin-left:-2px;
+        background: #d4aa2d;
+    	background-image: url('../images/bar_graph_horz.png');
+        text-align:center;
+        color:black;
+        border-top-left-radius:6px;
+        border-top-right-radius:6px;
+}
+
+.PerformanceChart1 {
+        height:17px;
+        line-height:17px;
+        font-size:small;
+        text-decoration:none;
+        margin-top:-2px;
+        margin-left:-2px;
+        background: #670600;
+    	background-image: url('../images/bar_graph_horz2.png');
+        text-align:center;
+        color:white;
+	border-bottom-left-radius:6px;
+	border-bottom-right-radius:6px;
+}
+
+.PerformanceChartGreen {
+	height:17px;
+	line-height:17px;
+	font-size:small;
+	text-decoration:none;
+	margin-top:-2px;
+	margin-left:-2px;
+	background: #006400;
+    background: -ms-linear-gradient(top, #4D924D, #006400);
+    background: -webkit-gradient(linear, left top, left bottom, from(#4D924D), to(#006400));
+    background: -moz-linear-gradient(top,  #4d924d,  #006400);
+	text-align:center;
+	color:white;
+	border-top-left-radius:6px;
+	border-top-right-radius:6px;
+}
+
+.PerformanceChartGreen:link {
+	height:17px;
+	line-height:17px;
+	font-size:small;
+	text-decoration:none;
+	margin-top:-2px;
+	margin-left:-2px;
+	background: #006400;
+    background: -ms-linear-gradient(top, #4D924D, #006400);
+    background: -webkit-gradient(linear, left top, left bottom, from(#4D924D), to(#006400));
+    background: -moz-linear-gradient(top,  #4d924d,  #006400);
+	text-align:center;
+	color:white;
+	border-top-left-radius:6px;
+	border-top-right-radius:6px;
+}
+
+.PerformanceChartRed {
+	height:17px;
+	line-height:17px;
+	font-size:small;
+	margin-bottom:-2px;
+	margin-left:-2px;
+	margin-right:-2px;
+	text-align:center;
+	background-color:red;
+	background: -ms-linear-gradient(top, #FF7F50, #FF0000);
+    background: -webkit-gradient(linear, left top, left bottom, from(#FF7F50), to(#FF0000));
+    background: -moz-linear-gradient(top,  #FF7F50,  #FF0000);
+	color:white;
+	border-bottom-left-radius:6px;
+	border-bottom-right-radius:6px;
+}
+
+.arrow-up {
+    width: 58px;
+    height: 21px;
+    position: relative;
+    top: 6px;
+    background-image: url('../images/up-arrow.png');
+}
+
+#arrow_GVGraph {
+    left:70px;
+}
+#arrow_PVGraph {
+    left:185px;
+    display: none;
+}
+#arrow_SponsorGraph {
+    left:280px;
+    display: none;
+}
+
+.tablink a:link {
+    margin-left:40px;
+    font-family: arial, helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 12px;
+}
+#qualstatus, #qualstatusUP {
+	float:left;
+	width:45%;
+	margin-right:25px;
+}
+#Events {
+	float:left;
+	width:30%;
+	margin-right:25px;
+}
+#NewMembers {
+	float:left;
+	width:60%;
+}
+#ActionItems {
+	float:left;
+	width:45%;
+}
+#myqual, #myitems, #mymembers, #myqualUP {
+    float:left;
+    width:100%;
+    padding:5px;
+	margin-right:10px;
+    background-color:white;
+    -moz-box-shadow:0px 0px 10px 1px #a2a2a2;
+    -webkit-box-shadow:0px 0px 10px 1px #a2a2a2;
+    box-shadow:0px 0px 10px 1px #a2a2a2;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+	overflow: auto;
+	height: 268px;
+}
+
+#myactions {
+    float:left;
+    width:100%;
+    padding:5px;
+	margin-right:10px;
+    background-color:white;
+    -moz-box-shadow:0px 0px 10px 1px #a2a2a2;
+    -webkit-box-shadow:0px 0px 10px 1px #a2a2a2;
+    box-shadow:0px 0px 10px 1px #a2a2a2;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+	overflow: auto;
+	height: 268px;
+}
+
+#xmodule {
+    float:left;
+    width:100%;
+    padding:5px;
+    background-color:white;
+    -moz-box-shadow:0px 0px 10px 1px #a2a2a2;
+    -webkit-box-shadow:0px 0px 10px 1px #a2a2a2;
+    box-shadow:0px 0px 10px 1px #a2a2a2;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+	overflow: auto;
+}
+
+#myuserprofile{
+    float:left;
+    width:100%;
+    padding:5px;
+	margin-right:10px;
+    background-color:white;
+    -moz-box-shadow:0px 0px 10px 1px #a2a2a2;
+    -webkit-box-shadow:0px 0px 10px 1px #a2a2a2;
+    box-shadow:0px 0px 10px 1px #a2a2a2;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+#myitems {
+	margin-left:20px;
+	margin-top:10px;
+	height: 300px;
+	overflow: auto;
+}
+#mymembers {
+	height: 210px;
+    overflow: auto;
+	margin-top: 10px;
+	margin-left:10px;
+}
+.look {
+	color: firebrick;
+}
+
+
+#arrow_Qualifications {
+    left:40px;
+}
+#arrow_UplineListing {
+    left:150px;
+    display: none;
+}
+#arrow_OrderHistory {
+    left:250px;
+    display: none;
+}		
+#arrow_ActionItems {
+    left:22px;
+}
+#arrow_ActionItemsDue {
+    left:110px;
+    display: none;
+}
+#arrow_ActionItemsCompleted {
+    left:200px;
+    display: none;
+}
+.qtablink a:link {
+    margin-left:35px;
+    font-family: arial, helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.qtablink2 a:link {
+    margin-left:25px;
+    font-family: arial, helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+#skin-table {
+	width: 100%;
+	margin: 0px auto;
+}
+
+
+#skin-table th {
+	font-size:14px;
+	font-famly: Arial, Helvetica, sans-serif;
+	font-weight: bold;	
+	background-color: white;
+	color: #000;
+	padding: 3px;
+}
+
+#skin-table tr:nth-child(odd)    { 
+	background-color:#fff; 
+}
+#skin-table tr:nth-child(even)    { 
+	background-color:#f5f5f5; 
+}
+#skin-table td {
+	font-size:12px;
+	font-famly: Arial, Helvetica, sans-serif;
+	color: #646464;
+	padding: 6px;
+}
+
+#skin-table td a:link {
+    font-size:12px;
+    font-famly: Arial, Helvetica, sans-serif;
+    color: #646464;
+	margin: 0px;
+	padding: 0px;
+	text-decoration: underline;
+}
+#skin-table .headertext
+{
+	color: #F6141E;	
+	font-size: 14px;
+}
+#skin-table .regulartext
+{
+	color: #000000;	
+	font-size: 13px;
+}
+#skin-table .regulartext a:link
+{
+	color: #000000;	
+	font-size: 13px;
+	text-decoration: underline;
+}
+
+.content{}
+
+.content-alignment {
+	width:1150px;
+	margin:auto;
+}
+
+.content-interior {
+	/*height:100%;*/
+	width: 850px;
+	overflow:auto;
+	padding: 10px;
+	background: white;
+	position: relative;
+	top: 11px;
+	border-radius: 5px 5px 5px 5px;
+	margin-bottom: 21px;
+	margin-right: 10px;
+	-moz-box-shadow:0px 0px 10px 1px #a2a2a2;
+    -webkit-box-shadow:0px 0px 10px 1px #a2a2a2;
+    box-shadow:0px 0px 10px 1px #a2a2a2;
+}
+
+#side-articles {
+    height:550px;
+    width: 250px;
+    overflow:auto;
+    padding: 2px;
+    background: white;
+    position: relative;
+	float: right;
+    top: 11px;
+    border-radius: 5px 5px 5px 5px;
+    margin-bottom: 51px;
+    margin-right: 0px;
+	-moz-box-shadow:0px 0px 10px 1px #a2a2a2;
+    -webkit-box-shadow:0px 0px 10px 1px #a2a2a2;
+    box-shadow:0px 0px 10px 1px #a2a2a2;
+}
+
+#side-articles .lnk a, #side-articles .cart-lnk a {
+	font-family:Arial;
+	font-size:11.5px;
+	font-weight:normal;
+	font-style:normal;
+	text-decoration:none;
+	color:#666666;	
+}
+#side-articles .lnk a {
+    padding-right: 16px;
+}
+
+#side-articles .cart-lnk a {
+	padding-right: 8px;
+}
+
+#side-articles .side-lnk {
+	float:right;
+	padding:8px 0px;
+}
+
+.querytable {
+	width:840px;
+}
+.maptable {
+	width:835px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.newmessagesdiv {
+	width:850px;
+	padding-left:20px;
+	height:35px;
+	max-width: 968px;
+	overflow: auto;
+	background-color:#f8f8f8;
+	position:relative;
+	border:1px solid #dedede;
+	top:-10px;
+	left:-10px;
+
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	float:left;
+}
+
+.newmessagetext {
+	float:right;
+	padding-top:5px;
+}
+
+.newmessagelink {
+	color: orange;
+	padding-top:8px;
+	font-family:"PillGothic600mglight",Helvetica,Arial,sans-serif;
+    font-size:14px;
+	font-weight: bold;
+}
+
+.newmessageimg {
+	padding: 0px 3px 0px 0px;
+	vertical-align: middle;
+}
+
+.footer-alignment {
+	display: inline;
+	float: left;
+	margin:auto;
+	font-family:"PillGothic600mglight",Helvetica,Arial,sans-serif;
+    font-size:14px;
+    color:#333;
+}
+
+#footer-content {}
+
+#section-footer{
+	color:#000;
+	width:100%;
+	padding:7px 0;
+	height:140px;
+	z-index:10;
+	/*background:#fff;*/
+	position:relative;
+	bottom:0;
+	/*background-image: url(/evo/images/custom/FooterGraduation.png);*/
+    background-repeat: repeat-x;
+}
+
+/* Footer Menu */
+#section-footer div.footer-alignment{
+	padding:0px 0px 0px 0px;
+}
+
+#footer-center{
+	margin:auto;
+	width:1000px;
+	padding-right: 50px;
+}
+
+#block-menu-menu-footer{}
+
+#block-menu-menu-footer ul.menu{
+	float:right;
+}
+
+#block-menu-menu-footer ul.menu li{
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:11px;
+	color:#333;
+	list-style:none;
+	float:left;
+	padding:0px 10px;
+	margin:0;
+	border-right:1px solid #333;
+}
+
+#block-menu-menu-footer ul.menu li.first{}
+
+#block-menu-menu-footer ul.menu li.last{
+	border:none;
+}
+
+#block-menu-menu-footer ul.menu li a,#block-menu-menu-footer ul.menu li a:visited{
+	text-transform:none;
+	text-shadow:none;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:normal;
+	font-style:normal;
+	text-decoration:none;
+	color:#333333;
+}
+
+#block-menu-menu-footer ul.menu li a:hover,#block-menu-menu-footer ul.menu li a:focus,#block-menu-menu-footer ul.menu li a:active,#block-menu-menu-footer ul.menu li a.active{
+	color:#000;
+}
+
+#block-menu-menu-footer ul.menu li.last a{
+	border-right:none;
+}
+
+.cleaner {
+  clear: both;
+  font-size: 1px;
+}
+@font-face{font-family:'PillGothic600mgLight';src:url(../fonts/pillgothic600mg-light-webfont.eot);src:url(../fonts/pillgothic600mg-light-webfontd41d.eot?#iefix) format('embedded-opentype'),url(../fonts/pillgothic600mg-light-webfont.woff) format('woff'),url(../fonts/pillgothic600mg-light-webfont.html) format('truetype'),url(../fonts/pillgothic600mg-light-webfont-2.html#PillGothic600mgLight) format('svg');font-weight:normal;font-style:normal;}
+@font-face{font-family:'PillGothic600mgLightObliq';src:url(../fonts/pillgothic600mg-lightobliq-webfont.html);src:url(../fonts/pillgothic600mg-lightobliq-webfontd41d.html?#iefix) format('embedded-opentype'),url(../fonts/pillgothic600mg-lightobliq-webfont-2.html) format('woff'),url(../fonts/pillgothic600mg-lightobliq-webfont-3.html) format('truetype'),url(../fonts/pillgothic600mg-lightobliq-webfont-4.html#PillGothic600mgLightObliq) format('svg');font-weight:normal;font-style:italic;}
+@font-face{font-family:'PillGothic600mgMedium';src:url(../fonts/pillgothic600mg-medium-webfont.eot);src:url(../fonts/pillgothic600mg-medium-webfontd41d.eot?#iefix) format('embedded-opentype'),url(../fonts/pillgothic600mg-medium-webfont.woff) format('woff'),url(../fonts/pillgothic600mg-medium-webfont.html) format('truetype'),url(../fonts/pillgothic600mg-medium-webfont-2.html#PillGothic600mgMedium) format('svg');font-weight:bold;font-style:normal;}
+@font-face{font-family:'PillGothic600mgMediumObliq';src:url(../fonts/pillgothic600mg-mediumobliq-webfont.html);src:url(../fonts/pillgothic600mg-mediumobliq-webfontd41d.html?#iefix) format('embedded-opentype'),url(../fonts/pillgothic600mg-mediumobliq-webfont-2.html) format('woff'),url(../fonts/pillgothic600mg-mediumobliq-webfont-3.html) format('truetype'),url(../fonts/pillgothic600mg-mediumobliq-webfont-4.html#PillGothic600mgMediumObliq) format('svg');font-weight:bold;font-style:italic;}
+@font-face{font-family:'PillGothic600mgBlack';src:url(../fonts/pillgothic600mg-black-webfont.eot);src:url(../fonts/pillgothic600mg-black-webfontd41d.eot?#iefix) format('embedded-opentype'),url(../fonts/pillgothic600mg-black-webfont.woff) format('woff'),url(../fonts/pillgothic600mg-black-webfont.html) format('truetype'),url(../fonts/pillgothic600mg-black-webfont-2.html#PillGothic600mgBlack) format('svg');font-weight:bold;font-style:normal;}
+@font-face{font-family:'PillGothic600mgBlackObliq';src:url(../fonts/pillgothic600mg-blackobliq-webfont.html);src:url(../fonts/pillgothic600mg-blackobliq-webfontd41d.html?#iefix) format('embedded-opentype'),url(../fonts/pillgothic600mg-blackobliq-webfont-2.html) format('woff'),url(../fonts/pillgothic600mg-blackobliq-webfont-3.html) format('truetype'),url(../fonts/pillgothic600mg-blackobliq-webfont-4.html#PillGothic600mgBlackObliq) format('svg');font-weight:bold;font-style:italic;}
+@font-face{font-family:'PillGothic600mgThin';src:url(../fonts/pillgothic600mg-thin-webfont.html);src:url(../fonts/pillgothic600mg-thin-webfontd41d.html?#iefix) format('embedded-opentype'),url(../fonts/pillgothic600mg-thin-webfont-2.html) format('woff'),url(../fonts/pillgothic600mg-thin-webfont-3.html) format('truetype'),url(../fonts/pillgothic600mg-thin-webfont-4.html#PillGothic600mgThin) format('svg');font-weight:normal;font-style:normal;}
+@font-face{font-family:'PillGothic600mgThinObliq';src:url(../fonts/pillgothic600mg-thinobliq-webfont.eot);src:url(../fonts/pillgothic600mg-thinobliq-webfontd41d.eot?#iefix) format('embedded-opentype'),url(../fonts/pillgothic600mg-thinobliq-webfont.woff) format('woff'),url(../fonts/pillgothic600mg-thinobliq-webfont.html) format('truetype'),url(../fonts/pillgothic600mg-thinobliq-webfont-2.html#PillGothic600mgThin) format('svg');font-weight:normal;font-style:normal;}

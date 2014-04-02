@@ -1,0 +1,318 @@
+
+@media (min-width:1800px){
+#producttabs{margin-right:125px}
+#testimonialslides{top:200px}
+#productboxwrap{top:170px}
+#elements h2 span{display:inline-block;padding-right:12px}
+}
+
+@media (min-width:1550px) and (max-width:1700px){
+#genki1ingredients ul {width: 49%;margin: 0 1% 10px 0}
+#genki1ingredients span.fright {width: 72px}
+.ingredients span {padding: 8px 0 8px 5px}
+.note {margin-right:1%}
+}
+
+@media (min-width:1280px) and (max-width:1440px){
+/*#faq{background-position:0 125px;margin:50px 0}
+#faqcontainer{padding:0 50px}
+#faqmail{background:#EAEAEA;margin:0 0 10px;padding:10px;border-bottom:1px solid #FFF;border-top:1px solid #DDD}*/
+.videowrap {margin: 0 50px 0 70px}
+#genki1ingredients ul{width:100%;float:none}
+#genki1ingredients ul.fright{display:none}
+#genki1ingredients span.fright {width: 150px}
+.note {margin-right:0}
+}
+
+@media (min-width:1152px) and (max-width:1340px){
+header nav a{padding:0 13px}
+#testimonialslides{padding:0 20px}
+.camera_wrap{width:226px}
+
+#homeright {margin-top: 0;padding: 10px;background: #FFF url(../images/img-mission.png) 50% 60px no-repeat;background-size:25% auto;height:auto}
+#productcontent h1{font-size: 24px}
+#productcontent h2{font-size: 16px;line-height:normal}
+#productcontent p{line-height:22px;margin:5px 0;font-size:14px}
+}
+
+
+@media (min-width:1300px){/*1024px min*/
+#dtx,#burn,#emz,#genki,#one{background-position:0 50%;padding-left:30%}
+#dtxcontent, #burncontent, #emzcontent, #genkicontent, #onecontent{margin-top 13%;padding-top 5%}
+.videowrap{margin:0 45px 0 2%}
+}
+
+@media (min-width:1080px) and (max-width:1151px){
+header nav a{padding:0 9px}
+}
+
+@media (min-width:1023px) and (max-width:1151px){
+header nav{font-size:17px}
+header nav a{padding:0 9px}
+#testimonialslides{padding:0 20px;top:10px}
+.camera_wrap{width:226px}
+#camera_wrap_1{left:0}
+#camera_wrap_2{right:0}
+.camera_next{right:60px}
+.camera_prev{left:60px}
+#bannerwrap{width:1024px}
+#productboxwrap{width:520px;top:-50px}
+.slide{width:72px!important}
+#socialbar{height:75px}
+#socialtitle{height:75px;padding:0 0 0 20px;width:365px;background-position:360px center}
+#socialtitle h1{padding:14px 15px 0 0;float:left;font-size:16px}
+#socialtitle p{float:left;padding-top:19px}
+/*#productboxwrap{width:475px}
+#productboxwrap h1{font-size:60px;line-height:70px;background-size:76px auto;background-position:263px 0}
+#productboxwrap h2{font-size:20px;line-height:28px}*/
+}
+
+@media (min-width:1016px) and (max-width:1151px){/***tablets landscape***/
+a#logo{display none}/*active test*/
+#scrollbar1 .scrollbar{bottom:25px}
+a#pageright, a#pageleft{bottom:30px}
+.tabcontent{padding-top:2%}
+
+div.jp-jplayer img,.videowrap,div.jp-video-270p,div.jp-jplayer,div.jp-video video{width:350px!important}
+div.jp-video-270p{width:318px}
+div.jp-jplayer img,div.jp-jplayer,div.jp-video video{height:183px!important}
+div.jp-jplayer img{width:100%;height:100%}
+a.jp-video-play-icon{margin-top:auto}
+.videowrap{margin:0 30px 0 20px;overflow:hidden}
+.downloadwrap,#one .downloadwrap{padding:0 0 0 80px!important}
+#dtx .downloadwrap,#one .downloadwrap{background-position:15px center}
+#one p.downloadlinkswrap a{margin-right:5px}
+#one p.downloadlinkswrap{background-position:144px 2px}
+.imgwrap img{width:75%}
+.ataglance h1{font-size:18px}
+.ataglance h2{font-size:14px;padding:5px 0 65px 96px}
+.ataglance .fleft{width:90%;margin-left:10%}
+.tabbed_content{font-size:15px}
+.tabs .moving_bg{padding:15px 18px 29px}
+.tabs .tab_item{padding:13px}
+}
+
+@media (min-width:768px) and (max-width:1015px){/***tablets portrait***/
+header nav{font-size:12px;padding-top:7px}
+header nav a{padding:0 5px}
+}
+
+@media (max-width 1800px){/***2nd zoom***/
+.cols,.resultswrap{width:45%;padding-right:5%;float:left}
+#userxp{margin: 0 3%!important; width: 35%!important}
+.no{width:80px;height:80px;line-height:80px}
+}
+
+@media (max-height:715px){
+body{border-left 5px solid red}
+a#logo{height: 75px}
+#testimonialslides{top:25px}
+#camera_wrap_1{left:0}#camera_wrap_2{right:0}
+#productboxwrap{top: 25px}
+#productboxwrap h1{margin-top:10px;padding: 10px 0; font-size: 60px; line-height: 60px;background: url(../images/banneramp.png) 230px 0 no-repeat;background-size:auto 65px; width:300px}
+#productboxwrap h2{font-size: 20px; line-height: normal;padding-bottom: 10px}
+.camera_prev, .camera_next{top:373px}
+.camera_pie{padding-top:375px}
+
+#homeright {margin-top: 0;padding: 10px;background: #FFF url(../images/img-mission.png) 50% 60px no-repeat;background-size:25% auto;height:auto}
+#productcontent h1{font-size: 24px}
+#productcontent h2{font-size: 16px;margin:0;line-height:normal}
+#productcontent p{line-height:normal;margin:5px 0;font-size:12px}
+
+.videowrap {margin-top:0}
+.downloadwrap{padding 0 0 0 150px!important;line-height:40px}
+#producttabs{margin-top:25px}
+#dtxcontent, #burncontent, #emzcontent, #genkicontent, #onecontent{margin:90px 0 0 50px;padding-top:0;position:relative}
+#dtxcontent h1, #burncontent h1, #emzcontent h1, #genkicontent h1, #onecontent h1{padding-top:20px}
+.downloadwrap{padding-top:0!important;padding-bottom:0!important}
+.socialshare{position:absolute;left:115px;bottom:-23px}
+#dtx,#burn,#emz,#genki,#one{background-position:0 center;background-size:auto 50%;padding-left:25%}
+#genki{background-position:3% center}
+
+#trueresultswrap{padding-top:0}
+.resultswrap{padding-bottom:10px}
+#isthisforyou h2{margin-top:10px}
+#healthcaresystems h2{margin:10px 0}
+#results .resultswrap h2{font-size:20px}
+#results .resultswrap h3{font-size:14px;padding:0}
+.resultswrap h4{margin:10px 0 5px}
+.resultswrap img{width:60%}
+.arrows{top:40%}
+
+.qctests .fleft{width auto}
+#genkidoc{padding 20px 0}
+#burndoc h2{padding:0}
+#isthisforyou .fleft img{width:40%}
+
+#challenge-icons{top:55%;width:25%}
+#challenge-icons a{padding-left:60px;font-size:16px}
+#challengestart{right:17%;width:13%}
+#ccare{width:24%}
+}
+
+@media (max-width:1024px){
+.no p{line-height:24px;padding-top:26px}
+#genki1ingredients ul{width:100%;float:none}
+#genki1ingredients ul.fright{display:none}
+.note {margin-right:0}
+#elements h2{font-size:18px}
+}
+
+@media (min-height:716px) and (max-height:765px){
+body{border-left 5px solid blue}
+a#logo{height 90px}
+#testimonialslides{top:20px}
+#camera_wrap_1{left:4%}#camera_wrap_2{right:4%}
+#productboxwrap{top: 25px}
+#productboxwrap h1{margin-top:10px;padding: 10px 0; font-size: 60px; line-height: 60px;background: url(../images/banneramp.png) 230px 0 no-repeat;background-size:auto 65px; width:auto}
+#productboxwrap h2{font-size: 24px; line-height: 32px;padding-bottom: 10px}
+.camera_prev, .camera_next{top:373px}
+.camera_pie{padding-top:375px}
+}
+
+@media (min-height:766px) and (max-height:800px){
+body{border-left 5px solid green}
+a#logo{height 90px}
+#testimonialslides{top:80px}
+#camera_wrap_1{left:4%}#camera_wrap_2{right:4%}
+#productboxwrap{top: 10%}
+#productboxwrap h1{margin-top:10px;padding: 10px 0; font-size: 60px; line-height: 60px;background: url(../images/banneramp.png) 230px 0 no-repeat;background-size:auto 65px; width:auto}
+#productboxwrap h2{font-size: 24px; line-height: 32px;padding-bottom: 10px}
+.camera_prev, .camera_next{top:373px}
+.camera_pie{padding-top:375px}
+
+#homeright {margin-top: 0;padding: 10px;background: #FFF url(../images/img-mission.png) 50% 50% no-repeat;background-size:25% auto;height:auto}
+#productcontent h1{font-size: 24px}
+#productcontent h2{font-size: 16px;line-height:normal}
+#productcontent p{line-height:22px;margin:5px 0;font-size:14px}
+
+#dtx,#burn,#emz,#genki,#one{background-position:0 center;background-size:auto 45%;padding-left:25%}
+#genki{background-position:3% center}
+#dtxcontent, #burncontent, #emzcontent, #genkicontent, #onecontent{padding-top:0}
+#dtxcontent, #burncontent, #emzcontent, #genkicontent, #onecontent {margin: 170px 0 0 50px}
+.tabcontent {margin: 100px 80px 0 0}
+
+#challenge-left{padding-top:8%;width:40%}
+#challenge-icons{top:60%;width:20%}
+#challenge-icons a{padding:0 0 0 50px;font-size:16px}
+#challenge-contest{width: 45%; margin-left: 5%}
+#challenge-contest{font-size:30px}
+#challenge-contest span{font-size:40px}
+#challenge-build,#challenge-lose{padding-left:120px}
+#challengestart{right:20%;width:13%}
+
+}
+
+@media (min-height:716px) and (max-height:845px){
+#testimonialslides{top:120px}
+#productboxwrap{top: 100px}
+#camera_wrap_1{left:2%}#camera_wrap_2{right:2%}
+#homeright {margin-top: 3%}
+
+.downloadwrap{line-height:40px}
+#producttabs{margin-top 25px}
+
+#trueresultswrap{padding-top:2%}
+.resultswrap{padding-bottom:10px}
+#results .resultswrap h2{font-size:20px}
+#results .resultswrap h3{font-size:14px;padding:0}
+.resultswrap h4{margin:10px 0 5px}
+.resultswrap img{width:60%}
+.arrows{top:40%}
+
+}
+
+@media (min-height:846px) and (max-height:1000px){
+body{border-left 5px solid yellow}
+#testimonialslides{top:120px}
+#productboxwrap{top: 100px}
+#camera_wrap_1{left:2%}#camera_wrap_2{right:2%}
+#homeright {margin-top: 0}
+
+downloadwrap{padding:0 0 0 150px!important;line-height:40px}
+#producttabs{margin-top 25px}
+
+#trueresultswrap{padding-top:3%}
+.resultswrap{padding-bottom:10px}
+#results .resultswrap h2{font-size:20px}
+#results .resultswrap h3{font-size:14px;padding:0}
+.resultswrap h4{margin:10px 0 5px}
+.arrows{top:40%}
+#dtx,#burn,#emz,#genki,#one{background-position:0 50%;background-size:auto auto;padding-left:30%}
+#dtxcontent h1, #burncontent h1, #emzcontent h1, #genkicontent h1, #onecontent h1{padding-top:50px}
+
+#challenge-left{padding-top:5%;width:40%}
+#challenge-icons{top:55%;width:20%}
+#challenge-icons a{padding:5px 0 5px 65px;font-size:18px}
+#challenge-contest{width: 50%; margin-left: 5%}
+#challenge-contest{font-size:30px}
+#challengestart{right:17.5%}
+#isthislink a{right:16%;font-size:24px}
+
+}
+
+@media (min-height:1001px){
+#testimonialslides{top:0;padding-top:10%}
+#productboxwrap{top: 0}
+#productboxwrap h1{margin-top:0}
+#camera_wrap_1{left:4%}#camera_wrap_2{right:4%}
+.camera_wrap{top:50px}
+#dtxcontent h1, #burncontent h1, #emzcontent h1, #genkicontent h1, #onecontent h1{padding-top:50px}
+
+#challenge-left{width:45%;margin-left:5%;padding-top:6%;background-position:0 5%}
+#challenge-icons a{padding:5px 0 6px 90px}
+#challenge-contest{width:40%; margin-left: 5%;bottom:100px}
+#challengestart{right:22%}
+#isthislink a{right:20%;font-size:24px}
+
+}
+
+/*@media (max-width:1550px){/***normal***
+.cols,.resultswrap{width:45%;padding-right:5%;float:left}
+#userxp{margin:0!important; width: 50%!important}
+.no{width:80px;height:80px;line-height:80px;float:right;margin:0 20px 10px 0}
+#progressimage1{display:none}
+}*/
+
+@media (min-width:1024px) and (min-height:768px){/***TABLET***/
+body{border-right 5px solid red}
+header nav a{padding: 0 8px}
+}
+
+
+
+@media (min-width: 750px) and (max-width: 810px){}
+@media (min-width:1000px) and (max-width:1030px){}
+@media (min-width:1250px) and (max-width:1300px){}
+@media (min-width:1350px) and (max-width:1370px){}
+@media (min-width:1400px) and (max-width:1450px){}
+@media (min-width:1550px) and (max-width:1650px){
+#challenge-left{padding-top:5%}
+#challengestart{right:16.6%}
+}
+@media (min-width:1650px) and (max-width:1700px){}
+@media (min-width:1900px){}
+
+/*viewport specific*/
+@media (width: 800px) and (max-height: 810px){}
+@media (width:1024px) and (max-height:1030px){}
+@media (width:1280px) and (max-height:600px){
+#isthislink a{right:18%}
+}
+@media (min-width:1355px) and (max-width:1370px) and (max-height:715px){
+#challengestart{right:15.5%}
+}
+@media (width:1440px) and (max-height:775px){
+#isthislink a{right:17%}
+}
+@media (width:1600px) and (max-height:775px){
+#challenge-left{padding-top:5%}
+#challengestart{right:16.6%}
+}
+@media (width:1680px) and (max-height:1700px){}
+@media (width:1920px) and (max-height:960px){
+#challenge-icons a{padding:5px 0 6px 90px;font-size:25px}
+#challengestart{right:19%}
+#isthislink a{right:16%;font-size:24px}
+}
+

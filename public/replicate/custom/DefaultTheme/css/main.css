@@ -1,0 +1,62 @@
+body{background:url(../images/bg.jpg)}
+a#logo img{height:100%;width:auto}
+
+#testimonialslides{position:relative;padding:0 5%;top:100px}
+#testimonialslides a{position:absolute;top:-90px;left:0;bottom:40px;background:url(../images/play-video.png) 0 0 no-repeat;width:73px;height:35px;display:inline-block;opacity:1;-webkit-transition:opacity 200ms linear;-moz-transition:opacity 200ms linear;-o-transition:opacity 200ms linear;-ms-transition:opacity 200ms linear;transition:opacity 200ms linear}
+#testimonialslides a:hover{opacity:.6;-webkit-transition:opacity 200ms linear;-moz-transition:opacity 200ms linear;-o-transition:opacity 200ms linear;-ms-transition:opacity 200ms linear;transition:opacity 200ms linear}
+
+#bannerwrap{position:relative;top:0;width:50%}
+
+#productboxwrap{position:relative;top:50px;width:610px;margin:0 auto}
+#bannercontent{text-align:center}
+#productboxwrap h1{font-size:81px;font-weight:300;color:#38302F;line-height:78px;background:url(../images/banneramp.png) right 0 no-repeat;margin-top:20px;padding:15px 0;width:400px;display:inline-block;text-align:left}
+#productboxwrap h2{font-size:26px;font-weight:300;color:#38302F;line-height:36px}
+#productboxwrap h2 span{font-weight:600}
+.productbox{margin:0 auto;font-size:18px;font-weight:300;color:#FFF;line-height:22px;text-shadow:0 2px #000}
+#productbox1{background:url(../images/productbox1bg.png) 0 0 no-repeat;width:260px;height:67px;padding:105px 210px 0 0;text-align:right}
+#productbox2{background:url(../images/productbox2bg.png) 0 0 no-repeat;width:340px;height:67px;padding:105px 0 0 125px}
+
+#socialbar{background:#38302F;height:140px;overflow:hidden}
+#socialtitle{background:url(../images/arrow-right.png) 330px center no-repeat;padding:0 80px 0 30px;height:140px}
+#socialtitle h1{font-size:22px;font-weight:400;color:#FFF;padding:13px 0;text-align:center}
+#socialtitle h1 span{font-weight:300}
+#socialtitle p{text-align:center}
+#socialscroll{width 100%;text-shadow:0 0 3px #000;margin-left:390px;padding-top:2px}
+#socialscroll li{float:left;padding:2px 2px 0 0;height:136px;position:relative}
+#socialscroll span{position:absolute;left:0;top:96px;background:rgba(0,0,0,.5);width:96.5%;padding:2px 0 0 2%;height:42px;font-size:16px;font-weight:300;color:#FFF;line-height:20px;-webkit-transition:all 200ms linear;-moz-transition:all 200ms linear;-o-transition:all 200ms linear;-ms-transition:all 200ms linear;transition:all 200ms linear}
+#socialscroll a:hover span{top:136px;-webkit-transition:all 200ms linear;-moz-transition:all 200ms linear;-o-transition:all 200ms linear;-ms-transition:all 200ms linear;transition:all 200ms linear}
+#socialscroll b{font-weight:400}
+#socialscroll a img{opacity:.8;-webkit-transition:opacity 200ms linear;-moz-transition:opacity 200ms linear;-o-transition:opacity 200ms linear;-ms-transition:opacity 200ms linear;transition:opacity 200ms linear}
+#socialscroll a:hover img{opacity:1;-webkit-transition:opacity 200ms linear;-moz-transition:opacity 200ms linear;-o-transition:opacity 200ms linear;-ms-transition:opacity 200ms linear;transition:opacity 200ms linear}
+.slide{padding-right:2px}
+#social{padding:0}
+#social a{margin:4px 4px 0 0;display:inline-block;height:24px}
+
+#productcontent{width:50%;line-height:26px;margin-top:50px}
+#productcontent h1{font-size:32px;color:#38302F;line-height:36px}
+#productcontent h2{margin:20px 0;font-size:22px}
+#productcontent p{margin-bottom:15px}
+#homeright{margin:5% 20px 20px;padding:25px;background:#FFF url(../images/img-mission.png) 45% 60px no-repeat;height:510px;overflow:auto}
+#homevision{width:30%;padding:0 2%}
+#homemission{width:25%;padding:0 2%}
+
+#scrollbar1{margin-top:71px 0 10px}
+#scrollbar1 .scrollbar{bottom: 164px}
+#scrollbar1 .overview1{width: 200%;padding-top: 50px}
+#scrollbar1 .overview1 img{width:100%!important}
+#scrollbar1 .viewport {min-height: 800px}
+
+
+#scrollbar1 .scrollbar{bottom:164px}
+a#pageright, a#pageleft{bottom:164px}
+
+@media (min-width:1023px) and (max-width:1151px){
+#scrollbar1 .scrollbar{bottom:100px!important}
+a#pageright, a#pageleft{bottom:100px!important}
+}
+
+#scrollbar1:hover .scrollbar{display:none}
+.small-dialog a,.small-dialog a:hover{transition:none}
+video,div.jp-jplayer,div.jp-jplayer img{width:680px!important;height:380px!important}
+div.jp-jplayer img{position:absolute;top:0}
+.slider4 .slide{float: left; list-style: none; position: relative; width: 134px;}

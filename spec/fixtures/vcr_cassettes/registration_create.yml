@@ -1,0 +1,375 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://199.27.105.132:8082/v2/registrations
+    body:
+      encoding: UTF-8
+      string: '{"special-instructions":"","language":"English","payment-method-id":"3003","shipping-method-id":"4","user-info":{"sponsor":"101","role-code":"D","login":"kaka77","password":"kaka77","email":"kaka77@123.com","birthday":"1989-3-4","social-security-number":"222333444","tax-id":"222333444","country-iso":"US"},"shipping-address":{"first-name":"kaka","m":"","last-name":"kaka","street":"kaka","street-cont":"","city":"Sunnyvale","zip":"94085","state-id":"10018","country-id":"1214","phone":"111"},"home-address":{"first-name":"kaka","m":"","last-name":"kaka","street":"kaka","street-cont":"","city":"Sunnyvale","zip":"94085","state-id":"10018","country-id":"1214","work-phone":"111"},"line-items":[{"variant-id":"4","quantity":"1","price":"341.00","image":"http://demo.abovegem.com:11001/images/noimage/product.jpg","pv":"300","name":"Basic
+        10GO Set"},{"variant-id":"14","quantity":"1","pv":"0","price":"49.00","image":"http://demo.abovegem.com:11001/images/noimage/product.jpg","name":"Membership"}],"creditcard":{"number":"4111111111111111","expiration-year":"2018","expiration-month":"6","cvv":"111"},"billing-address":{"first-name":"kaka","last-name":"kaka","street":"kaka","street-cont":"","city":"Sunnyvale","zip":"94085","state-id":"10018","country-id":"1214","phone":"111"},"controller":"registration","action":"create","X-Authentication-Token":null}'
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      X-Client-Id:
+      - test_client_id_1
+      X-Client-Secret:
+      - test_client_secret_1
+      Accept-Language:
+      - en
+      X-Company-Code:
+      - zoivi
+      Content-Length:
+      - '1354'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Current-Time:
+      - '2014-03-14T08:18:56-07:00'
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '4029'
+      Etag:
+      - '"533685368"'
+      Date:
+      - Fri, 14 Mar 2014 15:18:56 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "request": {
+            "href": "/v2/registrations",
+            "headers": {
+              "accept": "*/*; q=0.5, application/xml",
+              "accept-encoding": "gzip, deflate",
+              "content-type": "application/json",
+              "x-client-id": "test_client_id_1",
+              "x-client-secret": "test_client_secret_1",
+              "accept-language": "en",
+              "x-company-code": "zoivi",
+              "content-length": "1354",
+              "user-agent": "Ruby",
+              "host": "demo.abovegem.com:8082"
+            },
+            "parameters": {},
+            "body": {
+              "special-instructions": "",
+              "language": "English",
+              "payment-method-id": "3003",
+              "shipping-method-id": "4",
+              "user-info": {
+                "sponsor": "101",
+                "role-code": "D",
+                "login": "kaka77",
+                "password": "kaka77",
+                "email": "kaka77@123.com",
+                "birthday": "1989-3-4",
+                "social-security-number": "222333444",
+                "tax-id": "222333444",
+                "country-iso": "US"
+              },
+              "shipping-address": {
+                "first-name": "kaka",
+                "m": "",
+                "last-name": "kaka",
+                "street": "kaka",
+                "street-cont": "",
+                "city": "Sunnyvale",
+                "zip": "94085",
+                "state-id": "10018",
+                "country-id": "1214",
+                "phone": "111"
+              },
+              "home-address": {
+                "first-name": "kaka",
+                "m": "",
+                "last-name": "kaka",
+                "street": "kaka",
+                "street-cont": "",
+                "city": "Sunnyvale",
+                "zip": "94085",
+                "state-id": "10018",
+                "country-id": "1214",
+                "work-phone": "111"
+              },
+              "line-items": [
+                {
+                  "variant-id": "4",
+                  "quantity": "1",
+                  "price": "341.00",
+                  "image": "http://demo.abovegem.com:11001/images/noimage/product.jpg",
+                  "pv": "300",
+                  "name": "Basic 10GO Set"
+                },
+                {
+                  "variant-id": "14",
+                  "quantity": "1",
+                  "pv": "0",
+                  "price": "49.00",
+                  "image": "http://demo.abovegem.com:11001/images/noimage/product.jpg",
+                  "name": "Membership"
+                }
+              ],
+              "creditcard": {
+                "number": "4111111111111111",
+                "expiration-year": "2018",
+                "expiration-month": "6",
+                "cvv": "111"
+              },
+              "billing-address": {
+                "first-name": "kaka",
+                "last-name": "kaka",
+                "street": "kaka",
+                "street-cont": "",
+                "city": "Sunnyvale",
+                "zip": "94085",
+                "state-id": "10018",
+                "country-id": "1214",
+                "phone": "111"
+              },
+              "controller": "registration",
+              "action": "create",
+              "X-Authentication-Token": null
+            }
+          },
+          "meta": {
+            "x-server-current-time": "2014-03-14T08:18:56-07:00",
+            "code": 200
+          },
+          "response": {
+            "distributor-id": 1011101,
+            "order": {
+              "id": 11278,
+              "number": "G00000011278",
+              "state": "complete",
+              "payment-state": "paid",
+              "special-instructions": "",
+              "order-date": "2014-03-14T15:18:54.961Z",
+              "payment-date": "2014-03-14T15:18:56.667Z",
+              "item-total": 390,
+              "adjustment-total": 0,
+              "total": 390,
+              "payment-total": 390,
+              "line-items": [
+                {
+                  "variant-id": 4,
+                  "product-id": 4,
+                  "product-name": "Basic 10GO Set",
+                  "sku": "EO-BAS003",
+                  "quantity": 1,
+                  "price": 341,
+                  "image-url": "http://demo.abovegem.com:11001/upload/image/92947/large_88073577-33b7-498c-80e6-cdddf659b6fa.jpg",
+                  "qualifiction-volume": 300
+                },
+                {
+                  "variant-id": 14,
+                  "product-id": 14,
+                  "product-name": "Membership",
+                  "sku": "EO-M",
+                  "quantity": 1,
+                  "price": 49,
+                  "image-url": "http://demo.abovegem.com:11001/images/noimage/product.jpg",
+                  "qualifiction-volume": 0
+                }
+              ],
+              "adjustments": [
+                {
+                  "id": 538,
+                  "amount": 0,
+                  "label": "Shipping"
+                }
+              ]
+            },
+            "sponsor": {
+              "name": "ZVI ",
+              "email": "",
+              "phone": "(888) 937-9648"
+            }
+          }
+        }
+    http_version: 
+  recorded_at: Fri, 14 Mar 2014 15:18:57 GMT
+- request:
+    method: post
+    uri: http://demo.abovegem.com:8082/v2/authentications/token
+    body:
+      encoding: UTF-8
+      string: '{"user":"kaka77","password":"kaka77","client-id":"test_client_id_1"}'
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      X-Client-Id:
+      - test_client_id_1
+      X-Client-Secret:
+      - test_client_secret_1
+      Accept-Language:
+      - en
+      X-Company-Code:
+      - zoivi
+      X-Device-Uuid:
+      - mao
+      X-Device-Ip:
+      - 0.0.0.0
+      Content-Length:
+      - '68'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Current-Time:
+      - '2014-03-14T08:19:00-07:00'
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '950'
+      Date:
+      - Fri, 14 Mar 2014 15:19:00 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "request": {
+            "href": "/v2/authentications/token",
+            "headers": {
+              "accept": "*/*; q=0.5, application/xml",
+              "accept-encoding": "gzip, deflate",
+              "content-type": "application/json",
+              "x-client-id": "test_client_id_1",
+              "x-client-secret": "test_client_secret_1",
+              "accept-language": "en",
+              "x-company-code": "zoivi",
+              "x-device-uuid": "mao",
+              "x-device-ip": "0.0.0.0",
+              "content-length": "68",
+              "user-agent": "Ruby",
+              "host": "demo.abovegem.com:8082"
+            },
+            "parameters": {},
+            "body": {
+              "user": "kaka77",
+              "password": "kaka77",
+              "client-id": "test_client_id_1"
+            }
+          },
+          "meta": {
+            "x-server-current-time": "2014-03-14T08:19:00-07:00",
+            "code": 200
+          },
+          "response": {
+            "authentication-token": "MTAxMTEwMTo6NDUwMTM6Omtha2E3Nzo6bWFvOjoxMzk0ODEwMzQwMTU5Ojp0ZXN0X2NsaWVudF9pZF8xOjpmNEF3ZVFwMi9sVXVNQlYxVnl3YzNTSzhQV0lXbDdMOGFkTUMwTFh3cktNPQ=="
+          }
+        }
+    http_version: 
+  recorded_at: Fri, 14 Mar 2014 15:19:01 GMT
+- request:
+    method: get
+    uri: http://demo.abovegem.com:8082/v2/profile
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      X-Client-Id:
+      - test_client_id_1
+      X-Client-Secret:
+      - test_client_secret_1
+      Accept-Language:
+      - en
+      X-Company-Code:
+      - zoivi
+      X-Authentication-Token:
+      - MTAxMTEwMTo6NDUwMTM6Omtha2E3Nzo6bWFvOjoxMzk0ODEwMzQwMTU5Ojp0ZXN0X2NsaWVudF9pZF8xOjpmNEF3ZVFwMi9sVXVNQlYxVnl3YzNTSzhQV0lXbDdMOGFkTUMwTFh3cktNPQ==
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Current-Time:
+      - '2014-03-14T08:19:01-07:00'
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1195'
+      Etag:
+      - '"1134083614"'
+      Date:
+      - Fri, 14 Mar 2014 15:19:01 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "request": {
+            "href": "/v2/profile",
+            "headers": {
+              "accept": "*/*; q=0.5, application/xml",
+              "accept-encoding": "gzip, deflate",
+              "content-type": "application/json",
+              "x-client-id": "test_client_id_1",
+              "x-client-secret": "test_client_secret_1",
+              "accept-language": "en",
+              "x-company-code": "zoivi",
+              "x-authentication-token": "MTAxMTEwMTo6NDUwMTM6Omtha2E3Nzo6bWFvOjoxMzk0ODEwMzQwMTU5Ojp0ZXN0X2NsaWVudF9pZF8xOjpmNEF3ZVFwMi9sVXVNQlYxVnl3YzNTSzhQV0lXbDdMOGFkTUMwTFh3cktNPQ==",
+              "user-agent": "Ruby",
+              "host": "demo.abovegem.com:8082"
+            },
+            "parameters": {},
+            "body": {}
+          },
+          "meta": {
+            "x-server-current-time": "2014-03-14T08:19:01-07:00",
+            "code": 200
+          },
+          "response": {
+            "user-id": 45013,
+            "name": "kaka kaka",
+            "login": "kaka77",
+            "email": "kaka77@123.com",
+            "distributor-id": 1011101,
+            "registration-date": "2014-03-14T15:18:56.705Z",
+            "next-renewal-date": null,
+            "birth-date": "1989-03-04",
+            "ssn": "222333444",
+            "company": null,
+            "packtype-id": 0,
+            "role-name": "Distributor",
+            "role-code": "D",
+            "image-url": "http://demo.abovegem.com:11001/images/nopic_mini.jpg"
+          }
+        }
+    http_version: 
+  recorded_at: Fri, 14 Mar 2014 15:19:02 GMT
+recorded_with: VCR 2.8.0

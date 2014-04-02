@@ -1,0 +1,900 @@
+/* ************************* CHANGE CUSTOM COLORS HERE **************************** */
+/*
+#FF6600 - bright orange
+#fb980f - orange
+
+#c81414 - bright red
+#a81212 - dark red
+
+
+#f5f5f5 - light gray
+#a7a9ac - medium gray
+#646464 - dark gray
+*/
+
+
+/* headingText is used for the headers on the graphical tree and for links in the Menu within the custom EVO Header.cfm */
+.headingText {
+	color: #a81212;
+}
+.headingText a {
+	color: #a81212;
+}
+
+/* SideHeaderBG is for the header bar on the downlone page for the summary reports on the left */
+.SideHeaderBG {
+	background-color:#c81414;
+}
+
+/* BodyText10 is for the Module Header Text on the community page */
+.BodyText10 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 9pt;
+        color: #a81212;
+        text-indent: 6pt;
+}
+
+/* NavTextColor2 this is text color of the tab that is currently highlighted */
+.NavTextColor2 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 9pt;
+        font-weight: bold;
+        color: #a81212;
+        text-decoration: none;
+        display:block;
+}
+
+/*MessageCentralNavText - side bar nagivation text for Message Central and Downline */
+.MessageCentralNavText {
+        font-size: 13pt;
+        color: #646464;
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+}
+
+/* MessageCentralNavTextSelected is the Highlighted text on the Business Groups and Message Central side nagication */
+.MessageCentralNavTextSelected {
+        font-size: 13pt;
+        color: #a81212;
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight:bold;
+}
+
+.bc-messages {
+        float: left;
+        margin: 0px 8px 0px 5px;
+        background-image: url('../images/custom/eMail5.png');
+        background-repeat: none;
+        width: 38px;
+        height:30px;
+}
+#voicecastreturnframe {
+        border: solid 2px white;
+        -moz-border-radius: 9px;
+        -webkit-border-radius: 9px;
+        border-radius: 9px;
+        position: relative;
+        z-index: 250;
+        background-color: #ec2111;
+        padding: 0px;
+        top: -8px;
+        left: 10px;
+        float:left;
+        overflow:hidden;
+        min-height:14px;
+        min-width:20px;
+}
+#voicecastreturnframe a {
+        color: white;
+        font-size: 13px;
+        text-decoration: none;
+        padding: 1px 3px 1px 3px;
+        top: -5px;
+        margin: 0px;
+}
+
+
+/* Standard HTML styles
+----------------------*/
+body {
+        font-family: arial;
+        font-size: 10px;
+        color: #3c3c3e;
+        /*background: #EFEFEF url(../images/background.gif) repeat-y;*/
+        background-color:#ffffff;
+        margin: 0px;
+        padding: 0px;
+}
+
+a {
+        color: #42667D;
+}
+
+img, .image {
+        border: 0px;
+}
+
+input, select, textarea {
+        font-size: 12px;
+        padding: 2px 2px 2px 5px;
+        margin: 0px;
+        font-family: arial;
+        color: #3c3c3e;
+        border: 1px #d2d3d4 solid;
+}
+
+
+a { 
+	color:#6E5646; 
+}
+
+td, input, select {
+	font-family:arial,helvetica,verdana,sans-serif; 
+	color:#000000; 
+	font-size:11px;
+}
+th {
+	font-family:Arial,Helvetica,sans-serif; 
+	color:#FFFFFF; font-size:11px; 
+	font-weight:bold; 
+	background-color:#a7a9ac; 
+	text-align:left;
+}
+h2, .bigtitle {
+	font-family: Arial, Helvetica, sans-serif;
+        font-size: 15pt;
+        color: #646464;
+        text-decoration: none;
+}
+h3 {
+	color: #FDB935; 
+	margin: 0px 0px 5px; 
+	padding: 0px; 
+	font-size: 14px;
+}
+hr {	border: 0px; 
+	border-top: 1px #DCDCDC solid; 
+	border-bottom: 1px #EEEEEE solid; 
+	height: 1px; 
+	background-color: #DCDCDC; 
+	margin: 15px 0px 0px 0px; 
+	padding: 0px
+}
+
+.debug {
+        font-size: 10px;
+        color: #777;
+        font-style: italic;
+        padding-left: 9px;
+}
+
+.error {
+	font-family:arial,helvetica,verdana,san-serif; 
+	color:#ff0000; 
+	font-size:13px;  
+	font-weight:bold;
+}
+
+.moduleerror {
+	font-family:arial,helvetica,verdana,san-serif;
+	color:#777;
+	font-size:11px;
+	padding: 8px;
+	text-align:center;
+}
+
+.normaltext {
+	color: #57584F;
+}
+
+.boldtext {
+	color: #57584F;
+	font-weight:bold;
+	font-size: 13px;
+}
+
+.standardtable td {
+	font-size: 13px;	
+	font-family: Arial, Helvetica, sans-serif;
+	color: #646464;
+}
+.standardtable input {
+	font-size: 13px;	
+	font-family: Arial, Helvetica, sans-serif;
+	color: #646464;
+}
+.standardtable select {
+	font-size: 13px;	
+	font-family: Arial, Helvetica, sans-serif;
+	color: #646464;
+}
+
+.standarderror {
+        font-size: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: red;
+}
+
+.standardhr {
+	border: 1px dashed #000; 
+	background-color:#fff; 
+	margin-bottom:4px;
+	margin-top: 18px; 
+	width: 90%;
+}
+
+
+/* tooltip styling. by default the element to be styled is .tooltip  */
+/* http://flowplayer.org/tools/tooltip/index.html */
+.tooltip {
+	text-align:left;
+	display:none;
+	background:transparent url(../images/tooltips/white_help_small.png);
+	font-size:10px;
+	height:70px;
+	width:170px;
+	padding:20px;
+	color:#000;	
+	z-index: 9000;
+}
+
+.tooltipsmall {
+	display:none;
+	background:transparent url(../images/tooltips/white_help_very_small.png);
+	font-size:12px;
+	height:18px;
+	width:150px;
+	padding:15px;
+	color:#000;	
+	z-index: 9000;
+}
+/*
+.tooltiplarge {
+	display:none;
+	background:transparent url(../images/tooltips/white_help.png);
+	font-size:10px;
+	height:155px;
+	width:331px;
+	padding:20px;
+	color:#000;	
+	z-index: 9000;
+}
+*/
+.tooltiplarge {
+	display:none;
+	background-color:#f6f6f6;
+	border:solid 2px #fff;
+	font-size:10px;
+	width:331px;
+	padding:10px;
+	color:#000;	
+	z-index: 9000;
+	opacity:0.9;
+	filter:alpha(opacity=90);
+
+	/* drop shadow */
+	/* Firefox */
+	box-shadow: 0px 0px 10px #000;
+	/* IE */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=45, Color='#666666')," +
+			"progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#666666')," +
+			"progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=225, Color='#666666')," +
+			"progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=315, Color='#666666')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=45, Color='#666666'),
+		progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#666666'),
+		progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=225, Color='#666666'),
+		progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=315, Color='#666666');
+}
+
+/* style the trigger elements */
+#demo img {
+	border:0;
+	cursor:pointer;
+	margin:0 8px;
+}
+.helpbutton:hover {
+	cursor: pointer;
+}
+
+/*Downline Report*/
+#report {
+	width:1000px;
+	height:500px;
+	overflow:auto;
+}
+
+/* PVGV styles
+----------------------*/
+.volumetable th {
+	color:#FFFFFF; 
+	background-color:#FDB935; 
+	font-family:Arial,Helvetica,sans-serif; text-align:left
+}
+
+.volumetable td {
+	color:#000000;
+}
+
+/* message center */
+.mcrow1 td {
+        background-color:#ffffff;
+        font-size: 13px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #646464;
+	padding: 4px;
+}
+.mcrow2 td {
+        background-color:#f5f5f5;
+        font-size: 13px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #646464;
+	padding: 4px;
+}
+.mcrow3 td {
+        background-color:#e3e3e3;
+        font-size: 13px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #646464;
+	padding: 4px;
+}
+.mcrow4 td {
+        background-color:#cfcfcf;
+        font-size: 13px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #646464;
+	padding: 4px;
+}
+
+.mcheader {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 13px;
+	border: 2px solid #e4e4e4;
+	background-color: #e9e9e9;
+	/*background-image: url(../images/CellBackground6.jpg);*/
+	padding: 4px;
+        color: #646464;
+}
+
+/* WebMeeting styles
+----------------------*/
+.rowhighlight td {
+	background-color:#FFCC66;
+}
+.row1 td {
+	background-color:#F2F2F2;
+}
+.row2 td {
+	background-color:#ffffff;
+}
+.row3 td {
+	background-color:#EAE8C2;
+}
+.row4 td {
+	background-color:gold;
+}
+.featured td {
+	background-color:#649917;
+}
+.featuredtext td {
+	color:#649917;
+}
+.inprogress td {
+	background-color:#008FB3;
+}
+.inprogresstext td {
+	color:#008FB3;
+}
+.hostedby td {
+	background-color:#D15700;
+}
+.hostedbytext td {
+	color:#D15700;
+}
+.webmeetinglegend {
+	font-family:arial,helvetica,verdana,san-serif; 
+	color:#000000; 
+	font-size:13px;  
+	font-weight:normal;
+}
+.globaleventcolor { 
+	background-color:#6AA4FA; 
+	font-family:arial,helvetica,verdana,san-serif; 
+	font-size:12px; 
+	color:#000000;
+}
+.globaleventcolor a { 
+	background-color:#6AA4FA; 
+	font-family:arial,helvetica,verdana,san-serif; 
+	color:#000000; 
+	text-decoration:none;
+}
+.corporateeventcolor { 
+	background-color:#9CEA9C; 
+	font-family:arial,helvetica,verdana,san-serif; 
+	font-size:13px; 
+	color:#000000;
+}
+.corporateeventcolor a { 
+	background-color:#9CEA9C; 
+	font-family:arial,helvetica,verdana,san-serif; 
+	color:#000000; 
+	text-decoration:none;
+}
+.personaleventcolor { 
+	background-color:red; 
+	font-family:arial,helvetica,verdana,san-serif; 
+	font-size:13px; 
+	color:#FFFFFF;
+}
+.personaleventcolor a { 
+	background-color:red; 
+	font-family:arial,helvetica,verdana,san-serif; 
+	color:#FFFFFF; 
+	text-decoration:none;
+}
+.adddisteventcolor { 
+	background-color:orange; 
+	font-family:arial,helvetica,verdana,san-serif; 
+	font-size:13px; 
+	color:#FFFFFF;
+}
+.adddisteventcolor a { 
+	background-color:orange; 
+	font-family:arial,helvetica,verdana,san-serif; 
+	color:#FFFFFF; 
+	text-decoration:none;
+}
+
+
+/* Calendar styles
+----------------------*/
+.monthlycalendar {
+	color:#FFFFFF; 
+	background-color:#FDB935;
+}
+.calday {
+	color:#666666;
+}
+#whiteDiv {
+	position:absolute;  
+	visibility:hidden; 
+	width:200px; 
+	height:150px; 
+	clip:rect(0,200,150,0); 
+	background-color:white; 
+	layer-background-color:white;
+}
+#blueDiv {
+	position:absolute;  
+	visibility:hidden; 
+	width:210px; 
+	height:170px; 
+	clip:rect(0,210,170,0); 
+	color:#ffffff; 
+	background-color:#002B5E; 
+	layer-background-color:#002B5E;
+}
+
+
+/* Blog styles
+----------------------*/
+.blogtitle {
+	color: #000; 
+	font-size: 27px; 
+	font-family:arial,helvetica,verdana,san-serif;
+}
+.blogcatlink {
+	text-decoration: underline;
+}
+.blogbody {
+	color:#555; 
+	font-family:arial,helvetica,verdana,san-serif; 
+	font-size:12px;  
+	font-weight:normal;
+}
+.blogcredits {
+	color:#5D3F73; 
+	font-family:arial,helvetica,verdana,san-serif; 
+	font-size:12px;  
+	font-weight:normal;
+}
+.blogheader {
+	color: #000; 
+	font-size: 36px; 
+	font-family:arial,helvetica,verdana,san-serif;
+}
+.blogsubheader {
+	color: #000; 
+	font-size: 18px; 
+	font-family:arial,helvetica,verdana,san-serif; 
+	font-weight:bold; 
+}
+.blogsidelink {
+	color: #000; 
+	font-size: 12px; 
+	font-family:arial,helvetica,verdana,san-serif; 
+	font-weight:bold; 
+	text-decoration: none
+}
+.blogsidehilink {
+	color: #855aa5; 
+	font-size: 12px; 
+	font-family:arial,helvetica,verdana,san-serif; 
+	font-weight:bold; 
+	text-decoration: none
+}
+
+
+/* Footer styles
+----------------------*/
+.FooterGraduatedFillGraphic {
+	background-image: url(../images/custom/FooterGraduation.png);
+	background-repeat: repeat-x;
+}
+.FooterLinks {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #FFFFFF;
+}
+.Copyright { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 8px; 
+	font-style: normal; 
+	font-weight: normal; 
+	font-variant: normal; 
+	color: #000000; 
+	text-decoration: none; 
+	top: 0px; 
+	line-height: 12px; 
+	bottom: 0px; 
+}
+
+
+
+/* Submit Button styles
+----------------------*/
+
+a.submit {
+        display: block;
+}
+
+.submit, .submit-wide, .submit-wider, .submit-superwide {
+        width: 86px;
+        height: 28px;
+        line-height: 28px;
+        padding: 0;
+        font-size: 11px;
+        background: url(../images/submit-bg.png) no-repeat;
+        text-align: center;
+        color: #646464;
+        text-decoration: none;
+        border: 0px;
+        cursor: pointer;
+}
+.submit:active { background: url(../images/submit-bg-p.html) no-repeat; }
+
+.submit-wide {
+        background: url(../images/submit-bg-wide.png) no-repeat;
+        width: 108px;
+        height: 29px;
+        line-height: 28px;
+}
+.submit-wide:active { background: url(../images/submit-bg-wide-p.html) no-repeat; }
+
+.submit-wider {
+        background: url(../images/submit-bg-wider.png) no-repeat;
+        width: 129px;
+        height: 30px;
+        line-height: 30px;
+}
+.submit-wider:active { background: url(../images/submit-bg-wider-p.html) no-repeat; }
+
+.submit-superwide {
+        background: url(../images/submit-bg-superwide.png) no-repeat;
+        width: 200px;
+        height: 30px;
+        line-height: 30px;
+}
+.submit-superwide:active { background: url(../images/submit-bg-superwide-p.html) no-repeat; }
+
+
+/* Community Page styles
+----------------------*/
+.sidebar {
+        background-color: #666666;
+}
+
+.sidebar a {
+        color: #FF9900;
+        text-decoration: none;
+}
+
+
+/* Header styles
+----------------------*/
+.HeaderBackground {
+        background-image: url(../images/custom/HeaderBkGray.png);
+        background-repeat: repeat-x;
+}
+.SuperNav1 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 9pt;
+        font-weight: normal;
+        color: #333333;
+}
+.MainNavButtonCenterBkg {
+        background-image: url(../images/custom/MainNavCenter.png);
+        background-repeat: repeat-x;
+}
+.MainNavText {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 9pt;
+        color: #FFFFFF;
+        background-image: url(../images/custom/MainNavCenter.png);
+        background-repeat: repeat-x;
+}
+.NavTextColor {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 9pt;
+        color: #FFFFFF;
+        text-decoration: none;
+	display:block;
+}
+.DarkLinkColor {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 9pt;
+        color: #000000;
+        text-decoration: none;
+}
+.MainNavText2 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 9pt;
+        font-weight: bold;
+        color: #000000;
+        background-image: url(../images/custom/MainNavCenter2.png);
+        background-repeat: repeat-x;
+}
+.SuperNav2 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 9pt;
+        color: #ff9900;
+        font-weight: bold;
+}
+.eMailAlertBoxBkg {
+        background-image: url(../images/custom/eMailAlertBoxCenter.png);
+        background-repeat: repeat-x;
+}
+.eMailAlertNumber {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 8pt;
+        color: #FFFFFF;
+}
+
+.eMailBoxBkg {
+        background-image: url(../images/header/evo/images/header/eMail5.html);
+        background-repeat: no-repeat;
+}
+/* ---------------------- */
+
+
+
+
+.Messages {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	color: #797979;
+	text-decoration: none;
+}
+.CellBkg2 {
+	background-image: url(../images/CellBackground2.jpg);
+	border: 2px solid #e4e4e4;
+	background-repeat: repeat-x;
+}
+.BorderColor1 {
+	border: 1px solid #e4e4e4;
+}
+.CellBkgDeleteSelected {
+	background-image: url(../images/DeleteSelectedOffButton.jpg);
+	background-repeat: no-repeat;
+	text-align: center;
+}
+.DeleteSelected {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.CellBkg3 {
+	background-image: url(../images/CellBackground3.jpg);
+	background-repeat: repeat-x;
+	text-align: center;
+}
+.MessagesColumnNames {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	font-weight: bold;
+	color: #a5a5a5;
+	text-decoration: none;
+	text-align: center;
+	background-image: url(../images/CellBackground3.jpg);
+}
+.MessagesText1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: #8a8a8a;
+}
+.CellBk4 {
+	text-align: center;
+}
+.BodyText1 {	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: 595959;
+}
+.BodyTextLink1 {	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	text-decoration: none;
+	color: 595959;
+}
+.Subhead1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	color: #d9600c;
+}
+.newMessage {
+	font-weight:bold;
+}
+.savedMessage {
+	font-weight:bold;
+}
+
+
+/*Downline styles
+------------------------*/
+.MemberSummary {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15pt;
+	color: #646464;
+	text-decoration: none;
+}
+.BodyText2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: #646464;
+}
+.CellBkg5 {
+	background-image: url(../images/CellBackground5.png);
+}
+.Subhead2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	color: #FFF;
+}
+.CellBkg6 {
+	background-image: url(../images/CellBackground6.jpg);
+}
+.BodyText3 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: #646464;
+	background-image: url(../images/CellBackground6.jpg);
+}
+.BodyText4 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: #646464;
+}
+.BodyText4 select {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: #646464;
+}
+.BodyText4Link {
+	font-family: Arial, Helvetica, sans-serif;
+        font-size: 9pt;
+        color: #646464;
+}
+	/*Auto complete dropdown on share a prospect and merge*/
+	.suggestionsBox {
+		position: relative;
+		left: 30px;
+		margin: 10px 0px 0px 0px;
+		width: 200px;
+		background-color: #212427;
+		-moz-border-radius: 7px;
+		-webkit-border-radius: 7px;
+		border: 2px solid #000;	
+		color: #fff;
+	}
+	
+	.suggestionList {
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	.suggestionList li {
+		
+		margin: 0px 0px 3px 0px;
+		padding: 3px;
+		cursor: pointer;
+	}
+	
+	.suggestionList li:hover {
+		background-color: #659CD8;
+	}
+
+
+.CellBkg7 {
+	background-image: url(../images/CellBackground7.jpg);
+	background-repeat: repeat-x;
+}
+.BodyText11 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        color: #646464;
+}
+.BodyText12 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #646464;
+	text-indent: 6px;
+	text-decoration: underline;
+}
+.BodyText13 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: #646464;
+	text-decoration: underline;
+	text-indent: 6px;
+}
+.BodyText14 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: #646464;
+	text-indent: 6pt;
+	text-decoration: none;
+}
+.CellBkg9 {
+	background-image: url(../images/CellBackground9.jpg);
+	background-repeat: repeat-x;
+}
+.CellBkg8 {
+	background-image: url(../images/CellBackground8.jpg);
+	background-repeat: repeat-x;
+}
+.Border1 {
+	border: 1 solid #f5f5f5;
+}
+.BodyText15 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 7pt;
+	color: #666;
+}
+.CellBkg10 {
+	background-image: url(../images/CellBackground10.jpg);
+	background-repeat: repeat-x;
+}
+.prospecttabs a {color: #57584F; background-color: #fafbfb; text-decoration: none; border: 1px #d2d3d4 solid; display: block;  float: left; line-height: 22px; width: 100px; text-align: center; margin-right: 15px;}
+.prospecttabs a:hover, .prospecttabs a.selected {color: #FFFFFF; background-color: #387289; background-image: none; display: block; float: left; line-height: 22px; width: 100px; text-align: center; margin-right: 15px;}
+
+.loadbar {
+	background-image:url(../../images/loader.gif);
+	background-position:center;
+	background-repeat:no-repeat;
+}
+
+#PayQuickerButton {
+	color:#EEDF85;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:15px;
+	background-color:#8F0D10;
+	text-decoration:none;
+	padding:5px 10px 5px 10px;
+	border-radius:5px;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8F0D10', endColorstr='#5E050A');
+	background: -webkit-gradient(linear, left top, left bottom, from(#8F0D10), to(#5E050A));
+	background: -moz-linear-gradient(top,  #8F0D10,  #5E050A);
+	background:-ms-linear-gradient(top, #8F0D10, #5E050A);
+	
+}

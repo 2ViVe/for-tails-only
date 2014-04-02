@@ -1,0 +1,114 @@
+/* Navigation
+----------------------*/
+#nav {
+	list-style: none;
+	margin: 0px auto;
+	padding: 0px;
+	padding-top:8px;
+	/*position: relative;*/ /* removed, bug with nested tables in IE */
+	font-size: 14px;
+	z-index: 4000;
+	font-family:Helvetica,Arial,sans-serif;
+	width: 1000px;
+	/*white-space:nowrap;*/ /*force nowrap*/
+}
+
+#nav li {
+	display: block;
+	float: Left;
+	position: relative;
+	top: 0px;
+	left: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#nav li a {
+	display: block;
+	float: left;
+	padding: 7px 10px;  /*Root menu padding*/
+	/*_padding: 8px 14px 8px 14px;*/
+	margin: 0px;
+	text-decoration: none;
+}
+
+#nav li:hover ul, #nav li.over ul {
+	display: block;
+}
+
+#nav ul {
+	display: none;
+	position: absolute;
+	top: 26px;
+	left: 0px;
+	margin: 0px;
+	padding: 0px;
+	width: 170px; /*popup submenu width*/
+	height: auto;
+	z-index: 4000;
+}
+
+#nav ul li {
+	float: none;
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+	border: 1px #F2F2F2 solid;
+	_border: 1px #F2F2F2 solid;
+}
+
+#nav ul li a {
+	display: block;
+	float: none;
+	margin: 0px;
+	padding: 7px 0px 7px 15px;
+}
+
+#nav ul li ul li {
+	border: 1px #DEDEDE solid;
+	_border: 1px #DEDEDE solid;
+}
+
+#nav ul ul, #nav li:hover ul ul, #nav li.over ul ul {
+	display: none;
+	position: absolute;
+	top: 0px;
+	/*these should match popup submenu width above*/
+	left: 160px;  /*popup submenu submenu left in Firefox?*/
+	_left: 158px; /*popup sbumenu submenu left in IE?*/
+}
+
+#nav ul li:hover ul, #nav ul li.over ul {
+	display: block;
+}
+
+#nav li a {
+	color: #000000; /* Menu Links color*/
+}
+
+#nav li a:hover, #nav li:hover a, #nav li.over a, #nav li a.selected {
+	background-color: #FFFFFF; /*Main Hover*/
+	
+}
+
+#nav ul, #nav li:hover ul a, #nav li.over ul a {
+	background-color: #F2F2F2; /*Main Bgcolor*/
+	z-index: 5000;
+}
+
+#nav li.over {
+	z-index: 5000;
+}
+
+#nav ul li a:hover, #nav ul li:hover a, #nav ul li.over a {
+	background-color: #DEDEDE; /*Main Dropdown Hover*/
+}
+
+#nav ul ul, #nav li:hover ul ul, #nav li.over ul ul, #nav ul ul a, #nav li:hover ul ul a, #nav li.over ul ul a {
+	background-color: #DEDEDE; /*Submenu bgcolor*/
+}
+
+#nav ul ul a:hover, #nav li:hover ul ul a:hover, #nav li.over ul ul a:hover {
+	background-color: #FFFFFF; /*Submenu Hover*/
+}
+

@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<!-- Mirrored from www.zoivi.com/home/index.html by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 10 Mar 2014 01:49:03 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+<!--[if lt IE 9]>
+
+<script src='/custom/DefaultTheme/js/html5shiv.js'></script>
+
+<![endif]-->
+
+<meta charset='utf-8'/>
+
+<meta name='description' content='ZoiVi International'>
+
+<!--<meta name='viewport' content='width=device-width, initial-scale=1.0'>-->
+
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+
+<title>Alpha Body Challenge</title>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet'>
+
+<link href='./custom/DefaultTheme/css/common.css' rel='stylesheet'>
+
+<link href='./custom/DefaultTheme/css/main.css' rel='stylesheet'>
+
+<link href='./custom/DefaultTheme/css/jquery-ui.css' rel='stylesheet'>
+
+<link href='./custom/DefaultTheme/css/jquery.bxslider.css' rel='stylesheet'>
+
+<link href='./custom/DefaultTheme/css/responsiveslides.css' rel='stylesheet'>
+
+<link href='./custom/DefaultTheme/css/website.css' rel='stylesheet'>
+
+<link href='./custom/DefaultTheme/css/camera.css' rel='stylesheet'>
+
+<link href='./custom/DefaultTheme/css/responsive.css' rel='stylesheet'>
+
+<link rel="stylesheet" href="./custom/DefaultTheme/css/magnific-popup.css">
+
+<link rel="stylesheet" href="./custom/DefaultTheme/css/jplayer.pink.flag.css">
+
+<script src="./custom/DefaultTheme/js/jquery.1.7.1-min.js" type="text/javascript"></script>
+
+<script src="./custom/DefaultTheme/js/jquery.magnific-popup.min.js"></script>
+
+<script type="text/javascript" src="./custom/DefaultTheme/js/jquery.scrollTo.js"></script>
+
+<script src='./custom/DefaultTheme/js/jquery-ui.min.js'></script>
+
+<script src='./custom/DefaultTheme/js/jquery.bxslider.js'></script>
+
+<script src='./custom/DefaultTheme/js/responsiveslides.min.js'></script>
+
+<script src='./custom/DefaultTheme/js/prettify.js'></script>
+
+<script src='./custom/DefaultTheme/js/simple-expand.js'></script>
+
+<script src='./custom/DefaultTheme/scripts/jquery.mobile.customized.min.js'></script>
+
+<script src='./custom/DefaultTheme/scripts/jquery.easing.1.3.js'></script>
+
+<script src='./custom/DefaultTheme/scripts/camera.js'></script>
+
+<script>
+
+/*$( function() {
+
+    var t = 500;
+
+    setInterval( function(){
+
+        $('a#pageleft,a#pageright').fadeOut( 2*t, function(){ $(this).fadeIn( t ); } );
+
+    }, 2*t);
+
+});*/
+
+//horizontal scroll
+
+function blink(selector){
+
+$(selector).fadeOut(2000, function(){
+
+    $(this).fadeIn(500, function(){
+
+        blink(this);
+
+    });
+
+});
+
+}
+
+blink('#pageleft,#pageright');
+
+
+
+		$(document).ready(function(){
+
+			/*$('#scrollbar1').tinyscrollbar({
+
+				wheel	: '250'     // how many pixels must the mouswheel scroll at a time.,
+
+			,	scroll	: false
+
+				
+
+			});*/
+
+
+
+
+
+$('.popup-with-zoom-anim,.mfp-close').click(function() {
+
+	//console.log('12312');
+
+    $('.jp-jplayer').jPlayer("stop");
+
+})
+
+
+
+
+
+			// Next Prev Page Navigation		
+
+			var total_width = $("#scrollbar1 .overview1").width();
+
+			var pages = total_width / $(window).width();
+
+			var current_page = 0;
+
+			var next = $("#pageright");
+
+			var prev = $("#pageleft");
+
+			var gohome = $("#home");
+
+			gohome = $('#home');
+
+			next.click(next_page);
+
+			prev.click(prev_page);
+
+			gohome.click(gotohome);
+
+			prev.addClass("hidden").fadeOut();
+
+			function next_page(e){
+
+				var page_len = pages - 1;
+
+				if(current_page >= page_len){
+
+					current_page = pages -1;
+
+				}else{
+
+					current_page++;
+
+					prev.removeClass("hidden").fadeIn();
+
+					if( page_len == current_page){
+
+						next.addClass("hidden").hide();
+
+					}
+
+					$('#scrollbar1').tinyscrollbar_update($(window).width() * current_page);
+
+				}	
+
+				return false;
+
+			}		
+
+			function prev_page(e){
+
+				if(current_page <= 0){
+
+					current_page = 0;
+
+				}else{
+
+					current_page--;
+
+					next.removeClass("hidden").fadeIn();
+
+					if(current_page < 1){
+
+						prev.addClass("hidden").fadeOut();
+
+					}
+
+					$('#scrollbar1').tinyscrollbar_update($(window).width() * current_page);
+
+				}			
+
+				return false;
+
+			}
+
+			function gotohome(e){
+
+				current_page--;
+
+				next.fadeIn();
+
+				prev.addClass("hidden").fadeOut();
+
+				$('#scrollbar1').tinyscrollbar_update($(window).width() * current_page);
+
+				return false;
+
+			}
+
+
+
+			// / Next Prev Page Navigation	
+
+		});
+
+
+
+//social scroller
+
+// You can also use '$(window).load(function() {'
+
+$(function () {
+
+  // Slideshow 4
+
+  $('#slider4').responsiveSlides({
+
+	auto		: true,
+
+	pager		: false,
+
+	nav			: false,
+
+	speed		: 2000,
+
+	timeout		: 4000,
+
+	pause		: true,
+
+	namespace	: 'callbacks',
+
+	before: function () {
+
+	  $('.events').append('<li>before event fired.</li>');
+
+	},
+
+	after: function () {
+
+	  $('.events').append('<li>after event fired.</li>');
+
+	}
+
+  });
+
+});
+
+
+
+//login box slide
+
+		$(function(){
+
+		$('#open').click(function() {
+
+			$('#loginboxwrap').slideDown('slow'); 
+
+		});
+
+		$('#close').click(function() {
+
+			$('#loginboxwrap').slideUp('slow');
+
+		});
+
+		$('#loginboxwrap').hide();
+
+		$('#myButton').toggle(function(){
+
+			$('#content').slideDown();
+
+			$(this).html('Slide up &amp;uarr;');
+
+		},function(){
+
+			$('#content').slideUp();
+
+			$(this).html('Slide down &amp;darr;')
+
+		})
+
+		});//]]&gt;  
+
+
+
+$(function () {
+
+	$('.expander').simpleexpand();
+
+	prettyPrint();
+
+});
+
+
+
+		jQuery(function(){
+
+			jQuery('#camera_wrap_1').camera({
+
+				alignment		: 'bottomLeft', //topLeft, topCenter, topRight, centerLeft, center, centerRight, bottomLeft, bottomCenter, bottomRight
+
+				thumbnails		: false,
+
+				fx				: 'scrollRight',	//'random','simpleFade', 'curtainTopLeft', 'curtainTopRight', 'curtainBottomLeft', 'curtainBottomRight', 'curtainSliceLeft', 'curtainSliceRight', 'blindCurtainTopLeft', 'blindCurtainTopRight', 'blindCurtainBottomLeft', 'blindCurtainBottomRight', 'blindCurtainSliceBottom', 'blindCurtainSliceTop', 'stampede', 'mosaic', 'mosaicReverse', 'mosaicRandom', 'mosaicSpiral', 'mosaicSpiralReverse', 'topLeftBottomRight', 'bottomRightTopLeft', 'bottomLeftTopRight', 'bottomLeftTopRight'
+
+				minHeight		: '373px',
+
+				pagination		: false,
+
+				navigationHover	: false,
+
+				playPause		: false,
+
+				pauseOnClick	: false,	//true, false. It stops the slideshow when you click the sliders.
+
+				height			: '100%',
+
+				loaderColor		: '#050505', 
+
+				loaderBgColor	: 'transparent', 
+
+				loaderOpacity	: 1,	//0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1
+
+				loaderPadding	: 0,	//how many empty pixels you want to display between the loader and its background
+
+				loaderStroke	: 2,	//the thickness both of the pie loader and of the bar loader. Remember: for the pie, the loader thickness must be less than a half of the pie diameter
+
+				pieDiameter		: 20,
+
+				piePosition		: 'centerBottom',	//'rightTop', 'leftTop', 'leftBottom', 'rightBottom'
+
+				time			: 3000,	//milliseconds between the end of the sliding effect and the start of the nex one
+
+				transPeriod		: 500,	//lenght of the sliding effect in milliseconds
+
+			});
+
+		});
+
+		jQuery(function(){
+
+			jQuery('#camera_wrap_2').camera({
+
+				alignment		: 'bottomLeft', //topLeft, topCenter, topRight, centerLeft, center, centerRight, bottomLeft, bottomCenter, bottomRight
+
+				thumbnails		: false,
+
+				fx				: 'scrollRight',	//'random','simpleFade', 'curtainTopLeft', 'curtainTopRight', 'curtainBottomLeft', 'curtainBottomRight', 'curtainSliceLeft', 'curtainSliceRight', 'blindCurtainTopLeft', 'blindCurtainTopRight', 'blindCurtainBottomLeft', 'blindCurtainBottomRight', 'blindCurtainSliceBottom', 'blindCurtainSliceTop', 'stampede', 'mosaic', 'mosaicReverse', 'mosaicRandom', 'mosaicSpiral', 'mosaicSpiralReverse', 'topLeftBottomRight', 'bottomRightTopLeft', 'bottomLeftTopRight', 'bottomLeftTopRight'
+
+				minHeight		: '373px',
+
+				pagination		: false,
+
+				navigationHover	: false,
+
+				playPause		: false,
+
+				pauseOnClick	: false,	//true, false. It stops the slideshow when you click the sliders.
+
+				height			: '100%',
+
+				loaderColor		: '#050505', 
+
+				loaderBgColor	: 'transparent', 
+
+				loaderOpacity	: 1,	//0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1
+
+				loaderPadding	: 0,	//how many empty pixels you want to display between the loader and its background
+
+				loaderStroke	: 2,	//the thickness both of the pie loader and of the bar loader. Remember: for the pie, the loader thickness must be less than a half of the pie diameter
+
+				pieDiameter		: 20,
+
+				piePosition		: 'centerBottom',	//'rightTop', 'leftTop', 'leftBottom', 'rightBottom'
+
+				time			: 3000,	//milliseconds between the end of the sliding effect and the start of the nex one
+
+				transPeriod		: 500,	//lenght of the sliding effect in milliseconds
+
+			});
+
+
+
+//		  $('.slider4').bxSlider({
+//
+//			slideWidth	: 136,
+//
+//			minSlides	: 3,
+//
+//			maxSlides	: 16,
+//
+//			moveSlides	: 1,
+//
+//			slideMargin	: 0
+//
+//		  });
+
+		});
+
+</script>
+
+</head>
+
+<body>
+
+<!--[if lt IE 7]>
+
+	<p class='chromeframe'>You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> or <a href='http://www.google.com/chromeframe/?redirect=true'>activate Google Chrome Frame</a> to improve your experience.</p>
+
+<![endif]-->
+
+<header> <a href='#' id='logo'><img src='./custom/DefaultTheme/images/logo.png' alt=''></a>
+
+	<div class='fright'>
+
+		<ul class='fright' id='toplinks'>
+
+			<li><a href='https://www.zvicorp.com/signup' target="_blank" class="links">MEMBER LOGIN</a></li>
+
+			<!--<li><a href='http://www.zoivi.com/index.cfm' id='open'>LOGIN</a></li>-->
+
+   			<li><a href='./index-2.html' target="_blank" class="links">MEMBER LOGIN</a></li>
+
+			<li><a href='https://zoom.us/j/126169982' target="_blank" class="links">WEBINAR LOGIN</a></li>
+
+			<li><a class='expander' href='#'><img src='./custom/DefaultTheme/images/flag-us.jpg' alt=''></a>
+
+				<ul class='content' id='flagdrop'>
+
+					<li><a href='./custom/DefaultTheme/abc_es/index.html'><img src='./custom/DefaultTheme/images/flag-mx.png' alt=''></a></li>
+
+					<!--<li><a href='#'><img src='/custom/DefaultTheme/images/flag-jp.png' alt=''></a></li>-->
+
+					<!--<li><a href='#'><img src='/custom/DefaultTheme/images/flag-hk.png' alt=''></a></li>-->
+
+				</ul>
+
+			</li>
+
+		</ul>
+
+		<nav class='fclear'>
+
+			<ul>
+
+				<li><a href='#' class="on" id="home"><span>HOME</span></a></li>
+
+				<li><a href='challenge.html'><span>THE CHALLENGE</span></a></li>
+
+				<li><a href='products.html'><span>PRODUCTS</span></a></li>
+
+				<li><a href='testimonials.html'><span>TESTIMONIALS</span></a></li>
+
+				<li><a href='research.html'><span>RESEARCH</span></a></li>
+
+				<li><a href='company.html'><span>COMPANY</span></a></li>
+
+				<li><a href='https://www.zvicorp.com'><span>SHOP</span></a></li>
+
+				<!--<li><a href='#'><span>PROMOTE</span></a></li> -->
+
+				<!--<li><a href='faq.html'><span>FAQ</span></a></li>-->
+
+			</ul>
+
+		</nav>
+
+	</div>
+
+	<div id='loginboxwrap'>
+
+		<div id='loginbox'>
+
+			<div class='fleft' id='join'>
+
+				<h1>Join the Challenge</h1>
+
+				<ul>
+
+					<li>Take advantage of member discounts</li>
+
+					<li>Teamup with other Challenge Members</li>
+
+					<li>Earn free products, cash and prizes</li>
+
+				</ul>
+
+				<p><a href='https://www.zvicorp.com/signup'><img src='./custom/DefaultTheme/images/joinnow.png' alt=''></a></p>
+
+			</div>
+
+			<div class='fright' id='login'>
+
+				<h1>EVO Login</h1>
+
+				<ul>
+
+					<li>
+
+						<input type='text' name='email' placeholder='email'>
+
+					</li>
+
+					<li>
+
+						<input type='password' name='password' placeholder='password'>
+
+					</li>
+
+					<li>
+
+						<input name='' type='checkbox' value=''>
+
+						Remember me</li>
+
+				</ul>
+
+				<p class='aright'>
+
+					<input type='image' src='./custom/DefaultTheme/images/btn-login.png' value=''>
+
+				</p>
+
+				<p><a href='#' class='fleft'>Lost password?</a> <a href='#' class='fright'>Register</a></p>
+
+			</div>
+
+			<br clear='all'>
+
+		</div>
+
+		<p class='aright fclear' id='close'></p>
+
+	</div>
+
+</header>
+
+<div id='scrollbar1'>
+
+	<!--<div class='scrollbar'>
+
+		<div class='track'>
+
+			<div class='thumb'>
+
+				<div class='end'></div>
+
+			</div>
+
+		</div>
+
+	</div> -->
+
+	<div class='viewport'>
+
+		<div class='overview1'>
+
+			<!--		<a href="#" id="pageleft"></a><a href="#" id="pageright"></a>-->
+
+			<section class='fleft' id='bannerwrap'>
+
+				<section id='testimonialslides'>
+
+					<div class='camera_wrap camera_azure_skin fleft' id='camera_wrap_1'>
+
+						<div data-src='/custom/DefaultTheme/images/xiao.png'>
+
+							<div class='camera_caption fadeFromBottom'> A <span>balanced</span> body after 1 month <a class="popup-with-zoom-anim" href="#small-dialog"></a></div>
+
+						</div>
+
+						<div data-src='/custom/DefaultTheme/images/jefry.png'>
+
+							<div class='camera_caption fadeFromBottom'> Healthy and <span> clear </span> skin <a class="popup-with-zoom-anim" href="#small-dialog2"></a> </div>
+
+						</div>
+
+                        <div data-src='/custom/DefaultTheme/images/abigail.png'>
+
+							<div class='camera_caption fadeFromBottom'> Lost <span>67lbs</span> in 6 months <a class="popup-with-zoom-anim" href="#small-dialog6"></a></div>
+
+						</div>
+
+
+
+					</div>
+
+                    
+
+					<div class='camera_wrap camera_azure_skin fright' id='camera_wrap_2'>
+
+						<div data-src='/custom/DefaultTheme/images/ana.png'>
+
+							<div class='camera_caption fadeFromBottom'> Lost <span>50lbs</span> in 6 months <a class="popup-with-zoom-anim" href="#small-dialog3"></a> </div>
+
+						</div>
+
+					<div data-src='/custom/DefaultTheme/images/jeff.png'>
+
+							<div class='camera_caption fadeFromBottom'> Lost <span>40lbs</span> in 11 months <a class="popup-with-zoom-anim" href="#small-dialog4"></a> </div>
+
+						</div>
+
+						<div data-src='/custom/DefaultTheme/images/stephanie.png'>
+
+							<div class='camera_caption fadeFromBottom'> Skin <span>clarity</span> in 1 month <a class="popup-with-zoom-anim" href="#small-dialog7"></a> </div>
+
+						</div>
+
+
+
+					</div>
+
+				</section>
+
+				<section id='productboxwrap'>
+
+					<div id='bannercontent'>
+
+						<h1>HEALTH<br>
+
+							WELLNESS</h1>
+
+						<h2>When was the last time you<br>
+
+							really <span>felt</span> healthy and energized?</h2>
+
+					</div>
+
+					<div class='wrapper'>
+
+						<div class='callbacks_container'>
+
+							<ul class='rslides' id='slider4'>
+
+								<li>
+
+									<div class='productbox' id='productbox1'>
+
+										<p>The first scientifically proven<br>
+
+											full body detox!</p>
+
+									</div>
+
+								</li>
+
+								<li>
+
+									<div class='productbox' id='productbox2'>
+
+										<p>Finally, a way to enjoy what you eat<br>
+
+                                        without the funky, stuffy feeling </p>
+
+									</div>
+
+								</li>
+
+							</ul>
+
+						</div>
+
+					</div>
+
+				</section>
+
+			</section>
+
+		</div>
+
+	</div>
+
+</div>
+
+<div id='bottom'>
+
+<section id='socialbar'>
+
+	<div class='fleft' id='socialtitle'>
+
+		<h1><span>Connect with our</span><br>
+
+			Challenge members today!</h1>
+
+		<p><a href='https://www.facebook.com/alphabodychallenge'><img src='./custom/DefaultTheme/images/learnmore.png' alt=''></a></p>
+
+	</div>
+
+	<div id='socialscroll'>
+
+		<div class='slider4'>
+
+			<div class='slide'><a href='https://www.facebook.com/aimee.chanzoivi?fref=ts'><img src='./custom/DefaultTheme/images/ld/avatar-01.jpg' alt=''><span>Aimee<br>
+
+				<b>New York, US</b></span></a></div>
+
+			<div class='slide'><a href='https://www.facebook.com/richardxchen?fref=ts'><img src='./custom/DefaultTheme/images/ld/avatar-02.jpg' alt=''><span>Richard<br>
+
+				<b>New York, US</b></span></a></div>
+
+			<div class='slide'><a href='https://www.facebook.com/stepizila?fref=ts'><img src='./custom/DefaultTheme/images/ld/avatar-03.jpg' alt=''><span>Saul<br>
+
+				<b>New York, US</b></span></a></div>
+
+			<div class='slide'><a href='https://www.facebook.com/deniz.felix?fref=ts'><img src='./custom/DefaultTheme/images/ld/avatar-04.jpg' alt=''><span>Deniz<br>
+
+				<b>New York, US</b></span></a></div>
+
+			<div class='slide'><a href='https://www.facebook.com/StephenF.Chen?fref=ts'><img src='./custom/DefaultTheme/images/ld/avatar-05.jpg' alt=''><span>Stephen<br>
+
+				<b>New York, US</b></span></a></div>
+
+			<div class='slide'><a href='https://www.facebook.com/wevaji?fref=ts'><img src='./custom/DefaultTheme/images/ld/avatar-06.jpg' alt=''><span>Waffa<br>
+
+				<b>New York, US</b></span></a></div>
+
+			<div class='slide'><a href='https://www.facebook.com/xiaoc?fref=ts'><img src='./custom/DefaultTheme/images/ld/avatar-15.jpg' alt=''><span>Xiao<br>
+
+				<b>New York, US</b></span></a></div>
+            <!--
+			<div class='slide'><a href='https://www.facebook.com/JeffHyppolite?fref=ts'><img src='./custom/DefaultTheme/images/ld/avatar-07.jpg' alt=''><span>Jeff<br>
+
+				<b>New York, US</b></span></a></div>
+
+			<div class='slide'><a href='https://www.facebook.com/jorgedamia?fref=ts'><img src='./custom/DefaultTheme/images/ld/avatar-09.jpg' alt=''><span>Jorge<br>
+
+				<b>New York, US</b></span></a></div>
+
+			<div class='slide'><a href='https://www.facebook.com/STEPHANiESALAZAR33?fref=ts'><img src='./custom/DefaultTheme/images/ld/avatar-08.jpg' alt=''><span>Stephanie<br>
+
+				<b>New York, US</b></span></a></div>
+
+			<div class='slide'><a href='https://www.facebook.com/yourstrulymika?fref=ts'><img src='./custom/DefaultTheme/images/ld/avatar-10.jpg' alt=''><span>Qiao<br>
+
+				<b>New York, US</b></span></a></div>
+
+			<div class='slide'><a href='https://www.facebook.com/salome.vazquezmanny?fref=ts'><img src='./custom/DefaultTheme/images/ld/avatar-11.jpg' alt=''><span>Salome<br>
+
+				<b>New York, US</b></span></a></div>
+
+			<div class='slide'><a href='https://www.facebook.com/TheNextOne87?fref=ts'><img src='./custom/DefaultTheme/images/ld/avatar-12.jpg' alt=''><span>Mark<br>
+
+				<b>New York, US</b></span></a></div>
+
+			<div class='slide'><a href='https://www.facebook.com/kellentwong?fref=ts'><img src='./custom/DefaultTheme/images/ld/avatar-13.jpg' alt=''><span>Kelland<br>
+
+				<b>New York, US</b></span></a></div>
+
+			<div class='slide'><a href='https://www.facebook.com/jonolivo?fref=ts'><img src='./custom/DefaultTheme/images/ld/avatar-14.jpg' alt=''><span>Jon<br>
+
+				<b>New York, US</b></span></a></div>
+
+			<div class='slide'><a href='https://www.facebook.com/jadytia?fref=ts'><img src='./custom/DefaultTheme/images/ld/avatar-16.jpg' alt=''><span>Jefry<br>
+
+				<b>New York, US</b></span></a></div>
+
+			<div class='slide'><a href='https://www.facebook.com/profile.html?id=100005007091686&amp;fref=ts'><img src='./custom/DefaultTheme/images/ld/avatar-17.jpg' alt=''><span>Jacky<br>
+
+				<b>New York, US</b></span></a></div>
+
+			<div class='slide'><a href='https://www.facebook.com/DavidZoiVi?fref=ts'><img src='./custom/DefaultTheme/images/ld/avatar-18.jpg' alt=''><span>David<br>
+
+				<b>New York, US</b></span></a></div>
+            -->
+		</div>
+
+	</div>
+
+</section>
+
+<footer class='fclear'>
+
+	<p class='fleft' id='social'>
+    <a href='https://twitter.com/zoivistream'><img src='./custom/DefaultTheme/images/social-tw.png' alt=''></a><a href='https://www.facebook.com/zoivi'><img src='./custom/DefaultTheme/images/social-fb.png' alt=''></a>
+    <!--<img src="/custom/DefaultTheme/images/recommendedby.png" alt=''/>-->    
+	<p class='fleft'>The Alpha Body Challenge was recommended to you by Zoivi  for assistance please call </p>
+	<p class='fright'><a href='./custom/DefaultTheme/policies/policies.pdf'>Policies and Procedures</a>.<a href='./custom/DefaultTheme/policies/terms.pdf'>Terms &amp; Conditions</a>.<a href='./custom/DefaultTheme/policies/privacy.pdf'>Privacy Policy</a>.<a href='./custom/DefaultTheme/policies/spam.pdf'>Spam Policy</a>© 2013 ZVI. All Rights Reserved.</p>    
+
+</footer>
+
+
+
+<!-- Xiao Video Testimonial -->
+
+<div id="small-dialog" class="zoom-anim-dialog mfp-hide small-dialog">
+
+	<div class="videowrap">
+
+		<div id="jp_container_1" class="jp-video jp-video-360p">
+
+			<div class="jp-type-single">
+
+				<div id="jquery_jplayer_1" class="jp-jplayer" style="width: 680px; height: 380px;"><img id="jp_poster_0" src='./custom/DefaultTheme/images/video-01.jpg' style="width: 680px; height: 380px; display: inline;">
+
+					<video id="jp_video_0" preload="metadata" src="http://www.jplayer.org/video/webm/Big_Buck_Bunny_Trailer.webm" style="width: 0px; height: 0px;"></video>
+
+				</div>
+
+				<div class="jp-gui" style="">
+
+					<div class="jp-video-play" style="display: block;"> <a href="javascript:;" class="jp-video-play-icon" tabindex="1">play</a> </div>
+
+					<div class="jp-interface">
+
+						<div class="jp-progress">
+
+							<div class="jp-seek-bar" style="width: 100%;">
+
+								<div class="jp-play-bar" style="width: 0%;"></div>
+
+							</div>
+
+						</div>
+
+						<div class="jp-controls-holder">
+
+							<ul class="jp-controls">
+
+								<li><a href="javascript:;" class="jp-play" tabindex="1" style="">play</a></li>
+
+								<li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+
+							</ul>
+
+							<div class="jp-title">
+
+								<ul>
+
+									<li>Xiao's Experience</li>
+
+								</ul>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="jp-no-solution"> <span>Update Required</span> To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>. </div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+
+
+<!-- Jefry Video Testimonial -->
+
+<div id="small-dialog2" class="zoom-anim-dialog mfp-hide small-dialog">
+
+	<div class="videowrap">
+
+		<div id="jp_container_2" class="jp-video jp-video-360p">
+
+			<div class="jp-type-single">
+
+				<div id="jquery_jplayer_2" class="jp-jplayer" style="width: 680px; height: 380px;"><img id="jp_poster_1" src="././www.jplayer.org/video/poster/Incredibles_Teaser_640x272.png" style="width: 680px; height: 380px; display: inline;">
+
+					<video id="jp_video_1" preload="metadata" src="http://www.jplayer.org/video/webm/Incredibles_Teaser.webm" style="width: 0px; height: 0px;"></video>
+
+				</div>
+
+				<div class="jp-gui" style="">
+
+					<div class="jp-video-play" style="display: block;"> <a href="javascript:;" class="jp-video-play-icon" tabindex="1">play</a> </div>
+
+					<div class="jp-interface">
+
+						<div class="jp-progress">
+
+							<div class="jp-seek-bar" style="width: 100%;">
+
+								<div class="jp-play-bar" style="width: 0%;"></div>
+
+							</div>
+
+						</div>
+
+						<div class="jp-controls-holder">
+
+							<ul class="jp-controls">
+
+								<li><a href="javascript:;" class="jp-play" tabindex="1" style="">play</a></li>
+
+								<li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+
+							</ul>
+
+							<div class="jp-title">
+
+								<ul>
+
+									<li>Jefry's Experience</li>
+
+								</ul>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="jp-no-solution"> <span>Update Required</span> To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>. </div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+
+
+<!-- Abigail Video Testimonial -->
+
+<div id="small-dialog6" class="zoom-anim-dialog mfp-hide small-dialog">
+
+	<div class="videowrap">
+
+		<div id="jp_container_6" class="jp-video jp-video-360p">
+
+			<div class="jp-type-single">
+
+				<div id="jquery_jplayer_2" class="jp-jplayer" style="width: 680px; height: 380px;"><img id="jp_poster_1" src="././www.jplayer.org/video/poster/Incredibles_Teaser_640x272.png" style="width: 680px; height: 380px; display: inline;">
+
+					<video id="jp_video_1" preload="metadata" src="http://www.jplayer.org/video/webm/Incredibles_Teaser.webm" style="width: 0px; height: 0px;"></video>
+
+				</div>
+
+				<div class="jp-gui" style="">
+
+					<div class="jp-video-play" style="display: block;"> <a href="javascript:;" class="jp-video-play-icon" tabindex="1">play</a> </div>
+
+					<div class="jp-interface">
+
+						<div class="jp-progress">
+
+							<div class="jp-seek-bar" style="width: 100%;">
+
+								<div class="jp-play-bar" style="width: 0%;"></div>
+
+							</div>
+
+						</div>
+
+						<div class="jp-controls-holder">
+
+							<ul class="jp-controls">
+
+								<li><a href="javascript:;" class="jp-play" tabindex="1" style="">play</a></li>
+
+								<li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+
+							</ul>
+
+							<div class="jp-title">
+
+								<ul>
+
+									<li>Abigail's Experience</li>
+
+								</ul>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="jp-no-solution"> <span>Update Required</span> To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>. </div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+
+
+<!-- Ana Video Testimonial -->
+
+<div id="small-dialog3" class="zoom-anim-dialog mfp-hide small-dialog">
+
+	<div class="videowrap">
+
+		<div id="jp_container_3" class="jp-video jp-video-360p">
+
+			<div class="jp-type-single">
+
+				<div id="jquery_jplayer_3" class="jp-jplayer" style="width: 680px; height: 380px;"><img id="jp_poster_2" src="././www.jplayer.org/video/poster/Incredibles_Teaser_640x272.png" style="width: 680px; height: 380px; display: inline;">
+
+					<video id="jp_video_2" preload="metadata" src="http://www.jplayer.org/video/webm/Incredibles_Teaser.webm" style="width: 0px; height: 0px;"></video>
+
+				</div>
+
+				<div class="jp-gui" style="">
+
+					<div class="jp-video-play" style="display: block;"> <a href="javascript:;" class="jp-video-play-icon" tabindex="1">play</a> </div>
+
+					<div class="jp-interface">
+
+						<div class="jp-progress">
+
+							<div class="jp-seek-bar" style="width: 100%;">
+
+								<div class="jp-play-bar" style="width: 0%;"></div>
+
+							</div>
+
+						</div>
+
+						<div class="jp-controls-holder">
+
+							<ul class="jp-controls">
+
+								<li><a href="javascript:;" class="jp-play" tabindex="1" style="">play</a></li>
+
+								<li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+
+							</ul>
+
+							<div class="jp-title">
+
+								<ul>
+
+									<li>Ana's Experience</li>
+
+								</ul>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="jp-no-solution"> <span>Update Required</span> To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>. </div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+
+
+<!-- Jeff Video Testimonial -->
+
+<div id="small-dialog4" class="zoom-anim-dialog mfp-hide small-dialog">
+
+	<div class="videowrap">
+
+		<div id="jp_container_4" class="jp-video jp-video-360p">
+
+			<div class="jp-type-single">
+
+				<div id="jquery_jplayer_4" class="jp-jplayer" style="width: 680px; height: 380px;"><img id="jp_poster_3" src='./custom/DefaultTheme/images/video-01.jpg' style="width: 680px; height: 380px; display: inline;">
+
+					<video id="jp_video_3" preload="metadata" src="http://www.jplayer.org/video/webm/Big_Buck_Bunny_Trailer.webm" style="width: 0px; height: 0px;"></video>
+
+				</div>
+
+				<div class="jp-gui" style="">
+
+					<div class="jp-video-play" style="display: block;"> <a href="javascript:;" class="jp-video-play-icon" tabindex="1">play</a> </div>
+
+					<div class="jp-interface">
+
+						<div class="jp-progress">
+
+							<div class="jp-seek-bar" style="width: 100%;">
+
+								<div class="jp-play-bar" style="width: 0%;"></div>
+
+							</div>
+
+						</div>
+
+						<div class="jp-controls-holder">
+
+							<ul class="jp-controls">
+
+								<li><a href="javascript:;" class="jp-play" tabindex="1" style="">play</a></li>
+
+								<li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+
+							</ul>
+
+							<div class="jp-title">
+
+								<ul>
+
+									<li>Jeff's Experience</li>
+
+								</ul>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="jp-no-solution"> <span>Update Required</span> To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>. </div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+
+
+<!-- Stephanie Video Testimonial -->
+
+<div id="small-dialog7" class="zoom-anim-dialog mfp-hide small-dialog">
+
+	<div class="videowrap">
+
+		<div id="jp_container_7" class="jp-video jp-video-360p">
+
+			<div class="jp-type-single">
+
+				<div id="jquery_jplayer_4" class="jp-jplayer" style="width: 680px; height: 380px;"><img id="jp_poster_3" src="./custom/DefaultTheme/images/video-01.jpg" style="width: 680px; height: 380px; display: inline;">
+
+					<video id="jp_video_3" preload="metadata" src="http://www.jplayer.org/video/webm/Big_Buck_Bunny_Trailer.webm" style="width: 0px; height: 0px;"></video>
+
+				</div>
+
+				<div class="jp-gui" style="">
+
+					<div class="jp-video-play" style="display: block;"> <a href="javascript:;" class="jp-video-play-icon" tabindex="1">play</a> </div>
+
+					<div class="jp-interface">
+
+						<div class="jp-progress">
+
+							<div class="jp-seek-bar" style="width: 100%;">
+
+								<div class="jp-play-bar" style="width: 0%;"></div>
+
+							</div>
+
+						</div>
+
+						<div class="jp-controls-holder">
+
+							<ul class="jp-controls">
+
+								<li><a href="javascript:;" class="jp-play" tabindex="1" style="">play</a></li>
+
+								<li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+
+							</ul>
+
+							<div class="jp-title">
+
+								<ul>
+
+									<li>Stephanie's Experience</li>
+
+								</ul>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="jp-no-solution"> <span>Update Required</span> To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>. </div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+<script src="./custom/DefaultTheme/js/jquery.magnific-popup.min.js"></script>
+
+<script type="text/javascript">
+
+      $(document).ready(function() {
+
+        $('.popup-with-zoom-anim').magnificPopup({
+
+		type: 'inline',
+
+
+
+          fixedContentPos: false,
+
+          fixedBgPos: true,
+
+
+
+          overflowY: 'auto',
+
+
+
+          closeBtnInside: true,
+
+          preloader: false,
+
+          
+
+          midClick: true,
+
+          removalDelay: 300,
+
+          mainClass: 'my-mfp-zoom-in'
+
+        });
+
+      });
+
+    </script>
+
+<script src="./custom/DefaultTheme/js/jquery.jplayer.min.js"></script>
+
+<script>
+
+//<![CDATA[
+
+$(document).ready(function(){
+
+
+
+
+
+
+
+
+
+	$("#jquery_jplayer_1").jPlayer({
+
+		ready: function () {
+
+			$(this).jPlayer("setMedia", {
+
+				mp4: "http://localhost/zoivi/zvi-video.mp4",
+
+				m4v: "http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v",
+
+				ogv: "http://www.jplayer.org/video/ogv/Big_Buck_Bunny_Trailer.ogv",
+
+				webmv: "http://www.jplayer.org/video/webm/Big_Buck_Bunny_Trailer.webm",
+
+				poster: "/custom/DefaultTheme/images/video-01.jpg"
+
+			});
+
+		},
+
+		play: function() { // To avoid multiple jPlayers playing together.
+
+			$(this).jPlayer("pauseOthers");
+
+		},
+
+		swfPath: "/custom/DefaultTheme/js",
+
+		supplied: "mp4, webmv, ogv, m4v",
+
+		cssSelectorAncestor: "#jp_container_1",
+
+		smoothPlayBar: true,
+
+		keyEnabled: true
+
+	});
+
+
+
+	$("#jquery_jplayer_2").jPlayer({
+
+		ready: function () {
+
+			$(this).jPlayer("setMedia", {
+
+				m4v: "http://www.jplayer.org/video/m4v/Incredibles_Teaser.m4v",
+
+				ogv: "http://www.jplayer.org/video/ogv/Incredibles_Teaser.ogv",
+
+				webmv: "http://www.jplayer.org/video/webm/Incredibles_Teaser.webm",
+
+				poster: "http://www.jplayer.org/video/poster/Incredibles_Teaser_640x272.png"
+
+			});
+
+		},
+
+		play: function() { // To avoid multiple jPlayers playing together.
+
+			$(this).jPlayer("pauseOthers");
+
+		},
+
+		swfPath: "/custom/DefaultTheme/js",
+
+		supplied: "webmv, ogv, m4v",
+
+		cssSelectorAncestor: "#jp_container_2",
+
+		smoothPlayBar: true,
+
+		keyEnabled: true
+
+	});
+
+
+
+	$("#jquery_jplayer_3").jPlayer({
+
+		ready: function () {
+
+			$(this).jPlayer("setMedia", {
+
+				m4v: "http://www.jplayer.org/video/m4v/Finding_Nemo_Teaser.m4v",
+
+				ogv: "http://www.jplayer.org/video/ogv/Finding_Nemo_Teaser.ogv",
+
+				webmv: "http://www.jplayer.org/video/webm/Finding_Nemo_Teaser.webm",
+
+				poster: "http://www.jplayer.org/video/poster/Finding_Nemo_Teaser_640x352.png"
+
+			});
+
+		},
+
+		play: function() { // To avoid multiple jPlayers playing together.
+
+			$(this).jPlayer("pauseOthers");
+
+		},
+
+		swfPath: "/custom/DefaultTheme/js",
+
+		supplied: "webmv, ogv, m4v",
+
+		cssSelectorAncestor: "#jp_container_3",
+
+		smoothPlayBar: true,
+
+		keyEnabled: true
+
+	});
+
+
+
+	$("#jquery_jplayer_4").jPlayer({
+
+		ready: function () {
+
+			$(this).jPlayer("setMedia", {
+
+				m4v: "http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v",
+
+				ogv: "http://www.jplayer.org/video/ogv/Big_Buck_Bunny_Trailer.ogv",
+
+				webmv: "http://www.jplayer.org/video/webm/Big_Buck_Bunny_Trailer.webm",
+
+				poster: "/custom/DefaultTheme/images/video-01.jpg"
+
+			});
+
+		},
+
+		play: function() { // To avoid multiple jPlayers playing together.
+
+			$(this).jPlayer("pauseOthers");
+
+		},
+
+		swfPath: "/custom/DefaultTheme/js",
+
+		supplied: "webmv, ogv, m4v",
+
+		cssSelectorAncestor: "#jp_container_4",
+
+		smoothPlayBar: true,
+
+		keyEnabled: true
+
+	});
+
+
+
+	$("#jplayer_inspector_0").jPlayerInspector({jPlayer:$("#jquery_jplayer_0")});
+
+	$("#jplayer_inspector_1").jPlayerInspector({jPlayer:$("#jquery_jplayer_1")});
+
+	$("#jplayer_inspector_2").jPlayerInspector({jPlayer:$("#jquery_jplayer_2")});
+
+	$("#jplayer_inspector_3").jPlayerInspector({jPlayer:$("#jquery_jplayer_3")});
+
+});
+
+//]]>
+
+</script>
+
+</body>
+
+
+<!-- Mirrored from www.zoivi.com/home/index.html by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 10 Mar 2014 01:49:03 GMT -->
+</html>
+

@@ -1,0 +1,100 @@
+/* Left Side Menu (menu and block-menu)*/
+.menu{
+        margin:0;
+        padding:0;
+        padding-top: 25px;
+}
+
+.menu li{
+        list-style:none;
+}
+
+ul.menu li.nolink{
+        cursor:pointer;
+}
+
+ul.menu li.nolink ul{
+        display:none;
+}
+
+ul.menu li.nolink.active-trail ul{
+        display:block;
+}
+
+ul.menu{
+        margin-top:-16px;
+        margin-bottom:5px;
+}
+
+ul.menu li{
+        font-family:"PillGothic600mgMedium",Helvetica,Arial,sans-serif;
+        font-size:25px;
+        text-transform:uppercase;
+        line-height:21px;
+        color:#fff;
+        list-style:none;
+        text-shadow:0px 1px 1px rgba(0,0,0,0.5);
+        padding: 3px 2px 6px 10px;
+}
+
+ul.menu li.first{}
+
+ul.menu li.last{}
+
+ul.menu li a,ul.menu li a:visited{
+        color:#FFF;
+        text-decoration:none;
+}
+
+ul.menu ul li a, ul.menu ul li a:visited{
+        font-weight: normal;
+        font-size:18px;
+		line-height:18px;
+        font-family:'PillGothic600mgLight',Helvetica,Arial,sans-serif;
+		padding: 0px;
+		margin: 0px;
+}
+
+ul.menu ul li {
+		margin:0;
+        padding:2px;
+		padding-left: 20px;
+}
+
+ul.menu li span:hover, ul.menu li a:hover, ul.menu li a:focus, ul.menu li a:active, ul.menu li a.active{
+        color:#44c4da;
+}
+
+/* Message Center Menu CSS */
+#SkinNav li
+{
+		display: inline;
+		list-style-type: none;
+		padding-left: 5px;
+		padding-right: 5px;
+}
+
+#SkinNav li { 
+		border-right: solid 2px #ccc; 
+}
+
+#SkinNav li:last-child { 
+		border: 0px; 
+}
+
+/*MessageCentralNavText - side bar nagivation text for Message Central and Downline */
+.MessageCentralNavText {
+        font-size: 13pt;
+        color: #646464;
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+}
+
+/* MessageCentralNavTextSelected is the Highlighted text on the Business Groups and Message Central side nagication */
+.MessageCentralNavTextSelected {
+        font-size: 13pt;
+        color: #a81212;
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight:bold;
+}

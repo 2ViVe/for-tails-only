@@ -1,0 +1,42 @@
+#scrollbar1{margin:68px 0 10px}
+#scrollbar1 > .scrollbar{bottom: 25px}
+#scrollbar1 .overview1{width: 200%}
+#scrollbar1 .viewport {height  800px}
+#scrollbar1 section{width:50%}
+
+#faq{background:url(../images/faqbg.png) 0 180px no-repeat;overflow:auto}
+#faqcontainer{margin:60px 6% 0;overflow:auto}
+#faqcontainer h1{border-bottom:1px solid #712C16;margin-bottom:10px;padding-bottom:10px}
+#faqcontainer h2{font-size:18px}
+#faqcontainer h2 a{display:block;padding:10px 0}
+#faqmail{background:#EAEAEA;margin:25px 0 35px;padding:10px;border-bottom:1px solid #FFF;border-top:1px solid #DDD}
+#faqs{border-bottom:1px solid #FFF;border-top:1px solid #E5E5E5}
+#faqcontainer li{border-top:1px solid #FFF;border-bottom:1px solid #E5E5E5}
+#faqcontainer li.on{background:#EAEAEA;padding:10px;border-bottom:0;border-top:1px solid #DDD}
+#faqcontainer li.on h2{padding:0 10px}
+
+#accordion{font-family:inherit;border-bottom:1px solid #FFF;border-top:1px solid #E0E0E0;margin-left:300px}
+#accordion p{font-size:14px;color:#000;padding:0 10px 10px;line-height:24px}
+.ui-accordion .ui-accordion-header{display: block;cursor: pointer;position: relative;margin-top: 2px;padding: .5em .5em .5em 0 .7em;min-height: 0}
+.ui-accordion .ui-accordion-icons{padding-left: 2.2em}
+.ui-accordion .ui-accordion-noicons{padding-left: .7em}
+.ui-accordion .ui-accordion-icons .ui-accordion-icons{padding-left: 2.2em}
+.ui-accordion .ui-accordion-header .ui-accordion-header-icon{position: absolute;left: .5em;top: 50%;margin-top: -8px}
+.ui-accordion .ui-accordion-content{padding:0 30px 20px;border-top: 0;overflow: auto}
+
+.ui-helper-reset{border-radius:0!important;border:none}
+.ui-state-default{background:none;border-top:1px solid #FFF;border-bottom:1px solid #E0E0E0}
+.ui-state-default a,.ui-state-default a:link,.ui-state-default a:visited{color:#712C16}
+.ui-state-default a:hover{color:#666}
+.ui-state-active,.ui-accordion-content-active{background:#EAEAEA}
+.ui-accordion-header.ui-helper-reset.ui-state-default.ui-accordion-header-active.ui-state-active.ui-corner-top.ui-accordion-icons{border:0}
+.ui-accordion-header.ui-helper-reset.ui-state-default.ui-accordion-header-active.ui-state-active.ui-corner-top.ui-accordion-icons a{color:#555}
+.ui-accordion .ui-accordion-header{margin:0}
+
+.ui-state-default .ui-icon{background:url(../images/faqicons.png) 5px 2px no-repeat}
+.ui-state-active .ui-icon{background:url(../images/faqicons.png) 5px -60px no-repeat}
+
+/*
+ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom ui-accordion-content-active
+ui-accordion-header ui-helper-reset ui-state-default ui-accordion-icons ui-corner-all
+*/

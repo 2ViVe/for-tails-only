@@ -1,0 +1,22 @@
+base: &base
+  node: http://demo.abovegem.com:8082
+  dashboard: http://192.168.199.126:9011
+  admin: http://127.0.0.1:9000
+  gridfs: 192.168.199.81
+  node_key: test_client_id_1
+  node_secret: test_client_secret_1
+
+development:
+  <<: *base
+
+production:
+  <<: *base
+
+test:
+  node: http://demo.abovegem.com:8082
+  dashboard: http://192.168.199.126:9011
+  admin: http://127.0.0.1:9000
+  gridfs: 192.168.199.81
+  node_key: test_client_id_1
+  node_secret: test_client_secret_1
+

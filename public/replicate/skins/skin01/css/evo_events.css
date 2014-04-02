@@ -1,0 +1,142 @@
+.tobox {border: 1px #dddddd solid; width: 350px; padding: 5px; line-height: 22px; white-space:normal}
+.toboxidbox {display:inline; white-space: nowrap; background-color: #eeeeee; border: 1px solid #aaaaaa; padding: 2px 5px; margin: 2px;}
+.toboxidname {display:inline; white-space: nowrap;  color: #000000;}
+.toboxidbox a:link, .toboxidbox a:visited, .toboxidbox a:hover { color: #000000;}
+.toboxidX {font-weight: bold; background-color: #eeeeee;}
+
+#popitmenu{
+	position: absolute;
+	background-color: white;
+	border:1px solid black;
+	font: normal 12px Verdana;
+	line-height: 18px;
+	z-index: 100;
+	visibility: hidden;
+	padding-left: 6px;
+	color: #cccccc;
+}
+
+#popitmenu a{
+	text-decoration: none;
+	color: #000000;
+	display: block;
+}
+
+#popitmenu a:hover{ /*hover background color*/
+	background-color: #CCFF9D;
+}
+
+#popitmenu hr {
+	height: 1px;
+	margin: 5px 0px;
+	*margin: 0px 0px;
+}
+
+.popfont { font-size: 12px; font-family:Verdana;}
+table.details {
+    border-width: 1px 1px 1px 1px;
+    border-spacing: 2px;
+    border-style: outset outset outset outset;
+    border-color: gray gray gray gray;
+    border-collapse: collapse;
+    background-color: white;
+	text-align: left;
+}
+table.details th {
+    border-width: 1px 1px 1px 1px;
+    padding: 6px 6px 6px 6px;
+    border-style: inset inset inset inset;
+    border-color: gray gray gray gray;
+    background-color: white;
+    -moz-border-radius: 0px 0px 0px 0px;
+}
+table.details td {
+    border-width: 1px 1px 1px 1px;
+    padding: 6px 6px 6px 6px;
+    border-style: inset inset inset inset;
+    border-color: gray gray gray gray;
+    background-color: white;
+    -moz-border-radius: 0px 0px 0px 0px;
+}
+.detail { font-family:arial,helvetica,verdana,san-serif; color:#000000; font-size:12px; }
+.detailbold { font-family:arial,helvetica,verdana,san-serif; color:#000000; font-size:14px;  font-weight:bold; }
+
+
+
+.daybg {
+	color: #828282;
+	font-weight: bold;
+	font-size:12px;
+	text-decoration: none;
+	outline:none;
+}
+
+.daybg a, .daybg span {
+	color: #828282;
+}
+
+.daybgon {
+	color: #828282;
+	font-weight: bold;
+	font-size:12px;
+	text-decoration: none;
+	outline:none;
+}
+
+.daybgon a, .daybgon span {
+	color: #828282;
+}
+
+.odaybg {
+	color: #f7f7f7;
+	text-decoration: none;
+	font-weight: bold;
+	font-size:12px;
+}
+
+.activedaybg {
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size:12px;
+	text-decoration: none;
+	outline:none;
+}
+.activedaybg a, .activedaybg span {
+	color: #000000;
+}
+
+.activedaybgon {
+	color: #000000;
+	font-weight: bold;
+	font-size:12px;
+	text-decoration: none;
+	outline:none;
+}
+
+.activedaybgon a, activedaybgon span {
+	color: #ffffff;
+}
+
+.eventsday {
+	color: #ff0000;
+}
+
+.calheader {
+	color: #828282;
+	font-weight: bold;
+	font-size:12px;
+	text-decoration: none;
+	font-family:arial,helvetica,verdana,san-serif;
+}
+
+.calrowdays {
+	color: #828282;
+	font-weight: bold;
+}
+
+.daystyle {
+	font-family:arial,helvetica,verdana,san-serif;
+	font-size:12px;
+	color: #828282;
+	text-decoration: none;
+}

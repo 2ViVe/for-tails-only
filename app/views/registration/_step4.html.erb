@@ -1,0 +1,367 @@
+<!-- signUpContainer start -->
+<div class='row panel radius signUpContainer signup' id='step_4' style='display:none;'>
+
+<ul class="sign-up-step step-4 text-center MB2 clearfix">
+  <li>SELECTION<a href="#step_1"></a></li>
+  <li>SPONSOR<a href="#step_2"></a></li>
+  <li>PRODUCTS<a href="#step_3"></a></li>
+  <li class="current account">ACCOUNT</li>
+  <li class="checkout">CHECKOUT</li>
+</ul>
+      
+  <h4>
+    CREATE YOUR ACCOUNT
+  </h4>
+  <!-- signUpCon start -->
+  <div class='panel signUpCon'>
+    <form id='step4' novalidate="novalidate">
+      <h5>Account Information</h5>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Username <small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+          <input name='login' type="text"class="signUpInputW" >
+        </div>
+        <div class='small-5 end columns text-left'>
+          <label for="">http://www.zvicorp.com/username</label>
+        </div>
+      </div>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Password <small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+            <input id='password' name='password' type="password" class="signUpInputW">
+        </div>
+      </div>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Password Confirmation <small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+           <input name='password_confirmation' type="password" class="signUpInputW">
+        </div>
+      </div>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Email <small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+          <input name='email' type="text" class="signUpInputW">
+        </div>
+      </div>
+      <div class="hide_for_retail">
+        
+      
+      <h5>Agreement</h5>
+      <div class="row formItem">
+        <div class='small-12 columns text-left'>
+          <textarea class='agreement'>In accordance with the following Terms and Conditions, I hereby accept to become an enrolled Member of ZVI and 10GO Energy. I further hereby state and agree to the following:
+
+            To earn income within the ZVI and 10GO Energy. compensation plan I must submit my taxpayer identification number; (2) The number shown on my enrollment form is my correct taxpayer identification number (or I am waiting for a number to be issued to me); (3) I agree to abide by ZVI and 10GO Energy online policies and procedures, terms and conditions and the ZVI and 10GO Energy business model; (4) I understand and agree as an independent representative all purchases are final and that I am enrolling to build my own independent business.
+
+            I have been explained the networking business model and acknowledge this is not a job. I understand that I have the right to terminate my independent distributorship at any time, with or without reason, by sending a written notice to the address for ZVI and 10GO Energy on my enrollment form or found on this website under the contact section.
+          </textarea>
+          
+        </div>
+      </div>
+      </div>
+      
+      <h5>Personal Information</h5>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Date of Birth <small class="required"></small></label>
+        </div>
+        <div class='small-6 end columns text-left'>
+          <%= date_select(:user, :birthday, {:order => [ :month, :day, :year], 
+              :prompt => '-select-', :start_year => (Time.now.year - 19), :end_year => (Time.now.year - 80)}, :class => "required" )%>
+        </div>
+      </div>
+      
+      <div class="hide_for_retail ">
+      <div class="row formItem ssn_wrapper">
+        <div class='small-3 columns'>
+          <label>SSN/Tax ID <small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+          <input name='social-security-number' type="text"  class='signUpInputW'  >
+        </div>
+      </div>
+      </div>
+      
+      <% if params[:dualteam_sponsor_id].present? && params[:side].present? %>
+      <h5>Sponsor Information</h5>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Dual Team Sponsor ID</label>
+        </div>
+        <div class='small-3 end columns text-left'>
+          <p><%= params[:dualteam_sponsor_id] %></p>
+          <%= hidden_field_tag :"dualteam-sponsor", params[:dualteam_sponsor_id]%>
+        </div>
+      </div>
+      <div class="row formItem">
+         <div class='small-3 columns'>
+           <label>Placement</label>
+         </div>
+         <div class='small-3 end columns text-left'>
+           <%= select_tag :"dualteam-placement", options_for_select([["Left", "L"],["Right", "R"],["Auto", "A"]], params[:side]) %>
+         </div>
+       </div>
+      <% end %>
+      
+      <h5>Home Address</h5>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>First Name <small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+         <input name='home-address[first-name]' type="text" class='required' >
+        </div>
+      </div>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Middle Initial</label>
+        </div>
+        <div class='small-3 end columns text-left'>
+          <input name='home-address[m]' type="text">
+        </div>
+      </div>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Last Name <small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+           <input name='home-address[last-name]' type="text"  class='required' >
+        </div>
+      </div>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Coapplicant First Name</label>
+        </div>
+        <div class='small-3 end columns text-left'>
+          <input name='home-address[joint-first-name]' type="text" >
+        </div>
+      </div>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Coapplicant Middle Initial</label>
+        </div>
+        <div class='small-3 end columns text-left'>
+          <input name='home-address[joint-middleabbr]' type="text" >
+        </div>
+      </div>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Coapplicant Last Name</label>
+        </div>
+        <div class='small-3 end columns text-left'>
+          <input name='home-address[joint-last-name]' type="text" >
+        </div>
+      </div>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Address Line 1 <small class="required"></small></label>
+        </div>
+        <div class='small-6 end columns text-left'>
+           <input name='home-address[street]' type="text"  placeholder='Cannot use PO box'  class='required' >
+        </div>
+      </div>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Address Line 2</label>
+        </div>
+        <div class='small-6 end columns text-left'>
+           <input  name='home-address[street-cont]' type="text" pattern="" placeholder='Cannot use PO box'>
+        </div>
+      </div>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>City <small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+          <input name='home-address[city]' type="text"   class='required' >
+        </div>
+      </div>
+      <div class="row formItem" id="home-address-state-div">
+        <div class='small-3 columns'>
+          <label>State <small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+         <%= select_tag "home-address[state-id]", options_for_select(@states), :prompt => "select", :class => "required"%>
+        </div>
+      </div>
+      <div class="row formItem" id="home-address-zip-div">
+        <div class='small-3 columns'>
+          <label>ZIP <small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+            <input name='home-address[zip]' id='home-address-zip-input' type="text"  class='required'  >
+        </div>
+      </div>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Country <small class="required"></small></label>
+        </div>
+
+        <div class='small-3 end columns text-left'>
+            <%= select_tag "home-address[country-id]", options_for_select(@countries) , :class => "required"%>
+        </div>
+      </div>
+    
+     
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Phone Number<small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+          <input name='home-address[work-phone]' type="text"  class='required' >
+        </div>
+      </div>
+   
+      <h5>Delivery Options </h5>
+   
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Delivery Options <small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+          <select class="signUpInputW required" name='shipping-method-id' id='shipping-method-id'>
+            
+          </select>
+        </div>
+      </div>
+      
+      <h5>Shipment Address<label for="useHomeAddress1" class='right use_home_address'><input name='ship_use_home_address' type="checkbox" id="ship_use_home_address"> Use Home Address </label></h5>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>First Name <small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+          <input name='shipping-address[first-name]' type="text" class='required' >
+        </div>
+      </div>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Middle Name </label>
+        </div>
+        <div class='small-3 end columns text-left'>
+          <input name='shipping-address[m]' type="text" >
+        </div>
+      </div>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Last Name <small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+         <input name='shipping-address[last-name]' type="text"  class='required' >
+        </div>
+      </div>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Address Line 1 <small class="required"></small></label>
+        </div>
+        <div class='small-6 end columns text-left'>
+          <input name='shipping-address[street]' type="text"  placeholder='Cannot use PO box'  class='required' >
+        </div>
+      </div>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Address Line 2</label>
+        </div>
+        <div class='small-6 end columns text-left'>
+          <input name='shipping-address[street-cont]' type="text"  placeholder='Cannot use PO box'  >
+        </div>
+      </div>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>City <small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+          <input name='shipping-address[city]' type="text"   class='required' >
+        </div>
+      </div>
+      <div class="row formItem" id="shipping-address-state-div">
+        <div class='small-3 columns'>
+          <label>State <small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+          <%= select_tag "shipping-address[state-id]", options_for_select(@states),  :prompt => "select",:class => 'required'%>
+        </div>
+      </div>
+      <div class="row formItem" id="shipping-address-zip-div">
+        <div class='small-3 columns'>
+          <label>ZIP <small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+            <input name='shipping-address[zip]' id="shipping-address-zip-input" type="text"  class='required'  >
+        </div>
+      </div>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Country <small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+            <%= select_tag "shipping-address[country-id]", options_for_select(@countries), :class => 'required' %>
+        </div>
+      </div>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Phone <small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+          <input name='shipping-address[phone]' type="text"  class='required'  >
+        </div>
+      </div>
+      
+      <h5>
+        Web Address
+        <label for="useHomeAddress2"  class='use_home_address right MR1'>
+        <input type="checkbox" id="web_use_home_address" name="web_use_home_address"> Use Home Address </label>
+      </h5>
+      
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>First Name <small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+          <input name='web-address[first-name]' type="text" class='required' >
+        </div>
+      </div>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Middle Name </label>
+        </div>
+        <div class='small-3 end columns text-left'>
+            <input name='web-address[m]' type="text" >
+        </div>
+      </div>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Last Name <small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+          <input name='web-address[last-name]' type="text" class='required' >
+        </div>
+      </div>
+      <div class="row formItem">
+        <div class='small-3 columns'>
+          <label>Phone Number<small class="required"></small></label>
+        </div>
+        <div class='small-3 end columns text-left'>
+           <input name='web-address[phone]' type="text" class='required' >
+        </div>
+      </div>
+ 
+     
+      <div class="row formItem">
+        <div class='small-12 columns text-right'>
+          <input type="submit"  value="Continue" class="button tiny" id="step4_submit">
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- signUpCon end -->
+</div>
+<!-- signUpContainer end -->

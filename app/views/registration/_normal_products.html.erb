@@ -1,0 +1,41 @@
+
+<div class="row formItem">
+  <div class='small-12 columns'>
+    <table width='100%'>
+      <thead>
+        <tr>
+          <th><%= title %></th>
+          <th width='60'>PV</th>
+          <th width="80">Retail Price</th>
+          <th width="90">Member Price</th>
+          <th width="90">Quantity</th>
+          <th width="50">Autoship</th>
+          <th width="140">Autoship Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <% t['products'].each do |n|%>
+        <tr>
+          <td>
+            <div class='signUpPackItem'>
+              <%= image_tag n["images"].first.gsub(/large/,"small"), :alt => n["name"], :class => "packImg", :size => "50x50"%>
+              <div class='packInfo'>
+                <h6><%= n["name"]%></h6>
+              </div>
+            </div>
+          </td>
+          <td><%= product_pv n %></td>
+          <td><%= number_to_currency n["suggested-price"] %></td>
+          <td><%= number_to_currency n["price"] %></td>
+          <td><%= text_field_tag "variants[#{n['id']}][quantity]", '', :class => "line-items quantity", "data-variant-id" => variant_id(n), 'data-price' => n['price'], 'data-pv' => product_pv(n), 'data-name' => n['name'], 'data-image' =>  product_image_url(n)  %></td>
+          <td class='text-center'><input type="checkbox" class="check_autoship" /></td>
+          <td><%= text_field_tag "variants[#{n['id']}][autopship_quantity]",nil, :disabled => true, :class => "autoship-items quantity", "data-variant-id" => variant_id(n) , 'data-price' => n['price'], 'data-pv' => product_pv(n), 'data-name' => n['name'], 'data-image' =>  product_image_url(n) %></td>
+        </tr>
+        <% end %>
+       
+      </tbody>
+    </table>
+   
+  </div>
+</div>
