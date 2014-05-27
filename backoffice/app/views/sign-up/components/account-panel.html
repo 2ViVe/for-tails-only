@@ -13,13 +13,18 @@
       <input type="text"
              required
              ng-model="account.login"
+             data-availabilities-validator="login"
              id="login"
+             ng-pattern="/(?!^\d+$)^.+$/"
              name="login">
       <small ng-show="submitted && accountForm.login.$error.required" class="error">
         This field is required.
       </small>
-      <small ng-show="errors.InvalidLogin" class="error">
-        {{ errors.InvalidLogin }}
+      <small ng-show="accountForm.login.$error.available" class="error">
+        Username is not available.
+      </small>
+      <small ng-show="accountForm.login.$error.pattern" class="error">
+        Username can't be all numbers.
       </small>
     </div>
   </div>
@@ -34,7 +39,7 @@
              id="password"
              ng-model="account.password"
              ng-pattern="/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{6,}$/"
-              >
+        >
       <small ng-show="accountForm.password.$error.required" class="error">
         Password should include at least one number, one uppercase, one lowercase and more than 6 characters.
       </small>
@@ -57,7 +62,7 @@
              ng-model="confirmPassword"
              ui-validate="'$value==account.password'"
              ui-validate-watch="'account.password'"
-             >
+        >
       <small ng-show="accountForm.confirmPassword.$error.validator" class="error">
         Passwords must match.
       </small>
@@ -73,13 +78,14 @@
     <div class="medium-8 end columns">
       <input type="email" required
              id="email" name="email"
+             data-availabilities-validator="email"
              ng-model="account.email"
-              />
+        />
       <small ng-show="submitted && (accountForm.email.$error.required || accountForm.email.$error.email)" class="error">
         A valid email address is required.
       </small>
-      <small ng-show="errors.InvalidEmail" class="error">
-        {{ errors.InvalidEmail }}
+      <small ng-show="accountForm.email.$error.available" class="error">
+        Email is not available.
       </small>
 
     </div>

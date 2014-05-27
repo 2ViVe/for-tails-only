@@ -13,13 +13,18 @@
       <input type="text"
              required
              ng-model="account.login"
+             data-availabilities-validator="login"
              id="login"
+             ng-pattern="/(?!^\d+$)^.+$/"
              name="login">
       <small ng-show="submitted && accountForm.login.$error.required" class="error">
         This field is required.
       </small>
-      <small ng-show="errors.InvalidLogin" class="error">
-        {{ errors.InvalidLogin }}
+      <small ng-show="accountForm.login.$error.available" class="error">
+        Username is not available.
+      </small>
+      <small ng-show="accountForm.login.$error.pattern" class="error">
+        Username can't be all numbers.
       </small>
     </div>
   </div>
@@ -73,13 +78,14 @@
     <div class="medium-8 end columns">
       <input type="email" required
              id="email" name="email"
+             data-availabilities-validator="email"
              ng-model="account.email"
               />
       <small ng-show="submitted && (accountForm.email.$error.required || accountForm.email.$error.email)" class="error">
         A valid email address is required.
       </small>
-      <small ng-show="errors.InvalidEmail" class="error">
-        {{ errors.InvalidEmail }}
+      <small ng-show="accountForm.email.$error.available" class="error">
+        Email is not available.
       </small>
 
     </div>
