@@ -16,6 +16,11 @@ angular
       })
       .when('/signup/:stepNumber', {
         templateUrl: 'views/sign-up/all.html',
-        controller: 'SignUpController'
+        controller: 'SignUpController',
+        resolve: {
+          countries: ['Registration.Countries', function(Countries) {
+            return Countries.fetch();
+          }]
+        }
       });
   }]);

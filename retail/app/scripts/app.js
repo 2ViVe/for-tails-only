@@ -1,8 +1,6 @@
 'use strict';
 
-angular.module('2ViVe', []);
-
-angular.module('miioonApp', [
+angular.module('fto', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
