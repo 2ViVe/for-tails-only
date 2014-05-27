@@ -11,7 +11,7 @@ angular.module('fto', [
     // apps
     'fto/signup'
   ])
-  .constant('DEFAULT_COUNTRY_ID', 1213)
+  .constant('DEFAULT_COUNTRY_ID', 1214)
   .config(function($routeProvider) {
     $routeProvider
       .when('/', {
