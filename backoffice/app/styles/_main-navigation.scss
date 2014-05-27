@@ -59,7 +59,8 @@
 
       &:first-child {
         &:before{
-          content:'';
+          content: '';
+          display: none;
         }
         >a {
           padding-left: 0px;
