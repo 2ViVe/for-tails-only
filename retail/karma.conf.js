@@ -20,8 +20,9 @@ module.exports = function(config) {
       'app/bower_components/2ViVe/scripts/main.js',
       'app/bower_components/2ViVe/scripts/services/*.js',
       'app/scripts/*.js',
+      'app/scripts/**/app.js',
       'app/scripts/**/*.js',
-      'test/mock/**/*.js',
+//      'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],
 
