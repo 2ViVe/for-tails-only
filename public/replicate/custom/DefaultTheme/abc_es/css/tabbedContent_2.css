@@ -1,7 +1,0 @@
-.tabbed_content{width: 100%}
-.tabs{line-height: 50px;height: 50px;position: relative}
-.tabs .moving_bg{background:url(../images/tab-sel-bottom.png) center bottom no-repeat;position: absolute;width: 33.3%;z-index: 190;left: 0}
-.tabs .tab_item{display: block;float: left;width: 33.3%;text-align: center;z-index: 200;position: relative;cursor: pointer}
-.tabbed_content .slide_content{overflow: hidden;position: relative;width: 100%;padding-top:25px}
-.tabslider{width: 300%}
-.tabslider ul{float: left;width: 33.3%}
