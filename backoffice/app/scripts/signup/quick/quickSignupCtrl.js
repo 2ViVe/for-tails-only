@@ -22,10 +22,10 @@ angular
     $scope.create = function() {
       $scope.isProcessing = true;
 
-      var account = {};
+      var account = angular.copy($scope.account, {});
 
-      account.homeAddress = $scope.address.home;
-      account.shippingAddress = $scope.address.shipping;
+      account.homeAddress = $scope.address.home.toJSON();
+      account.shippingAddress = $scope.address.shipping.toJSON();
 
       angular.forEach($scope.$errors, function(val, key) {
         delete $scope.$errors[key];

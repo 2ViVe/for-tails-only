@@ -10,7 +10,8 @@ angular.module('fto', [
   'mm.foundation.modal',
   'chieffancypants.loadingBar',
   // apps
-  'fto/signup'
+  'fto/signup',
+  'fto/profile'
 ])
   .config(function($routeProvider) {
     $routeProvider
