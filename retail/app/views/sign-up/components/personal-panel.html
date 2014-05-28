@@ -24,20 +24,33 @@
 
   <div class="row">
     <div class='medium-4 columns'>
-      <label class="inline required" for="tax-id">SSN/Tax ID</label>
+      <label class="inline required" for="social-security-number">SSN</label>
     </div>
     <div class='medium-8 columns'>
       <input type="text"
              required
+             id="social-security-number"
+             name="socialSecurityNumber"
+             ng-model="account.socialSecurityNumber">
+      <small ng-show="submitted && personalForm.socialSecurityNumber.$error.required" class="error">
+        This field is required.
+      </small>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class='medium-4 columns'>
+      <label class="inline" for="tax-id">Tax ID</label>
+    </div>
+    <div class='medium-8 columns'>
+      <input ng-show="!isUseSSN"
+             type="text"
              id="tax-id"
              name="taxId"
              ng-model="account.taxId">
-      <small ng-show="submitted && personalForm.taxId.$error.required" class="error">
-        This field is required.
-      </small>
 
       <label>
-        <input type='checkbox' />
+        <input type='checkbox' ng-model="isUseSSN"/>
         Use Social Security Number
       </label>
     </div>
