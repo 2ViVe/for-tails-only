@@ -2,10 +2,16 @@
 angular.module('fto/signup')
   .controller('SignUpController', ['$scope', 'countries',
     function($scope, countries) {
-      $scope.stepNumber = 1;
+      $scope.stepNumber = 3;
       $scope.products = {
         data: {},
         selection: {}
+      };
+
+      $scope.address = {
+        home: {},
+        shipping: {},
+        web: {}
       };
 
       $scope.account = {
