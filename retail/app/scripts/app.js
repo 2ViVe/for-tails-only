@@ -7,6 +7,7 @@ angular.module('fto', [
   'ngRoute',
   '2ViVe',
   'ui.utils',
+  'chieffancypants.loadingBar',
 
   'fto/signup'
 ])

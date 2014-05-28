@@ -1,17 +1,17 @@
 'use strict';
 
 angular.module('fto', [
-    'ngCookies',
-    'ngResource',
-    'ngSanitize',
-    'ngRoute',
-    '2ViVe',
-    'ui.utils',
-    'mm.foundation.modal',
-    // apps
-    'fto/signup'
-  ])
-  .constant('DEFAULT_COUNTRY_ID', 1214)
+  'ngCookies',
+  'ngResource',
+  'ngSanitize',
+  'ngRoute',
+  '2ViVe',
+  'ui.utils',
+  'mm.foundation.modal',
+  'chieffancypants.loadingBar',
+  // apps
+  'fto/signup'
+])
   .config(function($routeProvider) {
     $routeProvider
       .when('/', {
