@@ -26,7 +26,7 @@
       .product-img{
         position:relative;
         border:1px solid $grey-border;
-        display:table-cell;
+//        display:table-cell;  this attr will unable the position attr
         vertical-align: middle;
         height:220px;
 
@@ -37,10 +37,18 @@
 
         .button{
           position:absolute;
-          top:50%;
+          top:40%;
           left:50%;
-          margin-left: -51px;
+          margin-left: -25%;
           z-index: 2;
+          display:none;
+        }
+      }
+      &:hover{
+        .product-img{
+          .button{
+            display:inline-block;
+          }
         }
       }
     }
@@ -48,6 +56,9 @@
       color:$grey-darker;
       font-size: $small-font-size;
       margin: rem-calc(10) 0 rem-calc(20) 0;
+      a{
+        color:$grey-darker;
+      }
     }
     .product-price{
       color:$primary-color;
