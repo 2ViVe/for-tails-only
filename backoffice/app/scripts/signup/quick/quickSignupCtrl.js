@@ -1,6 +1,6 @@
 angular
   .module('fto/signup')
-  .controller('QuickSignupCtrl', ['$scope', '$http', 'Dashlize', 'CamelCaseLize', 'signupResult', '$location',function($scope, $http, dashlize, camelize, result, $location) {
+  .controller('QuickSignupCtrl', ['$scope', '$http', 'Dashlize', 'CamelCaseLize', 'signupResult', '$location', 'Address',function($scope, $http, dashlize, camelize, result, $location, Address) {
     $scope.$errors = {};
 
     $scope.account = {
@@ -12,29 +12,20 @@ angular
       shipping: {}
     };
 
-    function mergeAddress(address) {
-      address.countryId = address.country.id;
-      address.stateId = address.state.id;
+    $scope.address = new Address.AddressContainer();
 
-      delete address.country;
-      delete address.state;
-    }
+    $scope.address
+      .addType('home')
+      .addType('shipping');
+
 
     $scope.create = function() {
       $scope.isProcessing = true;
 
       var account = {};
-      var homeAddress = {};
-      var shippingAddress = {};
-      angular.extend(account, $scope.account);
-      angular.extend(homeAddress, $scope.address.home);
-      angular.extend(shippingAddress, $scope.address.shipping);
 
-      mergeAddress(homeAddress);
-      mergeAddress(shippingAddress);
-
-      account.homeAddress = homeAddress;
-      account.shippingAddress = shippingAddress;
+      account.homeAddress = $scope.address.home;
+      account.shippingAddress = $scope.address.shipping;
 
       angular.forEach($scope.$errors, function(val, key) {
         delete $scope.$errors[key];
