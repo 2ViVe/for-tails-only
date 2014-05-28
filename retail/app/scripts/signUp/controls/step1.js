@@ -14,7 +14,8 @@ angular.module('2ViVe')
                   product.quantity = 1;
                 }
               });
-              $scope.products = products;
+              $scope.products.data = products;
+              $scope.products.selection = products[0];
             });
         }
 

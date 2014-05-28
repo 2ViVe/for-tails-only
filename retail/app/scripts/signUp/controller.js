@@ -3,6 +3,10 @@ angular.module('fto/signup')
   .controller('SignUpController', ['$scope', 'countries',
     function($scope, countries) {
       $scope.stepNumber = 1;
+      $scope.products = {
+        data: {},
+        selection: {}
+      };
 
       $scope.account = {
         country: countries.defaultCountry()
