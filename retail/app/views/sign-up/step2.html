@@ -9,7 +9,7 @@
       <label class="accountTypeRadio" for="radio1" ng-repeat="product in products.data">
         <input type="radio" ng-value="product" ng-model="products.selection" name="accountType" id="radio1" required>
         <h6>{{product.name}}</h6>
-        <p>Price ${{product.price}}</p>
+        <p>Price {{product.price | price}}</p>
       </label>
     </div>
   </div>

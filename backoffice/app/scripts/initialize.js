@@ -10,7 +10,8 @@ angular.module('fto')
     'URL_FOR_BACK_OFFICE_PRODUCTION_SITE': 'https://backoffice.fortailsonly.com',
     'URL_FOR_RETAIL_DEMO_SITE': 'fto.www',
     'URL_FOR_BACK_OFFICE_DEMO_SITE': 'fto.backoffice',
-    'DEFAULT_ROLE_CODE': 'R'
+    'DEFAULT_ROLE_CODE': 'R',
+    'CURRENCY_SYMBOL': '$'
   })
   .run(['$rootScope', 'cfpLoadingBar', '$location',
     function($rootScope, cfpLoadingBar, $location) {
