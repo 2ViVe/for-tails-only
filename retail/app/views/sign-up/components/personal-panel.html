@@ -1,0 +1,45 @@
+<div ng-form name="personalForm">
+  <div class='row'>
+    <div class='medium-12 columns'>
+      <h3>Personal Information</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-4 columns">
+      <label class="inline required" for="birthday">Date of Birth</label>
+    </div>
+    <div class="medium-8 columns">
+      <input type="text"
+             required
+             ng-model="account.birthday"
+             data-date-of-birth
+             id="birthday"
+             name="birthday">
+      <small ng-show="submitted && personalForm.birthday.$error.required" class="error">
+        This field is required.
+      </small>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class='medium-4 columns'>
+      <label class="inline required" for="tax-id">SSN/Tax ID</label>
+    </div>
+    <div class='medium-8 columns'>
+      <input type="text"
+             required
+             id="tax-id"
+             name="taxId"
+             ng-model="account.taxId">
+      <small ng-show="submitted && personalForm.taxId.$error.required" class="error">
+        This field is required.
+      </small>
+
+      <label>
+        <input type='checkbox' />
+        Use Social Security Number
+      </label>
+    </div>
+  </div>
+</div>
