@@ -1,26 +1,22 @@
 'use strict';
 angular.module('fto/signup')
-  .controller('SignUpController', ['$routeParams', '$scope', 'countries',
-    function($routeParams, $scope, countries) {
-      $scope.stepNumber = $routeParams.stepNumber;
-
-      $scope.registrationCountryChange = function() {
-
-      };
+  .controller('SignUpController', ['$scope', 'countries',
+    function($scope, countries) {
+      $scope.stepNumber = 1;
 
       $scope.account = {
         country: countries.defaultCountry()
       };
 
+      $scope.goToNextStep = function() {
+        $scope.stepNumber++;
+      };
+
       $scope.countries = countries.data;
 
-      $scope.submitAndGoToStep = function(stepNumber, isFormValid) {
-        $scope.submitted = true;
-        if (isFormValid) {
-        }
-      };
       $scope.goToStep = function(stepNumber) {
         if (stepNumber !== $scope.stepNumber) {
+          $scope.stepNumber = stepNumber;
         }
       };
     }]);

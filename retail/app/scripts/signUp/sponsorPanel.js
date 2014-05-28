@@ -6,7 +6,8 @@ angular
     return {
       templateUrl: 'views/sign-up/components/sponsor-panel.html',
       scope: {
-        account: '='
+        account: '=',
+        submitted: '='
       },
       controller: ['$scope', function($scope) {
         $scope.$errorMessages = {};

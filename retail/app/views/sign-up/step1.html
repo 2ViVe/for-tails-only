@@ -1,4 +1,4 @@
-<form class="sign-up-step-1 sign-up-step" name="step" novalidate>
+<form class="sign-up-step-1 sign-up-step" name="step1" novalidate ng-submit="nextStep()">
   <div class="row">
     <h2 class="small-12 columns">Sign up as an Distributor</h2>
   </div>
@@ -9,10 +9,12 @@
   </div>
 
   <div data-sponsor-panel
-       data-account="account"></div>
+       data-account="account"
+       data-submitted="submitted"></div>
 
   <div data-account-panel
-       data-account="account"></div>
+       data-account="account"
+       data-submitted="submitted"></div>
 
   <div class="row">
     <div class='medium-4 columns'>
@@ -36,7 +38,9 @@
   </div>
   <div class="row">
     <div class='columns small-8 small-offset-4'>
-      <textarea id="term-condition" readonly cols="30" rows="14"></textarea>
+      <textarea id="term-condition" readonly cols="30" rows="14">
+        Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)
+      </textarea>
     </div>
   </div>
   <div class="row">
@@ -54,7 +58,7 @@
   </div>
   <div class="row">
     <div class='medium-8 columns small-offset-4'>
-      <a href='#' class="button" type="submit">Continue</a>
+      <button disabled type="submit">Continue</button>
     </div>
   </div>
 </form>

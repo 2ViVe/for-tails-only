@@ -37,10 +37,11 @@
       <input type="password"
              required
              id="password"
+             name="password"
              ng-model="account.password"
              ng-pattern="/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{6,}$/"
               >
-      <small ng-show="accountForm.password.$error.required" class="error">
+      <small ng-show="submitted && accountForm.password.$error.required" class="error">
         Password should include at least one number, one uppercase, one lowercase and more than 6 characters.
       </small>
       <small ng-show="accountForm.password.$error.pattern" class="error">
