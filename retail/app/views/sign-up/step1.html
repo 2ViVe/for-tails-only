@@ -1,4 +1,4 @@
-<form class="sign-up-step-1 sign-up-step" name="step" novalidate>
+<form class="sign-up-step-1 sign-up-step" name="step1" novalidate ng-submit="nextStep()">
   <div class="row">
     <h2 class="small-12 columns">Sign up as an Distributor</h2>
   </div>
@@ -7,82 +7,48 @@
       Do you just want to shop? <a class="primary-link" href="/#/retail-signup">Register as a customer</a>
     </p>
   </div>
-  <div class='row'>
-    <div class='medium-12 columns'>
-      <h3>Sponsor Information</h3>
-    </div>
-  </div>
+
+  <div data-sponsor-panel
+       data-account="account"
+       data-submitted="submitted"></div>
+
+  <div data-account-panel
+       data-account="account"
+       data-submitted="submitted"></div>
+
   <div class="row">
     <div class='medium-4 columns'>
-      <label>Sponsor ID <small class='required'>*</small></label>
+      <label class="required" for="account-country">Country</label>
     </div>
+
     <div class='medium-8 columns'>
-      <input type="text" required pattern="">
-      <small class="error">This information is required.</small>
-    </div>
-  </div>
-  <div class='row'>
-    <div class='medium-12 columns'>
-      <h3>Account Information</h3>
-    </div>
-  </div>
-  <div class="row">
-    <div class="medium-4 columns">
-      <label>Username <small class='required'>*</small></label>
-    </div>
-    <div class="medium-8 columns">
-      <input type="text" required pattern="">
-      <small class="error">
+      <select
+        required
+        id="account-country"
+        name="account-country"
+        ng-model="account.country"
+        ng-options="country.name for country in countries"
+        ng-change="registrationCountryChange(account.country)">>
+      </select>
+
+      <small ng-show="submitted && step['account-country'].$error.required" class="error">
         This field is required.
       </small>
     </div>
   </div>
   <div class="row">
-    <div class='medium-4 columns'>
-      <label>Password <small class='required'>*</small></label>
-    </div>
-    <div class='medium-8 columns'>
-      <input type="password" required pattern="">
-      <small class="error hide">This information is required.</small>
-    </div>
-  </div>
-  <div class="row">
-    <div class='medium-4 columns'>
-      <label>Password Confirmation <small class='required'>*</small></label>
-    </div>
-    <div class='medium-8 columns'>
-      <input type="password" required pattern="">
-      <small class="error hide">This information is required.</small>
-    </div>
-  </div>
-  <div class="row">
-    <div class='medium-4 columns'>
-      <label>Email <small class='required'>*</small></label>
-    </div>
-    <div class='medium-8 columns'>
-      <input type="email" required pattern="">
-      <small class="error hide">This information is required.</small>
-    </div>
-  </div>
-  <div class="row">
-    <div class='medium-4 columns'>
-      <label>Country <small class='required'>*</small></label>
-    </div>
-    <div class='medium-8 columns'>
-      <select>
-        <option>United Kingdom</option>
-      </select>
-      <small class="error hide">This information is required.</small>
-    </div>
-  </div>
-  <div class="row">
     <div class='columns small-8 small-offset-4'>
-      <textarea id="term-condition" readonly cols="30" rows="14"></textarea>
+      <textarea id="term-condition" readonly cols="30" rows="14">
+        Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)Note: must read through the distributor agreement and click agree before proceed (your consent will be recorded)
+      </textarea>
     </div>
   </div>
   <div class="row">
     <div class="columns small-8 small-offset-4">
-      <label for="is-agreed"><input required type="checkbox"/> I agree to the above Terms and Conditions.</label>
+      <label for="is-agreed">
+        <input id="is-agreed" required type="checkbox"/>
+        I agree to the above Terms and Conditions.
+      </label>
     </div>
   </div>
   <div class="row">
@@ -92,7 +58,7 @@
   </div>
   <div class="row">
     <div class='medium-8 columns small-offset-4'>
-      <a href='#' class="button" type="submit">Continue</a>
+      <button disabled type="submit">Continue</button>
     </div>
   </div>
 </form>

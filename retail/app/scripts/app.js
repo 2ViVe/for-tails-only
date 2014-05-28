@@ -1,14 +1,13 @@
 'use strict';
 
-angular.module('2ViVe', []);
-
-angular.module('miioonApp', [
+angular.module('fto', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
   'ngRoute',
   '2ViVe',
   'ui.utils',
+  'chieffancypants.loadingBar',
 
   'fto/signup'
 ])

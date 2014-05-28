@@ -13,13 +13,14 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/src/loading-bar.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="miioonApp">
+  <body ng-app="fto">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -49,21 +50,40 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/fastclick/lib/fastclick.js"></script>
     <script src="bower_components/jquery.cookie/jquery.cookie.js"></script>
+    <script src="bower_components/jquery-placeholder/jquery.placeholder.js"></script>
     <script src="bower_components/foundation/js/foundation.js"></script>
     <script src="bower_components/unslider/src/unslider.min.js"></script>
     <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
+    <script src="bower_components/angular-loading-bar/src/loading-bar.js"></script>
     <script src="bower_components/2ViVe/scripts/main.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/slider/directive.js"></script>
+    <script src="bower_components/2ViVe/scripts/services/camelCaselize.js"></script>
+    <script src="bower_components/2ViVe/scripts/services/address.js"></script>
+    <script src="bower_components/2ViVe/scripts/services/registration/countries.js"></script>
+    <script src="bower_components/2ViVe/scripts/services/registration.js"></script>
+    <script src="bower_components/2ViVe/scripts/services/dashlize.js"></script>
+    <script src="bower_components/2ViVe/scripts/services/keySwitcher.js"></script>
+    <script src="bower_components/2ViVe/scripts/services/user.js"></script>
+    <script src="bower_components/2ViVe/scripts/services/utils.js"></script>
+    <script src="bower_components/2ViVe/scripts/services/urlHandler.js"></script>
+    <script src="bower_components/2ViVe/scripts/filters/price.js"></script>
 
-    <script src="scripts/services/Registration/DistributorData.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/initialize.js"></script>
+    <script src="scripts/slider/directive.js"></script>
 
     <script src="scripts/signUp/app.js"></script>
     <script src="scripts/signUp/controller.js"></script>
+    <script src="scripts/signUp/accountPanel.js"></script>
+    <script src="scripts/signUp/sponsorPanel.js"></script>
+    <script src="scripts/signUp/controls/sponsorValidator.js"></script>
+    <script src="scripts/signUp/controls/availabilitiesValidator.js"></script>
+    <script src="scripts/signUp/controls/step.js"></script>
+    <script src="scripts/signUp/controls/step1.js"></script>
+    <script src="scripts/signUp/controls/step2.js"></script>
     <!-- endbuild -->
 </body>
 </html>
