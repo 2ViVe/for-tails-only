@@ -21,7 +21,7 @@
         This field is required.
       </small>
       <small ng-show="accountForm.login.$error.available" class="error">
-        Username is not available.
+        Username is invalid.
       </small>
       <small ng-show="accountForm.login.$error.pattern" class="error">
         Username can't be all numbers.
@@ -83,10 +83,10 @@
              ng-model="account.email"
               />
       <small ng-show="submitted && (accountForm.email.$error.required || accountForm.email.$error.email)" class="error">
-        A valid email address is required.
+        Email is invalid.
       </small>
       <small ng-show="accountForm.email.$error.available" class="error">
-        Email is not available.
+        Email is invalid.
       </small>
 
     </div>

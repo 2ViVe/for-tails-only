@@ -29,11 +29,15 @@
     <div class='medium-8 columns'>
       <input type="text"
              required
+             data-availabilities-validator="ssn"
              id="social-security-number"
              name="socialSecurityNumber"
              ng-model="account.socialSecurityNumber">
       <small ng-show="submitted && personalForm.socialSecurityNumber.$error.required" class="error">
         This field is required.
+      </small>
+      <small ng-show="personalForm.socialSecurityNumber.$error.available" class="error">
+        SSN is invalid.
       </small>
     </div>
   </div>
