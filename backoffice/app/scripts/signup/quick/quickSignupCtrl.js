@@ -56,7 +56,7 @@ angular
             $scope.$errors[error.errorCode] = error.message;
           }
           $scope.isProcessing = false;
-        })
+        });
 
     };
   }]);

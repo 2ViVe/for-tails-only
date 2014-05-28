@@ -3,9 +3,6 @@
 angular
   .module('fto/signup')
   .controller('AddressPanelCtrl', ['$scope', 'Registration.Countries', function($scope, Countries) {
-    var self = this;
-    this.useHomeAddress = false;
-
     Countries
       .fetch()
       .then(function(countries) {
