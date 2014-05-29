@@ -227,12 +227,12 @@
   .products-checkout{
     h3{
       font-size: rem-calc(14);
-      margin-bottom: rem-calc(20);
+      margin-bottom: rem-calc(15);
     }
     h4{
       font-size: rem-calc(14);
       color:$grey-dark;
-      margin-bottom: rem-calc(15);
+      margin-bottom: rem-calc(10);
     }
     .products-checkout-info{
       .vcard{
@@ -245,11 +245,14 @@
         margin-bottom: rem-calc(20);
         margin-right:0;
         margin-left:0;
-        padding:rem-calc(10) rem-calc(10);
+        padding:rem-calc(10);
         label{
           font-size: $small-font-size;
-          height: rem-calc(37);
-          line-height:rem-calc(37);
+          height: rem-calc(36);
+          line-height:rem-calc(36);
+        }
+        .button{
+          padding:10px 20px;
         }
       }
       .products-checkout-giftOpt{
@@ -272,12 +275,21 @@
 }
 
 .products-checkout-table{
-  td{
-    vertical-align: top;
+  tr{
+    &:first-child{
+      td{
+        padding-top:0;
+      }
+    }
+    td{
+      vertical-align: top;
+    }
   }
+
   .prodcuts-checkout-table-img{
-    width:rem-calc(90);
-    text-align: center;
+    width:rem-calc(80);
+    text-align: left;
+    padding-left:0;
     img{
       border:1px solid $grey-border;
     }
@@ -287,6 +299,7 @@
       .product-name{
         font-size: rem-calc(14);
         margin-bottom: 6px;
+        margin-top:-2px;
       }
       .product-id{
         color:$grey-dark;
