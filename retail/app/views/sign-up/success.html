@@ -27,11 +27,11 @@
         <tbody> 
           <tr class='border-sep'> 
             <td>
-              <p>Order Date: <span class='cLessImportant'>{{successInfo.order.orderDate}}</span></p>
+              <p>Order Date: <span class='cLessImportant'>{{successInfo.order.orderDate | date: 'medium'}}</span></p>
               <p>Shipping Method: <span class='cLessImportant'>{{method.shipping.name}}</span></p>
             </td>  
             <td>
-              <p>Payment Date: <span class='cLessImportant'>{{successInfo.order.paymentDate}}</span></p>
+              <p>Payment Date: <span class='cLessImportant'>{{successInfo.order.paymentDate | date: 'medium'}}</span></p>
               <p>Payment Method: <span class='cLessImportant'>{{method.payment.name}}</span></p>
             </td>
           </tr>
