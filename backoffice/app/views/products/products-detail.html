@@ -45,6 +45,37 @@
         <a href='#' class='button small'>ADD TO WISHLIST</a>
         <a href='#' class='button small secondary'>ADD TO CART</a>
       </div>
+
+
+      <div ng-controller="ProductAccordion">
+        <accordion close-others="oneAtATime">
+          <accordion-group is-open="isopen1">
+            <accordion-heading>
+              Product Description <i class="right" ng-class="{'fa fa-chevron-down': isopen1, 'fa fa-chevron-right': !isopen1}"></i>
+            </accordion-heading>
+            The outside of the bed is in poly/cotton and the inside is lined in soft microfleece. The pillow has a layer of metalized insulation that radiates warmth generated from the pets own body heat. A cozy lounge bed that every pet will love. completely machine washable and filled with premium polyfil made from recycled plastic bottles. The bottom of the bed has a layer of "stay put" non-slip fabric for stability.<br/>
+            <br/>
+            One Size: 16x20"
+            <br/><br/>
+            • Self-warming material radiates heat back to your pet<br/>
+            • Non-slip bottom for stability<br/>
+            • Warmth with no electricity needed<br/>
+            • Fill made from recycled plastic bottles<br/>
+            • Easy wash and care
+          </accordion-group>
+          <accordion-group is-open="isopen2">
+            <accordion-heading>
+              Content <i class="right" ng-class="{'fa fa-chevron-down': isopen2, 'fa fa-chevron-right': !isopen2}"></i>
+            </accordion-heading>
+            AAAAAAAAA  BBBBBBBB <br/>
+            CCCCC DDDDD<br/>
+            EEEEEEEEEEEE FFFF GGGGGG
+          </accordion-group>
+        </accordion>
+      </div>
+
+
+      <!--
       <dl class="products-detail-tabs accordion" data-accordion>
         <dd>
           <a href="#panel1">Product Description</a>
@@ -67,8 +98,9 @@
           </div>
         </dd>
       </dl>
+      -->
       <div class='products-detail-share text-right'>
-        <!--<span><i class="fa">SHARE:</i></span>-->
+        <span class="unimportant-text fa">SHARE:</i></span>
         <a href="#"><i class="fa fa-twitter-square"></i></a>
         <a href="#"><i class="fa fa-linkedin-square"></i></a>
         <a href="#"><i class="fa fa-pinterest-square"></i></a>
