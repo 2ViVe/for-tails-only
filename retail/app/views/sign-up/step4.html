@@ -1,4 +1,4 @@
-<form class="sign-up-step-3 sign-up-step" name="step4" novalidate>
+<form class="sign-up-step-4 sign-up-step" name="step4" novalidate ng-submit="create()">
   <div class='row'>
     <div class='medium-12 columns'>
       <h2>CHECK OUT</h2>
@@ -17,28 +17,31 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr ng-repeat="lineItem in order.lineItems">
             <td>
-              <div class='sign-up-pack-item'>
-                <img src='../images/signUpPackImg_1.jpg' alt='Pack name' class='pack-img' />
+              <div class="sign-up-pack-item">
+                <img src="{{lineItem.imageUrl | imageSize:'small'}}" alt="{{lineItem.productName}}" class='pack-img' />
                 <div class='pack-info'>
-                  <h6>Initial Enrollment Fee</h6>
+                  <h6>{{lineItem.productName}}</h6>
                 </div>
               </div>
             </td>
-            <td>-</td>
-            <td>$15.00</td>
-            <td>1</td>
-            <td>$15.00</td>
+            <td>{{lineItem.qualifictionVolume | price}}</td>
+            <td>{{lineItem.price | price}}</td>
+            <td>{{lineItem.quantity}}</td>
+            <td>{{lineItem.price * lineItem.quantity | price}}</td>
           </tr>
         </tbody>
         <tfoot>
           <tr>
             <th colspan="5">
               <div class='small-12 columns text-right check-out-foot'>
-                <p>Shipping: $15.00 </p>
-                <p>Tax: $0.00 </p>
-                <strong class='price-total'>Total Price: $15.00 </strong>
+                <p ng-repeat="adjustment in order.adjustments">
+                  {{adjustment.label}}: {{adjustment.amount | price}}
+                </p>
+                <strong class='price-total'>
+                  Total Price: {{order.total | price}}
+                </strong>
               </div>
             </th>
           </tr>
@@ -46,16 +49,16 @@
       </table>
     </div>
   </div>
-  <div class='row'>
-    <div class='medium-12 columns'>
-      <h3>Notes</h3>
-    </div>
-  </div>
-  <div class="row">
-    <div class='medium-12 columns'>
-      <textarea placeholder="Notes (500 words or less)" class="sign-up-note"></textarea>
-    </div>
-  </div>
+  <!--<div class='row'>-->
+    <!--<div class='medium-12 columns'>-->
+      <!--<h3>Notes</h3>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="row">-->
+    <!--<div class='medium-12 columns'>-->
+      <!--<textarea placeholder="Notes (500 words or less)" class="sign-up-note"></textarea>-->
+    <!--</div>-->
+  <!--</div>-->
   <div class='row'>
     <div class='medium-12 columns'>
       <h3>Shipping Address</h3>
@@ -64,10 +67,18 @@
   <div class="row">
     <div class='medium-12 columns'>
       <ul class="vcard">
-        <li class="locality">Jackson Kho</li> 
-        <li class="locality">2222 Loma Vista Ln, Santa Clara, California, 95051</li> 
-        <li class="locality">Phone: 123-456-7890</li> 
-        <li class="locality"><a data-reveal="" data-reveal-id="popUpEditShip" class="button tiny" href="#" edit-ship><i class="fa fa-pencil-square-o"></i> Edit</a></li> 
+        <li class="locality">{{order.shippingAddress.firstName}} {{order.shippingAddress.lastName}}</li>
+        <li class="locality">
+          {{order.shippingAddress.street}},
+          {{order.shippingAddress.city}},
+          {{order.shippingAddress.state}},
+          {{order.shippingAddress.country}},
+          {{order.shippingAddress.zip}}
+        </li>
+        <li class="locality">
+          Phone: {{order.shippingAddress.phone}}
+        </li>
+        <!--<li class="locality"><a data-reveal="" data-reveal-id="popUpEditShip" class="button tiny" href="#" edit-ship><i class="fa fa-pencil-square-o"></i> Edit</a></li> -->
       </ul>
     </div>
   </div>
@@ -76,236 +87,86 @@
       <h3>Payment Information</h3>
     </div>
   </div>
+
   <div class='row'>
     <div class='medium-4 columns'>
-      <label>Payment Option <small class='required'>*</small></label>
+      <label class="required">Payment Option</label>
     </div>
-    <div class='medium-3 columns'>
-      <label class='formRadioLabel'><input type='radio' name='paymentOption' /> Credit Card</label>
+    <div class='medium-8 columns'>
+      <label class='formRadioLabel' ng-repeat="paymentMethod in order.availablePaymentMethods">
+        <input type='radio' ng-model="$parent.selectedPaymentMethod" ng-value="paymentMethod" />
+        {{paymentMethod.name}}
+      </label>
     </div>
-    <div class='medium-3 columns'>
-      <label class='formRadioLabel'><input type='radio' name='paymentOption' /> Abc</label>
-    </div>
-    <div class='medium-2 columns'>&nbsp;</div>
   </div>
-  <div class='row'>
+
+  <div class='row' ng-show="selectedPaymentMethod.isCreditcard">
     <div class='medium-4 columns'>
-      <label>Credit Card Number <small class='required'>*</small></label>
+      <label class="required" for="card-number">Credit Card Number</label>
     </div>
     <div class='medium-4 columns'>
-      <input type='text' /> 
-      <small class="error">This information is required.</small>
+      <input type='text' required id="card-number" name="cardNumber" ng-model="creditcard.number" />
+      <small class="error" ng-show="submitted && step4.cardNumber.$error.required">
+        This information is required.
+      </small>
     </div>
-    <div class='medium-4 columns'><img src="../images/creditCard.jpg" alt='' /></div>
+    <div class='medium-4 columns'><img src="images/creditCard.jpg" alt='' /></div>
   </div>
-  <div class='row'>
+
+  <div class='row' data-credit-card-expiration ng-show="selectedPaymentMethod.isCreditcard">
     <div class='medium-4 columns'>
-      <label>Expiration Date <small class='required'>*</small></label>
+      <label class="required" for="expiration-month">Expiration Date</label>
     </div>
     <div class='small-4 columns text-left'>
-      <select id="customDropdown1" class="medium" required="">
-        <option value="">Year</option>
-        <option value="2014">2014</option>
-        <option value="first">2013</option>
+      <select id="expiration-month" name="expirationMonth" class="medium"
+              ng-required="selectedPaymentMethod.isCreditcard"
+              ng-model="creditcard.expirationMonth"
+              ng-options="month for month in expirationMonths">
+        <option value="">Month</option>
       </select>
-      <small class="error">This information is required.</small>
+      <small class="error" ng-show="submitted && step4.expirationMonth.$error.required">
+        This information is required.
+      </small>
     </div>
     <div class='small-4 columns text-left'>
       <label class='hide'></label>
-      <select id="customDropdown2" class="medium" required="">
-        <option value="">Month</option>
-        <option value="01">01</option>
-        <option value="first">02</option>
+      <select id="expiration-year" name="expirationYear" class="medium"
+              ng-required="selectedPaymentMethod.isCreditcard"
+              ng-model="creditcard.expirationYear"
+              ng-options="year for year in expirationYears">
+        <option value="">Year</option>
       </select>
-      <small class="error">This information is required.</small>
+      <small class="error" ng-show="submitted && step4.expirationYear.$error.required">
+        This information is required.
+      </small>
     </div>
   </div>
-  <div class='row'>
+
+  <div class='row' ng-show="selectedPaymentMethod.isCreditcard">
     <div class='medium-4 columns'>
-      <label>Card Code <small class='required'>*</small></label>
+      <label class="required" for="cvv">Card Code</label>
     </div>
-    <div class='medium-4 columns'>
-      <input type='text' /> 
-      <small class="error signUpInputW">This information is required.</small>
-    </div>
-    <div class='medium-4 columns'>&nbsp;</div>
-  </div>
-  <div class='row'>
-    <div class='medium-12 columns'>
-      <h3>Billing Address</h3>
+    <div class='medium-4 end columns'>
+      <input type='text' id="cvv" name="cvv"
+             ng-model="creditcard.cvv"/>
+      <small class="error signUpInputW" ng-show="submitted && step4.cvv.$error.required">
+        This information is required.
+      </small>
     </div>
   </div>
-  <div class='row'>
-    <div class='medium-4 columns'>
-      <label>Address Line 1 <small class='required'>*</small></label>
-    </div>
-    <div class='medium-8 columns'>
-      <input type="text" required pattern="">
-      <small class="error">This information is required.</small>
-    </div>
+
+  <div data-address-panel
+       data-address-type="billing"
+       data-title="Billing"
+       data-address="address.billing"
+       data-home-address="address.home"
+       data-submitted="submitted">
   </div>
-  <div class='row'>
-    <div class='medium-4 columns'>
-      <label>Address Line 2</label>
-    </div>
-    <div class='medium-8 columns'>
-      <input type="text" pattern="">
-    </div>
-  </div>
-  <div class='row'>
-    <div class='medium-4 columns'>
-      <label>City <small class='required'>*</small></label>
-    </div>
-    <div class='medium-8 columns'>
-      <input type="text" required pattern="">
-      <small class="error">This information is required.</small>
-    </div>
-  </div>
-  <div class='row'>
-    <div class='medium-4 columns'>
-      <label>Country <small class='required'>*</small></label>
-    </div>
-    <div class='medium-8 columns'>
-      <select required>
-        <option value=''>Select Country</option>
-      </select>
-      <small class="error">This information is required.</small>
-    </div>
-  </div>
-  <div class='row'>
-    <div class='medium-4 columns'>
-      <label>State <small class='required'>*</small></label>
-    </div>
-    <div class='medium-8 columns'>
-      <select required>
-        <option value=''>Select State</option>
-      </select>
-      <small class="error">This information is required.</small>
-    </div>
-  </div>
-  <div class='row'>
-    <div class='medium-4 columns'>
-      <label>ZIP <small class='required'>*</small></label>
-    </div>
-    <div class='medium-8 columns'>
-      <input type="text" required pattern="">
-      <small class="error">This information is required.</small>
-    </div>
-  </div>
-  <div class='row'>
-    <div class='medium-4 columns'>
-      <label>Phone <small class='required'>*</small></label>
-    </div>
-    <div class='medium-8 columns'>
-      <input type="text" required pattern="">
-      <small class="error">This information is required.</small>
-    </div>
-  </div>
+
   <div class="row">
-    <div class='medium-8 columns small-offset-4'>
-      <a href='#' class="button" type="submit">Continue</a>
+    <div class='medium-12 columns'>
+      <button type="submit">Create</button>
     </div>
   </div>
+
 </form>
-<div id="popUpEditShip" class="reveal-modal" data-reveal>
-                        <h4>Ship Address</h4>
-                        <form data-abide>
-                          <div class='row'>
-                            <div class='medium-4 columns PL0'>
-                              <div>
-                                <label>First Name<small class='required'>*</small>
-                                </label>
-                                <input type="text" required pattern=""/>
-                                <small class="error">This infomation is required.</small>
-                              </div>
-                            </div>
-                            <div class='medium-4 columns PL0'>
-                              <div>
-                                <label>Middle Initial</label>
-                                <input type="text" pattern=""/>
-                              </div>
-                            </div>
-                            <div class='medium-4 columns PL0'>
-                              <div>
-                                <label>Last Name<small class='required'>*</small>
-                                </label>
-                                <input type="text" required pattern=""/>
-                                <small class="error">This infomation is required.</small>
-                              </div>
-                            </div>
-                          </div>
-                          <div class='row'>
-                            <div class='medium-6 columns PL0'>
-                              <div>
-                                <label>Address
-                                  <small class='required'>*</small>
-                                </label>
-                                <input type="text" required pattern=""/>
-                                <small class="error">This infomation is required.</small>
-                              </div>
-                            </div>
-                            <div class='medium-6 columns PL0'>
-                              <div>
-                                <label>Address (contd)
-                                </label>
-                                <input type="text" pattern=""/>
-                              </div>
-                            </div>
-                          </div>
-                          <div class='row'>
-                            <div class='medium-6 columns PL0'>
-                              <div>
-                                <label>City
-                                  <small class='required'>*</small>
-                                </label>
-                                <input type="text" required pattern=""/>
-                                <small class="error">This infomation is required.</small>
-                              </div>
-                            </div>
-                            <div class='medium-6 columns PL0'>
-                              <div>
-                                <label>Zip
-                                  <small class='required'>*</small>
-                                </label>
-                                <input type="text" required pattern=""/>
-                                <small class="error">This infomation is required.</small>
-                              </div>
-                            </div>
-                          </div>
-                          <div class='row'>
-                            <div class='medium-6 columns PL0'>
-                              <div>
-                                <label>State
-                                </label>
-                                <select>
-                                  <option value="">Select state</option>
-                                </select>
-                              </div>
-                            </div>
-                            <div class='medium-6 columns PL0'>
-                              <div>
-                                <label>Country</label>
-                                <select>
-                                  <option value="">Select country</option>
-                                </select>
-                              </div>
-                            </div>
-                          </div>
-                          <div class='row'>
-                            <div class='medium-6 columns PL0'>
-                              <div>
-                                <label>Phone
-                                  <small class='required'>*</small>
-                                </label>
-                                <input type="number" required pattern=""/>
-                                <small class="error">This infomation is required.</small>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="organoFormSubmit clearfix right">
-                            <a href="#" class="button">Save</a>
-                            <a href="#" class="button secondary">Cancel</a>
-                          </div>
-                        </form>
-                        <a class="close-reveal-modal">&#215;</a>
-                </div>
