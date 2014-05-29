@@ -55,7 +55,9 @@
     .product-name{
       color:$grey-darker;
       font-size: $small-font-size;
-      margin: rem-calc(10) 0 rem-calc(20) 0;
+      margin: rem-calc(10) 0 rem-calc(10) 0;
+      height:36px;
+      overflow: hidden;
       a{
         color:$grey-darker;
       }
