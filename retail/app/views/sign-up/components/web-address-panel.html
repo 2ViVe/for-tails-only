@@ -5,7 +5,7 @@
       <h3>
         {{ title }} Address
         <label class='right' ng-if="homeAddress">
-          <input type='checkbox'/> Use Home Address
+          <input type='checkbox' ng-click="useHomeAddress()"/> Use Home Address
         </label>
       </h3>
 
@@ -91,8 +91,8 @@
     >
     <input type="email"
            id="{{addressType}}-email"
-           name="addrHomePhone"
-           ng-model="address.phone"
+           name="addrEmail"
+           ng-model="address.email"
       >
     <small class="error" ng-show="address.errors.email">
       {{ address.errors.email }}

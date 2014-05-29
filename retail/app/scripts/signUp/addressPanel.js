@@ -20,7 +20,8 @@ angular
         title: '@',
         address: '=',
         addressType: '@',
-        homeAddress: '='
+        homeAddress: '=',
+        submitted: '='
       }
     };
   }]);

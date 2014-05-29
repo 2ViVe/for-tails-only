@@ -120,7 +120,7 @@
             ng-options="state as state.name for state in address.country.states | orderBy:'name'">
     </select>
 
-    <small ng-show="form.addrState.$error.required" class="error">
+    <small ng-show="submitted && addressForm.addrState.$error.required" class="error">
       This field is required.
     </small>
     <small class="error" ng-show="address.errors.state">
@@ -139,7 +139,7 @@
             ng-model="address.country"
             ng-options="country as country.name for country in countries | orderBy:'name'"
             ng-change=""></select>
-    <small ng-show="form.addrCountry.$error.required" class="error">
+    <small ng-show="submitted && addressForm.addrCountry.$error.required" class="error">
       This field is required.
     </small>
     <small class="error" ng-show="address.errors.country">
@@ -155,7 +155,7 @@
     >
     <input type="text" required="" id="{{addressType}}-AddrZip" name="addrZip" ng-model="address.zip"
            placeholder="click to edit ... ">
-    <small ng-show="form.addrZip.$error.required" class="error">
+    <small ng-show="submitted && addressForm.addrZip.$error.required" class="error">
       This field is required.
     </small>
     <small class="error" ng-show="address.errors.zip">
