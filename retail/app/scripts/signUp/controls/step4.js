@@ -38,7 +38,7 @@ angular.module('2ViVe')
                 $scope.account,
                 $scope.creditcard,
                 $scope.address.home.toJSON(),
-                $scope.order.shippingMethodId,
+                $scope.method.shipping.id,
                 $scope.address.shipping.toJSON(),
                 $scope.address.billing.toJSON(),
                 lineItems,
@@ -49,6 +49,7 @@ angular.module('2ViVe')
                     return;
                   }
 
+                  $scope.method.payment = $scope.selectedPaymentMethod;
                   $scope.goToSuccess(data.response);
 
                   User.login($scope.account.login, $scope.account.password)

@@ -7,6 +7,10 @@ angular.module('fto/signup')
         data: {},
         selection: {}
       };
+      $scope.method = {
+        shipping: {},
+        payment: {}
+      };
 
       $scope.address = Address.createContainer()
         .addType('home').addType('shipping').addType('website');

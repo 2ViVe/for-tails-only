@@ -4,11 +4,11 @@ angular.module('2ViVe')
   .directive('signUpStep3', [function() {
     return {
       restrict: 'C',
-      controller: ['$scope', function($scope) {
+      controller: ['$scope', 'Registration', function($scope, Registration) {
 
         $scope.debug = function() {
           $scope.account.birthday = '1984-05-03';
-          $scope.account.socialSecurityNumber = Math.random().toString().substr(2,9);
+          $scope.account.socialSecurityNumber = Math.random().toString().substr(2, 9);
           $scope.address.home.firstName = '123';
           $scope.address.home.lastName = '123';
           $scope.address.home.street = '123';
@@ -31,6 +31,21 @@ angular.module('2ViVe')
         };
 
 //        $scope.debug();
+
+        $scope.$watchCollection('[address.shipping.country, address.shipping.state]',
+          function(values) {
+            var country = values[0];
+            var state = values[1];
+            if (country && state) {
+              Registration.getShippingMethods(
+                country.id,
+                state.id)
+                .success(function(data) {
+                  $scope.shippingMethods = data.response;
+                  $scope.method.shipping = $scope.shippingMethods[0];
+                });
+            }
+          });
 
         if ($scope.address.billing) {
           $scope.address.types = ['home', 'shipping', 'website'];
