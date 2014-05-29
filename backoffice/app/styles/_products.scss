@@ -112,6 +112,12 @@
     }
   }
 
+  .products-detail-detailList{
+    label{
+      color:$grey-dark;
+    }
+  }
+
   .products-detail-info{
     margin-bottom: rem-calc(20);
     h3{
@@ -123,7 +129,7 @@
     }
     h6{
       font-size: $small-font-size;
-      color:$grey;
+      color:$grey-dark;
       margin-bottom: rem-calc(5);
     }
 
