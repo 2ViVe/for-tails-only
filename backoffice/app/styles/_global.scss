@@ -40,6 +40,18 @@ ul {
       content: "/";
     }
   }
+
+  .align-middle{
+    vertical-align: middle;
+  }
+}
+
+.topbar {
+  margin-bottom: $panel-margin-bottom;
+  h4{
+    margin-bottom:0;
+    margin-top:0;
+  }
 }
 
 .separator-vertical-line {
@@ -134,6 +146,12 @@ select.secondary-item{
 }
 .secondary-item::-webkit-input-placeholder{
   color:#fff !important;
+}
+
+.secondary-item-label-text{
+  height: rem-calc(30);
+  line-height: rem-calc(30);
+  color:$grey-dark;
 }
 
 // foundation style reset

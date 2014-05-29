@@ -4,17 +4,15 @@
     dl{
       dt{
         color:$primary-color;
-        font-size: rem-calc(16);
-        border-top:1px solid $grey-border;
-        border-bottom:1px solid $grey-border;
+        font-size:$medium-font-size;
         padding:rem-calc(5) 0 rem-calc(3) 0;
-        margin-bottom: rem-calc(15);
+        margin-bottom: rem-calc(10);
       }
       dd{
         margin-bottom: rem-calc(8);
         font-size: $small-font-size;
         a{
-          color:$grey-darker;
+
         }
       }
     }
