@@ -188,23 +188,26 @@
       margin-bottom: rem-calc(15);
     }
     .products-detail-tabs{
+      margin-top: $panel-margin-bottom;
+      .ng-binding{
+        border-bottom:1px solid $grey-border;
+      }
+
       dd{
         & > a{
-          background:none;
-          border-bottom:1px solid $grey-border;
-          color:$grey-dark;
-          padding:rem-calc(10) 0 rem-calc(5) rem-calc(5);
-          font-size: rem-calc(14);
           &:hover{
-            background:$grey-lighter;
             text-decoration: none;
+          }
+          .fa{
+            margin-top:5px;
           }
         }
         .content{
-          font-size: rem-calc(14);
-          color: $grey-dark;
+          font-size:$small-font-size;
+          color: $grey-darker;
         }
       }
+
     }
     .products-detail-share{
       margin-top: rem-calc(20);
