@@ -7,6 +7,10 @@ angular.module('fto/signup')
         data: {},
         selection: {}
       };
+      $scope.method = {
+        shipping: {},
+        payment: {}
+      };
 
       $scope.address = Address.createContainer()
         .addType('home').addType('shipping').addType('website');
@@ -17,6 +21,11 @@ angular.module('fto/signup')
 
       $scope.goToNextStep = function() {
         $window.scrollTo(0, 0);
+        $scope.stepNumber++;
+      };
+
+      $scope.goToSuccess = function(successInfo) {
+        $scope.successInfo = successInfo;
         $scope.stepNumber++;
       };
 

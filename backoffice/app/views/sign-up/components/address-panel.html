@@ -102,6 +102,9 @@
            id="{{addressType}}-city"
            name="city"
            ng-model="address.city"/>
+    <small ng-show="address.errors.InvalidAddress" class="error">
+      {{address.errors.InvalidAddress}}
+    </small>
     <small ng-show="submitted && addressForm.city.$error.required" class="error">
       This field is required.
     </small>

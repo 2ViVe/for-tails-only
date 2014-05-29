@@ -5,15 +5,19 @@ angular.module('2ViVe')
     return {
       restrict: 'C',
       controller: ['$scope', 'Registration', function($scope, Registration) {
+        $scope.debug = function() {
+          $scope.account.sponsor = '1000101';
+          $scope.account.login = 'test' + Math.random().toString().substr(15);
+          $scope.account.password = '!QAZ2w';
+          $scope.account.email = $scope.account.login + '@gmail.com';
+        };
+
+//        $scope.debug();
+
         function updateProducts(country) {
           Registration.getProducts(country.id)
             .success(function(data) {
               var products = data.response.products;
-              angular.forEach(products, function(product) {
-                if (product['variant-id']) {
-                  product.quantity = 1;
-                }
-              });
               $scope.products.data = products;
               $scope.products.selection = products[0];
             });
