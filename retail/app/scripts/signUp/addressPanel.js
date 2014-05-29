@@ -9,7 +9,7 @@ angular
         var type = attr.addressType;
         var filename = 'address-panel.html';
 
-        if (type === 'web') {
+        if (type === 'website') {
           filename = 'web-' + filename;
         }
         return 'views/sign-up/components/' + filename;

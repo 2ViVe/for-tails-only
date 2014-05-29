@@ -11,7 +11,7 @@ angular.module('fto/signup')
       $scope.address = {
         home: {},
         shipping: {},
-        web: {}
+        website: {}
       };
 
       $scope.account = {
@@ -29,4 +29,18 @@ angular.module('fto/signup')
           $scope.stepNumber = stepNumber;
         }
       };
+
+      $scope.debug = function() {
+        $scope.account.birthday = '1984-05-03';
+        $scope.account.socialSecurityNumber = '123456789';
+        $scope.address.home.firstName = '123';
+        $scope.address.home.lastName = '123';
+        $scope.address.home.street = '123';
+        $scope.address.home.city = 'ABBEVILLE';
+//        $scope.address.home.state = $scope.address.country.states[0];
+        $scope.address.home.zip = '36310';
+        $scope.address.home.phone = '123';
+      };
+
+      $scope.debug();
     }]);
