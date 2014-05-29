@@ -1,8 +1,8 @@
 'use strict';
 angular.module('fto/signup')
-  .controller('SignUpController', ['$scope', 'countries', 'Address',
-    function($scope, countries, Address) {
-      $scope.stepNumber = 3;
+  .controller('SignUpController', ['$scope', 'countries', 'Address', '$window',
+    function($scope, countries, Address, $window) {
+      $scope.stepNumber = 1;
       $scope.products = {
         data: {},
         selection: {}
@@ -16,6 +16,7 @@ angular.module('fto/signup')
       };
 
       $scope.goToNextStep = function() {
+        $window.scrollTo(0, 0);
         $scope.stepNumber++;
       };
 
