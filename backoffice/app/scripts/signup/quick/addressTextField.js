@@ -14,7 +14,7 @@ angular
         label: '@',
         required: '@'
       },
-      link: function(scope, element) {
+      link: function() {
       }
     };
   });

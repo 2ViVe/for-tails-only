@@ -21,7 +21,7 @@
         This field is required.
       </small>
       <small ng-show="accountForm.login.$error.available" class="error">
-        Username is not available.
+        Username is invalid.
       </small>
       <small ng-show="accountForm.login.$error.pattern" class="error">
         Username can't be all numbers.
@@ -37,10 +37,11 @@
       <input type="password"
              required
              id="password"
+             name="password"
              ng-model="account.password"
              ng-pattern="/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{6,}$/"
-        >
-      <small ng-show="accountForm.password.$error.required" class="error">
+              >
+      <small ng-show="submitted && accountForm.password.$error.required" class="error">
         Password should include at least one number, one uppercase, one lowercase and more than 6 characters.
       </small>
       <small ng-show="accountForm.password.$error.pattern" class="error">
@@ -62,7 +63,7 @@
              ng-model="confirmPassword"
              ui-validate="'$value==account.password'"
              ui-validate-watch="'account.password'"
-        >
+             >
       <small ng-show="accountForm.confirmPassword.$error.validator" class="error">
         Passwords must match.
       </small>
@@ -80,12 +81,12 @@
              id="email" name="email"
              data-availabilities-validator="email"
              ng-model="account.email"
-        />
+              />
       <small ng-show="submitted && (accountForm.email.$error.required || accountForm.email.$error.email)" class="error">
-        A valid email address is required.
+        Email is invalid.
       </small>
       <small ng-show="accountForm.email.$error.available" class="error">
-        Email is not available.
+        Email is invalid.
       </small>
 
     </div>
