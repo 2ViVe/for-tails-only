@@ -109,6 +109,9 @@
       <small class="error" ng-show="submitted && step4.cardNumber.$error.required">
         This information is required.
       </small>
+      <small class="error" ng-show="paymentFailed">
+        The payment information is invalid.
+      </small>
     </div>
     <div class='medium-4 columns'><img src="images/creditCard.jpg" alt='' /></div>
   </div>

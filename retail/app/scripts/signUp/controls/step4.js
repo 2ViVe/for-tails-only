@@ -29,6 +29,7 @@ angular.module('2ViVe')
           });
 
         $scope.create = function() {
+          $scope.paymentFailed = false;
           $scope.submitted = true;
           if (this.step4.$valid) {
             $scope.address.billing.validate().then(function() {
@@ -43,8 +44,8 @@ angular.module('2ViVe')
                 lineItems,
                 $scope.address.website.toJSON())
                 .success(function(data) {
-                  if (data.response.order['payment-state'] === 'failed') {
-                    $scope.isFailed = true;
+                  if (data.response.order.paymentState === 'failed') {
+                    $scope.paymentFailed = true;
                     return;
                   }
                   User.login($scope.account.login, $scope.account.password)
