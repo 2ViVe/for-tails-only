@@ -20,6 +20,11 @@ angular.module('fto/signup')
         $scope.stepNumber++;
       };
 
+      $scope.goToSuccess = function(successInfo) {
+        $scope.successInfo = successInfo;
+        $scope.stepNumber++;
+      };
+
       $scope.countries = countries.data;
 
       $scope.goToStep = function(stepNumber) {

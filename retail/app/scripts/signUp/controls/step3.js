@@ -33,7 +33,7 @@ angular.module('2ViVe')
 //        $scope.debug();
 
         if ($scope.address.billing) {
-          delete $scope.address.billing;
+          $scope.address.types = ['home', 'shipping', 'website'];
         }
 
         $scope.nextStep = function() {

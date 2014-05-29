@@ -48,13 +48,13 @@ angular.module('2ViVe')
                     $scope.paymentFailed = true;
                     return;
                   }
+
+                  $scope.goToSuccess(data.response);
+
                   User.login($scope.account.login, $scope.account.password)
                     .success(function() {
                       User.fetch();
                     });
-                  $scope.stepNumber++;
-                  $scope.successInfo = data.response;
-                  console.log($scope.successInfo);
                 });
             });
 
