@@ -13,7 +13,12 @@ angular
         });
     }
 
-    $scope.isUseHomeAddress = $scope.defaultUseHomeAddress ? true : false;
+    if ($scope.defaultUseHomeAddress) {
+      $scope.isUseHomeAddress = true;
+      $scope.address.extendDataFrom($scope.homeAddress);
+    } else {
+      $scope.isUseHomeAddress = false;
+    }
 
     $scope.isUseHomeAddressChange = function(isUseHomeAddress) {
       if (isUseHomeAddress) {
