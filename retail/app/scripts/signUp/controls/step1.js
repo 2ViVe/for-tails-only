@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('2ViVe')
+angular.module('fto/signup')
   .directive('signUpStep1', [function() {
     return {
       restrict: 'C',
@@ -12,7 +12,7 @@ angular.module('2ViVe')
           $scope.account.email = $scope.account.login + '@gmail.com';
         };
 
-//        $scope.debug();
+        $scope.debug();
 
         function updateProducts(country) {
           Registration.getProducts(country.id)
