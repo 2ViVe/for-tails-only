@@ -25,7 +25,7 @@ angular.module('fto/signup')
           $scope.address.website.toJSON())
           .success(function(data) {
             $scope.order = data.response;
-            $scope.selectedPaymentMethod = $scope.order.availablePaymentMethods[0];
+            $scope.method.payment = $scope.order.availablePaymentMethods[0];
           });
 
         $scope.create = function() {
@@ -34,7 +34,7 @@ angular.module('fto/signup')
           if (this.step4.$valid) {
             $scope.address.billing.validate().then(function() {
               Registration.create(
-                $scope.selectedPaymentMethod.id,
+                $scope.method.payment.id,
                 $scope.account,
                 $scope.creditcard,
                 $scope.address.home.toJSON(),
@@ -49,7 +49,6 @@ angular.module('fto/signup')
                     return;
                   }
 
-                  $scope.method.payment = $scope.selectedPaymentMethod;
                   $scope.goToSuccess(data.response);
 
                   User.login($scope.account.login, $scope.account.password)

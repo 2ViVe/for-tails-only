@@ -12,7 +12,7 @@ angular.module('fto/signup')
           $scope.account.email = $scope.account.login + '@gmail.com';
         };
 
-        $scope.debug();
+//        $scope.debug();
 
         function updateProducts(country) {
           Registration.getProducts(country.id)

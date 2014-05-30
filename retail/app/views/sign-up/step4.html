@@ -94,18 +94,22 @@
     </div>
     <div class='medium-8 columns'>
       <label class='formRadioLabel' ng-repeat="paymentMethod in order.availablePaymentMethods">
-        <input type='radio' ng-model="$parent.selectedPaymentMethod" ng-value="paymentMethod" />
+        <input type='radio' ng-model="$parent.method.payment" ng-value="paymentMethod" />
         {{paymentMethod.name}}
       </label>
     </div>
   </div>
 
-  <div class='row' ng-show="selectedPaymentMethod.isCreditcard">
+  <div class='row' ng-show="method.payment.isCreditcard">
     <div class='medium-4 columns'>
       <label class="required" for="card-number">Credit Card Number</label>
     </div>
     <div class='medium-4 columns'>
-      <input type='text' required id="card-number" name="cardNumber" ng-model="creditcard.number" />
+      <input type='text'
+             ng-required="method.payment.isCreditcard"
+             id="card-number"
+             name="cardNumber"
+             ng-model="creditcard.number" />
       <small class="error" ng-show="submitted && step4.cardNumber.$error.required">
         This information is required.
       </small>
@@ -116,13 +120,15 @@
     <div class='medium-4 columns'><img src="images/creditCard.jpg" alt='' /></div>
   </div>
 
-  <div class='row' data-credit-card-expiration ng-show="selectedPaymentMethod.isCreditcard">
+  <div class='row' data-credit-card-expiration ng-show="method.payment.isCreditcard">
     <div class='medium-4 columns'>
       <label class="required" for="expiration-month">Expiration Date</label>
     </div>
     <div class='small-4 columns text-left'>
-      <select id="expiration-month" name="expirationMonth" class="medium"
-              ng-required="selectedPaymentMethod.isCreditcard"
+      <select id="expiration-month"
+              name="expirationMonth"
+              class="medium"
+              ng-required="method.payment.isCreditcard"
               ng-model="creditcard.expirationMonth"
               ng-options="month for month in expirationMonths">
         <option value="">Month</option>
@@ -133,8 +139,10 @@
     </div>
     <div class='small-4 columns text-left'>
       <label class='hide'></label>
-      <select id="expiration-year" name="expirationYear" class="medium"
-              ng-required="selectedPaymentMethod.isCreditcard"
+      <select id="expiration-year"
+              name="expirationYear"
+              class="medium"
+              ng-required="method.payment.isCreditcard"
               ng-model="creditcard.expirationYear"
               ng-options="year for year in expirationYears">
         <option value="">Year</option>
@@ -145,7 +153,7 @@
     </div>
   </div>
 
-  <div class='row' ng-show="selectedPaymentMethod.isCreditcard">
+  <div class='row' ng-show="method.payment.isCreditcard">
     <div class='medium-4 columns'>
       <label class="required" for="cvv">Card Code</label>
     </div>
