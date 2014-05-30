@@ -7,12 +7,9 @@
   <div class="medium-8 columns text-right">
     <ul class="header-links separator-slash right">
       <li class='header-links-bowl icons-food-bowl'>
-        <a href="#/shopping" ng-if="shopping.items.length > 0">
+        <a href="#/shopping">
           Food Bowl ({{shopping.items.length}})
         </a>
-        <span ng-if="shopping.items.length === 0">
-          Food Bowl (0)
-        </span>
       </li>
       <li ng-if="!user.isLogin">
         <a href="#/signin">Sign in</a>
