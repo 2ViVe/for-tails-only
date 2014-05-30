@@ -12,7 +12,8 @@ angular.module('fto', [
   'chieffancypants.loadingBar',
   // apps
   'fto/signup',
-  'fto/profile'
+  'fto/profile',
+  'fto/taxon'
 ])
   .config(function($routeProvider) {
     $routeProvider
@@ -90,15 +91,6 @@ angular.module('fto', [
       .when('/party/party-create', {
         templateUrl: 'views/party/party-create.html',
         controller: 'PartyCreateController'
-      })
-      .when('/products/:taxonPermalink/:subTaxonPermalink?', {
-        templateUrl: 'views/taxon.html',
-        controller: 'TaxonController',
-        resolve: {
-          taxons: ['Taxons', function(Taxons) {
-            return Taxons.fetch();
-          }]
-        }
       })
       .otherwise({
         redirectTo: '/'
