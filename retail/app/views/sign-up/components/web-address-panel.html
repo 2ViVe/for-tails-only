@@ -5,7 +5,10 @@
       <h3>
         {{ title }} Address
         <label class='right' ng-if="homeAddress">
-          <input type='checkbox' ng-click="useHomeAddress()"/> Use Home Address
+          <input type='checkbox'
+                 ng-model="isUseHomeAddress"
+                 ng-change="isUseHomeAddressChange(isUseHomeAddress)"/>
+          Use Home Address
         </label>
       </h3>
 
