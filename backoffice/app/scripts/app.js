@@ -12,7 +12,8 @@ angular.module('fto', [
   'chieffancypants.loadingBar',
   // apps
   'fto/signup',
-  'fto/profile'
+  'fto/profile',
+  'fto/header'
 ])
   .config(function($routeProvider) {
     $routeProvider
