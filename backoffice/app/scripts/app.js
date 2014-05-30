@@ -90,8 +90,14 @@ angular.module('fto', [
         templateUrl: 'views/party/party-create.html',
         controller: 'PartyCreateController'
       })
-      .when('/taxon/:taxonId', {
-        templateUrl: 'views/taxon.html'
+      .when('/products/:taxonPermalink/:subTaxonPermalink?', {
+        templateUrl: 'views/taxon.html',
+        controller: 'TaxonController',
+        resolve: {
+          taxons: ['Taxons', function(Taxons) {
+            return Taxons.fetch();
+          }]
+        }
       })
       .otherwise({
         redirectTo: '/'
