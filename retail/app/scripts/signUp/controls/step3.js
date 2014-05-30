@@ -30,7 +30,7 @@ angular.module('fto/signup')
           $scope.address.website.phone = '123';
         };
 
-        $scope.debug();
+//        $scope.debug();
 
         $scope.$watchCollection('[address.shipping.country, address.shipping.state]',
           function(values) {
