@@ -14,7 +14,7 @@ angular
       set: function(result) {
         data = result;
       }
-    }
+    };
   })
   .controller('SignupSuccessCtrl', ['signupResult', function(result) {
     this.result = result.get();

@@ -36,7 +36,7 @@
     <input type="text"
            id="{{addressType}}-middleName"
            name="middleName"
-           ng-model="address.middleName"
+           ng-model="address.m"
       />
     <small ng-show="submitted && addressForm.middleName.$error.required" class="error">
       This field is required.
@@ -102,6 +102,9 @@
            id="{{addressType}}-city"
            name="city"
            ng-model="address.city"/>
+    <small ng-show="address.errors.InvalidAddress" class="error">
+      {{address.errors.InvalidAddress}}
+    </small>
     <small ng-show="submitted && addressForm.city.$error.required" class="error">
       This field is required.
     </small>
@@ -117,14 +120,15 @@
     <select id="{{addressType}}-AddrState"
             name="addrState"
             ng-model="address.state"
+            ng-init="address.state = address.country.states[0]"
             ng-options="state as state.name for state in address.country.states | orderBy:'name'">
     </select>
 
     <small ng-show="submitted && addressForm.addrState.$error.required" class="error">
       This field is required.
     </small>
-    <small class="error" ng-show="address.errors.state">
-      {{ address.errors.state }}
+    <small class="error" ng-show="address.errors.stateId">
+      {{ address.errors.stateId }}
     </small>
   </div>
 
@@ -142,8 +146,8 @@
     <small ng-show="submitted && addressForm.addrCountry.$error.required" class="error">
       This field is required.
     </small>
-    <small class="error" ng-show="address.errors.country">
-      {{ address.errors.country }}
+    <small class="error" ng-show="address.errors.countryId">
+      {{ address.errors.countryId }}
     </small>
   </div>
 

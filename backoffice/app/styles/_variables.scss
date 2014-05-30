@@ -92,3 +92,12 @@ $font-weight-bold: bold !default;
   $crumb-padding:0 0 $panel-margin-bottom 0;
   $crumb-font-transform:none;
   $crumb-side-padding:rem-calc(6);
+
+
+  // Accordion
+
+  $accordion-navigation-padding:rem-calc(5) rem-calc(5) rem-calc(5) 0;
+  $accordion-navigation-bg-color:#fff;
+  $accordion-navigation-hover-bg-color:$grey-lighter;
+  $accordion-navigation-active-bg-color:#fff;
+  $accordion-navigation-font-color:$grey-dark;

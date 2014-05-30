@@ -13,6 +13,12 @@ angular.module('fto')
     'DEFAULT_ROLE_CODE': 'R',
     'CURRENCY_SYMBOL': '$'
   })
+  .run(['User', 'Shopping',
+    function(User, Shopping) {
+      User.fetch().finally(function() {
+        Shopping.fetch();
+      });
+    }])
   .run(['$rootScope', 'cfpLoadingBar', '$location', 'UrlHandler',
     function($rootScope, cfpLoadingBar, $location, UrlHandler) {
       $rootScope.$on('$routeChangeStart', function() {

@@ -7,12 +7,7 @@ angular
 
     };
 
-    $scope.address = {
-      home: {},
-      shipping: {}
-    };
-
-    $scope.address = new Address.AddressContainer();
+    $scope.address = Address.createContainer();
 
     $scope.address
       .addType('home')

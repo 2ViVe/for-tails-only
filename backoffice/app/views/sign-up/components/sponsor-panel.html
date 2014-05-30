@@ -23,6 +23,9 @@
       <small ng-show="sponsorForm.sponsor.$error.sponsorError" class="error">
         {{ $errorMessages.sponsor }}
       </small>
+      <small ng-show="submitted && sponsorForm.sponsor.$error.required" class="error">
+        This field is required.
+      </small>
     </div>
 
     <div class="small-4 columns input-description unimportant-text" ng-show="sponsorName">

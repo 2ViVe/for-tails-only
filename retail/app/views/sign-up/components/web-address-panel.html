@@ -76,7 +76,7 @@
            name="addrHomePhone"
            ng-model="address.phone"
       >
-    <small ng-show="submitted && addressForm.lastName.$error.required" class="error">
+    <small ng-show="submitted && addressForm.addrHomePhone.$error.required" class="error">
       This field is required.
     </small>
     <small class="error" ng-show="address.errors.phone">
@@ -94,6 +94,10 @@
            name="addrEmail"
            ng-model="address.email"
       >
+
+    <small ng-show="submitted && addressForm.addrEmail.$error.email" class="error">
+      Email is invalid.
+    </small>
     <small class="error" ng-show="address.errors.email">
       {{ address.errors.email }}
     </small>

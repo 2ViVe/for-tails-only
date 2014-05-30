@@ -1,24 +1,31 @@
 'use strict';
 angular.module('fto/signup')
-  .controller('SignUpController', ['$scope', 'countries',
-    function($scope, countries) {
-      $scope.stepNumber = 3;
+  .controller('SignUpController', ['$scope', 'countries', 'Address', '$window',
+    function($scope, countries, Address, $window) {
+      $scope.stepNumber = 1;
       $scope.products = {
         data: {},
         selection: {}
       };
-
-      $scope.address = {
-        home: {},
+      $scope.method = {
         shipping: {},
-        web: {}
+        payment: {}
       };
+
+      $scope.address = Address.createContainer()
+        .addType('home').addType('shipping').addType('website');
 
       $scope.account = {
         country: countries.defaultCountry()
       };
 
       $scope.goToNextStep = function() {
+        $window.scrollTo(0, 0);
+        $scope.stepNumber++;
+      };
+
+      $scope.goToSuccess = function(successInfo) {
+        $scope.successInfo = successInfo;
         $scope.stepNumber++;
       };
 
@@ -29,4 +36,5 @@ angular.module('fto/signup')
           $scope.stepNumber = stepNumber;
         }
       };
+
     }]);

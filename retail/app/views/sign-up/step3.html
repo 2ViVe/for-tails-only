@@ -19,10 +19,38 @@
        data-submitted="submitted">
   </div>
 
+  <div class='row'>
+    <div class='medium-12 columns'>
+
+      <h3>
+        Shipping Options
+      </h3>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns medium-8 medium-offset-4" ng-repeat="shippingMethod in shippingMethods">
+      <label class="inline">
+        <input required ng-model="method.shipping" type="radio" name="shippingMethod"
+               ng-value="shippingMethod"/>
+        {{shippingMethod.name}}
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns medium-8 medium-offset-4 end">
+      <small ng-show="submitted && step3.shippingMethod.$error.required" class="error">
+        This field is required.
+      </small>
+    </div>
+  </div>
+
   <div data-address-panel
-       data-address-type="web"
+       data-address-type="website"
        data-title="Web"
-       data-address="address.web"
+       data-address="address.website"
        data-home-address="address.home"
        data-submitted="submitted">
   </div>

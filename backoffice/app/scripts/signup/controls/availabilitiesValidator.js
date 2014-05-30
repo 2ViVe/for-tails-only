@@ -25,4 +25,4 @@ angular.module('2ViVe')
           });
         }
       };
-    }])
+    }]);

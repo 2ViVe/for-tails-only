@@ -26,13 +26,13 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div class='wrapper'>
-        <div ng-include="'views/main-header.html'"></div>
-        <div ng-include="'views/main-navigation.html'"></div>
+      <header class="main-header" ng-include="'views/main-header.html'"></header>
+      <nav class="main-navigation" ng-include="'views/main-navigation.html'"></nav>
 
-        <!-- Add your site or application content here -->
-        <div class="main-container" ng-view=""></div>
+      <!-- Add your site or application content here -->
+      <div class="main-container" ng-view=""></div>
 
-        <div ng-include="'views/main-footer.html'"></div>
+      <footer class="main-footer" ng-include="'views/main-footer.html'"></footer>
     </div>
 
     <!--[if lt IE 9]>
@@ -53,7 +53,6 @@
     <script src="bower_components/jquery.cookie/jquery.cookie.js"></script>
     <script src="bower_components/jquery-placeholder/jquery.placeholder.js"></script>
     <script src="bower_components/foundation/js/foundation.js"></script>
-    <script src="bower_components/unslider/src/unslider.min.js"></script>
     <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
     <script src="bower_components/angular-loading-bar/src/loading-bar.js"></script>
     <script src="bower_components/2ViVe/scripts/main.js"></script>
@@ -73,10 +72,14 @@
     <script src="bower_components/2ViVe/scripts/services/utils.js"></script>
     <script src="bower_components/2ViVe/scripts/services/urlHandler.js"></script>
     <script src="bower_components/2ViVe/scripts/filters/price.js"></script>
+    <script src="bower_components/2ViVe/scripts/directives/creditCardExpiration.js"></script>
+    <script src="bower_components/2ViVe/scripts/directives/imageSize.js"></script>
+    <script src="bower_components/2ViVe/scripts/services/localStorage.js"></script>
+    <script src="bower_components/2ViVe/scripts/services/shopping.js"></script>
+    <script src="bower_components/2ViVe/scripts/services/product.js"></script>
 
     <script src="scripts/app.js"></script>
     <script src="scripts/initialize.js"></script>
-    <script src="scripts/slider/directive.js"></script>
 
     <script src="scripts/signUp/app.js"></script>
     <script src="scripts/signUp/controller.js"></script>
@@ -93,7 +96,22 @@
     <script src="scripts/signUp/controls/step1.js"></script>
     <script src="scripts/signUp/controls/step2.js"></script>
     <script src="scripts/signUp/controls/step3.js"></script>
+    <script src="scripts/signUp/controls/step4.js"></script>
     <script src="scripts/signUp/controls/dateOfBirth.js"></script>
+
+    <script src="scripts/profile/app.js"></script>
+    <script src="scripts/profile/profileAddressPanel.js"></script>
+    <script src="scripts/profile/profileCtrl.js"></script>
+    <script src="scripts/profile/profilePasswordPanel.js"></script>
+    <script src="scripts/profile/profilePersonalPanel.js"></script>
+    <script src="scripts/profile/profileUserPanel.js"></script>
+    <script src="scripts/profile/profileWebsitePanel.js"></script>
+
+    <script src="scripts/signIn/app.js"></script>
+    <script src="scripts/signIn/controller.js"></script>
+
+    <script src="scripts/header/controller.js"></script>
+
     <!-- endbuild -->
 </body>
 </html>

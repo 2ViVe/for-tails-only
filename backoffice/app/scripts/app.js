@@ -8,6 +8,7 @@ angular.module('fto', [
   '2ViVe',
   'ui.utils',
   'mm.foundation.modal',
+  'mm.foundation.accordion',
   'chieffancypants.loadingBar',
   // apps
   'fto/signup',
@@ -46,7 +47,7 @@ angular.module('fto', [
       })
       .when('/products/detail', {
         templateUrl: 'views/products/products-detail.html',
-        //controller: 'SignUpController'
+//        controller: 'ProductAccordion'
       })
       .when('/products/gift-detail', {
         templateUrl: 'views/products/products-gift-detail.html',
