@@ -10,7 +10,8 @@ angular.module('fto', [
   'chieffancypants.loadingBar',
 
   'fto/signup',
-  'fto/signin'
+  'fto/signin',
+  'fto/header'
 ])
   .config(function($routeProvider) {
     $routeProvider
