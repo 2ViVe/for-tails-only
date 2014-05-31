@@ -23,6 +23,9 @@
   input[type="text"], input[type="password"]{
     margin-bottom:10px;
   }
+  label{
+    color: $grey-darker;
+  }
 
   .separator {
     height: 274px;
