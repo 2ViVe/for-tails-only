@@ -7,7 +7,7 @@ angular.module('fto')
       $scope.partyAddContact = function() {
         $modal.open({
           templateUrl: 'views/party/party-add-contact.html',
-          controller: 'PartyModalController',
+          controller: 'ModalController',
           windowClass: 'medium',
           scope: $scope
         });

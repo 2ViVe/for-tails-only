@@ -53,7 +53,7 @@ angular.module('fto', [
       })
       .when('/products/gift-detail', {
         templateUrl: 'views/products/products-gift-detail.html',
-        //controller: 'SignUpController'
+        controller: 'GiftPopupController'
       })
       .when('/products/success', {
         templateUrl: 'views/products/products-success.html',
