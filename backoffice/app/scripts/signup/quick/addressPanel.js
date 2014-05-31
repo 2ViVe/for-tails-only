@@ -21,7 +21,8 @@ angular
         address: '=',
         addressType: '@',
         homeAddress: '=',
-        submitted: '='
+        submitted: '=',
+        defaultUseHomeAddress: '@'
       }
     };
   }]);

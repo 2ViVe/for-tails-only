@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('2ViVe')
+angular.module('fto/signup')
   .directive('signUpStep1', [function() {
     return {
       restrict: 'C',
