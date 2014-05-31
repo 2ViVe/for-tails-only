@@ -19,5 +19,5 @@ angular
             return Taxons.fetch();
           }]
         }
-      })
+      });
   }]);

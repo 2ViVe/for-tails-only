@@ -1,46 +1,59 @@
 <div class='products'>
   <div class='row'>
     <div class='small-12 columns'>
-      <ul class="breadcrumbs"> <li><a href="#">Home</a></li> <li><a href="#">Cats</a></li> <li class="current"><a href="#">ABC</a></li> </ul>
+      <ul class="breadcrumbs"> 
+        <li><a ng-href="{{taxon | taxonLink}}">{{taxon.name}}</a></li> 
+        <li><a ng-href="#/products/{{taxon.permalink}}/{{subTaxon.permalink}}">{{subTaxon.name}}</a></li> 
+        <li class="current"><a href="#">{{product.name}}</a></li> 
+      </ul>
     </div>
   </div>
   <div class='row products-detail'>
     <!-- products-detail-photo start -->
     <div class='medium-6 columns products-detail-photo'>
-      <div style='height:500px; background:#fafafa;'></div>
+      <div class="detail-image">
+      <img class="zoom-image" ng-src="{{currentImage}}" alt="{{product.name}}"/>
+    </div>
+
+    <ul class="small-block-grid-4 thumbnails">
+      <li ng-repeat="image in product.images" ng-click="changeImage(image)">
+        <div class="thumbnail-image" ng-class="{current: currentImage === image}">
+
+          <img data-pre-load-image-url="{{image}}" ng-src="{{image | imageSize:'small' }}"/>
+        </div>
+      </li>
+    </ul>
     </div>
     <!-- products-detail-photo end -->
     <!-- products-detail-info start -->
     <div class='medium-6 columns products-detail-info'>
-      <h3>Erin Faux Leather Moto Jacket<br/><small>Item Code: 1060688890 -BLK-SC-JKT-S</small></h3>
+      <h3>{{product.name}}<br/><small>Item Code: {{variant.sku}}</small></h3>
       <strong class='products-detail-price'>
-        $49.95
+        {{variant.price | price}}
       </strong>
       <div class='product-panel'>
         <h6>QUANTITY</h6>
         <input class="product-quantity" type='text' value='1' />
       </div>
       <hr/>
-      <div class='product-panel'>
+      <div class='product-panel' ng-hide="sizes.length < 2 || sizes === undefined">
         <h6>SIZE</h6>
         <ul class='options'>
-          <li>S</li>
-          <li class="current">M</li>
-          <li>L</li>
-          <li>XL</li>
+          <li ng-repeat="size in sizes" ng-click="changeSize(size)" ng-class="{current: size === selectedSize}">
+            {{size.presentationValue}}
+          </li>
         </ul>
+        <hr/>
       </div>
-      <hr/>
-      <div class='product-panel'>
+      <div class='product-panel' ng-hide="colors.length < 2 || colors === undefined">
         <h6>COLOR</h6>
         <ul class='options'>
-          <li style="background:#ffc000;"></li>
-          <li style="background:#97cbff" class="current"></li>
-          <li style="background:#eee"></li>
-          <li style="background:#ff7a45"></li>
+          <li syle="background:#{{color.presentationValue}}}" ng-repeat="color in colors" ng-click="changeColor(color)" ng-class="{current: color === selectedColor}">
+          </li>
         </ul>
+        <hr/>
       </div>
-      <hr/>
+      
       <div class='product-panel'>
         <a href='#' class='button small'>ADD TO WISHLIST</a>
         <a href='#' class='button small secondary'>ADD TO CART</a>
@@ -53,15 +66,7 @@
             <accordion-heading>
               Product Description <i class="right" ng-class="{'fa fa-chevron-down': isopen1, 'fa fa-chevron-right': !isopen1}"></i>
             </accordion-heading>
-            The outside of the bed is in poly/cotton and the inside is lined in soft microfleece. The pillow has a layer of metalized insulation that radiates warmth generated from the pets own body heat. A cozy lounge bed that every pet will love. completely machine washable and filled with premium polyfil made from recycled plastic bottles. The bottom of the bed has a layer of "stay put" non-slip fabric for stability.<br/>
-            <br/>
-            One Size: 16x20"
-            <br/><br/>
-            • Self-warming material radiates heat back to your pet<br/>
-            • Non-slip bottom for stability<br/>
-            • Warmth with no electricity needed<br/>
-            • Fill made from recycled plastic bottles<br/>
-            • Easy wash and care
+            <div class="detail-description" ng-bind-html="product.description"></div>
           </accordion-group>
           <accordion-group is-open="isopen2">
             <accordion-heading>
