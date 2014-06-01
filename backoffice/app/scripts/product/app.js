@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module('fto/profile', [
+  .module('fto/product', [
     'ngCookies',
     'ngResource',
     'ngSanitize',

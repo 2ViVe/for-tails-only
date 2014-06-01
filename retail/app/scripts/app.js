@@ -13,7 +13,8 @@ angular.module('fto', [
 
   'fto/signup',
   'fto/signin',
-  'fto/header'
+  'fto/header',
+  'fto/profile'
 ])
   .config(function($routeProvider) {
     $routeProvider
