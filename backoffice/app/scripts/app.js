@@ -47,10 +47,6 @@ angular.module('fto', [
         templateUrl: 'views/products/products-cart.html',
         //controller: 'SignUpController'
       })
-      .when('/products/detail', {
-        templateUrl: 'views/products/products-detail.html',
-//        controller: 'ProductAccordion'
-      })
       .when('/products/gift-detail', {
         templateUrl: 'views/products/products-gift-detail.html',
         controller: 'GiftPopupController'
