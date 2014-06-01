@@ -10,4 +10,12 @@ angular.module('fto')
           scope: $scope
         });
       };
-    }]);
+    }])
+  .controller('ModalController', ['$scope', '$modalInstance',
+    function($scope, $modalInstance) {
+      $scope.cancel = function() {
+        $modalInstance.dismiss('cancel');
+      };
+    }
+  ]
+);
