@@ -16,9 +16,13 @@ angular.module('fto/signin')
       $scope.isRemember = false;
 
       $scope.signIn = function() {
-        $scope.isError = false;
-        var isAlreadyLogin = User.isLogin;
+        $scope.submitted = true;
+        if ($scope.signInForm.$invalid) {
+          return;
+        }
 
+        $scope.error = null;
+        var isAlreadyLogin = User.isLogin;
         User.login($scope.username, $scope.password, $scope.isRemember)
           .success(function() {
             User.fetch().then(function() {
@@ -29,8 +33,8 @@ angular.module('fto/signin')
               }
             });
           })
-          .error(function() {
-            $scope.isError = true;
+          .error(function(data) {
+            $scope.error = data.meta.error.message;
           });
       };
     }]);

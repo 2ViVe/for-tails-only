@@ -1,31 +1,71 @@
-<div class="row sign-in">
-  <form class="columns small-5" novalidate name="loginForm">
-    <h2>
-      SIGN IN
-    </h2>
-    <input type="text" placeholder="Login Name Angel ID" ng-model="username"/>
-    <input type="password" placeholder="Password" ng-model="password"/>
-    <span class="error" ng-show="isError">
-      The username or password is wrong, please enter again.
-    </span>
-    <input id="is-remember" type="checkbox" ng-model="isRemember"/>
-    <label for="is-remember">remember me</label>
-    <button class="sign-in-button" ng-click="signIn()">SIGN IN</button>
-  </form>
-  <div class="columns small-1 separator"></div>
-  <div class="columns small-5">
-    <h3>
-      NEW TO FORTAILSONLY.COM
-    </h3>
-    Register with FORTAILSONLY.COM and you'll enjoy all kinds of great benefits.
-    <ul class="benefits">
-      <li>
-        Special offers and promotions
-      </li>
-      <li>
-        Track the status of your orders and many more…
-      </li>
-    </ul>
-    <a class="button tertiary" href="#/signup">REGISTER</a>
+<div class="sign-in">
+  <div class='row'>
+    <div class='small-12 columns'>
+      <ul class="breadcrumbs"> <li><a href="#">Home</a></li> <li class="current"><a href>Sign in</a></li> </ul>
+    </div>
+  </div>
+  <div class="sign-in-inner">
+    <div class="row">
+      <div class="columns small-5">
+        <h3>
+          Create a New Account<br/><small>Create an account with us and you'll be able to:</small>
+        </h3>
+        <ul class="benefits">
+          <li>
+            Check out faster
+          </li>
+          <li>
+            Save multiple shipping addresses
+          </li>
+          <li>
+            Access your order history
+          </li>
+          <li>
+            Track new orders
+          </li>
+          <li>
+            Save items to your wish list
+          </li>
+        </ul>
+        <button class="button secondary small">REGISTER</button>
+      </div>
+      <div class="columns small-1 separator"></div>
+      <div class="columns small-5">
+        <form name="signInForm" ng-submit="signIn()" novalidate>
+          <h3>
+            Sign in to Your Account
+          </h3>
+          <input type="text"
+                 required
+                 name="username"
+                 placeholder="Email Address"
+                 ng-model="username"/>
+          <small class="error" ng-show="submitted && signInForm.username.$error.required">
+            This field is required.
+          </small>
+
+          <input type="password"
+                 required
+                 name="password"
+                 placeholder="Password"
+                 ng-model="password"/>
+          <small class="error" ng-show="submitted && signInForm.password.$error.required">
+            This field is required.
+          </small>
+
+          <!--<a class="forgot-password" href="#">Forgot Password?</a>-->
+          <label>
+            <input type="checkbox" ng-model="isRemember"/>
+            remember me
+          </label>
+
+          <small class="error" ng-show="error">
+            {{error}}
+          </small>
+
+          <button class="button sign-in-button secondary small" type="submit">SIGN IN</button>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
