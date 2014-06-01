@@ -22,20 +22,6 @@ angular.module('fto', [
       .when('/', {
         templateUrl: 'views/home.html'
       })
-      .when('/signin', {
-        templateUrl: 'views/sign-in.html',
-        controller: 'SignInController'
-      })
-      .when('/signup', {
-        redirectTo: '/signup'
-      })
-      .when('/signup/:stepNumber', {
-        templateUrl: 'views/sign-up/all.html',
-        controller: 'SignUpController'
-      })
-      .when('/retail-signup', {
-        templateUrl: 'views/sign-up/retail-signup.html'
-      })
       .when('/products/', {
         templateUrl: 'views/products/products-index.html',
         //controller: 'SignUpController'
