@@ -7,6 +7,8 @@ angular.module('fto', [
   'ngRoute',
   '2ViVe',
   'ui.utils',
+  'mm.foundation.modal',
+  'mm.foundation.accordion',
   'chieffancypants.loadingBar',
 
   'fto/signup',
