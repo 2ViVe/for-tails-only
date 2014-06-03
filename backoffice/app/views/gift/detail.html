@@ -16,8 +16,11 @@
     <!-- products-detail-info start -->
     <div class='medium-6 columns products-detail-info'>
       <h3>Gift Certificate</h3>
-      <strong class='products-detail-price'>
-        $50.00 - $500.00
+      <strong class='products-detail-price' ng-if="currentGiftCard.price">
+        {{currentGiftCard.price | price}}
+      </strong>
+      <strong class='products-detail-price' ng-if="!currentGiftCard.price">
+        {{minPrice().price | price}} - {{maxPrice().price | price}}
       </strong>
       <div class='product-panel'>
         <h6 class="required">AMOUNT</h6>
