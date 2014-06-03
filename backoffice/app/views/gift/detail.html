@@ -26,6 +26,9 @@
                 ng-options="variant.price | price for variant in currentTheme.variants | orderBy: 'price'">
           <option value="">Choose an Amount...</option>
         </select>
+        <small ng-show="submitted && currentGiftCard === ''" class="error">
+          This field is required.
+        </small>
       </div>
       <hr/>
       <div class='products-detail-designList'>
@@ -40,38 +43,77 @@
       </div>
       <hr/>
       <div class='products-detail-detailList'>
-        <form>
+        <form novalidate name="emailForm">
           <div class="row">
             <div class="large-6 columns">
-              <label class="required">Recipient's Name:</label>
-              <input type="text" placeholder="" />
+              <label class="required" for="recipient-name">Recipient's Name:</label>
+              <input type="text"
+                     id="recipient-name"
+                     required
+                     ng-model="emailInfo.nameTo"
+                     name="recipientName"/>
+              <small ng-show="submitted && emailForm.recipientName.$error.required" class="error">
+                This field is required.
+              </small>
             </div>
             <div class="large-6 columns">
-              <label class="required">Recipient's Email:</label>
-              <input type="text" placeholder="" />
+              <label class="required" for="recipient-email">Recipient's Email:</label>
+              <input type="email"
+                     id="recipient-email"
+                     required
+                     ng-model="emailInfo.recipientEmail"
+                     name="recipientEmail"/>
+              <small ng-show="submitted && emailForm.recipientEmail.$error.required" class="error">
+                This field is required.
+              </small>
+              <small ng-show="submitted && emailForm.recipientEmail.$error.email" class="error">
+                Email is invalid
+              </small>
             </div>
           </div>
           <div class="row">
             <div class="large-6 columns">
-              <label class="required">Your Name:</label>
-              <input type="text" placeholder="" />
+              <label class="required" for="name-from">Your Name:</label>
+              <input type="text"
+                     id="name-from"
+                     required
+                     name="nameFrom"
+                     ng-model="emailInfo.nameFrom"/>
+              <small ng-show="submitted && emailForm.nameFrom.$error.required" class="error">
+                This field is required.
+              </small>
             </div>
             <div class="large-6 columns">
-              <label class="required">Your Email:</label>
-              <input type="text" placeholder="" />
+              <label class="required" for="email-from">Your Email:</label>
+              <input type="email"
+                     id="email-from"
+                     required
+                     name="emailFrom"
+                     ng-model="emailInfo.emailFrom"/>
+              <small ng-show="submitted && emailForm.emailFrom.$error.required" class="error">
+                This field is required.
+              </small>
+              <small ng-show="submitted && emailForm.emailFrom.$error.email" class="error">
+                Email is invalid.
+              </small>
             </div>
           </div>
           <div class="row">
             <div class="large-12 columns">
-              <label>Your Message:</label>
-              <textarea placeholder="" rows="8"></textarea>
-              <p class="text-right unimportant-text">235/250</p>
+              <label for="message">Your Message:</label>
+              <textarea rows="8"
+                        id="message"
+                        name="message"
+                        maxlength="250"
+                        ng-model="emailInfo.message"></textarea>
+              <p class="text-right unimportant-text">{{emailInfo.message === undefined ? 0 : emailInfo.message.length}}/250</p>
             </div>
           </div>
         </form>
       </div>
       <div class='product-panel'>
-        <a href ng-click="preview();" class='button secondary small'>PREVIEW</a> <a href='#' class='button small'>PURCHASE</a>
+        <button ng-click="preview();" class='secondary small'>PREVIEW</button>
+        <button ng-click="purchase()" class='small'>PURCHASE</button>
       </div>
       <div class='products-detail-share text-right'>
         <span class="unimportant-text fa">SHARE:</i></span>
