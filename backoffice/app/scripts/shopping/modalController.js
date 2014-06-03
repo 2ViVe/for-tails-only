@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('fto/shopping')
-  .controller('ShoppingController', ['$scope', 'shopping',
-    function($scope, shopping) {
+  .controller('ShoppingModalController', ['$scope', 'shopping', '$modalInstance',
+    function($scope, shopping, $modalInstance) {
       $scope.shopping = shopping;
 
       $scope.update = function() {
@@ -23,16 +23,21 @@ angular.module('fto/shopping')
         return total;
       };
 
-      $scope.checkout = function() {
-        shopping.checkout();
-      };
-
       $scope.empty = function() {
         shopping.empty();
       };
 
       $scope.continueShopping = function() {
-        shopping.continueShopping();
+        $modalInstance.dismiss('cancel');
+      };
+
+      $scope.checkout = function() {
+        $modalInstance.dismiss('cancel');
+        shopping.checkout();
+      };
+
+      $scope.cancel = function() {
+        $modalInstance.dismiss('cancel');
       };
     }
   ]);
