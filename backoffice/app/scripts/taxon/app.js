@@ -12,7 +12,7 @@ angular
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/products/:taxonPermalink/:subTaxonPermalink?', {
-        templateUrl: 'views/taxon.html',
+        templateUrl: 'views/product/taxon.html',
         controller: 'TaxonController',
         resolve: {
           taxons: ['Taxons', function(Taxons) {
