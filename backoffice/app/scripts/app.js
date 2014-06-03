@@ -13,16 +13,12 @@ angular.module('fto', [
   // apps
   'fto/signup',
   'fto/profile',
-<<<<<<< HEAD
-//  'fto/taxon',
-  'fto/header'
-=======
   'fto/taxon',
   'fto/header',
   'fto/gift',
   'fto/product',
-  'fto/shopping'
->>>>>>> c200769c17a87809dde5e016ac10d9a6065bf4b4
+  'fto/shopping',
+  'fto/report'
 ])
   .config(function($routeProvider) {
     $routeProvider

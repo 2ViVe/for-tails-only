@@ -15,7 +15,8 @@ angular.module('fto', [
   'fto/signin',
   'fto/header',
   'fto/profile',
-  'fto/gift'
+  'fto/gift',
+  'fto/report'
 ])
   .config(function($routeProvider) {
     $routeProvider
