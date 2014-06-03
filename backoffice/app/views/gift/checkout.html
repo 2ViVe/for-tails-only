@@ -1,4 +1,4 @@
-<div class='products'>
+<div class='products' ng-hide="isSucceed">
   <div class='row'>
     <div class='small-12 columns'>
       <h4 class="block-margin-bottom">Review & Place Order</h4>
@@ -126,32 +126,4 @@
     <!-- products-checkout-cart end -->
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="products" ng-include="'views/gift/success.html'" ng-if="isSucceed"></div>

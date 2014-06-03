@@ -7,6 +7,7 @@ angular
       $scope.creditcard = {};
       $scope.placingOrder = false;
       $scope.error = '';
+      $scope.isSucceed = false;
 
       var giftCard = new GiftCard();
       giftCard.populate();
@@ -24,6 +25,12 @@ angular
         giftCard.placeOrder($scope.creditcard).success(function(data) {
           $scope.placingOrder = false;
           $scope.error = '';
+
+          if (data.response['payment-state'] === 'failed') {
+            $scope.error = 'Payment failed, please check your payment information.';
+            return;
+          }
+
           giftCard.clear();
           $scope.isSucceed = true;
           $scope.successInfo = data.response;
