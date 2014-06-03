@@ -14,6 +14,7 @@ angular.module('fto/gift')
       $scope.preview = function() {
         $modal.open({
           templateUrl: '/views/gift/preview.html',
+          controller: 'GiftModalController',
           scope: $scope
         });
       };
