@@ -12,7 +12,7 @@ angular
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/product/:productId/:catalogCode?', {
-        templateUrl: 'views/product/products-detail.html',
+        templateUrl: 'views/product/detail.html',
         controller: 'ProductDetailCtr',
         resolve: {
           'product': ['Product', '$route',
