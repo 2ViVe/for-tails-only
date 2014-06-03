@@ -53,6 +53,15 @@
         </ul>
         <hr/>
       </div>
+      <div class='product-panel' ng-hide="genders.length < 2 || genders === undefined">
+        <h6>GENDER</h6>
+        <ul class='options'>
+          <li ng-repeat="gender in genders" ng-click="changeGender(gender)" ng-class="{current: gender === selectedGender}">
+            {{gender.presentationValue}}
+          </li>
+        </ul>
+        <hr/>
+      </div>
       
       <div class='product-panel'>
         <button ng-click="addToCart()" class='small'>ADD TO CART</button>

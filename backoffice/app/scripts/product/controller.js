@@ -7,15 +7,18 @@ angular.module('fto')
       var updateVariant = function() {
         $scope.variant = product.getVariantByOptions({
           'Color': $scope.selectedColor,
-          'Size': $scope.selectedSize
+          'Size': $scope.selectedSize,
+          'Gender': $scope.selectedGender
         });
       };
 
       $scope.product = product.data;
       $scope.colors = product.Color;
+      $scope.genders = product.Gender;
       $scope.sizes = product.Size;
       $scope.selectedColor = product.Color ? product.Color[0] : null;
       $scope.selectedSize = product.Size ? product.Size[0] : null;
+      $scope.selectedGender = product.Gender ? product.Gender[0] : null;
       $scope.currentImage = product.data.images[0];
       $scope.catalogCode = product.catalogCode;
 
@@ -30,6 +33,11 @@ angular.module('fto')
 
       $scope.changeColor = function(color) {
         $scope.selectedColor = color;
+        updateVariant();
+      };
+
+      $scope.changeGender = function(gender) {
+        $scope.selectedGender = gender;
         updateVariant();
       };
 
