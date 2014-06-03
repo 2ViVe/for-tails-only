@@ -48,7 +48,7 @@
       <div class='product-panel' ng-hide="colors.length < 2 || colors === undefined">
         <h6>COLOR</h6>
         <ul class='options'>
-          <li syle="background:#{{color.presentationValue}}}" ng-repeat="color in colors" ng-click="changeColor(color)" ng-class="{current: color === selectedColor}">
+          <li style="background:#{{color.presentationValue}}}" ng-repeat="color in colors" ng-click="changeColor(color)" ng-class="{current: color === selectedColor}">
           </li>
         </ul>
         <hr/>
@@ -61,6 +61,14 @@
           </li>
         </ul>
         <hr/>
+      </div>
+      <div class='product-panel' ng-repeat="personalizedType in personalizedTypes">
+        <label ng-if="personalizedType.required" class="required" for="{{personalizedType.name}}-from">{{personalizedType.name}}:</label>
+        <label ng-if="!personalizedType.required" for="{{personalizedType.name}}-from">{{personalizedType.name}}:</label>
+          <input type="text"
+                 id="{{personalizedType.name}}-from"
+                 name="{{personalizedType.name}}}"/>
+          <hr/>
       </div>
       
       <div class='product-panel'>
@@ -80,9 +88,7 @@
             <accordion-heading>
               Content <i class="right" ng-class="{'fa fa-chevron-down': isopen2, 'fa fa-chevron-right': !isopen2}"></i>
             </accordion-heading>
-            AAAAAAAAA  BBBBBBBB <br/>
-            CCCCC DDDDD<br/>
-            EEEEEEEEEEEE FFFF GGGGGG
+            <div class="detail-content" ng-bind-html="product.description"></div>
           </accordion-group>
         </accordion>
       </div>

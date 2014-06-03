@@ -12,6 +12,9 @@ angular.module('fto')
         });
       };
 
+      console.log(product.data.personalizedTypes);
+
+      $scope.personalizedTypes = product.data.personalizedTypes;
       $scope.product = product.data;
       $scope.colors = product.Color;
       $scope.genders = product.Gender;
