@@ -17,7 +17,8 @@ angular.module('fto', [
   'fto/header',
   'fto/gift',
   'fto/product',
-  'fto/shopping'
+  'fto/shopping',
+  'fto/report'
 ])
   .config(function($routeProvider) {
     $routeProvider
