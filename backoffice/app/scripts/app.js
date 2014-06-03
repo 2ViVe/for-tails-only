@@ -16,7 +16,8 @@ angular.module('fto', [
   'fto/taxon',
   'fto/header',
   'fto/gift',
-  'fto/product'
+  'fto/product',
+  'fto/shopping'
 ])
   .config(function($routeProvider) {
     $routeProvider
@@ -29,18 +30,6 @@ angular.module('fto', [
       })
       .when('/products/list', {
         templateUrl: 'views/products/products-list.html',
-        //controller: 'SignUpController'
-      })
-      .when('/products/cart', {
-        templateUrl: 'views/products/products-cart.html',
-        //controller: 'SignUpController'
-      })
-      .when('/product/success', {
-        templateUrl: 'views/products/products-success.html',
-        //controller: 'SignUpController'
-      })
-      .when('/product/checkout', {
-        templateUrl: 'views/products/products-checkout.html',
         //controller: 'SignUpController'
       })
       .when('/about', {

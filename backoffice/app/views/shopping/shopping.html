@@ -1,0 +1,91 @@
+<div class='products'>
+  <div class='row'>
+    <div class='small-12 columns'>
+      <h4 class="block-margin-bottom">Shopping Cart</h4>
+    </div>
+  </div>
+  <div class='row'>
+    <!-- products-cart start -->
+    <div class='small-12 columns products-cart'>
+      <div class='product-cart-bar clearfix'>
+        <span class='unimportant-text'>
+          {{shopping.items.length}} item{{shopping.items.length > 1 ? 's' : ''}} in your cart
+        </span>
+      </div>
+      <table width='100%'>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th width='60'>Quantity</th>
+            <th width="100" class='text-center'>Retail Price</th>
+            <th width="60" class='text-center'>PCV</th>
+            <th width="100" class='text-center'>Your Price</th>
+            <th width="100" class='text-center'>Total Price</th>
+            <th width="80"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in shopping.items">
+            <td>
+              <div class='products-cart-item'>
+                <img ng-src="{{item.data.images[0] | imageSize:'small' }}" alt='Pack name' class='pack-img' />
+                <div class='product-info'>
+                  <h6 class='product-name'>
+                    <a ng-href="#/product/{{item.data.productId}}">
+                      {{item.data.name}}
+                    </a>
+                  </h6>
+                  <p class='product-id'>
+                    {{item.data.sku}}
+                  </p>
+                  <!--<p class='product-size'><span>SIZE: S</span><span>COLOR: BLACK</span></p>-->
+                </div>
+              </div>
+            </td>
+            <td class='text-center'>
+              <input type="number" ng-model="item.quantity" />
+            </td>
+            <td class='primary-color text-center'>
+              {{item.retailPrice | price}}
+            </td>
+            <td class='text-center'>
+              {{item.data.commissions | price}}
+            </td>
+            <td class='primary-color text-center'>
+              {{item.data.price | price}}
+            </td>
+            <td class='primary-color text-center'>
+              {{item.data.price * item.quantity | price}}
+            </td>
+            <td class='text-center'>
+              <a ng-click="remove(item)" class='large-font unimportant-text'><b><i class="fa fa-times-circle"></i></b></a>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="7">
+              <div class='row'>
+                <div class='small-12 columns text-right check-out-foot'>
+                  <!--<p>Subtotal before Discounts: $300.00 </p>-->
+                  <!--<p>Balance: $22.00 </p>-->
+                  <!--<p>Shipping and Handling: $10.00 </p>-->
+                  <!--<p>Tax: $1.68 </p>-->
+                  <strong class='price-total'>SubTotal: {{GrandTotal() | price}} </strong>
+                </div>
+              </div>
+            </th>
+          </tr>
+        </tfoot>
+      </table>
+      <div class='clearfix'>
+        <div class='product-cart-chekout-left left'>
+          <a ng-click="continueShopping()" class='unimportant-text'>Continue Shopping</a> |
+          <a ng-click="empty()" class='unimportant-text'>Empty Cart</a>
+        </div>
+        <a href='#' class='button small right'>Check Out</a>
+      </div>
+    </div>
+    <!-- products-cart end -->
+  </div>
+</div>
