@@ -13,7 +13,9 @@ angular.module('fto', [
 
   'fto/signup',
   'fto/signin',
-  'fto/header'
+  'fto/header',
+  'fto/profile',
+  'fto/gift'
 ])
   .config(function($routeProvider) {
     $routeProvider
@@ -45,10 +47,6 @@ angular.module('fto', [
       .when('/products/detail', {
         templateUrl: 'views/products/products-detail.html',
         //controller: 'SignUpController'
-      })
-      .when('/products/gift-detail', {
-        templateUrl: 'views/products/products-gift-detail.html',
-        controller: 'GiftPopupController'
       })
       .when('/products/success', {
         templateUrl: 'views/products/products-success.html',

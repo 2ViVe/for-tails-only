@@ -13,27 +13,21 @@ angular.module('fto', [
   // apps
   'fto/signup',
   'fto/profile',
+<<<<<<< HEAD
 //  'fto/taxon',
   'fto/header'
+=======
+  'fto/taxon',
+  'fto/header',
+  'fto/gift',
+  'fto/product',
+  'fto/shopping'
+>>>>>>> c200769c17a87809dde5e016ac10d9a6065bf4b4
 ])
   .config(function($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/home.html'
-      })
-      .when('/signin', {
-        templateUrl: 'views/sign-in.html',
-        controller: 'SignInController'
-      })
-      .when('/signup', {
-        redirectTo: '/signup'
-      })
-      .when('/signup/:stepNumber', {
-        templateUrl: 'views/sign-up/all.html',
-        controller: 'SignUpController'
-      })
-      .when('/retail-signup', {
-        templateUrl: 'views/sign-up/retail-signup.html'
       })
       .when('/products/', {
         templateUrl: 'views/products/products-index.html',
@@ -41,22 +35,6 @@ angular.module('fto', [
       })
       .when('/products/list', {
         templateUrl: 'views/products/products-list.html',
-        //controller: 'SignUpController'
-      })
-      .when('/products/cart', {
-        templateUrl: 'views/products/products-cart.html',
-        //controller: 'SignUpController'
-      })
-      .when('/products/gift-detail', {
-        templateUrl: 'views/products/products-gift-detail.html',
-        controller: 'GiftPopupController'
-      })
-      .when('/products/success', {
-        templateUrl: 'views/products/products-success.html',
-        //controller: 'SignUpController'
-      })
-      .when('/products/checkout', {
-        templateUrl: 'views/products/products-checkout.html',
         //controller: 'SignUpController'
       })
       .when('/about', {

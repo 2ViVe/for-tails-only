@@ -33,7 +33,7 @@
       </strong>
       <div class='product-panel'>
         <h6>QUANTITY</h6>
-        <input class="product-quantity" type='text' value='1' />
+        <input class="product-quantity" type='number' min="1" ng-model="quantity" ng-init="quantity=1" />
       </div>
       <hr/>
       <div class='product-panel' ng-hide="sizes.length < 2 || sizes === undefined">
@@ -53,9 +53,18 @@
         </ul>
         <hr/>
       </div>
+      <div class='product-panel' ng-hide="genders.length < 2 || genders === undefined">
+        <h6>GENDER</h6>
+        <ul class='options'>
+          <li ng-repeat="gender in genders" ng-click="changeGender(gender)" ng-class="{current: gender === selectedGender}">
+            {{gender.presentationValue}}
+          </li>
+        </ul>
+        <hr/>
+      </div>
       
       <div class='product-panel'>
-        <a href='#' class='button small'>ADD TO CART</a>
+        <button ng-click="addToCart()" class='small'>ADD TO CART</button>
       </div>
 
 
