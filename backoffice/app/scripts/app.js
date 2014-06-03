@@ -13,7 +13,7 @@ angular.module('fto', [
   // apps
   'fto/signup',
   'fto/profile',
-  'fto/taxon',
+//  'fto/taxon',
   'fto/header'
 ])
   .config(function($routeProvider) {
