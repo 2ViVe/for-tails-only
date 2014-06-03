@@ -1,0 +1,157 @@
+<div class='products'>
+  <div class='row'>
+    <div class='small-12 columns'>
+      <h4 class="block-margin-bottom">Review & Place Order</h4>
+    </div>
+  </div>
+  <div class='row' ng-show="error !== ''">
+    <div class='small-12 columns'>
+      <div data-alert class="alert-box error">
+        {{error}}
+      </div>
+    </div>
+  </div>
+  <div class='row products-checkout'>
+    <!-- products-checkout-info start -->
+    <div class='medium-7 columns products-checkout-info'>
+      <form novalidate name="paymentForm">
+        <h3>PAYMENT INFO</h3>
+        <h4>Payment Method</h4>
+        <div class='row'>
+          <div class='small-12 columns'>
+            <label class='required' for="card-number">Credit Card Number</label>
+            <div class='row'>
+              <div class='small-8 columns'>
+                <input type='text'
+                       required
+                       id="card-number"
+                       name="cardNumber"
+                       ng-model="creditcard.number" />
+                <small class="error" ng-show="submitted && paymentForm.cardNumber.$error.required">
+                  This information is required.
+                </small>
+              </div>
+              <div class='small-4 columns'>
+                <img src="images/creditCard.jpg" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='row' data-credit-card-expiration>
+        <div class='small-8 columns'>
+          <label class='required' for="expiration-month">Expiration Date</label>
+          <div class='row'>
+            <div class='small-6 columns'>
+              <select id="expiration-month"
+                      name="expirationMonth"
+                      class="medium"
+                      required
+                      ng-model="creditcard.expirationMonth"
+                      ng-options="month for month in expirationMonths">
+                <option value="">Month</option>
+              </select>
+              <small class="error" ng-show="submitted && paymentForm.expirationMonth.$error.required">
+                This information is required.
+              </small>
+            </div>
+            <div class='small-6 columns'>
+              <select id="expiration-year"
+                      name="expirationYear"
+                      class="medium"
+                      required
+                      ng-model="creditcard.expirationYear"
+                      ng-options="year for year in expirationYears">
+                <option value="">Year</option>
+              </select>
+              <small class="error" ng-show="submitted && paymentForm.expirationYear.$error.required">
+                This information is required.
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class='small-4 columns'>
+          <label class='required' for="cvv">Card Code</label>
+          <input type='text'
+                 id="cvv"
+                 name="cvv"
+                 required
+                 ng-model="creditcard.cvv"/>
+          <small class="error signUpInputW" ng-show="submitted && paymentForm.cvv.$error.required">
+            This information is required.
+          </small>
+        </div>
+      </div>
+      </form>
+    </div>
+    <!-- products-checkout-info end -->
+    <!-- products-checkout-cart start -->
+    <div class='medium-5 columns products-checkout-cart'>
+      <h3>CART</h3>
+      <table width='100%' class='products-checkout-table'>
+        <tbody>
+        <tr ng-repeat="lineItem in lineItems">
+          <td class='prodcuts-checkout-table-img'>
+            <img ng-src="{{lineItem.images[0]}}" alt='Product name' />
+          </td>
+          <td>
+            <div class='products-checkout-table-item'>
+              <div class='product-info'>
+                <h6 class='product-name'>Gift Certificate</h6>
+                <p class='product-id'>{{lineItem.sku}}</p>
+                <p class='product-option'>Quantity: 1</p>
+                <p class='product-option'>{{lineItem.price | price}}</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <th colspan="2">
+            <div class='row'>
+              <div class='small-12 columns text-right check-out-foot'>
+                <strong class='price-total'>Total Price: {{lineItems[0].price | price}} </strong>
+              </div>
+            </div>
+          </th>
+        </tr>
+        </tfoot>
+      </table>
+      <div class='row'>
+        <div class='small-12 columns'>
+          <button class='full-width' ng-click="placeOrder()">PLACE ORDER</button>
+        </div>
+      </div>
+    </div>
+    <!-- products-checkout-cart end -->
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

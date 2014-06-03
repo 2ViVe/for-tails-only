@@ -21,5 +21,9 @@ angular
             return giftCard.fetch();
           }]
         }
+      })
+      .when('/gift/checkout', {
+        templateUrl: 'views/gift/checkout.html',
+        controller: 'GiftCheckoutController'
       });
   }]);

@@ -18,6 +18,18 @@ angular.module('fto/gift')
         return $filter('orderBy')($scope.currentTheme.variants, 'price')[0];
       };
 
+      $scope.debug = function() {
+        $scope.emailInfo = {
+          nameTo: 'nameto',
+          recipientEmail: 'nameto@gmail.com',
+          nameFrom: 'namefrom',
+          emailFrom: 'emailfrom@gmail.com',
+          message: 'message'
+        };
+      };
+
+//      $scope.debug();
+
       $scope.maxPrice = function() {
         var varaiants = $scope.currentTheme.variants;
         return $filter('orderBy')(varaiants, 'price')[varaiants.length - 1];
@@ -29,7 +41,7 @@ angular.module('fto/gift')
           return null;
         }
 
-        giftCard.purchase($scope.selectedGiftCard, $scope.emailForm);
+        giftCard.purchase($scope.currentGiftCard, $scope.emailInfo);
       };
 
       $scope.preview = function() {
