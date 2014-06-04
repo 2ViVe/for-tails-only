@@ -1,0 +1,144 @@
+<div class='products'>
+  <div class='row'>
+    <div class='small-12 columns'>
+      <h2>SUCCESS</h2>
+    </div>
+  </div>
+  <div class='row'>
+    <!-- product success start -->
+    <div class="medium-12 columns">
+      <table width='100%' cellspacing=0>
+        <thead>
+          <tr>
+            <th width="50%" class='cPrimary'>Order ID: <span>{{successInfo.orderId}}</span></th>
+            <th class='cPrimary'><a ng-href="/api/v2/orders/pdf-invoice?ids={{successInfo.orderId}}" class='button tiny right'>Print</a>
+              Status: <span>{{successInfo.status}}</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class='border-sep'>
+            <td>
+              <p>Order Date: <span class='cLessImportant'>{{successInfo.orderDate | date: 'medium'}}</span></p>
+              <p>Customer: <span class='cLessImportant'>
+                {{order.data.shippingAddress.firstName}}
+                {{order.data.shippingAddress.m}}
+                {{order.data.shippingAddress.lastName}}
+              </span></p>
+              <!--<p>Type: <span class='cLessImportant'>Renewal Fees</span></p>-->
+            </td>
+            <td>
+              <p>Shipping Method: <span class='cLessImportant'>{{selectedShippingMethod.name}}</span></p>
+              <p>Payment Date: <span class='cLessImportant'>{{successInfo.paymentDate | date: 'medium'}}</span></p>
+              <p>Payment Method: <span class='cLessImportant'>{{selectedPaymentMethod.name}}</span></p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table width='100%' cellspacing=0>
+        <thead>
+          <tr>
+            <th width="50%" class='cPrimary'></th>
+            <th class='cPrimary'></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class='border-sep'>
+            <td>
+              <p>Ship To:
+                <span class='cLessImportant'>
+                  {{order.data.shippingAddress.firstName}}
+                  {{order.data.shippingAddress.m}}
+                  {{order.data.shippingAddress.lastName}}
+                  <br/>
+                  {{order.data.shippingAddress.street}},
+                  {{order.data.shippingAddress.city}},
+                  {{order.data.shippingAddress.state}},
+                  {{order.data.shippingAddress.country}},
+                  {{order.data.shippingAddress.zip}}
+                  <br/>
+                  Phone: {{order.data.shippingAddress.phone}}
+                </span>
+              </p>
+            </td>
+            <td>
+              <p>Bill To:
+                <span class='cLessImportant'>
+                  {{order.data.billingAddress.firstName}}
+                  {{order.data.billingAddress.m}}
+                  {{order.data.billingAddress.lastName}}
+                  <br/>
+                  {{order.data.billingAddress.street}},
+                  {{order.data.billingAddress.city}},
+                  {{order.data.billingAddress.state}},
+                  {{order.data.billingAddress.country}},
+                  {{order.data.billingAddress.zip}}
+                  <br/>
+                  Phone: {{order.data.billingAddress.phone}}
+                </span>
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table width='100%'>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th width='60'>Quantity</th>
+            <th width="100" class='text-center'>Retail Price</th>
+            <th width="60" class='text-center'>PCV</th>
+            <th width="100" class='text-center'>Your Price</th>
+            <th width="100" class='text-center'>Total Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="lineItem in order.data.lineItems">
+            <td>
+              <div class='products-cart-item'>
+                <img ng-src="{{lineItem.imageUrl | imageSize: 'small'}}" alt='Product name' />
+                <div class='product-info'>
+                  <h6 class='product-name'>
+                    <a ng-href="#/product/{{lineItem.productId}}">
+                      {{lineItem.productName}}
+                    </a>
+                  </h6>
+                  <p class='product-id'>{{lineItem.sku}}</p>
+                  <!--<p class='product-size'><span>SIZE: S</span><span>COLOR: BLACK</span></p>-->
+                </div>
+              </div>
+            </td>
+            <td class='text-center'>{{lineItem.quantity}}</td>
+            <td class='cPrimary text-center'>{{lineItem.price + lineItem.qualifictionVolume | price}}</td>
+            <td class='text-center'>{{lineItem.qualifictionVolume | price}}</td>
+            <td class='cPrimary text-center'>{{lineItem.price | price}}</td>
+            <td class='cPrimary text-center'>{{lineItem.price * lineItem.quantity | price}}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="7">
+              <div class='row'>
+                <div class='small-12 columns text-right check-out-foot'>
+                  <p>Updated Subtotal: {{order.data.itemTotal | price}} </p>
+                  <!--<p>Balance: $22.00 </p>-->
+                  <p ng-repeat="adjustment in order.data.adjustments">
+                    {{adjustment.label}}: {{adjustment.amount | price}}
+                  </p>
+                  <strong class='price-total'>Total Price: {{totalPrice() | price}} </strong>
+                  <!--<small><i>You save $0.00 and eam 0.00 PCV on this order.</i></small>-->
+                </div>
+              </div>
+            </th>
+          </tr>
+        </tfoot>
+      </table>
+      <div class='clearfix'>
+        <div class='product-cart-chekout-left'>
+          <a href='#' class='unimportant-text'>Back to home</a>
+        </div>
+      </div>
+    </div>
+    <!-- product success end -->
+  </div>
+</div>

@@ -18,23 +18,16 @@ angular.module('fto', [
   'fto/gift',
   'fto/product',
   'fto/shopping',
-  'fto/report'
+  'fto/report',
+  'fto/checkout'
 ])
   .config(function($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/home.html'
       })
-      .when('/products/', {
-        templateUrl: 'views/products/products-index.html',
-        //controller: 'SignUpController'
-      })
-      .when('/products/list', {
-        templateUrl: 'views/products/products-list.html',
-        //controller: 'SignUpController'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html'
+      .when('/products', {
+        templateUrl: 'views/products/products-index.html'
       })
       .when('/party/party-my', {
         templateUrl: 'views/party/party-my.html'
