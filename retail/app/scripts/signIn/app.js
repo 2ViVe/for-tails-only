@@ -13,6 +13,6 @@ angular
     $routeProvider
       .when('/signin', {
         templateUrl: 'views/sign-in.html',
-        controller: 'SignUpController'
+        controller: 'SignInController'
       });
   }]);

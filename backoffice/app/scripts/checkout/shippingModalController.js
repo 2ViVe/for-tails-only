@@ -4,43 +4,14 @@ angular
   .module('fto/checkout')
   .controller('ShippingModalController', ['$scope', '$modalInstance', 'Address',
     function($scope, $modalInstance, Address) {
-      $scope.shippingAddress = {};
-
-      var invalidFields = [];
+      $scope.shippingAddress = Address.create('shipping');
 
       $scope.submit = function() {
-        var form = this.form;
-        if ($scope.submitted || form.$valid) {
-          var shippingAddress = {
-            'first-name': $scope.shippingAddress['first-name'],
-            'last-name': $scope.shippingAddress['last-name'],
-            'street': $scope.shippingAddress.street,
-            'street-cont': $scope.shippingAddress['street-cont'],
-            'city': $scope.shippingAddress.city,
-            'zip': $scope.shippingAddress.zip,
-            'state-id': $scope.shippingAddress.state.id,
-            'state': $scope.shippingAddress.state.name,
-            'country-id': $scope.shippingAddress.country.id,
-            'country': $scope.shippingAddress.country.name,
-            'phone': $scope.shippingAddress.phone
-          };
+        if ($scope.submitted || this.form.$valid) {
 
-          angular.forEach(invalidFields, function(invalidField) {
-            invalidField.$setValidity('validated', true);
-          });
-          invalidFields = [];
-          $scope.$shippingAddressErrors = {};
-
-          Address.validateShippingAddressNew(shippingAddress)
+          $scope.shippingAddress.validate()
             .then(function() {
-              $modalInstance.close(shippingAddress);
-            })
-            .catch(function(failures) {
-              angular.forEach(failures, function(failiure) {
-                form['shipping-' + failiure.field].$setValidity('validated', false);
-                invalidFields.push(form['shipping-' + failiure.field]);
-              });
-              $scope.$shippingAddressErrors = failures;
+              $modalInstance.close($scope.shippingAddress);
             });
         }
         $scope.submitted = true;

@@ -4,43 +4,14 @@ angular
   .module('fto/checkout')
   .controller('BillingModalController', ['$scope', '$modalInstance', 'Address',
     function($scope, $modalInstance, Address) {
-      $scope.billingAddress = {};
-
-      var invalidFields = [];
+      $scope.billingAddress = Address.create('billing');
 
       $scope.submit = function() {
-        var form = this.form;
-        if ($scope.submitted || form.$valid) {
-          var billingAddress = {
-            'first-name': $scope.billingAddress['first-name'],
-            'last-name': $scope.billingAddress['last-name'],
-            'street': $scope.billingAddress.street,
-            'street-cont': $scope.billingAddress['street-cont'],
-            'city': $scope.billingAddress.city,
-            'zip': $scope.billingAddress.zip,
-            'state-id': $scope.billingAddress.state.id,
-            'state': $scope.billingAddress.state.name,
-            'country-id': $scope.billingAddress.country.id,
-            'country': $scope.billingAddress.country.name,
-            'phone': $scope.billingAddress.phone
-          };
+        if ($scope.submitted || this.form.$valid) {
 
-          angular.forEach(invalidFields, function(invalidField) {
-            invalidField.$setValidity('validated', true);
-          });
-          invalidFields = [];
-          $scope.$billingAddressErrors = {};
-
-          Address.validateBillingAddressNew(billingAddress)
+          $scope.shippingAddress.validate()
             .then(function() {
-              $modalInstance.close(billingAddress);
-            })
-            .catch(function(failures) {
-              angular.forEach(failures, function(failiure) {
-                form['billing-' + failiure.field].$setValidity('validated', false);
-                invalidFields.push(form['billing-' + failiure.field]);
-              });
-              $scope.$billingAddressErrors = failures;
+              $modalInstance.close($scope.billingAddress);
             });
         }
         $scope.submitted = true;
