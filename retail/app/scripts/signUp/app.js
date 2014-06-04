@@ -19,5 +19,9 @@ angular
             return Countries.fetch();
           }]
         }
+      })
+      .when('/retail-signup', {
+        templateUrl: 'views/sign-up/retail.html',
+        controller: 'RetailSignUpController'
       });
   }]);

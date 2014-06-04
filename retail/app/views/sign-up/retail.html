@@ -1,23 +1,26 @@
-<form ng-submit="create()">
 
-  <div data-sponsor-panel
-       data-account="account"
-       data-submitted="submitted">
-  </div>
+<div class="sign-up">
+  <form ng-submit="create()">
 
-  <div data-account-panel
-       data-account="account"
-       data-submitted="submitted">
-  </div>
+    <div data-sponsor-panel
+         data-account="account"
+         data-submitted="submitted">
+    </div>
 
-  <div data-address-panel
-       data-address-type="shipping"
-       data-title="Shipping"
-       data-address="address.shipping"
-       data-home-address="address.home"
-       data-submitted="submitted">
-  </div>
+    <div data-account-panel
+         data-account="account"
+         data-submitted="submitted">
+    </div>
 
-  <button type="submit">Create</button>
+    <div data-address-panel
+         data-address-type="shipping"
+         data-title="Shipping"
+         data-address="address.shipping"
+         data-home-address="address.home"
+         data-submitted="submitted">
+    </div>
 
-</form>
+    <button type="submit">Create</button>
+
+  </form>
+</div>

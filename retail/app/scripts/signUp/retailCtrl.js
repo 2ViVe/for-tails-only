@@ -1,7 +1,7 @@
 'use strict';
 angular.module('fto/signup')
-  .controller('RetailSignUpController', ['$scope', 'countries', 'Address', 'Registration',
-    function($scope, countries, Address, Registration) {
+  .controller('RetailSignUpController', ['$scope', 'Address', 'Registration',
+    function($scope, Address, Registration) {
 
       $scope.method = {
         shipping: {},
@@ -10,12 +10,6 @@ angular.module('fto/signup')
 
       $scope.address = Address.createContainer()
         .addType('shipping');
-
-      $scope.account = {
-        country: countries.defaultCountry()
-      };
-
-      $scope.countries = countries.data;
 
       $scope.create = function() {
 
@@ -26,7 +20,6 @@ angular.module('fto/signup')
           $scope.account.email,
           $scope.address.shipping
         );
-
       };
 
     }]);
