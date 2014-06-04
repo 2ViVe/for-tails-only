@@ -52,86 +52,59 @@
   </div>
 </div>
 
-
 <div class='home-summary row'>
-  <div class='small-6 columns'>
+  <div class='small-12 columns'>
     <h2>ORDER SUMMARY</h2>
     <table width='100%' cellpadding='0' cellspacing='0' border='0'>
       <thead>
         <tr>
           <th>Order ID</th>
           <th>Order Date</th>
-          <th>PV</th>
-          <th>Price</th>
+          <th>Total</th>
           <th>Status</th>
+          <th>Payment Status</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>4992148</td>
-          <td>12/27/13</td>
-          <td>0.00</td>
-          <td>$0.00</td>
-          <td>Submitted</td>
-        </tr>
-        <tr>
-          <td>4992169</td>
-          <td>12/27/13</td>
-          <td>64.40</td>
-          <td>$76.22</td>
-          <td>Shipped</td>
-        </tr>
-        <tr>
-          <td>4992169</td>
-          <td>12/27/13</td>
-          <td>64.40</td>
-          <td>$76.22</td>
-          <td>Shipped</td>
+        <tr ng-repeat="order in orders">
+          <td>{{ order.number }}</td>
+          <td>{{ order.orderDate | date:'medium' }}</td>
+          <td class="text-right">{{ order.total | price }}</td>
+          <td>{{ order.state }}</td>
+          <td>{{ order.paymentState }}</td>
         </tr>
       </tbody>
     </table>
     <div>
-      <a href='#' class='button small left'>Place A New Order</a>
-      <a href='#' class='button small right'>View My Orders</a>
+      <!--<a href='#' class='button small left'>Place A New Order</a>-->
+      <a href='#/report/order' class='button small right'>View My Orders</a>
     </div>
   </div>
-  <div class='small-6 columns'>
-    <h2>ORDER SUMMARY</h2>
-    <table width='100%' cellpadding='0' cellspacing='0' border='0'>
-      <thead>
-        <tr>
-          <th>Order Date</th>
-          <th>Quantity</th>
-          <th>PV</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>12/27/13</td>
-          <td>2 Orders</td>
-          <td>0.00</td>
-          <td>$0.00</td>
-        </tr>
-        <tr>
-          <td>12/27/13</td>
-          <td>2 Orders</td>
-          <td>64.40</td>
-          <td>$76.22</td>
-        </tr>
-        <tr>
-          <td>12/27/13</td>
-          <td>2 Orders</td>
-          <td>64.40</td>
-          <td>$76.22</td>
-        </tr>
-      </tbody>
-    </table>
-    <div>
-      <a href='#' class='button small left'>Set up New Pawty</a>
-      <a href='#' class='button small right'>View My Orders</a>
-    </div>
-  </div>
+  <!--<div class='small-6 columns'>-->
+    <!--<h2>ORDER SUMMARY</h2>-->
+    <!--<table width='100%' cellpadding='0' cellspacing='0' border='0'>-->
+      <!--<thead>-->
+        <!--<tr>-->
+          <!--<th>Order Date</th>-->
+          <!--<th>Quantity</th>-->
+          <!--<th>PV</th>-->
+          <!--<th>Price</th>-->
+        <!--</tr>-->
+      <!--</thead>-->
+      <!--<tbody>-->
+        <!--<tr>-->
+          <!--<td>12/27/13</td>-->
+          <!--<td>2 Orders</td>-->
+          <!--<td>64.40</td>-->
+          <!--<td>$76.22</td>-->
+        <!--</tr>-->
+      <!--</tbody>-->
+    <!--</table>-->
+    <!--<div>-->
+      <!--<a href='#' class='button small left'>Set up New Pawty</a>-->
+      <!--<a href='#' class='button small right'>View My Orders</a>-->
+    <!--</div>-->
+  <!--</div>-->
 </div>
 
 <div class="row home-topics">
