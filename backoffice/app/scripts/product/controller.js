@@ -61,7 +61,7 @@ angular.module('fto')
         Shopping.add($scope.variant, $scope.quantity, product.catalogCode)
           .success(function() {
             $modal.open({
-              templateUrl: 'views/shopping/shopping.html',
+              templateUrl: 'views/shopping/shopping-modal.html',
               controller: 'ShoppingModalController',
               resolve: {
                 shopping: ['Shopping', function(Shopping) {

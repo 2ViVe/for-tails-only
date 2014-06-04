@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('fto')
-  .controller('ProductDetailCtr', ['$scope', 'product' , 'taxons', 'Shopping',
-    function($scope, product, taxons, Shopping) {
+  .controller('ProductDetailCtr', ['$scope', 'product' , 'taxons', 'Shopping', '$modal',
+    function($scope, product, taxons, Shopping, $modal) {
 
       var updateVariant = function() {
         $scope.variant = product.getVariantByOptions({
@@ -58,18 +58,18 @@ angular.module('fto')
       };
 
       $scope.addToCart = function() {
-        Shopping.add($scope.variant, $scope.quantity, product.catalogCode);
-//          .success(function() {
-//            $modal.open({
-//              templateUrl: 'views/shopping/shopping-modal.html',
-//              controller: 'ShoppingModalController',
-//              resolve: {
-//                shopping: ['Shopping', function(Shopping) {
-//                  return Shopping.fetch();
-//                }]
-//              }
-//            });
-//          });
+        Shopping.add($scope.variant, $scope.quantity, product.catalogCode)
+          .success(function() {
+            $modal.open({
+              templateUrl: 'views/shopping/shopping-modal.html',
+              controller: 'ShoppingModalController',
+              resolve: {
+                shopping: ['Shopping', function(Shopping) {
+                  return Shopping.fetch();
+                }]
+              }
+            });
+          });
       };
 
     }])
