@@ -6,11 +6,13 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <!--<meta name="viewport" content="width=device-width">-->
+    <title>For Tails Only Back Office</title>
+    <meta name="Author" content="For Tails Only">
+    <meta name="Copyright" content="2013 - 2014, For Tails Only.">
+    <meta name="KEYWORDS" content="pet supplies, pet equipment, pet grooming, pet tags, pet toys, pet nutrition, cat treats, dog treats, cat toys, dog toys, cat tags, dog tags, dog leashes, dog collars, cat collars">
+    <meta name="description" content="The only company of its kind that is a direct sales organization selling products for pets and pet lovers. Find an independent handler in your area to get started and join a company that is dedicated to making everyone smile.">
     <meta name="viewport" content="width=device-width user-scalable=yes, target-densitydpi=device-dpi" />
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="favicon.png">
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/angular-loading-bar/src/loading-bar.css" />
@@ -59,6 +61,7 @@
     <script src="bower_components/2ViVe/scripts/main.js"></script>
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/pikaday/pikaday.js"></script>
+    <script src="bower_components/angular-cookie/angular-cookie.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -77,24 +80,31 @@
     <script src="bower_components/2ViVe/scripts/services/utils.js"></script>
     <script src="bower_components/2ViVe/scripts/services/urlHandler.js"></script>
     <script src="bower_components/2ViVe/scripts/services/localStorage.js"></script>
-    <script src="bower_components/2ViVe/scripts/filters/price.js"></script>
     <script src="bower_components/2ViVe/scripts/services/shopping.js"></script>
     <script src="bower_components/2ViVe/scripts/services/product.js"></script>
     <script src="bower_components/2ViVe/scripts/services/taxons.js"></script>
+    <script src="bower_components/2ViVe/scripts/services/giftCard.js"></script>
+    <script src="bower_components/2ViVe/scripts/services/order.js"></script>
+
+    <script src="bower_components/2ViVe/scripts/filters/imageSize.js"></script>
+    <script src="bower_components/2ViVe/scripts/filters/price.js"></script>
+
+    <script src="bower_components/2ViVe/scripts/directives/creditCardExpiration.js"></script>
+
+    <script src="bower_components/2ViVe/panels/scripts/availabilitiesValidator.js"></script>
+    <script src="bower_components/2ViVe/panels/scripts/dateOfBirth.js"></script>
+    <script src="bower_components/2ViVe/panels/scripts/sponsorValidator.js"></script>
 
     <script src="scripts/app.js"></script>
     <script src="scripts/initialize.js"></script>
     <script src="scripts/signup/app.js"></script>
     <script src="scripts/signup/quick/quickSignupCtrl.js"></script>
-    <script src="scripts/signup/controls/sponsorValidator.js"></script>
-    <script src="scripts/signup/controls/availabilitiesValidator.js"></script>
     <script src="scripts/signup/success/signupSuccessCtrl.js"></script>
     <script src="scripts/signup/quick/accountPanel.js"></script>
     <script src="scripts/signup/quick/sponsorPanel.js"></script>
     <script src="scripts/signup/quick/addressPanel.js"></script>
     <script src="scripts/signup/quick/addressPanelCtrl.js"></script>
     <script src="scripts/signup/quick/addressTextField.js"></script>
-
 
     <script src="scripts/profile/app.js"></script>
     <script src="scripts/profile/profileAddressPanel.js"></script>
@@ -104,19 +114,40 @@
     <script src="scripts/profile/profileUserPanel.js"></script>
     <script src="scripts/profile/profileWebsitePanel.js"></script>
 
-
     <script src="scripts/slider/directive.js"></script>
 
     <script src="scripts/party/party-invite/controller.js"></script>
     <script src="scripts/party/party-create/controller.js"></script>
     <script src="scripts/party/party-contact/controller.js"></script>
 
+    <script src="scripts/taxon/app.js"></script>
     <script src="scripts/taxon/controller.js"></script>
     <script src="scripts/taxon/filter.js"></script>
-    <script src="scripts/taxon/app.js"></script>
-    <script src="scripts/product/product-detail/controller.js"></script>
+
+    <script src="scripts/product/app.js"></script>
+    <script src="scripts/product/controller.js"></script>
 
     <script src="scripts/header/controller.js"></script>
+
+    <script src="scripts/gift/app.js"></script>
+    <script src="scripts/gift/controller.js"></script>
+    <script src="scripts/gift/modalController.js"></script>
+    <script src="scripts/gift/checkoutController.js"></script>
+
+    <script src="scripts/shopping/app.js"></script>
+    <script src="scripts/shopping/controller.js"></script>
+    <script src="scripts/shopping/modalController.js"></script>
+
+    <script src="scripts/report/app.js"></script>
+    <script src="scripts/report/orderController.js"></script>
+
+    <script src="scripts/checkout/app.js"></script>
+    <script src="scripts/checkout/controller.js"></script>
+    <script src="scripts/checkout/shippingModalController.js"></script>
+    <script src="scripts/checkout/billingModalController.js"></script>
+
+    <script src="scripts/home/app.js"></script>
+    <script src="scripts/home/controller.js"></script>
     <!-- endbuild -->
 </body>
 </html>

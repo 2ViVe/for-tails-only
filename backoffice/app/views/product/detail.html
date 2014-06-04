@@ -1,0 +1,163 @@
+<div class='products'>
+  <div class='row'>
+    <div class='small-12 columns'>
+      <ul class="breadcrumbs"> 
+        <li><a ng-href="{{taxon | taxonLink}}">{{taxon.name}}</a></li> 
+        <li><a ng-href="#/products/{{taxon.permalink}}/{{subTaxon.permalink}}">{{subTaxon.name}}</a></li> 
+        <li class="current"><a href="#">{{product.name}}</a></li> 
+      </ul>
+    </div>
+  </div>
+  <div class='row products-detail'>
+    <!-- products-detail-photo start -->
+    <div class='medium-6 columns products-detail-photo'>
+      <div class="detail-image">
+      <img class="zoom-image" ng-src="{{currentImage}}" alt="{{product.name}}"/>
+    </div>
+
+    <ul class="small-block-grid-4 thumbnails">
+      <li ng-repeat="image in product.images" ng-click="changeImage(image)">
+        <div class="thumbnail-image" ng-class="{current: currentImage === image}">
+
+          <img data-pre-load-image-url="{{image}}" ng-src="{{image | imageSize:'small' }}"/>
+        </div>
+      </li>
+    </ul>
+    </div>
+    <!-- products-detail-photo end -->
+    <!-- products-detail-info start -->
+    <div class='medium-6 columns products-detail-info'>
+      <h3>{{product.name}}<br/><small>Item Code: {{variant.sku}}</small></h3>
+      <strong class='products-detail-price'>
+        {{variant.price | price}}
+      </strong>
+      <div class='product-panel'>
+        <h6>QUANTITY</h6>
+        <input class="product-quantity" type='number' min="1" ng-model="quantity" ng-init="quantity=1" />
+      </div>
+      <hr/>
+      <div class='product-panel' ng-hide="sizes.length < 2 || sizes === undefined">
+        <h6>SIZE</h6>
+        <ul class='options'>
+          <li ng-repeat="size in sizes" ng-click="changeSize(size)" ng-class="{current: size === selectedSize}">
+            {{size.presentationValue}}
+          </li>
+        </ul>
+        <hr/>
+      </div>
+      <div class='product-panel' ng-hide="colors.length < 2 || colors === undefined">
+        <h6>COLOR</h6>
+        <ul class='options'>
+          <li style="background:#{{color.presentationValue}}}" ng-repeat="color in colors" ng-click="changeColor(color)" ng-class="{current: color === selectedColor}">
+          </li>
+        </ul>
+        <hr/>
+      </div>
+      <div class='product-panel' ng-hide="genders.length < 2 || genders === undefined">
+        <h6>GENDER</h6>
+        <ul class='options'>
+          <li ng-repeat="gender in genders" ng-click="changeGender(gender)" ng-class="{current: gender === selectedGender}">
+            {{gender.presentationValue}}
+          </li>
+        </ul>
+        <hr/>
+      </div>
+      <div class='product-panel' ng-repeat="personalizedType in personalizedTypes">
+        <label ng-if="personalizedType.required" class="required" for="{{personalizedType.name}}-from">{{personalizedType.name}}:</label>
+        <label ng-if="!personalizedType.required" for="{{personalizedType.name}}-from">{{personalizedType.name}}:</label>
+          <input type="text"
+                 id="{{personalizedType.name}}-from"
+                 name="{{personalizedType.name}}}"/>
+          <hr/>
+      </div>
+      
+      <div class='product-panel'>
+        <!--<a href='#' class='button small'>ADD TO WISHLIST</a>-->
+        <button ng-click="addToCart()" class='small'>ADD TO CART</button>
+      </div>
+
+
+      <div ng-controller="ProductAccordion" class="products-detail-tabs">
+        <accordion close-others="oneAtATime">
+          <accordion-group is-open="isopen1">
+            <accordion-heading>
+              Product Description <i class="right" ng-class="{'fa fa-chevron-down': isopen1, 'fa fa-chevron-right': !isopen1}"></i>
+            </accordion-heading>
+            <div class="detail-description" ng-bind-html="product.description"></div>
+          </accordion-group>
+          <accordion-group is-open="isopen2">
+            <accordion-heading>
+              Content <i class="right" ng-class="{'fa fa-chevron-down': isopen2, 'fa fa-chevron-right': !isopen2}"></i>
+            </accordion-heading>
+            <div class="detail-content" ng-bind-html="product.description"></div>
+          </accordion-group>
+        </accordion>
+      </div>
+
+      <div class='products-detail-share text-right'>
+        <span class="unimportant-text fa">SHARE:</i></span>
+        <a href="#"><i class="fa fa-twitter-square"></i></a>
+        <a href="#"><i class="fa fa-linkedin-square"></i></a>
+        <a href="#"><i class="fa fa-pinterest-square"></i></a>
+        <a href="#"><i class="fa fa-facebook-square"></i></a>
+      </div>
+    </div>
+    <!-- products-detail-info end -->
+  </div>
+  <div class='row'>
+    <div class='small-12 columns'>
+      <h4 class="medium-font">MAYBE YOU'LL ALSO LOVE</h4>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='small-12 columns'>
+      <ul class='products-list medium-block-grid-5'>
+        <li>
+          <div class="product-img">
+            <img alt="I Dream of Squirrel - Blue - Round Shaped" src="../images/dreamsquirrelBlue.jpg" />
+            <a class="button small" style="">Quick View</a>
+          </div>
+          <p class='product-name'>Spring Donuts</p>
+          <p class='product-price'>$23.50</p>
+          <button class='button tiny'>ADD TO CART</button>
+        </li>
+        <li>
+          <div class="product-img">
+            <img alt="I Dream of Squirrel - Blue - Round Shaped" src="../images/dreamsquirrelBlue.jpg" />
+            <a class="button small" style="">Quick View</a>
+          </div>
+          <p class='product-name'>Spring Donuts</p>
+          <p class='product-price'>$23.50</p>
+          <button class='button tiny'>ADD TO CART</button>
+        </li>
+        <li>
+          <div class="product-img">
+            <img alt="I Dream of Squirrel - Blue - Round Shaped" src="../images/dreamsquirrelBlue.jpg" />
+            <a class="button small" style="">Quick View</a>
+          </div>
+          <p class='product-name'>Spring Donuts</p>
+          <p class='product-price'>$23.50</p>
+          <button class='button tiny'>ADD TO CART</button>
+        </li>
+        <li>
+          <div class="product-img">
+            <img alt="I Dream of Squirrel - Blue - Round Shaped" src="../images/dreamsquirrelBlue.jpg" />
+            <a class="button small" style="">Quick View</a>
+          </div>
+          <p class='product-name'>Spring Donuts</p>
+          <p class='product-price'>$23.50</p>
+          <button class='button tiny'>ADD TO CART</button>
+        </li>
+        <li>
+          <div class="product-img">
+            <img alt="I Dream of Squirrel - Blue - Round Shaped" src="../images/dreamsquirrelBlue.jpg" />
+            <a class="button small" style="">Quick View</a>
+          </div>
+          <p class='product-name'>Spring Donuts</p>
+          <p class='product-price'>$23.50</p>
+          <button class='button tiny'>ADD TO CART</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

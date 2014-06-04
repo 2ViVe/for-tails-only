@@ -1,28 +1,35 @@
 .sign-in {
-  padding-top: 85px;
-  padding-bottom: 105px;
+  padding-top: 0px;
+  padding-bottom: 50px;
 
-  h2 {
-    font-size: rem-calc(36);
+  .sign-in-inner{
+    margin:0 50px;
   }
 
   .forgot-password {
     float: right;
     margin-top: 3px;
-  }
-
-  h2 {
-    margin-bottom: 30px;
+    font-size:$small-font-size;
+    color:$grey-darker;
   }
 
   h3 {
     margin-top: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
+    font-size:$large-font-size;
+    small{}
+  }
+
+  input[type="text"], input[type="password"]{
+    margin-bottom:10px;
+  }
+  label{
+    color: $grey-darker;
   }
 
   .separator {
     height: 274px;
-    border-right: 1px solid $grey-darker;
+    border-right: 1px solid $grey-border;
   }
 
   .sign-in-button {
@@ -32,7 +39,7 @@
 
   .benefits {
     list-style: disc;
-    color: $grey;
+    color: $grey-darker;
     margin: 15px 15px 25px;
   }
 }

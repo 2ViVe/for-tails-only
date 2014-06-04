@@ -1,0 +1,39 @@
+<h2>Preview Gift Certificate</h2>
+<div class="popup-con">
+  <div class="gift-preview-popup">
+    <div class="row gift-to-from">
+      <div class="small-4 columns">
+        <span>To:</span>
+        <span class="grey-darker-color">{{emailInfo.nameTo ? emailInfo.nameTo : '--'}}</span>
+      </div>
+      <div class="small-4 columns">
+        <span>From:</span>
+        <span class="grey-darker-color">{{emailInfo.nameFrom ? emailInfo.nameFrom : '--'}}</span>
+      </div>
+      <div class="small-4 columns">
+        <button ng-click="cancel();purchase()" class='tiny right'>PURCHASE NOW</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 columns">
+        <p>{{emailInfo.message ? emailInfo.message : 'This is where the message goes...'}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 columns">
+        <div class='gift-preview-imgWrap'>
+          <h3 class="gift-preview-title">Gift Certificate <small class="right">Code:XXX-XXX-XXX-XXX</small></h3>
+          <div class="gift-preview-text">For Tails Only</div>
+          <div class='gift-preview-cert'><strong>{{currentGiftCard.price | price}}</strong></div>
+          <div class='gift-preview-to-from'>
+            <span>To: <strong>{{emailInfo.nameTo ? emailInfo.nameTo : '--'}}</strong></span>
+            <span class="right">From: <strong>{{emailInfo.nameFrom ? emailInfo.nameFrom : '--'}}</strong></span>
+          </div>
+          <img ng-src="/images/gift/gift-card-popup.jpg" alt='Gift Card'/>
+          <div class="gift-preview-footer">Redeem your gift certificate at <a href="http://www.fortailsonly.com/">http://www.fortailsonly.com/</a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<a class="close-reveal-modal" ng-click="cancel()">&#215;</a>

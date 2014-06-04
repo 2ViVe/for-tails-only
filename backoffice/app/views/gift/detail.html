@@ -1,0 +1,131 @@
+<div class='products'>
+  <div class='row'>
+    <div class='small-12 columns'>
+      <ul class="breadcrumbs">
+        <li><a href="#/">Home</a></li>
+        <li class="current"><a href="#">Purchase a Gift Certificate</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class='row products-detail'>
+    <!-- products-detail-photo start -->
+    <div class='medium-6 columns products-detail-photo'>
+      <img ng-src="{{currentTheme.images[0]}}" alt=""/>
+    </div>
+    <!-- products-detail-photo end -->
+    <!-- products-detail-info start -->
+    <div class='medium-6 columns products-detail-info'>
+      <h3>Gift Certificate</h3>
+      <strong class='products-detail-price' ng-if="currentGiftCard.price">
+        {{currentGiftCard.price | price}}
+      </strong>
+      <strong class='products-detail-price' ng-if="!currentGiftCard.price">
+        {{minPrice().price | price}} - {{maxPrice().price | price}}
+      </strong>
+      <div class='product-panel'>
+        <h6 class="required">AMOUNT</h6>
+        <select style='width:250px;'
+                ng-model="currentGiftCard"
+                ng-options="variant.price | price for variant in currentTheme.variants | orderBy: 'price'">
+          <option value="">Choose an Amount...</option>
+        </select>
+        <small ng-show="submitted && currentGiftCard === ''" class="error">
+          This field is required.
+        </small>
+      </div>
+      <hr/>
+      <div class='products-detail-designList'>
+        <h6 class="required">Gift Certificate Theme</h6>
+        <ul class='clearfix'>
+          <li ng-repeat="theme in giftCards">
+            <a ng-class="{current: theme === currentTheme}" ng-click="changeTheme(theme)">
+              <img ng-src="{{theme.images[0] | imageSize: 'small' }}" alt='Gift Design' />
+            </a>
+          </li>
+        </ul>
+      </div>
+      <hr/>
+      <div class='products-detail-detailList'>
+        <form novalidate name="emailForm">
+          <div class="row">
+            <div class="large-6 columns">
+              <label class="required" for="recipient-name">Recipient's Name:</label>
+              <input type="text"
+                     id="recipient-name"
+                     required
+                     ng-model="emailInfo.nameTo"
+                     name="recipientName"/>
+              <small ng-show="submitted && emailForm.recipientName.$error.required" class="error">
+                This field is required.
+              </small>
+            </div>
+            <div class="large-6 columns">
+              <label class="required" for="recipient-email">Recipient's Email:</label>
+              <input type="email"
+                     id="recipient-email"
+                     required
+                     ng-model="emailInfo.recipientEmail"
+                     name="recipientEmail"/>
+              <small ng-show="submitted && emailForm.recipientEmail.$error.required" class="error">
+                This field is required.
+              </small>
+              <small ng-show="submitted && emailForm.recipientEmail.$error.email" class="error">
+                Email is invalid
+              </small>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-6 columns">
+              <label class="required" for="name-from">Your Name:</label>
+              <input type="text"
+                     id="name-from"
+                     required
+                     name="nameFrom"
+                     ng-model="emailInfo.nameFrom"/>
+              <small ng-show="submitted && emailForm.nameFrom.$error.required" class="error">
+                This field is required.
+              </small>
+            </div>
+            <div class="large-6 columns">
+              <label class="required" for="email-from">Your Email:</label>
+              <input type="email"
+                     id="email-from"
+                     required
+                     name="emailFrom"
+                     ng-model="emailInfo.emailFrom"/>
+              <small ng-show="submitted && emailForm.emailFrom.$error.required" class="error">
+                This field is required.
+              </small>
+              <small ng-show="submitted && emailForm.emailFrom.$error.email" class="error">
+                Email is invalid.
+              </small>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-12 columns">
+              <label for="message">Your Message:</label>
+              <textarea rows="8"
+                        id="message"
+                        name="message"
+                        maxlength="250"
+                        ng-model="emailInfo.message"></textarea>
+              <p class="text-right unimportant-text">{{emailInfo.message === undefined ? 0 : emailInfo.message.length}}/250</p>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class='product-panel'>
+        <button ng-click="preview();" class='secondary small'>PREVIEW</button>
+        <button ng-click="purchase()" class='small'>PURCHASE</button>
+      </div>
+      <div class='products-detail-share text-right'>
+        <span class="unimportant-text fa">SHARE:</i></span>
+        <a href="#"><i class="fa fa-twitter-square"></i></a>
+        <a href="#"><i class="fa fa-linkedin-square"></i></a>
+        <a href="#"><i class="fa fa-pinterest-square"></i></a>
+        <a href="#"><i class="fa fa-facebook-square"></i></a>
+      </div>
+    </div>
+    <!-- products-detail-info end -->
+  </div>
+</div>

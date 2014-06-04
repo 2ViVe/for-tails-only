@@ -1,0 +1,53 @@
+<div class='products'>
+  <div class="row topbar">
+    <div class="small-12 medium-8 columns">
+      <h4 class="primary-color">{{currentTaxon.name}}</h4>
+    </div>
+    <!--<div class="small-12 medium-4 columns">-->
+      <!--<div class="row">-->
+        <!--<div class="small-5 columns no-columns-padding-right">-->
+          <!--<div class="secondary-item-label-text text-right">SORT BY</div>-->
+        <!--</div>-->
+        <!--<div class="small-7 columns">-->
+          <!--<select class="secondary-item no-margin-bottom">-->
+            <!--<option value="1">Featured Items</option>-->
+          <!--</select>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  </div>
+  <div class='row'>
+    <!-- shopping sidebar start -->
+    <div class='medium-2 columns products-sidebar'>
+      <dl ng-repeat="taxon in taxons | orderBy: 'position'">
+        <dt>
+          <a ng-href="#/products/{{taxon.permalink}}">
+            {{taxon.name}}
+          </a>
+        </dt>
+        <dd ng-repeat="subTaxon in taxon.subTaxons | orderBy: 'position'">
+          <a ng-href='#/products/{{taxon.permalink}}/{{subTaxon.permalink}}'>
+            {{subTaxon.name}}
+          </a>
+        </dd>
+      </dl>
+    </div>
+    <!-- shopping sidebar end -->
+    <!-- shopping list start -->
+    <div class='medium-10 columns'>
+      <ul class='products-list medium-block-grid-4'>
+        <li ng-repeat="product in products | orderBy: 'position'">
+          <div class="product-img">
+            <img ng-src="{{product.images[0] | imageSize:'list_thumb' }}" />
+            <a ng-href="#/product/{{product.id}}" class="button small" style="">Quick View</a>
+          </div>
+          <p class='product-name'><a ng-href="#/product/{{product.id}}">{{product.name}}</a></p>
+          <p class='product-price'>{{product.price | price}}</p>
+          <!--<button class='button tiny'>ADD TO CART</button>-->
+        </li>
+      </ul>
+      <!--<ul class="pagination right"> <li class="arrow unavailable"><a href="">&laquo;</a></li> <li class="current"><a href="">1</a></li> <li><a href="">2</a></li> <li><a href="">3</a></li> <li><a href="">4</a></li> <li class="unavailable"><a href="">&hellip;</a></li> <li><a href="">12</a></li> <li><a href="">13</a></li> <li class="arrow"><a href="">&raquo;</a></li> </ul>-->
+    </div>
+    <!-- shopping list end -->
+  </div>
+</div>
