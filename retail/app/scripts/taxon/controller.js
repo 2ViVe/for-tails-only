@@ -8,14 +8,13 @@ angular.module('2ViVe')
 
       $scope.taxons = taxons.getByPositionBetween(0, 1000);
       var taxon = taxons.getByPermalink(taxonPermalink);
-      $scope.currentTaxonId = taxon.id;
+      $scope.currentTaxon = taxon;
 
       if (subTaxonPermalink) {
-        var subTaxon = taxons.getSubTaxonByPermalinkAndTaxon(subTaxonPermalink, taxon);
-        $scope.currentTaxonId = subTaxon.id;
+        $scope.currentTaxon = taxons.getSubTaxonByPermalinkAndTaxon(subTaxonPermalink, taxon);
       }
 
-      Products.getByTaxon($scope.currentTaxonId)
+      Products.getByTaxon($scope.currentTaxon.id)
         .then(function(data) {
           $scope.products = data.products;
         });

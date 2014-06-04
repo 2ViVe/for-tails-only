@@ -1,21 +1,21 @@
 <div class='products'>
-  <!--<div class="row topbar">-->
-    <!--<div class="small-12 medium-8 columns">-->
-      <!--<h4 class="primary-color">Cats</h4>-->
-    <!--</div>-->
+  <div class="row topbar">
+    <div class="small-12 medium-8 columns">
+      <h4 class="primary-color">{{currentTaxon.name}}</h4>
+    </div>
     <!--<div class="small-12 medium-4 columns">-->
-      <!--<div class="row">-->
-        <!--<div class="small-5 columns no-columns-padding-right">-->
-          <!--<div class="secondary-item-label-text text-right">SORT BY</div>-->
-        <!--</div>-->
-        <!--<div class="small-7 columns">-->
-          <!--<select class="secondary-item no-margin-bottom">-->
-            <!--<option value="1">Featured Items</option>-->
-          <!--</select>-->
-        <!--</div>-->
-      <!--</div>-->
+    <!--<div class="row">-->
+    <!--<div class="small-5 columns no-columns-padding-right">-->
+    <!--<div class="secondary-item-label-text text-right">SORT BY</div>-->
     <!--</div>-->
-  <!--</div>-->
+    <!--<div class="small-7 columns">-->
+    <!--<select class="secondary-item no-margin-bottom">-->
+    <!--<option value="1">Featured Items</option>-->
+    <!--</select>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+  </div>
   <div class='row'>
     <!-- shopping sidebar start -->
     <div class='medium-2 columns products-sidebar'>
@@ -39,7 +39,7 @@
         <li ng-repeat="product in products | orderBy: 'position'">
           <div class="product-img">
             <img ng-src="{{product.images[0] | imageSize:'list_thumb' }}" />
-            <a class="button small" style="">Quick View</a>
+            <a ng-href="#/product/{{product.id}}" class="button small" style="">Quick View</a>
           </div>
           <p class='product-name'><a ng-href="#/product/{{product.id}}">{{product.name}}</a></p>
           <p class='product-price'>{{product.price | price}}</p>
