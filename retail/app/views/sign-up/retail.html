@@ -12,6 +12,10 @@
          data-submitted="submitted">
     </div>
 
+    <div ng-if="$scope.errors.InvalidAddress">
+      <span class="error">{{ $scope.errors.InvalidAddress }}</span>
+    </div>
+
     <div data-address-panel
          data-address-type="shipping"
          data-title="Shipping"
