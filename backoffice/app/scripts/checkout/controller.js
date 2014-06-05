@@ -2,17 +2,24 @@
 
 angular
   .module('fto/checkout')
-  .controller('CheckoutController', ['$scope', 'order', 'Shopping', '$modal',
-    function($scope, order, Shopping, $modal) {
+  .controller('CheckoutController', ['$scope', 'order', 'Shopping', '$modal', 'User',
+    function($scope, order, Shopping, $modal, User) {
       $scope.creditcard = {};
       $scope.placingOrder = false;
       $scope.isSucceed = false;
       $scope.isFailed = false;
       $scope.orderId = null;
+      $scope.showShipping = true;
 
       $scope.selectedShippingMethod = order.currentShippingMethod();
       $scope.selectedPaymentMethod = order.data.availablePaymentMethods[0];
       $scope.order = order;
+
+      if (User.shouldRenew) {
+        $scope.showShipping = false;
+        order.data.shippingAddress = undefined;
+        $scope.selectedShippingMethod.id = undefined;
+      }
 
       $scope.editShippingAddress = function() {
         $modal.open({

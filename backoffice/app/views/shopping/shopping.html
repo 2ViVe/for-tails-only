@@ -45,8 +45,11 @@
             <td class='text-center'>
               <input type="number" ng-model="item.quantity" />
             </td>
-            <td class='primary-color text-center'>
+            <td class='primary-color text-center' ng-if="item.retailPrice">
               {{item.retailPrice | price}}
+            </td>
+            <td class='text-center' ng-if="!item.retailPrice">
+              --
             </td>
             <td class='text-center'>
               {{item.data.commissions | price}}
