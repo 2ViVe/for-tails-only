@@ -13,14 +13,19 @@ angular.module('fto')
     'DEFAULT_ROLE_CODE': 'R',
     'CURRENCY_SYMBOL': '$'
   })
+  .config(['$httpProvider', function($httpProvider) {
+    $httpProvider.interceptors.push('BackOfficeAuthInterceptor');
+  }])
   .run(['User', 'UrlHandler', 'Shopping',
     function(User, UrlHandler, Shopping) {
       User.fetch().then(function() {
-//        if (User.data.roleCode === 'R') {
-//          UrlHandler.goToRetailSite();
-//          return null;
-//        }
+        if (User.data.roleCode === 'R') {
+          UrlHandler.goToRetailSite();
+          return null;
+        }
         Shopping.fetch();
+      }).catch(function() {
+        UrlHandler.goToRetailSite('/signin');
       });
     }])
   .run(['$rootScope', 'cfpLoadingBar', '$location',
