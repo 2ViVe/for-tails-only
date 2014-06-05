@@ -1,7 +1,7 @@
 'use strict';
 angular.module('fto/signup')
-  .controller('RetailSignUpController', ['$scope', 'Address', 'Registration',
-    function($scope, Address, Registration) {
+  .controller('RetailSignUpController', ['$scope', 'Address', 'Registration', 'Dashlize',
+    function($scope, Address, Registration, Dashlize) {
 
       $scope.method = {
         shipping: {},
@@ -18,7 +18,7 @@ angular.module('fto/signup')
           $scope.account.login,
           $scope.account.password,
           $scope.account.email,
-          $scope.address.shipping
+          Dashlize($scope.address.shipping)
         );
       };
 
