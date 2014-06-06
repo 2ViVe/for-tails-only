@@ -126,6 +126,9 @@ ul {
 .block-margin-bottom{
   margin-bottom: $panel-margin-bottom !important;
 }
+.title-margin-bottom{
+  margin-bottom: rem-calc(15) !important;
+}
 
 .secondary-item,.postfix.button,.secondary-item[type="text"],.secondary-item[type="text"]:focus{
   background:$grey-dark !important;

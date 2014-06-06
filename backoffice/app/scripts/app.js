@@ -41,7 +41,8 @@ angular.module('fto', [
         controller: 'PartyContactController'
       })
       .when('/party/party-details', {
-        templateUrl: 'views/party/party-details.html'
+        templateUrl: 'views/party/party-details.html',
+        controller: 'PartyDetailsController'
       })
       .when('/party/party-view-invitation', {
         templateUrl: 'views/party/party-view-invitation.html',
