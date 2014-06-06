@@ -37,59 +37,22 @@
     <h4 class="primary-color">Featured Products</h4>
   </div>
   <div class="small-12 medium-4 columns text-right page">
-    <span>1/2</span>
-    <a href><i class="fa fa-chevron-circle-left "></i></a>
-    <a href><i class="fa fa-chevron-circle-right "></i></a>
+    <span>{{FPPage}}/{{FPPageNum}}</span>
+    <a ng-click="FPPrev(FPPage, FPPageNum)"><i class="fa fa-chevron-circle-left "></i></a>
+    <a ng-click="FPNext(FPPage, FPPageNum)"><i class="fa fa-chevron-circle-right "></i></a>
   </div>
 </div>
 
 <div class="row">
   <div class="columns small-12">
     <ul class='products-list medium-block-grid-5'>
-      <li>
+      <li ng-repeat="fp in featureProductsLimit">
         <div class="product-img">
-          <img alt="I Dream of Squirrel - Blue - Round Shaped" src="../images/dreamsquirrelBlue.jpg" />
-          <a class="button small" style="">Quick View</a>
+          <img alt="{{fp.name}}" src="{{fp.images[0]}}" />
+          <a class="button small" style="" href="#/product/{{fp.id}}">Quick View</a>
         </div>
-        <p class='product-name'><a href="">Spring Donuts</a></p>
-        <p class='product-price'>$23.50</p>
-        <button class='button tiny'>ADD TO CART</button>
-      </li>
-      <li>
-        <div class="product-img">
-          <img alt="I Dream of Squirrel - Blue - Round Shaped" src="../images/dreamsquirrelBlue.jpg" />
-          <a class="button small" style="">Quick View</a>
-        </div>
-        <p class='product-name'><a href="">Spring Donuts</a></p>
-        <p class='product-price'>$23.50</p>
-        <button class='button tiny'>ADD TO CART</button>
-      </li>
-      <li>
-        <div class="product-img">
-          <img alt="I Dream of Squirrel - Blue - Round Shaped" src="../images/dreamsquirrelBlue.jpg" />
-          <a class="button small" style="">Quick View</a>
-        </div>
-        <p class='product-name'><a href="">Spring Donuts Spring Donutslll Spring Donuts Spring Donuts</a></p>
-        <p class='product-price'>$23.50</p>
-        <button class='button tiny'>ADD TO CART</button>
-      </li>
-      <li>
-        <div class="product-img">
-          <img alt="I Dream of Squirrel - Blue - Round Shaped" src="../images/dreamsquirrelBlue.jpg" />
-          <a class="button small" style="">Quick View</a>
-        </div>
-        <p class='product-name'><a href="">Spring Donuts</a></p>
-        <p class='product-price'>$23.50</p>
-        <button class='button tiny'>ADD TO CART</button>
-      </li>
-      <li>
-        <div class="product-img">
-          <img alt="I Dream of Squirrel - Blue - Round Shaped" src="../images/dreamsquirrelBlue.jpg" />
-          <a class="button small" style="">Quick View</a>
-        </div>
-        <p class='product-name'><a href="">Spring Donuts</a></p>
-        <p class='product-price'>$23.50</p>
-        <button class='button tiny'>ADD TO CART</button>
+        <p class='product-name'><a href="">{{fp.name}}</a></p>
+        <p class='product-price'>{{fp.price | price}}</p>
       </li>
     </ul>
   </div>
@@ -104,59 +67,22 @@
     <h4 class="primary-color">New Products</h4>
   </div>
   <div class="small-12 medium-4 columns text-right page">
-    <span>1/2</span>
-    <a href><i class="fa fa-chevron-circle-left "></i></a>
-    <a href><i class="fa fa-chevron-circle-right "></i></a>
+    <span>{{NPPage}}/{{NPPageNum}}</span>
+    <a ng-click="NPPrev(NPPage, NPPageNum)"><i class="fa fa-chevron-circle-left "></i></a>
+    <a ng-click="NPNext(NPPage, NPPageNum)"><i class="fa fa-chevron-circle-right "></i></a>
   </div>
 </div>
 
 <div class="row">
   <div class="columns small-12">
-    <ul class='products-list medium-block-grid-5 page'>
-      <li>
+    <ul class='products-list medium-block-grid-5'>
+      <li ng-repeat="np in newProductsLimit">
         <div class="product-img">
-          <img alt="I Dream of Squirrel - Blue - Round Shaped" src="../images/dreamsquirrelBlue.jpg" />
-          <a class="button small" style="">Quick View</a>
+          <img alt="{{np.name}}" src="{{np.images[0]}}" />
+          <a class="button small" style="" href="#/product/{{np.id}}">Quick View</a>
         </div>
-        <p class='product-name'><a href="">Spring Donuts</a></p>
-        <p class='product-price'>$23.50</p>
-        <button class='button tiny'>ADD TO CART</button>
-      </li>
-      <li>
-        <div class="product-img">
-          <img alt="I Dream of Squirrel - Blue - Round Shaped" src="../images/dreamsquirrelBlue.jpg" />
-          <a class="button small" style="">Quick View</a>
-        </div>
-        <p class='product-name'><a href="">Spring Donuts</a></p>
-        <p class='product-price'>$23.50</p>
-        <button class='button tiny'>ADD TO CART</button>
-      </li>
-      <li>
-        <div class="product-img">
-          <img alt="I Dream of Squirrel - Blue - Round Shaped" src="../images/dreamsquirrelBlue.jpg" />
-          <a class="button small" style="">Quick View</a>
-        </div>
-        <p class='product-name'><a href="">Spring Donuts Spring Donutslll Spring Donuts Spring Donuts</a></p>
-        <p class='product-price'>$23.50</p>
-        <button class='button tiny'>ADD TO CART</button>
-      </li>
-      <li>
-        <div class="product-img">
-          <img alt="I Dream of Squirrel - Blue - Round Shaped" src="../images/dreamsquirrelBlue.jpg" />
-          <a class="button small" style="">Quick View</a>
-        </div>
-        <p class='product-name'><a href="">Spring Donuts</a></p>
-        <p class='product-price'>$23.50</p>
-        <button class='button tiny'>ADD TO CART</button>
-      </li>
-      <li>
-        <div class="product-img">
-          <img alt="I Dream of Squirrel - Blue - Round Shaped" src="../images/dreamsquirrelBlue.jpg" />
-          <a class="button small" style="">Quick View</a>
-        </div>
-        <p class='product-name'><a href="">Spring Donuts</a></p>
-        <p class='product-price'>$23.50</p>
-        <button class='button tiny'>ADD TO CART</button>
+        <p class='product-name'><a href="">{{np.name}}</a></p>
+        <p class='product-price'>{{np.price | price}}</p>
       </li>
     </ul>
   </div>

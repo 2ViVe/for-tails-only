@@ -21,13 +21,11 @@ angular.module('fto', [
   'fto/taxon',
   'fto/report',
   'fto/shopping',
-  'fto/checkout'
+  'fto/checkout',
+  'fto/home'
 ])
   .config(function($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/home.html'
-      })
       .when('/products', {
         templateUrl: 'views/products/products-index.html'
       })
