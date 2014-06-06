@@ -24,7 +24,6 @@ angular.module('fto/signup')
         ).then(function() {
           return User.login($scope.account.login, $scope.account.password, true);
         }, function(resp) {
-          debugger;
           var errors = null;
           if (400 === resp.status) {
             errors = resp.data.meta.error.data.failures;
