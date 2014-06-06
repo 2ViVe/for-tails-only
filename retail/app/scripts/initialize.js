@@ -13,6 +13,9 @@ angular.module('fto')
     'DEFAULT_ROLE_CODE': 'R',
     'CURRENCY_SYMBOL': '$'
   })
+  .config(['$httpProvider', function($httpProvider) {
+    $httpProvider.interceptors.push('RetailInterceptor');
+  }])
   .run(['User', 'Shopping',
     function(User, Shopping) {
       User.fetch().finally(function() {
