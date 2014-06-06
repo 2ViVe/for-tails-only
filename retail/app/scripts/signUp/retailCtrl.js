@@ -1,7 +1,7 @@
 'use strict';
 angular.module('fto/signup')
-  .controller('RetailSignUpController', ['$scope', '$location', 'Address', 'Registration', 'Dashlize', 'User',
-    function($scope, $location, Address, Registration, Dashlize, User) {
+  .controller('RetailSignUpController', ['$scope', '$location', 'Address', 'Registration', 'User',
+    function($scope, $location, Address, Registration, User) {
       $scope.submitted = false;
       $scope.errors = {};
       $scope.method = {
@@ -20,7 +20,7 @@ angular.module('fto/signup')
           $scope.account.login,
           $scope.account.password,
           $scope.account.email,
-          Dashlize($scope.address.shipping)
+          $scope.address.shipping
         ).then(function() {
           return User.login($scope.account.login, $scope.account.password, true);
         }, function(resp) {
