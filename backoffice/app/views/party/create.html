@@ -1,0 +1,203 @@
+<div class='party-container'>
+  <div class='row'>
+    <div class="small-12 columns">
+      <ul class="breadcrumbs">
+        <li><a href="#">My Pawty</a></li>
+        <li class="current"><a href="#">Create a Pawty</a></li>
+      </ul>
+    </div>
+  </div>
+  <!--<div class='row'>-->
+    <!--<div class='small-12 columns party-create-slider'>-->
+      <!--<div class='party-panel block-margin-bottom'>-->
+        <!--<h4>Select a Invitation Theme</h4>-->
+        <!--<div>-->
+          <!--hahahahhaha-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <div class="row" ng-if="error">
+    <div class="columns medium-12">
+      <div class="alert-box error">
+        {{error}}
+      </div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='columns medium-12'>
+      <h4 class="primary-color">Pawty Details</h4>
+    </div>
+  </div>
+  <form novalidate class="party-create-form" name="form">
+    <div class='row'>
+      <div class='columns medium-6'>
+        <div class="row">
+          <div class="small-3 columns">
+            <label class="text-right required" for="title">Pawty Title</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="text"
+                   name="title"
+                   id="title"
+                   ng-model="data.title"
+                   required/>
+            <small class="error" ng-show="submitted && form.title.$error.required">
+              This information is required.
+            </small>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label class="text-right required" for="location-name">Location Name</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="text"
+                   id="location-name"
+                   name="locationName"
+                   ng-model="data.locationName"
+                   required/>
+            <small class="error" ng-show="submitted && form.locationName.$error.required">
+              This information is required.
+            </small>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label class="text-right required" for="city">City</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="text"
+                   id="city"
+                   name="city"
+                   ng-model="data.address.city"
+                   required/>
+            <small class="error" ng-show="submitted && form.city.$error.required">
+              This information is required.
+            </small>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label class="text-right required" for="start-date">Date</label>
+          </div>
+          <div class="small-3 columns">
+            <input type="text"
+                   id="start-date"
+                   name="startDate"
+                   ng-model="time.startDate"
+                   data-date-picker
+                   required/>
+            <small class="error" ng-show="submitted && form.startDate.$error.required">
+              This information is required.
+            </small>
+          </div>
+          <div class="small-3 columns">
+            <label class="text-right required">Start Time</label>
+          </div>
+          <div class="small-3 columns">
+            <select id="start-time"
+                    name="startTime"
+                    ng-model="time.startTime"
+                    ng-options="time for time in times">
+            </select>
+            <small class="error" ng-show="submitted && form.startTime.$error.required">
+              This information is required.
+            </small>
+          </div>
+        </div>
+      </div>
+      <div class='columns medium-6'>
+        <div class="row">
+          <div class="small-3 columns">
+            <label class="text-right required" for="host-name">Host</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="text"
+                   id="host-name"
+                   name="hostName"
+                   ng-model="data.hostName"
+                   required/>
+            <small class="error" ng-show="submitted && form.hostName.$error.required">
+              This information is required.
+            </small>
+          </div>
+          <!--<div class="small-3 columns">-->
+            <!--<a href class="button small" ng-click="partyCreateContact()">Contact</a>-->
+          <!--</div>-->
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label class="text-right required" for="street">Address</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="text"
+                   id="street"
+                   name="street"
+                   ng-model="data.address.street"
+                   required/>
+            <small class="error" ng-show="submitted && form.street.$error.required">
+              This information is required.
+            </small>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label class="text-right required" for="state">State</label>
+          </div>
+          <div class="small-3 columns">
+            <select id="state"
+                    name="state"
+                    ng-model="data.address.stateName"
+                    ng-options="state.name for state in country.states"
+                    required>
+            </select>
+            <small class="error" ng-show="submitted && form.state.$error.required">
+              This information is required.
+            </small>
+          </div>
+          <div class="small-3 columns">
+            <label class="text-right" for="zip">Zip Code</label>
+          </div>
+          <div class="small-3 columns">
+            <input type="text"
+                   id="zip"
+                   name="zip"
+                   ng-model="data.address.zip"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label class="text-right" for="end-date">End Date</label>
+          </div>
+          <div class="small-3 columns">
+            <input type="text"
+                   id="end-date"
+                   ng-model="time.endDate"
+                   data-date-picker
+                   required/>
+          </div>
+          <div class="small-3 columns">
+            <label class="text-right" for="end-time">End Time</label>
+          </div>
+          <div class="small-3 columns">
+            <select id="end-time"
+                    name="endTime"
+                    ng-options="time for time in times"
+                    ng-model="time.endTime">
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 columns"><hr/></div>
+    </div>
+    <div class="row">
+      <div class="small-12 columns text-center">
+        <button ng-click="save()" class="small">Save</button>
+        <button ng-click="cancel()" class="secondary small">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>

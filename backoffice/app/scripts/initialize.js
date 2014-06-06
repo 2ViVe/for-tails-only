@@ -14,7 +14,7 @@ angular.module('fto')
     'CURRENCY_SYMBOL': '$'
   })
   .config(['$httpProvider', function($httpProvider) {
-    $httpProvider.interceptors.push('BackOfficeAuthInterceptor');
+    $httpProvider.interceptors.push('BackOfficeInterceptor');
   }])
   .run(['User', 'UrlHandler', 'Shopping', '$location',
     function(User, UrlHandler, Shopping, $location) {
