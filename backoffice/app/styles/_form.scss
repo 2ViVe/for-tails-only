@@ -52,7 +52,7 @@ form {
     display: inline-block;
   }
 
-  .ng-invalid {
+  .ng-invalid.ng-dirty {
     margin-bottom: 0;
   }
 }
