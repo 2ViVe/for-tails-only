@@ -117,8 +117,77 @@
   }
 
   .party-calendar{
-    img{
-      width:100%;
+  }
+
+  //reset the pickday pluging style
+  .pika-single{
+    border-color: $grey-border;
+    padding:2px;
+    width:100%;
+
+    .pika-title{
+      font-size: $medium-font-size;
+      background:$primary-color;
+      color:#fff;
+      margin:0;
+      padding:10px $panel-padding;
+      .pika-prev, .pika-next{
+        color:#fff;
+      }
+      .pika-label{
+        background:none;
+      }
+    }
+
+    .pika-button{
+      background:#fff;
+      text-align: center;
+      width:30px;
+      height:30px;
+      margin: 0 atuo;
+      color:$grey-dark;
+      &:hover{
+        border:1px solid $primary-color !important;
+        border-radius:50% !important;
+        background:#fff !important;
+        color:$base-font-color !important;
+      }
+    }
+    .pika-table{
+      td{
+        border-bottom:0;
+        text-align: center;
+        &.is-today{
+          .pika-button{
+            color:#fff;
+            background: $primary-color;
+            border-radius:50%;
+          }
+        }
+        &.is-selected{
+          .pika-button{
+            border:1px solid $base-font-color;
+            border-radius:50%;
+            background:#fff;
+            color:$base-font-color;
+            box-shadow: none;
+          }
+        }
+      }
+      thead{
+        tr{
+          background:$grey-lighter;
+          th{
+            text-align: center;
+            line-height:35px;
+            border-bottom:0;
+            abbr, acronym{
+              color:$primary-color;
+              border-bottom:0;
+            }
+          }
+        }
+      }
     }
   }
 
