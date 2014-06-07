@@ -174,7 +174,9 @@
         </div>
         <div class="small-5 end columns">
 
-          <select id="{{addressType}}-AddrState" name="addrState" ng-model="address.stateId"
+          <select id="{{addressType}}-AddrState"
+                  name="addrState"
+                  ng-model="address.state"
                   ng-required="states.length > 0"
                   ng-options="state as state.name for state in address.country.states | orderBy:'name'">
           </select>
