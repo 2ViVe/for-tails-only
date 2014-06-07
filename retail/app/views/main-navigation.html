@@ -1,7 +1,7 @@
-<div class="row">
+<div class="row" ng-controller="NavigationController">
   <ul class="small-12 columns root-taxons">
-    <li>
-      <a href="#/products/cats/cat-treats">SHOP</a>
+    <!--<li>-->
+      <!--<a href="#/products/cats/cat-treats">SHOP</a>-->
 
       <!--<div class="sub-taxons-container">-->
         <!--<ul class="sub-taxons">-->
@@ -13,24 +13,16 @@
           <!--</li>-->
         <!--</ul>-->
       <!--</div>-->
-    </li>
-    <li>
-      <a href="#">PAWTY</a>
-    </li>
-    <li>
-      <a href="#">ENROLL RECRUITS</a>
-    </li>
-    <li>
-      <a href="#/report/order">ORDERS</a>
-    </li>
-    <!--<li>-->
-      <!--<a href="#">REPORTING</a>-->
     <!--</li>-->
     <li>
-      <a href="#">TOOLS</a>
+      <a href="#/">
+        Home
+      </a>
     </li>
-    <li>
-      <a href="#">POUND CENTRAL</a>
+    <li ng-repeat="taxon in taxons">
+      <a ng-href="#/products/{{taxon.permalink}}">
+        {{taxon.name}}
+      </a>
     </li>
   </ul>
 </div>
