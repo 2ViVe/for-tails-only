@@ -26,10 +26,10 @@ angular.module('fto/party')
       $scope.save = function() {
         $scope.submitted = true;
         if ($scope.time.startDate && $scope.time.startTime) {
-          $scope.data.startTime = $scope.time.startDate + 'T' + $scope.time.startTime;
+          $scope.data.startTime = $scope.time.startDate + 'T' + $scope.time.startTime + ':00.000Z';
         }
         if ($scope.time.startDate && $scope.time.startTime) {
-          $scope.data.endTime = $scope.time.endDate + 'T' + $scope.time.endTime;
+          $scope.data.endTime = $scope.time.endDate + 'T' + $scope.time.endTime + ':00.000Z';
         }
         $scope.data.templateId = template.id;
         Party.create($scope.data)
