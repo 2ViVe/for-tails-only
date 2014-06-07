@@ -15,6 +15,11 @@ angular
         templateUrl: 'views/party/create.html',
         controller: 'PartyCreateController',
         resolve: {
+          template: ['Party', function(Party) {
+            return Party.fetchTemplates().then(function(templates) {
+              return templates[0];
+            });
+          }],
           type: ['Party', function(Party) {
             return Party.fetchTypes().then(function(types) {
               return types[0];

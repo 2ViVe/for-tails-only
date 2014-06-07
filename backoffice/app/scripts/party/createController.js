@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('fto/party')
-  .controller('PartyCreateController', ['$scope', '$modal', 'country', 'Party', 'type',
-    function($scope, $modal, country, Party, type) {
+  .controller('PartyCreateController', ['$scope', '$modal', 'country', 'Party', 'type', 'template',
+    function($scope, $modal, country, Party, type, template) {
       $scope.country = country;
       $scope.error = '';
       $scope.submitted = false;
@@ -26,11 +26,12 @@ angular.module('fto/party')
       $scope.save = function() {
         $scope.submitted = true;
         if ($scope.time.startDate && $scope.time.startTime) {
-          $scope.data.startTime = $scope.time.startDate + ' ' + $scope.time.startTime;
+          $scope.data.startTime = $scope.time.startDate + 'T' + $scope.time.startTime;
         }
         if ($scope.time.startDate && $scope.time.startTime) {
-          $scope.data.endTime = $scope.time.endDate + ' ' + $scope.time.endTime;
+          $scope.data.endTime = $scope.time.endDate + 'T' + $scope.time.endTime;
         }
+        $scope.data.templateId = template.id;
         Party.create($scope.data)
           .catch(function(response) {
             $scope.error = response.data.meta.error.message;

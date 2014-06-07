@@ -4,6 +4,13 @@ angular.module('2ViVe')
   .factory('Party', ['$http', 'Dashlize', 'CamelCaseLize', 'User',
     function($http, dashlize, camelCaselize, User) {
       return {
+        fetchTemplates: function() {
+          return $http.get('/api/v2/events/templates', {
+            transformResponse: camelCaselize
+          }).then(function(response) {
+            return response.data.response;
+          });
+        },
         fetchTypes: function() {
           return $http.get('/api/v2/events/types', {
             transformResponse: camelCaselize
