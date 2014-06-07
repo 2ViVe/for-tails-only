@@ -12,6 +12,11 @@ angular
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/account', {
-        templateUrl: 'views/profile/index.html'
+        templateUrl: 'views/profile/index.html',
+        resolve: {
+          'countries': ['Registration.Countries', function(Countries) {
+            return Countries.fetch();
+          }]
+        }
       });
   }]);
