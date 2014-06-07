@@ -1,9 +1,9 @@
 <div class='products'>
   <div class='row'>
     <div class='small-12 columns'>
-      <ul class="breadcrumbs"> 
-        <li><a ng-href="{{taxon | taxonLink}}">{{taxon.name}}</a></li> 
-        <li><a ng-href="#/products/{{taxon.permalink}}/{{subTaxon.permalink}}">{{subTaxon.name}}</a></li> 
+      <ul class="breadcrumbs">
+        <li><a ng-href="{{taxon | taxonLink}}">{{taxon.name}}</a></li>
+        <li><a ng-href="#/products/{{taxon.permalink}}/{{subTaxon.permalink}}">{{subTaxon.name}}</a></li>
         <li class="current">{{product.name}}</li>
       </ul>
     </div>
@@ -12,17 +12,17 @@
     <!-- products-detail-photo start -->
     <div class='medium-6 columns products-detail-photo'>
       <div class="detail-image">
-      <img class="zoom-image" ng-src="{{currentImage}}" alt="{{product.name}}"/>
-    </div>
+        <img class="zoom-image" ng-src="{{currentImage}}" alt="{{product.name}}"/>
+      </div>
 
-    <ul class="small-block-grid-4 thumbnails">
-      <li ng-repeat="image in product.images" ng-click="changeImage(image)">
-        <div class="thumbnail-image" ng-class="{current: currentImage === image}">
+      <ul class="small-block-grid-4 thumbnails">
+        <li ng-repeat="image in product.images" ng-click="changeImage(image)">
+          <div class="thumbnail-image" ng-class="{current: currentImage === image}">
 
-          <img data-pre-load-image-url="{{image}}" ng-src="{{image | imageSize:'small' }}"/>
-        </div>
-      </li>
-    </ul>
+            <img data-pre-load-image-url="{{image}}" ng-src="{{image | imageSize:'small' }}"/>
+          </div>
+        </li>
+      </ul>
     </div>
     <!-- products-detail-photo end -->
     <!-- products-detail-info start -->
@@ -64,14 +64,14 @@
       </div>
       <div class='product-panel' ng-repeat="personalizedType in personalizedTypes">
         <label ng-class="{required: personalizedType.required}" for="personalized-type-{{personalizedType.id}}">{{personalizedType.name}}:</label>
-          <input type="text"
-                 ng-init="personalizedValues[$index] = {}; personalizedValues[$index].id = personalizedType.id"
-                 ng-model="personalizedValues[$index].value"
-                 id="personalized-type-{{personalizedType.id}}"
-                 name="personalizedType{{personalizedType.id}}"/>
-          <hr/>
+        <input type="text"
+               ng-init="personalizedValues[$index] = {}; personalizedValues[$index].id = personalizedType.id"
+               ng-model="personalizedValues[$index].value"
+               id="personalized-type-{{personalizedType.id}}"
+               name="personalizedType{{personalizedType.id}}"/>
+        <hr/>
       </div>
-      
+
       <div class='product-panel'>
         <!--<a href='#' class='button small'>ADD TO WISHLIST</a>-->
         <button ng-click="addToCart()" class='small'>ADD TO CART</button>
@@ -105,60 +105,24 @@
     </div>
     <!-- products-detail-info end -->
   </div>
-  <div class='row'>
-    <div class='small-12 columns'>
-      <h4 class="medium-font">MAYBE YOU'LL ALSO LOVE</h4>
-    </div>
-  </div>
-  <div class='row'>
-    <div class='small-12 columns'>
-      <ul class='products-list medium-block-grid-5'>
-        <li>
-          <div class="product-img">
-            <img alt="I Dream of Squirrel - Blue - Round Shaped" src="../images/dreamsquirrelBlue.jpg" />
-            <a class="button small" style="">Quick View</a>
-          </div>
-          <p class='product-name'>Spring Donuts</p>
-          <p class='product-price'>$23.50</p>
-          <button class='button tiny'>ADD TO CART</button>
-        </li>
-        <li>
-          <div class="product-img">
-            <img alt="I Dream of Squirrel - Blue - Round Shaped" src="../images/dreamsquirrelBlue.jpg" />
-            <a class="button small" style="">Quick View</a>
-          </div>
-          <p class='product-name'>Spring Donuts</p>
-          <p class='product-price'>$23.50</p>
-          <button class='button tiny'>ADD TO CART</button>
-        </li>
-        <li>
-          <div class="product-img">
-            <img alt="I Dream of Squirrel - Blue - Round Shaped" src="../images/dreamsquirrelBlue.jpg" />
-            <a class="button small" style="">Quick View</a>
-          </div>
-          <p class='product-name'>Spring Donuts</p>
-          <p class='product-price'>$23.50</p>
-          <button class='button tiny'>ADD TO CART</button>
-        </li>
-        <li>
-          <div class="product-img">
-            <img alt="I Dream of Squirrel - Blue - Round Shaped" src="../images/dreamsquirrelBlue.jpg" />
-            <a class="button small" style="">Quick View</a>
-          </div>
-          <p class='product-name'>Spring Donuts</p>
-          <p class='product-price'>$23.50</p>
-          <button class='button tiny'>ADD TO CART</button>
-        </li>
-        <li>
-          <div class="product-img">
-            <img alt="I Dream of Squirrel - Blue - Round Shaped" src="../images/dreamsquirrelBlue.jpg" />
-            <a class="button small" style="">Quick View</a>
-          </div>
-          <p class='product-name'>Spring Donuts</p>
-          <p class='product-price'>$23.50</p>
-          <button class='button tiny'>ADD TO CART</button>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <!--<div class='row'>-->
+  <!--<div class='small-12 columns'>-->
+  <!--<h4 class="medium-font">MAYBE YOU'LL ALSO LOVE</h4>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--<div class='row'>-->
+  <!--<div class='small-12 columns'>-->
+  <!--<ul class='products-list medium-block-grid-5'>-->
+  <!--<li>-->
+  <!--<div class="product-img">-->
+  <!--<img alt="I Dream of Squirrel - Blue - Round Shaped" src="../images/dreamsquirrelBlue.jpg" />-->
+  <!--<a class="button small" style="">Quick View</a>-->
+  <!--</div>-->
+  <!--<p class='product-name'>Spring Donuts</p>-->
+  <!--<p class='product-price'>$23.50</p>-->
+  <!--<button class='button tiny'>ADD TO CART</button>-->
+  <!--</li>-->
+  <!--</ul>-->
+  <!--</div>-->
+  <!--</div>-->
 </div>
