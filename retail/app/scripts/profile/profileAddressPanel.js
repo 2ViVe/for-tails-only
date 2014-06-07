@@ -3,19 +3,21 @@
 (function() {
 
   angular.module('2ViVe')
-    .controller('profileAddressPanelCtrl', ['$scope', 'Address', 'Registration', function($scope, Address, Registration) {
+    .controller('profileAddressPanelCtrl', ['$scope', 'Address', 'Registration', 'Registration.Countries', function($scope, Address, Registration, Countries) {
 
       $scope.isEditing = false;
       $scope.isLoading = true;
 
-      Address.fetch().then(function(addr) {
-        $scope.address = addr[$scope.addressType.toLowerCase()];
-        $scope.initAddress = angular.copy($scope.address);
+      Countries.fetch().then(function(countries) {
+        $scope.countries = countries.data;
+        Address
+          .fetch()
+          .then(function(addr) {
+            $scope.address = addr[$scope.addressType.toLowerCase()];
+            $scope.initAddress = angular.copy($scope.address);
+          });
       });
 
-      Registration.countries().then(function(result) {
-        $scope.countries = result;
-      });
 
       $scope.restore = function() {
         return angular.extend($scope.address, $scope.initAddress);
