@@ -63,11 +63,12 @@
         <hr/>
       </div>
       <div class='product-panel' ng-repeat="personalizedType in personalizedTypes">
-        <label ng-if="personalizedType.required" class="required" for="{{personalizedType.name}}-from">{{personalizedType.name}}:</label>
-        <label ng-if="!personalizedType.required" for="{{personalizedType.name}}-from">{{personalizedType.name}}:</label>
+        <label ng-class="{required: personalizedType.required}" for="personalized-type-{{personalizedType.id}}">{{personalizedType.name}}:</label>
           <input type="text"
-                 id="{{personalizedType.name}}-from"
-                 name="{{personalizedType.name}}}"/>
+                 ng-init="personalizedValues[$index] = {}; personalizedValues[$index].id = personalizedType.id"
+                 ng-model="personalizedValues[$index].value"
+                 id="personalized-type-{{personalizedType.id}}"
+                 name="personalizedType{{personalizedType.id}}"/>
           <hr/>
       </div>
       

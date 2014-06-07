@@ -18,7 +18,7 @@
             <th>Item</th>
             <th width='60'>Quantity</th>
             <th width="100" class='text-center'>Retail Price</th>
-            <th width="60" class='text-center'>PCV</th>
+            <!--<th width="60" class='text-center'>PCV</th>-->
             <th width="100" class='text-center'>Your Price</th>
             <th width="100" class='text-center'>Total Price</th>
             <th width="80"></th>
@@ -48,9 +48,9 @@
             <td class='primary-color text-center'>
               {{item.retailPrice | price}}
             </td>
-            <td class='text-center'>
-              {{item.data.commissions | price}}
-            </td>
+            <!--<td class='text-center'>-->
+              <!--{{item.data.commissions | price}}-->
+            <!--</td>-->
             <td class='primary-color text-center'>
               {{item.data.price | price}}
             </td>

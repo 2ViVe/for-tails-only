@@ -16,12 +16,13 @@
       </div>
 
       <div class="row">
-        <div class="small-3 columns">Date Of Birth</div>
+        <div class="small-3 columns">SSN</div>
         <div class="small-3 end columns">{{ profile.ssn }}</div>
       </div>
     </div>
 
-    <form novalidate ng-if="isEditing" ng-submit="save()">
+    <form novalidate name="personalForm" ng-if="isEditing" ng-submit="save()">
+
       <div class="row">
         <div class="small-3 columns">
           <label for="dateOfBirth" class="inline">Date Of Birth:</label>
@@ -35,20 +36,6 @@
                  data-date-picker
                  name="dateOfBirth"
                  ng-model="profile.birthDate"
-                 placeholder="click to edit ... ">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="small-3 columns">
-          <label for="ssn" class="inline">SSN:</label>
-        </div>
-        <div class="small-5 end columns">
-          <input type="text"
-                 id="ssn"
-                 required
-                 name="ssn"
-                 ng-model="profile.ssn"
                  placeholder="click to edit ... ">
         </div>
       </div>
