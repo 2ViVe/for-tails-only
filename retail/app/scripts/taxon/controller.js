@@ -6,8 +6,8 @@ angular.module('2ViVe')
       var taxonPermalink = $routeParams.taxonPermalink;
       var subTaxonPermalink = $routeParams.subTaxonPermalink;
 
-      $scope.taxons = taxons.getByPositionBetween(0, 1000);
       var taxon = taxons.getByPermalink(taxonPermalink);
+      $scope.taxon = taxon;
       $scope.currentTaxon = taxon;
 
       if (subTaxonPermalink) {

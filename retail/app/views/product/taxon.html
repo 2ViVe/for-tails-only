@@ -19,7 +19,7 @@
   <div class='row'>
     <!-- shopping sidebar start -->
     <div class='medium-2 columns products-sidebar'>
-      <dl ng-repeat="taxon in taxons | orderBy: 'position'">
+      <dl>
         <dt>
           <a ng-href="#/products/{{taxon.permalink}}">
             {{taxon.name}}
@@ -31,13 +31,13 @@
           </a>
         </dd>
       </dl>
-      <dl>
+<!--       <dl>
         <dt>
           <a href="#/gift">
             Gift Certification
           </a>
         </dt>
-      </dl>
+      </dl> -->
     </div>
     <!-- shopping sidebar end -->
     <!-- shopping list start -->
