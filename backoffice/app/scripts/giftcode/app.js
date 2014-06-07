@@ -15,5 +15,5 @@ angular
       .when('/gift-codes', {
         templateUrl: 'views/gift/code.html',
         controller: 'giftCodeCtrl'
-      })
+      });
   }]);
