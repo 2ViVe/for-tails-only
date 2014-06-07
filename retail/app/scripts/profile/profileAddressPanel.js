@@ -30,6 +30,9 @@
         Address
           .fetch()
           .then(function(addr) {
+            if (!addr[$scope.addressType.toLowerCase()]) {
+              addr.addType($scope.addressType.toLowerCase());
+            }
             $scope.address = addr[$scope.addressType.toLowerCase()];
             $scope.initAddress = angular.copy($scope.address);
           });
