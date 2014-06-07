@@ -22,15 +22,16 @@
     <div class="row">
       <div class="small-12 columns">
         <div class='gift-preview-imgWrap'>
-          <h3 class="gift-preview-title">Gift Certificate <small class="right">Code:XXX-XXX-XXX-XXX</small></h3>
-          <div class="gift-preview-text">For Tails Only</div>
-          <div class='gift-preview-cert'><strong>{{currentGiftCard.price | price}}</strong></div>
+          <h3 class="gift-preview-title"> <small class="right">XXX-XXX-XXX-XXX</small></h3>
+          <!--<div class="gift-preview-text">For Tails Only</div>-->
+          <div class='gift-preview-cert' ng-if="currentGiftCard.price"><strong>{{currentGiftCard.price | price}}</strong></div>
+          <div class='gift-preview-cert' ng-if="!currentGiftCard.price"><strong>$--</strong></div>
           <div class='gift-preview-to-from'>
             <span>To: <strong>{{emailInfo.nameTo ? emailInfo.nameTo : '--'}}</strong></span>
             <span class="right">From: <strong>{{emailInfo.nameFrom ? emailInfo.nameFrom : '--'}}</strong></span>
           </div>
-          <img ng-src="/images/gift/gift-card-popup.jpg" alt='Gift Card'/>
-          <div class="gift-preview-footer">Redeem your gift certificate at <a href="http://www.fortailsonly.com/">http://www.fortailsonly.com/</a> </div>
+          <img ng-src="{{currentTheme.images[0]}}" alt='Gift Card'/>
+          <!--<div class="gift-preview-footer">Redeem your gift certificate at <a href="http://www.fortailsonly.com/">http://www.fortailsonly.com/</a> </div>-->
         </div>
       </div>
     </div>
