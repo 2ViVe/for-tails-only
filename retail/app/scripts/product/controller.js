@@ -13,6 +13,7 @@ angular.module('fto')
       };
 
       $scope.personalizedTypes = product.data.personalizedTypes;
+      $scope.personalizedValues = [];
       $scope.product = product.data;
       $scope.colors = product.Color;
       $scope.genders = product.Gender;
@@ -56,7 +57,7 @@ angular.module('fto')
       };
 
       $scope.addToCart = function() {
-        Shopping.add($scope.variant, $scope.quantity, product.catalogCode)
+        Shopping.add($scope.variant, $scope.quantity, product.catalogCode, $scope.personalizedValues)
           .success(function() {
             $modal.open({
               templateUrl: 'views/shopping/shopping-modal.html',
