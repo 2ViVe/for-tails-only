@@ -9,7 +9,7 @@ angular
       $scope.submit = function() {
         if ($scope.submitted || this.form.$valid) {
 
-          $scope.shippingAddress.validate()
+          $scope.billingAddress.validate()
             .then(function() {
               $modalInstance.close($scope.billingAddress);
             });
