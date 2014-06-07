@@ -22,7 +22,8 @@ angular.module('fto', [
   'fto/report',
   'fto/shopping',
   'fto/checkout',
-  'fto/home'
+  'fto/home',
+  'fto/navigation'
 ])
   .config(function($routeProvider) {
     $routeProvider
