@@ -9,6 +9,7 @@ angular
       $scope.isSucceed = false;
       $scope.isFailed = false;
       $scope.orderId = null;
+      $scope.showShipping = true;
 
       $scope.selectedShippingMethod = order.currentShippingMethod();
       $scope.selectedPaymentMethod = order.data.availablePaymentMethods[0];
