@@ -27,6 +27,14 @@
         <a ng-click="logout()">Logout</a>
       </li>
     </ul>
+
+    <div class="row replicate-info"  ng-if="replicateOwner">
+      <ul>
+        <li>Sponsor Name: {{ replicateOwner['first-name'] + ' ' + replicateOwner['last-name'] }}</li>
+        <li>Sponsor Id: {{ replicateOwner['distributor-id'] }}</li>
+        <li>Email: {{ replicateOwner['email']}} </li>
+      </ul>
+    </div>
     <!--<div class='row collapse header-search right'>-->
       <!--<div class='small-5 columns'>-->
         <!--<select class="secondary-item no-margin-bottom">-->
