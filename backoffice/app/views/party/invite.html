@@ -15,8 +15,11 @@
         <tbody>
         <tr>
           <td  class="party-list-textarea" colspan="3">
-            <textarea cols="30" rows="6" placeholder="Enter email address here, please commas to seperate e-mail address (for tails invitation list)"></textarea>
-            <button class="right small">
+            <textarea ng-model="inviteesToBeAdded" cols="30" rows="6" placeholder="Enter email address here, please commas to seperate e-mail address (for tails invitation list)"></textarea>
+            <small class="error" ng-show="hasInvalidEmail">
+              There is invalid email, please correct.
+            </small>
+            <button ng-click="addInvitees()" class="right small">
               Add Guest
             </button>
           </td>
@@ -26,10 +29,29 @@
           <th class="text-left">Email Address</th>
           <th width="25%"></th>
         </tr>
-        <tr>
-          <td>Abovegem</td>
-          <td>admin@abovegem.com</td>
-          <td class="text-right"><a href class="button tiny">Edit</a> <a href class="button secondary tiny">Remove</a></td>
+        <tr ng-if="invitees.length === 0">
+          <td colspan="3" class="text-center">
+            Please add Guest
+          </td>
+        </tr>
+        <tr ng-repeat="invitee in invitees">
+          <td ng-if="!invitee.isEditing">{{invitee.name}}</td>
+          <td ng-if="!invitee.isEditing">{{invitee.email}}</td>
+          <td ng-if="invitee.isEditing">
+            <input class="no-margin-bottom" type="text" ng-model="invitee.name"/>
+          </td>
+          <td ng-if="invitee.isEditing">
+            <input class="no-margin-bottom" type="text" ng-model="invitee.email"/>
+          </td>
+          <td>
+            <button ng-click="invitee.isEditing = !invitee.isEditing" class="tiny" ng-if="!invitee.isEditing">
+              Edit
+            </button>
+            <button ng-click="invitee.isEditing = !invitee.isEditing" class="tiny" ng-if="invitee.isEditing">
+              Save
+            </button>
+            <button ng-click="invitees.splice($index, 1)" class="secondary tiny">Remove</button>
+          </td>
         </tr>
         </tbody>
       </table>
