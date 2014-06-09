@@ -10,12 +10,12 @@
     </header>
 
     <div ng-if="!isEditing">
-      <div class="row">
+      <div class="row profile-item">
         <div class="small-3 columns">Date Of Birth</div>
         <div class="small-3 end columns">{{ profile.birthDate }}</div>
       </div>
 
-      <div class="row">
+      <div class="row profile-item">
         <div class="small-3 columns">SSN</div>
         <div class="small-3 end columns">{{ profile.ssn }}</div>
       </div>
@@ -25,7 +25,7 @@
 
       <div class="row">
         <div class="small-3 columns">
-          <label for="dateOfBirth" class="inline">Date Of Birth:</label>
+          <label for="dateOfBirth">Date Of Birth:</label>
         </div>
         <div class="small-5 end columns">
           <input type="text"
