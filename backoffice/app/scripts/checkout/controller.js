@@ -18,7 +18,6 @@ angular
       if (User.shouldRenew) {
         $scope.showShipping = false;
         order.data.shippingAddress = undefined;
-        $scope.selectedShippingMethod.id = undefined;
       }
 
       $scope.editShippingAddress = function() {
