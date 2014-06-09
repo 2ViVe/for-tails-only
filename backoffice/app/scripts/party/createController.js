@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('fto/party')
-  .controller('PartyCreateController', ['$scope', '$modal', 'country', 'Party', 'type', 'template',
-    function($scope, $modal, country, Party, type, template) {
+  .controller('PartyCreateController', ['$scope', '$modal', 'country', 'Party', 'type', 'template', '$location',
+    function($scope, $modal, country, Party, type, template, $location) {
       $scope.country = country;
       $scope.error = '';
       $scope.submitted = false;
@@ -33,6 +33,9 @@ angular.module('fto/party')
         }
         $scope.data.templateId = template.id;
         Party.create($scope.data)
+          .then(function(response) {
+            $location.path('/party/' + response.data.response.id + '/invite');
+          })
           .catch(function(response) {
             $scope.error = response.data.meta.error.message;
           });

@@ -51,8 +51,8 @@ form {
     @include form-label(inline,false);
     display: inline-block;
   }
+}
 
-  .ng-invalid.ng-dirty {
-    margin-bottom: 0;
-  }
+.ng-invalid.ng-dirty {
+  margin-bottom: 0;
 }

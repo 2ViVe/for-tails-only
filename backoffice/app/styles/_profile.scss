@@ -1,0 +1,28 @@
+.profile-container{
+  max-width:700px;
+  margin:0 auto;
+  & > .row.panel{
+    margin-bottom:0;
+  }
+  header{
+    border-bottom:1px solid $grey-border;
+    &.row{
+      margin-bottom:20px;
+      .columns{
+        padding-left:0;
+        padding-right:0;
+      }
+    }
+    h3{
+      font-size: rem-calc(16);
+    }
+    .text-right{
+      padding-top:2px;
+    }
+  }
+  .profile-item{
+    height:32px;
+    line-height:32px;
+    margin-bottom:10px;
+  }
+}

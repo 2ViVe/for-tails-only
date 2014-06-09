@@ -39,7 +39,8 @@ angular.module('fto/signup')
             if (country && state) {
               Registration.getShippingMethods(
                 country.id,
-                state.id)
+                state.id,
+                $scope.products.selection.variantId)
                 .success(function(data) {
                   $scope.shippingMethods = data.response;
                   $scope.method.shipping = $scope.shippingMethods[0];

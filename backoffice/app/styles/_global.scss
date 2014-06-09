@@ -106,7 +106,9 @@ ul {
 .no-columns-padding-right{
   padding-right:0 !important;
 }
-
+.no-margin-bottom{
+  margin-bottom:0 !important;
+}
 
 
 .wrapper{
@@ -139,7 +141,7 @@ ul {
   line-height: rem-calc(30);
 }
 select.secondary-item{
-  padding-top:6px;
+  padding-top:3px;
 }
 .secondary-item:-moz-input-placeholder{
   color:#fff !important;

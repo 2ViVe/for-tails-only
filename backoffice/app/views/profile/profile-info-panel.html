@@ -4,17 +4,19 @@
     <header class="row">
       <h3 class="small-8 columns primary-color">Account Infomation</h3>
 
-      <div class="small-4 end columns primary-color text-right"><a ng-click="toggle()">Edit</a>
+      <div class="small-4 end columns primary-color text-right">
+        <a ng-if="!isEditing" ng-click="toggle()">Edit</a>
+        <a ng-if="isEditing" ng-click="toggle(); restore()">Cancel</a>
       </div>
     </header>
 
     <div ng-if="!isEditing">
-      <div class="row">
-        <div class="small-3 columns inline">User Name</div>
+      <div class="row profile-item">
+        <div class="small-3 columns">User Name</div>
         <div class="small-3 end columns">{{ profile.login }}</div>
       </div>
 
-      <div class="row">
+      <div class="row profile-item">
         <div class="small-3 columns">Email</div>
         <div class="small-3 end columns">{{ profile.email }}</div>
       </div>
@@ -24,7 +26,7 @@
 
       <div class="row">
         <div class="small-3 columns">
-          <label for="email" class="inline">Email:</label>
+          <label for="email">Email:</label>
         </div>
         <div class="small-5 end columns">
           <input type="text"
