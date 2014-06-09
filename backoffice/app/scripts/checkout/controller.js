@@ -100,6 +100,10 @@ angular
             $scope.isSucceed = true;
             $scope.successInfo = data.response;
             Shopping.deleteAll();
+
+            if (User.shouldRenew) {
+              User.fetch();
+            }
           })
           .error(function(data) {
             $scope.placingOrder = false;
