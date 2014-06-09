@@ -11,6 +11,15 @@ angular
   ])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
+      .when('/party/:partyId/invite', {
+        templateUrl: 'views/party/invite.html',
+        controller: 'PartyInviteController',
+        resolve: {
+          partyInfo: ['Party', '$route', function(Party, $route) {
+            return Party.fetch($route.current.params.partyId);
+          }]
+        }
+      })
       .when('/party/create', {
         templateUrl: 'views/party/create.html',
         controller: 'PartyCreateController',
