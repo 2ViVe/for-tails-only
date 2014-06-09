@@ -1,0 +1,21 @@
+.profile-container{
+  max-width:700px;
+  margin:0 auto;
+  & > .row.panel{
+    margin-bottom:0;
+  }
+  header{
+    margin-bottom:10px;
+    h3{
+      font-size: rem-calc(16);
+    }
+    .text-right{
+      padding-top:2px;
+    }
+  }
+  .profile-item{
+    height:32px;
+    line-height:32px;
+    margin-bottom:10px;
+  }
+}

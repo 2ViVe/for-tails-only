@@ -9,42 +9,42 @@
     </header>
 
     <div ng-if="!isEditing">
-      <div class="row">
+      <div class="row profile-item">
         <div class="small-3 columns">Name</div>
         <div class="small-3 end columns">{{ address.firstName }} {{ address.lastName }}</div>
       </div>
 
-      <div class="row">
+      <div class="row profile-item">
         <div class="small-3 columns">Address Line 1</div>
         <div class="small-3 end columns">{{ address.street }}</div>
       </div>
 
-      <div class="row">
+      <div class="row profile-item">
         <div class="small-3 columns">City</div>
         <div class="small-3 end columns">{{ address.city }}</div>
       </div>
 
-      <div class="row">
+      <div class="row profile-item">
         <div class="small-3 columns">Zip</div>
         <div class="small-3 end columns">{{ address.zip }}</div>
       </div>
 
-      <div class="row">
+      <div class="row profile-item">
         <div class="small-3 columns">Country</div>
         <div class="small-3 end columns">{{ address.country.name }}</div>
       </div>
 
-      <div class="row">
+      <div class="row profile-item">
         <div class="small-3 columns">State</div>
         <div class="small-3 end columns">{{ address.state.name }}</div>
       </div>
 
-      <div class="row">
+      <div class="row profile-item">
         <div class="small-3 columns">Home Phone</div>
         <div class="small-3 end columns">{{ address.phone }}</div>
       </div>
 
-      <div class="row">
+      <div class="row profile-item">
         <div class="small-3 columns">Mobilem Phone</div>
         <div class="small-3 end columns">{{ address.mobile }}</div>
       </div>
@@ -74,7 +74,7 @@
 
       <div class="row">
         <div class="small-3 columns">
-          <label for="{{addressType}}-lastName" class="inline">Last Name:</label>
+          <label for="{{addressType}}-lastName">Last Name:</label>
         </div>
         <div class="small-5 end columns">
           <input type="text"
@@ -94,7 +94,7 @@
 
       <div class="row">
         <div class="small-3 columns">
-          <label for="{{addressType}}-AddrLine" class="inline">Address Line 1:</label>
+          <label for="{{addressType}}-AddrLine">Address Line 1:</label>
         </div>
         <div class="small-5 end columns">
           <input type="text"
@@ -114,7 +114,7 @@
 
       <div class="row">
         <div class="small-3 columns">
-          <label for="{{addressType}}-AddrCity" class="inline">City:</label>
+          <label for="{{addressType}}-AddrCity">City:</label>
         </div>
         <div class="small-5 end columns">
           <input type="text"
