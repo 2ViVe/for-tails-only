@@ -23,7 +23,8 @@ angular.module('fto', [
   'fto/home',
   'fto/party',
   'fto/giftCode',
-  'fto/tools'
+  'fto/tools',
+  'fto/footer'
 ])
   .config(function($routeProvider) {
     $routeProvider
