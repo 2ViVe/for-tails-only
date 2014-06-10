@@ -173,9 +173,6 @@
     }
     .products-detail-tabs{
       margin-top: $panel-margin-bottom;
-      .ng-binding{
-        border-bottom:1px solid $grey-border;
-      }
 
       dd{
         & > a{
@@ -188,7 +185,7 @@
         }
         .content{
           font-size:$small-font-size;
-          color: $grey-darker;
+          border-bottom:1px solid $grey-border;
         }
       }
 
