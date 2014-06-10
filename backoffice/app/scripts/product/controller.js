@@ -4,27 +4,8 @@ angular.module('fto')
   .controller('ProductDetailCtr', ['$scope', 'product' , 'taxons', 'Shopping', '$modal',
     function($scope, product, taxons, Shopping, $modal) {
 
-      var updateVariant = function() {
-        $scope.variant = product.getVariantByOptions({
-          'Color': $scope.selectedColor,
-          'Size': $scope.selectedSize,
-          'Gender': $scope.selectedGender
-        });
-      };
-
       $scope.personalizedTypes = product.data.personalizedTypes;
       $scope.personalizedValues = [];
-      $scope.product = product.data;
-      $scope.colors = product.Color;
-      $scope.genders = product.Gender;
-      $scope.sizes = product.Size;
-      $scope.selectedColor = product.Color ? product.Color[0] : null;
-      $scope.selectedSize = product.Size ? product.Size[0] : null;
-      $scope.selectedGender = product.Gender ? product.Gender[0] : null;
-      $scope.currentImage = product.data.images[0];
-      $scope.catalogCode = product.catalogCode;
-
-      updateVariant();
 
       $scope.initPersonalizedValues = function(personalizedType, index) {
         $scope.personalizedValues[index] = {
@@ -33,6 +14,22 @@ angular.module('fto')
         };
       };
 
+      $scope.product = product.data;
+
+      $scope.allOptions = product.options;
+      $scope.currentOptions = {};
+      angular.forEach($scope.allOptions, function(options, optionType) {
+        $scope.currentOptions[optionType] = options[0];
+      });
+      $scope.variant = product.getVariantByOptions($scope.currentOptions);
+
+      $scope.changeOption = function(option, optionType) {
+        $scope.currentOptions[optionType] = option;
+        $scope.variant = product.getVariantByOptions($scope.currentOptions);
+      };
+
+      $scope.catalogCode = product.catalogCode;
+
       $scope.subTaxon = taxons.getSubTaxonById(product.data.taxonId);
       if ($scope.subTaxon !== null) {
         $scope.taxon = taxons.getById($scope.subTaxon.parentId);
@@ -40,20 +37,7 @@ angular.module('fto')
         $scope.taxon = taxons.getById(product.data.taxonId);
       }
 
-      $scope.changeColor = function(color) {
-        $scope.selectedColor = color;
-        updateVariant();
-      };
-
-      $scope.changeGender = function(gender) {
-        $scope.selectedGender = gender;
-        updateVariant();
-      };
-
-      $scope.changeSize = function(size) {
-        $scope.selectedSize = size;
-        updateVariant();
-      };
+      $scope.currentImage = product.data.images[0];
 
       $scope.changeImage = function(image) {
         $scope.currentImage = image;
@@ -89,5 +73,3 @@ angular.module('fto')
         $scope.items.push('Item ' + newItemNo);
       };
     }]);
-
-      

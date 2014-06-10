@@ -36,32 +36,21 @@
         <input class="product-quantity" type='number' min="1" ng-model="quantity" ng-init="quantity=1" />
       </div>
       <hr/>
-      <div class='product-panel' ng-hide="sizes.length < 2 || sizes === undefined">
-        <h6>SIZE</h6>
-        <ul class='options'>
-          <li ng-repeat="size in sizes" ng-click="changeSize(size)" ng-class="{current: size === selectedSize}">
-            {{size.presentationValue}}
+
+      <div class="product-panel"
+           ng-repeat="(optionType, options) in allOptions"
+           ng-hide="options.length < 2">
+        <h6>{{optionType}}</h6>
+        <ul class="options">
+          <li ng-repeat="option in options"
+              ng-class="{current: currentOptions[optionType] === option}"
+              ng-click="changeOption(option, optionType)">
+            {{option.presentationValue}}
           </li>
         </ul>
         <hr/>
       </div>
-      <div class='product-panel' ng-hide="colors.length < 2 || colors === undefined">
-        <h6>COLOR</h6>
-        <ul class='options'>
-          <li style="background:#{{color.presentationValue}}}" ng-repeat="color in colors" ng-click="changeColor(color)" ng-class="{current: color === selectedColor}">
-          </li>
-        </ul>
-        <hr/>
-      </div>
-      <div class='product-panel' ng-hide="genders.length < 2 || genders === undefined">
-        <h6>GENDER</h6>
-        <ul class='options'>
-          <li ng-repeat="gender in genders" ng-click="changeGender(gender)" ng-class="{current: gender === selectedGender}">
-            {{gender.presentationValue}}
-          </li>
-        </ul>
-        <hr/>
-      </div>
+
       <div class='product-panel' ng-repeat="personalizedType in personalizedTypes">
         <label ng-class="{required: personalizedType.required}" for="personalized-type-{{personalizedType.id}}">{{personalizedType.name}}:</label>
         <input type="text"
