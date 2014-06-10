@@ -49,9 +49,10 @@
       <li ng-repeat="fp in featureProductsLimit">
         <div class="product-img">
           <img alt="{{fp.name}}" src="{{fp.images[0]}}" />
-          <a class="button small" style="" href="#/product/{{fp.id}}">VIEW DETAIL</a>
+
+          <a class="button small" ng-href="#/product/{{fp.id}}/FP">VIEW DETAIL</a>
         </div>
-        <p class='product-name'><a href="">{{fp.name}}</a></p>
+        <p class='product-name'><a ng-href="#/product/{{fp.id}}/FP">{{fp.name}}</a></p>
         <p class='product-price'>{{fp.price | price}}</p>
       </li>
     </ul>
@@ -78,10 +79,10 @@
     <ul class='products-list medium-block-grid-5'>
       <li ng-repeat="np in newProductsLimit">
         <div class="product-img">
-          <img alt="{{np.name}}" src="{{np.images[0]}}" />
-          <a class="button small" style="" href="#/product/{{np.id}}">VIEW DETAIL</a>
+          <img alt="{{np.name}}" ng-src="{{np.images[0]}}" />
+          <a class="button small" ng-href="#/product/{{np.id}}/NP">VIEW DETAIL</a>
         </div>
-        <p class='product-name'><a href="">{{np.name}}</a></p>
+        <p class='product-name'><a ng-href="#/product/{{np.id}}/NP">{{np.name}}</a></p>
         <p class='product-price'>{{np.price | price}}</p>
       </li>
     </ul>
