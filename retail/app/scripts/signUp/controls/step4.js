@@ -28,6 +28,8 @@ angular.module('fto/signup')
             $scope.method.payment = $scope.order.availablePaymentMethods[0];
           });
 
+        var shippingMethodId = $scope.method.shipping ? $scope.method.shipping.id : null;
+
         $scope.create = function() {
           $scope.paymentFailed = false;
           $scope.submitted = true;
@@ -38,7 +40,7 @@ angular.module('fto/signup')
                 $scope.account,
                 $scope.creditcard,
                 $scope.address.home.toJSON(),
-                $scope.method.shipping.id,
+                shippingMethodId,
                 $scope.address.shipping.toJSON(),
                 $scope.address.billing.toJSON(),
                 lineItems,

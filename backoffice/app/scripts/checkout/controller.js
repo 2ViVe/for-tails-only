@@ -84,7 +84,10 @@ angular
         if (!$scope.selectedPaymentMethod.isCreditcard) {
           $scope.creditcard = null;
         }
-        order.create($scope.selectedPaymentMethod.id, $scope.selectedShippingMethod.id, $scope.creditcard)
+
+        var selectedShippingMethodId = $scope.selectedShippingMethod ? $scope.selectedShippingMethod.id : null;
+
+        order.create($scope.selectedPaymentMethod.id, selectedShippingMethodId, $scope.creditcard)
           .success(function(data) {
             $scope.placingOrder = false;
             $scope.orderId = data.response.orderId;
@@ -97,6 +100,10 @@ angular
             $scope.isSucceed = true;
             $scope.successInfo = data.response;
             Shopping.deleteAll();
+
+            if (User.shouldRenew) {
+              User.fetch();
+            }
           })
           .error(function(data) {
             $scope.placingOrder = false;

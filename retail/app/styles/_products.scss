@@ -77,11 +77,19 @@
         font-size: rem-calc(14);
         margin-bottom: 6px;
       }
+      .item-title {
+        color: $grey-darker;
+      }
       .product-id{
-        color:$grey;
+        color:$grey-dark;
         margin-bottom: 6px;
         font-size: $small-font-size;
         line-height: 1;
+      }
+      .personalized-values {
+        margin-top: 20px;
+        color: $grey-dark;
+        font-size: $small-font-size;
       }
       .product-size{
         margin-bottom: 6px;
