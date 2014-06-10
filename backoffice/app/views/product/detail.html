@@ -44,8 +44,12 @@
         <ul class="options">
           <li ng-repeat="option in options"
               ng-class="{current: currentOptions[optionType] === option}"
+              ng-style="getOptionStyle(option)"
               ng-click="changeOption(option, optionType)">
-            {{option.presentationValue}}
+            <img ng-src="{{option.presentationValue}}" ng-if="option.presentationType === 'IMG'"/>
+            <span ng-if="option.presentationType === 'TXT'">
+              {{option.presentationValue}}
+            </span>
           </li>
         </ul>
         <hr/>

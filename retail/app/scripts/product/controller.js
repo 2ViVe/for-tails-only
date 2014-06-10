@@ -28,6 +28,15 @@ angular.module('fto')
         $scope.variant = product.getVariantByOptions($scope.currentOptions);
       };
 
+      $scope.getOptionStyle = function(option) {
+        if (option.presentationType === 'TXT' && option.presentationValue[0] === '#') {
+          return {
+            'background-color': option.presentationValue
+          };
+        }
+        return null;
+      };
+
       $scope.catalogCode = product.catalogCode;
 
       $scope.subTaxon = taxons.getSubTaxonById(product.data.taxonId);
