@@ -25,19 +25,24 @@
         position:relative;
         border:1px solid $grey-border;
         //        display:table-cell;  this attr will unable the position attr
-        vertical-align: middle;
         height:220px;
-
         img{
+          display:inline;
           max-height: 220px;
-          width:100%;
+          width:98%;
+          vertical-align: middle;
         }
-
+        span{
+          display:inline-block;
+          width:1px;
+          height:100%;
+          vertical-align: middle;
+        }
         .button{
           position:absolute;
           top:40%;
-          left:50%;
-          margin-left: -25%;
+          left:10%;
+          right:10%;
           z-index: 2;
           display:none;
         }
@@ -205,6 +210,7 @@
       margin-top: $panel-margin-bottom;
 
       dd{
+        border-bottom:1px solid $grey-border;
         & > a{
           background:#fff;
           &:hover{
