@@ -4,6 +4,10 @@ angular
   .module('fto/checkout')
   .controller('CheckoutController', ['$scope', 'order', 'Shopping', '$modal',
     function($scope, order, Shopping, $modal) {
+      if (order === undefined) {
+        return;
+      }
+
       $scope.creditcard = {};
       $scope.placingOrder = false;
       $scope.isSucceed = false;
