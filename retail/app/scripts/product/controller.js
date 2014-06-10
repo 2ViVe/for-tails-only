@@ -26,6 +26,13 @@ angular.module('fto')
 
       updateVariant();
 
+      $scope.initPersonalizedValues = function(personalizedType, index) {
+        $scope.personalizedValues[index] = {
+          id: personalizedType.id,
+          name: personalizedType.name
+        };
+      };
+
       $scope.subTaxon = taxons.getSubTaxonById(product.data.taxonId);
       if ($scope.subTaxon !== null) {
         $scope.taxon = taxons.getById($scope.subTaxon.parentId);

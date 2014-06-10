@@ -35,9 +35,19 @@
                       {{item.data.name}}
                     </a>
                   </h6>
-                  <p class='product-id'>
+
+                  <p class="product-id">
+                    <span class="item-title">SKU:</span>
                     {{item.data.sku}}
                   </p>
+
+                  <div class="personalized-values">
+                    <p ng-repeat="personalizedValue in item.personalizedValues">
+                      <span class="item-title">{{personalizedValue.name}}:</span>
+                      {{personalizedValue.value}}
+                    </p>
+                  </div>
+
                   <!--<p class='product-size'><span>SIZE: S</span><span>COLOR: BLACK</span></p>-->
                 </div>
               </div>

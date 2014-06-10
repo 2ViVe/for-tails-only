@@ -24,7 +24,7 @@
       .product-img{
         position:relative;
         border:1px solid $grey-border;
-//        display:table-cell;  this attr will unable the position attr
+        //        display:table-cell;  this attr will unable the position attr
         vertical-align: middle;
         height:220px;
 
@@ -67,15 +67,45 @@
     }
   }
 
-
+  .products-cart-item{
+    .pack-img{
+      float:left;
+    }
+    .product-info{
+      margin-left:60px;
+      .product-name{
+        font-size: rem-calc(14);
+        margin-bottom: 6px;
+      }
+      .item-title {
+        color: $grey-darker;
+      }
+      .product-id{
+        color:$grey-dark;
+        margin-bottom: 6px;
+        font-size: $small-font-size;
+        line-height: 1;
+      }
+      .personalized-values {
+        margin-top: 20px;
+        color: $grey-dark;
+        font-size: $small-font-size;
+      }
+      .product-size{
+        margin-bottom: 6px;
+        font-size: $small-font-size;
+        line-height: 1;
+      }
+    }
+  }
 
   .product-cart-bar{
-      border-top:1px solid $grey-border;
-      border-bottom:1px solid $grey-border;
-      padding:rem-calc(10) 0;
-      font-size: rem-calc(14);
-      font-style: italic;
-    }
+    border-top:1px solid $grey-border;
+    border-bottom:1px solid $grey-border;
+    padding:rem-calc(10) 0;
+    font-size: rem-calc(14);
+    font-style: italic;
+  }
 
   .products-cart{
 
@@ -256,30 +286,6 @@
   }
 
 
-}
-
-.products-cart-item{
-  .pack-img{
-    float:left;
-  }
-  .product-info{
-    margin-left:60px;
-    .product-name{
-      font-size: rem-calc(14);
-      margin-bottom: 6px;
-    }
-    .product-id{
-      color:$grey;
-      margin-bottom: 6px;
-      font-size: $small-font-size;
-      line-height: 1;
-    }
-    .product-size{
-      margin-bottom: 6px;
-      font-size: $small-font-size;
-      line-height: 1;
-    }
-  }
 }
 
 .products-checkout-table{
