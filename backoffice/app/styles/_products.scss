@@ -210,8 +210,9 @@
       margin-top: $panel-margin-bottom;
 
       dd{
-        border-bottom:1px solid $grey-border;
+
         & > a{
+          border-bottom:1px solid $grey-border;
           background:#fff;
           &:hover{
             text-decoration: none;
