@@ -37,7 +37,7 @@ angular.module('fto/signup')
               return;
             }
             $location.path('/');
-        });
+          });
       };
 
     }]);
