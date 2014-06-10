@@ -176,8 +176,10 @@
 
       dd{
         & > a{
+          background:#fff;
           &:hover{
             text-decoration: none;
+            background:#fff;
           }
           .fa{
             margin-top:5px;
