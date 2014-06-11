@@ -84,5 +84,7 @@
     border-top: 1px solid $grey-border;
     color:$grey-light;
     font-size: $tiny-font-size;
+    margin-right:$column-gutter/2;
+    margin-left:$column-gutter/2;
   }
 }
