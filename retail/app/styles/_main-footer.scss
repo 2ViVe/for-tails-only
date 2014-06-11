@@ -78,6 +78,7 @@
 
   .extra-info {
     position: relative;
+    width:auto;
     padding-top: 12px;
     padding-bottom: 35px;
     margin-top: rem-calc(20);
@@ -86,5 +87,9 @@
     font-size: $tiny-font-size;
     margin-right:$column-gutter/2;
     margin-left:$column-gutter/2;
+    .columns{
+      padding-left:0;
+      padding-right:0;
+    }
   }
 }
