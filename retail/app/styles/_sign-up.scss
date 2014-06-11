@@ -109,4 +109,10 @@
     p{color:#9E9A99; margin-left: 25px;}
   }
 
+  .shipping-options{
+    input[type="radio"],label.inline{
+      margin-bottom:0;
+    }
+  }
+
 }
