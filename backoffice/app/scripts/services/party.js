@@ -26,6 +26,16 @@ angular.module('2ViVe')
             return response.data.response;
           });
         },
+        fetchInvitees: function(id) {
+          return $http.get('/api/v2/events/' + id + '/invitees', {
+            transformResponse: camelCaselize,
+            transformRequest: function(data) {
+              return angular.toJson(dashlize(data));
+            }
+          }).then(function(response) {
+            return response.data.response;
+          });
+        },
         fetchTemplates: function() {
           return $http.get('/api/v2/events/templates', {
             transformResponse: camelCaselize
