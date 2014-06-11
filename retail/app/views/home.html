@@ -38,8 +38,8 @@
     <ul class='products-list medium-block-grid-5'>
       <li ng-repeat="fp in featureProductsLimit">
         <div class="product-img">
+          <span></span>
           <img alt="{{fp.name}}" ng-src="{{fp.images[0]}}" />
-
           <a class="button small" ng-href="#/product/{{fp.id}}/FP">VIEW DETAIL</a>
         </div>
         <p class='product-name'><a ng-href="#/product/{{fp.id}}/FP">{{fp.name}}</a></p>
