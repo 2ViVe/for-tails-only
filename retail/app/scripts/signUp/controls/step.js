@@ -8,9 +8,11 @@ angular.module('fto/signup')
         link: function(scope, element) {
           angular.element(element).on('submit', function() {
             $timeout(function() {
-              console.log(angular.element('.error:visible:eq(0)')[0]);
-              angular.element('html, body')
-                .animate({scrollTop: angular.element('.error:visible:eq(0)').offset().top - 100}, 100);
+              var errorElement = angular.element('.error:visible:eq(0)');
+              if (errorElement.length > 0) {
+                angular.element('html, body')
+                  .animate({scrollTop: errorElement.offset().top - 100}, 100);
+              }
             }, 0);
           });
         }
