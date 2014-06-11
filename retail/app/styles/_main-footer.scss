@@ -63,11 +63,10 @@
 
   .social-links {
     padding-top: 0;
-    padding-bottom: 45px;
     margin-top:-10px;
     li {
       float: left;
-      margin-left: 15px;
+      margin-left: 10px;
       a{
         font-size: rem-calc(30);
         &:hover{
@@ -81,7 +80,7 @@
     position: relative;
     width:auto;
     padding-top: 12px;
-    padding-bottom: 35px;
+    padding-bottom: 20px;
     color:$grey-light;
     font-size: $tiny-font-size;
     margin-right:$column-gutter/2;
