@@ -48,6 +48,11 @@ form {
     @include form-label(inline,false);
     display: inline-block;
   }
+
+  input[type="checkbox"], input[type="file"], input[type="radio"], select{
+    margin-right:5px;
+  }
+
 }
 
 span.error, small.error{

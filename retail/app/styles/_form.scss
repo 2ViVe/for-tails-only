@@ -49,9 +49,15 @@ form {
     display: inline-block;
   }
 
+  input[type="checkbox"], input[type="file"], input[type="radio"], select{
+    margin-right:5px;
+  }
+
   span.error, small.error{
     margin-top: -16px;
   }
+
+
 
 }
 
