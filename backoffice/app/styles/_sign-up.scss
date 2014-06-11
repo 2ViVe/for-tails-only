@@ -49,6 +49,8 @@
 
   .register-customer {
     color: $grey-dark;
+    margin-top:-20px;
+    font-size:$base-font-size;
   }
 
   label[for=is-agreed] {
