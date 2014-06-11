@@ -51,7 +51,7 @@
             </div>
           </div>
         </div>
-        <div class='row topbar title-margin-bottom'>
+        <div class='row topbar title-margin-bottom' ng-if="false">
           <div class='small-12 medium-6 columns'>
             <h4 class="primary-color">Pawty Orders</h4>
           </div>
@@ -66,7 +66,7 @@
             </div>
           </div>
         </div>
-        <table class="party-list block-margin-bottom unimportant-text">
+        <table class="party-list block-margin-bottom unimportant-text" ng-if="false">
           <thead>
             <tr class="table-title-bg">
               <th width="120" class="text-left">Order</th>
@@ -157,24 +157,24 @@
     </div>
     <div class='columns medium-4'>
       <div class='party-panel block-margin-bottom'>
-        <h4>2 Years Birthday</h4>
+        <h4>{{ party.title }}</h4>
         <div class="party-details-info">
           <dl class="row">
             <dt class="small-4 columns">Date:</dt>
-            <dd class="small-8 columns">October 24, 2013, 7:30 PM</dd>
+            <dd class="small-8 columns">{{ party.startTime }}</dd>
           </dl>
           <dl class="row">
             <dt class="small-4 columns">End:</dt>
-            <dd class="small-8 columns">November 24, 2013</dd>
+            <dd class="small-8 columns">{{ party.endTime }}</dd>
           </dl>
           <dl class="row">
             <dt class="small-4 columns">Location:</dt>
-            <dd class="small-8 columns">xxx, 23th, xxxxx</dd>
+            <dd class="small-8 columns">{{ party.locationName }}</dd>
           </dl>
           <br/>
           <dl class="row">
             <dt class="small-4 columns">Host:</dt>
-            <dd class="small-8 columns">Abovegem</dd>
+            <dd class="small-8 columns">{{ party.hostName }}</dd>
           </dl>
           <dl class="row">
             <dt class="small-12 columns">Invation URL:</dt>
@@ -188,7 +188,7 @@
       </div>
       <h3 class="primary-color">RSVP <a href class="button right tiny">Manage Guest</a></h3>
       <div class='party-panel'>
-        <h4>YES: 2 <i class="fa fa-chevron-down right"></i></h4>
+        <h4>YES: {{ party.yesCount }} <i class="fa fa-chevron-down right"></i></h4>
         <table width='100%' class='party-user-table'>
           <tbody>
           <tr>
@@ -231,16 +231,16 @@
         </table>
       </div>
       <div class='party-panel'>
-        <h4>MAYBE: 2 <i class="fa fa-chevron-down right"></i></h4>
+        <h4>MAYBE: {{ party.maybeCount }} <i class="fa fa-chevron-down right"></i></h4>
         <div class='party-panel-con-bar'>
           <span><i class="fa fa-caret-right primary-color"></i> No Replies Yet</span>
         </div>
       </div>
       <div class='party-panel'>
-        <h4>NO: 0 <i class="fa fa-chevron-right right"></i></h4>
+        <h4>NO: {{ party.noCount }} <i class="fa fa-chevron-right right"></i></h4>
       </div>
       <div class='party-panel block-margin-bottom'>
-        <h4>NO REPLY YET: 0 <i class="fa fa-chevron-right right"></i></h4>
+        <h4>NO REPLY YET: {{ party.noReplyCount }} <i class="fa fa-chevron-right right"></i></h4>
       </div>
       <h3 class="primary-color">RSVP History</h3>
       <div class="party-panel">
