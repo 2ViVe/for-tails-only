@@ -23,6 +23,9 @@
     }
 
     .header-links-bowl {
+      &.icons-food-bowl{
+        width:auto;
+      }
       a {
         color: $primary-color;
       }
