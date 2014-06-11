@@ -47,5 +47,12 @@ angular
             });
           }]
         }
+      })
+      .when('/party/:partyId', {
+        templateUrl: 'views/party/party-details.html',
+        controller: 'PartyDetailsController',
+        resolve: {
+
+        }
       });
   }]);
