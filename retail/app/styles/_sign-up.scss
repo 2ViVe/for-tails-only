@@ -63,6 +63,7 @@
     height: auto;
     line-height: 20px;
     color: $grey-dark;
+    margin-bottom:0;
   }
 
   .personal-website-info {
@@ -78,9 +79,6 @@
     margin: 0 auto;
     > .row{
       margin-bottom: rem-calc(10);
-    }
-    .ng-invalid {
-      margin-bottom: rem-calc(20);
     }
   }
 
