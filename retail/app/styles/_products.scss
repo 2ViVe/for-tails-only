@@ -18,58 +18,7 @@
     }
   }
 
-  .products-list{
-    li{
-      .product-img{
-        position:relative;
-        border:1px solid $grey-border;
-        //        display:table-cell;  this attr will unable the position attr
-        height:220px;
-        img{
-          display:inline-block;
-          max-height: 216px;
-          width:96%;
-          vertical-align: middle;
-        }
-        span{
-          display:inline-block;
-          width:1px;
-          height:100%;
-          vertical-align: middle;
-        }
-        .button{
-          position:absolute;
-          top:40%;
-          left:10%;
-          right:10%;
-          z-index: 2;
-          display:none;
-        }
-      }
-      &:hover{
-        .product-img{
-          .button{
-            display:inline-block;
-          }
-        }
-      }
-    }
-    .product-name{
-      color:$grey-darker;
-      font-size: $small-font-size;
-      margin: rem-calc(10) 0 rem-calc(10) 0;
-      height:36px;
-      overflow: hidden;
-      a{
-        color:$grey-darker;
-      }
-    }
-    .product-price{
-      color:$primary-color;
-      font-size: rem-calc(14);
-      margin:0 0 rem-calc(5) 0;
-    }
-  }
+
 
   .products-cart-item{
     .pack-img{
@@ -291,6 +240,59 @@
   }
 
 
+}
+
+.products-list{
+  li{
+    .product-img{
+      position:relative;
+      border:1px solid $grey-border;
+      //        display:table-cell;  this attr will unable the position attr
+      height:220px;
+      img{
+        display:inline-block;
+        max-height: 216px;
+        width:96%;
+        vertical-align: middle;
+      }
+      span{
+        display:inline-block;
+        width:1px;
+        height:100%;
+        vertical-align: middle;
+      }
+      .button{
+        position:absolute;
+        top:40%;
+        left:10%;
+        right:10%;
+        z-index: 2;
+        display:none;
+      }
+    }
+    &:hover{
+      .product-img{
+        .button{
+          display:inline-block;
+        }
+      }
+    }
+  }
+  .product-name{
+    color:$grey-darker;
+    font-size: $small-font-size;
+    margin: rem-calc(10) 0 rem-calc(10) 0;
+    height:36px;
+    overflow: hidden;
+    a{
+      color:$grey-darker;
+    }
+  }
+  .product-price{
+    color:$primary-color;
+    font-size: rem-calc(14);
+    margin:0 0 rem-calc(5) 0;
+  }
 }
 
 .products-checkout-table{
