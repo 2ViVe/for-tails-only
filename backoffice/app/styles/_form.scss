@@ -50,6 +50,6 @@ form {
   }
 }
 
-.ng-invalid.ng-dirty {
-  margin-bottom: 0;
+span.error, small.error{
+  margin-top: -16px;
 }

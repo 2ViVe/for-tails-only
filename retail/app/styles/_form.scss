@@ -48,8 +48,10 @@ form {
     @include form-label(inline,false);
     display: inline-block;
   }
+
+  span.error, small.error{
+    margin-top: -16px;
+  }
+
 }
 
-.ng-invalid.ng-dirty {
-  margin-bottom: 0;
-}
