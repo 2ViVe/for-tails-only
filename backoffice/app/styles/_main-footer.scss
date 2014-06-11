@@ -54,10 +54,11 @@
   .authorize{
     text-align: center;
     width:90px;
-    margin-top:10px;
     a{
-      line-height: rem-calc(12);
+      display:inline-block;
+      line-height: normal;
       color:$grey-darker;
+      margin-top:5px;
     }
   }
 
