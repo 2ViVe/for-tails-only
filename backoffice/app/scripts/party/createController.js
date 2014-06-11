@@ -1,8 +1,10 @@
 'use strict';
 
 angular.module('fto/party')
-  .controller('PartyCreateController', ['$scope', '$modal', 'country', 'Party', 'type', 'template', '$location',
-    function($scope, $modal, country, Party, type, template, $location) {
+  .controller('PartyCreateController', ['$scope', '$modal', 'country', 'Party', 'type', 'templates', '$location',
+    function($scope, $modal, country, Party, type, templates, $location) {
+      $scope.templates = templates;
+      $scope.selectedTemplate = templates[0];
       $scope.country = country;
       $scope.error = '';
       $scope.submitted = false;
@@ -31,7 +33,7 @@ angular.module('fto/party')
         if ($scope.time.startDate && $scope.time.startTime) {
           $scope.data.endTime = $scope.time.endDate + 'T' + $scope.time.endTime + ':00.000Z';
         }
-        $scope.data.templateId = template.id;
+        $scope.data.templateId = $scope.selectedTemplate.id;
         Party.create($scope.data)
           .then(function(response) {
             $location.path('/party/' + response.data.response.id + '/invite');

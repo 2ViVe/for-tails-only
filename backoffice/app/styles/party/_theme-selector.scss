@@ -1,0 +1,29 @@
+.theme-selector {
+  position: relative;
+  padding: 20px;
+  text-align: center;
+
+  .previous-theme,
+  .next-theme {
+    height: 43px;
+    width: 43px;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    margin-top: -20px;
+    cursor: pointer;
+  }
+
+  li {
+    height: auto;
+  }
+
+  .next-theme {
+    background: image-url('party/next-theme.png');
+  }
+
+  .previous-theme {
+    background: image-url('party/previous-theme.png');
+    right: 20px;
+  }
+}
