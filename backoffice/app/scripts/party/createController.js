@@ -4,7 +4,6 @@ angular.module('fto/party')
   .controller('PartyCreateController', ['$scope', '$modal', 'country', 'Party', 'type', 'templates', '$location',
     function($scope, $modal, country, Party, type, templates, $location) {
       $scope.templates = templates;
-      $scope.selectedTemplate = templates[0];
       $scope.country = country;
       $scope.error = '';
       $scope.submitted = false;
@@ -25,6 +24,24 @@ angular.module('fto/party')
         }
       }
 
+      var selectedTemplateIndex = 0;
+
+      $scope.nextTemplate = function() {
+        if (selectedTemplateIndex === templates.length - 1) {
+          selectedTemplateIndex = 0;
+        } else {
+          selectedTemplateIndex++;
+        }
+      };
+
+      $scope.previousTemplate = function() {
+        if (selectedTemplateIndex === 0) {
+          selectedTemplateIndex = templates.length - 1;
+        } else {
+          selectedTemplateIndex--;
+        }
+      };
+
       $scope.save = function() {
         $scope.submitted = true;
         if ($scope.time.startDate && $scope.time.startTime) {
@@ -33,7 +50,7 @@ angular.module('fto/party')
         if ($scope.time.startDate && $scope.time.startTime) {
           $scope.data.endTime = $scope.time.endDate + 'T' + $scope.time.endTime + ':00.000Z';
         }
-        $scope.data.templateId = $scope.selectedTemplate.id;
+        $scope.data.templateId = templates[selectedTemplateIndex].id;
         Party.create($scope.data)
           .then(function(response) {
             $location.path('/party/' + response.data.response.id + '/invite');
