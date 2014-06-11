@@ -12,9 +12,11 @@ angular.module('2ViVe')
               return response.data.response;
             });
         },
-        addInvitee: function(id, email) {
+        addInvitee: function(id, invitees, subject, message) {
           return $http.post('/api/v2/events/' + id + '/invitees', {
-            email: email
+            invitees: invitees,
+            subject: subject,
+            message: message
           }, {
             transformResponse: camelCaselize,
             transformRequest: function(data) {
