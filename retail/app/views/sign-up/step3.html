@@ -30,8 +30,8 @@
   </div>
 
   <div class="row">
-    <div class="columns medium-4">&nbsp;</div>
-    <div class="columns medium-4" ng-repeat="shippingMethod in shippingMethods" class="shipping-options">
+    <div class="columns medium-4 small-12"><label class="inline required">Options:</label></div>
+    <div class="columns medium-4 small-12" ng-repeat="shippingMethod in shippingMethods" class="shipping-options">
       <label class="inline">
         <input required ng-model="method.shipping" type="radio" name="shippingMethod"
                ng-value="shippingMethod"/>
