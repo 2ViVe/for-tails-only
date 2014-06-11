@@ -191,56 +191,83 @@
         <h4>YES: {{ party.yesCount }} <i class="fa fa-chevron-down right"></i></h4>
         <table width='100%' class='party-user-table'>
           <tbody>
-          <tr>
-            <td>
-              <img class='party-user-table-img' src='/images/party/party-user-1.jpg' alt='[User Name]' />
-              <div class='party-user-table-info'>
-                <h5>
-                  Shelly olson
-                  <br/>
-                  <small>sjbolson13@gmail.com</small>
-                </h5>
-              </div>
-            </td>
-          </tr>
-          <tr class='odd'>
-            <td>
-              <img class='party-user-table-img' src='/images/party/party-user-1.jpg' alt='[User Name]' />
-              <div class='party-user-table-info'>
-                <h5>
-                  Shelly olson
-                  <br/>
-                  <small>sjbolson13@gmail.com</small>
-                </h5>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img class='party-user-table-img' src='/images/party/party-user-1.jpg' alt='[User Name]' />
-              <div class='party-user-table-info'>
-                <h5>
-                  Shelly olson
-                  <br/>
-                  <small>sjbolson13@gmail.com</small>
-                </h5>
-              </div>
-            </td>
-          </tr>
+            <tr ng-repeat="invitee in invitees|responseIs: 'yes'">
+               <td>
+                <img class='party-user-table-img' src='/images/party/party-user-1.jpg' alt='{{ invitee.name }}' />
+                <div class='party-user-table-info'>
+                  <h5>
+                    NOT-IN-API-YET
+                    <br/>
+                    <small>{{ invitee.email }}</small>
+                  </h5>
+                </div>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
       <div class='party-panel'>
         <h4>MAYBE: {{ party.maybeCount }} <i class="fa fa-chevron-down right"></i></h4>
         <div class='party-panel-con-bar'>
-          <span><i class="fa fa-caret-right primary-color"></i> No Replies Yet</span>
+          <table width='100%' class='party-user-table'>
+            <tbody>
+              <tr ng-repeat="invitee in invitees|responseIs: 'maybe'">
+                <td>
+                  <img class='party-user-table-img' src='/images/party/party-user-1.jpg' alt='{{ invitee.name }}' />
+                  <div class='party-user-table-info'>
+                    <h5>
+                      NOT-IN-API-YET
+                      <br/>
+                      <small>{{ invitee.email }}</small>
+                    </h5>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!--<span><i class="fa fa-caret-right primary-color"></i> No Replies Yet</span>-->
         </div>
       </div>
       <div class='party-panel'>
         <h4>NO: {{ party.noCount }} <i class="fa fa-chevron-right right"></i></h4>
+        <table width='100%' class='party-user-table'>
+          <tbody>
+            <tr ng-repeat="invitee in invitees|responseIs: 'no'">
+              <td>
+              <img class='party-user-table-img' src='/images/party/party-user-1.jpg' alt='{{ invitee.name }}' />
+                <div class='party-user-table-info'>
+                  <h5>
+                    NOT-IN-API-YET
+                    <br/>
+                    <small>{{ invitee.email }}</small>
+                  </h5>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
       </div>
       <div class='party-panel block-margin-bottom'>
         <h4>NO REPLY YET: {{ party.noReplyCount }} <i class="fa fa-chevron-right right"></i></h4>
+        <table width='100%' class='party-user-table'>
+          <tbody>
+          <tr ng-repeat="invitee in invitees|responseIs: 'noreply'">
+            <td>
+              <img class='party-user-table-img' src='/images/party/party-user-1.jpg' alt='{{ invitee.name }}' />
+              <div class='party-user-table-info'>
+                <h5>
+                  NOT-IN-API-YET
+                  <br/>
+                  <small>{{ invitee.email }}</small>
+                </h5>
+              </div>
+              </td>
+          </tr>
+          </tbody>
+        </table>
+
       </div>
       <h3 class="primary-color">RSVP History</h3>
       <div class="party-panel">
