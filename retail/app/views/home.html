@@ -69,6 +69,7 @@
     <ul class='products-list medium-block-grid-5'>
       <li ng-repeat="np in newProductsLimit">
         <div class="product-img">
+          <span></span>
           <img alt="{{np.name}}" ng-src="{{np.images[0]}}" />
           <a class="button small" ng-href="#/product/{{np.id}}/NP">VIEW DETAIL</a>
         </div>
