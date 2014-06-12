@@ -1,0 +1,19 @@
+<div class='party-panel'>
+  <h4 ng-click="toggle()">{{ title }}: {{ count }} <i class="fa right" ng-class="{'fa-chevron-down': isShow, 'fa-chevron-right': !isShow }"></i></h4>
+  <table width='100%' class='party-user-table'>
+    <tbody ng-show="isShow">
+      <tr ng-repeat="invitee in invitees|responseIs: type">
+        <td>
+          <img class='party-user-table-img' src='/images/party/party-user-1.jpg' alt='{{ invitee.name }}' />
+          <div class='party-user-table-info'>
+            <h5>
+              {{ invitee.firstName }} {{ invitee.lastName }}
+              <br/>
+              <small>{{ invitee.email }}</small>
+            </h5>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

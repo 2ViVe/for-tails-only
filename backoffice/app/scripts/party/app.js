@@ -62,7 +62,18 @@ angular
         templateUrl: 'views/party/party-details.html',
         controller: 'PartyDetailsController',
         resolve: {
-
+          event: ['Event', '$route', function(Event, $route) {
+            var id = $route.current.params.partyId;
+            var event = new Event(id);
+            return event
+              .fetch()
+              .then(function() {
+                return event.fetchInvitees();
+              })
+              .then(function() {
+                return event;
+              });
+          }]
         }
       });
   }]);

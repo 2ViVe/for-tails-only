@@ -156,7 +156,7 @@
         </table>
     </div>
     <div class='columns medium-4'>
-      <div class='party-panel block-margin-bottom'>
+      <div class='party-panel block-margin-bottom' >
         <h4>{{ party.title }}</h4>
         <div class="party-details-info">
           <dl class="row">
@@ -187,88 +187,42 @@
         </div>
       </div>
       <h3 class="primary-color">RSVP <a href class="button right tiny">Manage Guest</a></h3>
-      <div class='party-panel'>
-        <h4>YES: {{ party.yesCount }} <i class="fa fa-chevron-down right"></i></h4>
-        <table width='100%' class='party-user-table'>
-          <tbody>
-            <tr ng-repeat="invitee in invitees|responseIs: 'yes'">
-               <td>
-                <img class='party-user-table-img' src='/images/party/party-user-1.jpg' alt='{{ invitee.name }}' />
-                <div class='party-user-table-info'>
-                  <h5>
-                    NOT-IN-API-YET
-                    <br/>
-                    <small>{{ invitee.email }}</small>
-                  </h5>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class='party-panel'>
-        <h4>MAYBE: {{ party.maybeCount }} <i class="fa fa-chevron-down right"></i></h4>
-        <div class='party-panel-con-bar'>
-          <table width='100%' class='party-user-table'>
-            <tbody>
-              <tr ng-repeat="invitee in invitees|responseIs: 'maybe'">
-                <td>
-                  <img class='party-user-table-img' src='/images/party/party-user-1.jpg' alt='{{ invitee.name }}' />
-                  <div class='party-user-table-info'>
-                    <h5>
-                      NOT-IN-API-YET
-                      <br/>
-                      <small>{{ invitee.email }}</small>
-                    </h5>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
 
-          <!--<span><i class="fa fa-caret-right primary-color"></i> No Replies Yet</span>-->
-        </div>
-      </div>
-      <div class='party-panel'>
-        <h4>NO: {{ party.noCount }} <i class="fa fa-chevron-right right"></i></h4>
-        <table width='100%' class='party-user-table'>
-          <tbody>
-            <tr ng-repeat="invitee in invitees|responseIs: 'no'">
-              <td>
-              <img class='party-user-table-img' src='/images/party/party-user-1.jpg' alt='{{ invitee.name }}' />
-                <div class='party-user-table-info'>
-                  <h5>
-                    NOT-IN-API-YET
-                    <br/>
-                    <small>{{ invitee.email }}</small>
-                  </h5>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div data-accordian-party-panel
+           data-title="YES"
+           data-type="yes"
+           data-init-state="true"
+           data-count="party.yesCount"
+           data-invitees="invitees"
+      ></div>
 
-      </div>
-      <div class='party-panel block-margin-bottom'>
-        <h4>NO REPLY YET: {{ party.noReplyCount }} <i class="fa fa-chevron-right right"></i></h4>
-        <table width='100%' class='party-user-table'>
-          <tbody>
-          <tr ng-repeat="invitee in invitees|responseIs: 'noreply'">
-            <td>
-              <img class='party-user-table-img' src='/images/party/party-user-1.jpg' alt='{{ invitee.name }}' />
-              <div class='party-user-table-info'>
-                <h5>
-                  NOT-IN-API-YET
-                  <br/>
-                  <small>{{ invitee.email }}</small>
-                </h5>
-              </div>
-              </td>
-          </tr>
-          </tbody>
-        </table>
 
-      </div>
+      <div data-accordian-party-panel
+           data-title="MAYBE"
+           data-type="maybe"
+           data-init-state="false"
+           data-count="party.maybeCount"
+           data-invitees="invitees"
+        ></div>
+
+      <div data-accordian-party-panel
+           data-title="NO"
+           data-type="no"
+           data-init-state="false"
+           data-count="party.noCount"
+           data-invitees="invitees"
+        ></div>
+
+
+      <div data-accordian-party-panel
+           data-title="NO REPLY YET"
+           data-type="no"
+           data-init-state="false"
+           data-count="party.noReplyCount"
+           data-invitees="invitees"
+        ></div>
+
+
       <h3 class="primary-color">RSVP History</h3>
       <div class="party-panel">
         <table width='100%' class='party-user-table'>
