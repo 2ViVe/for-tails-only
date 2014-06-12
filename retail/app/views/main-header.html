@@ -1,10 +1,23 @@
 <div class='row' ng-controller="HeaderController">
-  <div class="medium-3 columns">
-    <a href="#">
-      <img src="images/logo.png" alt="For Tails Only"/>
-    </a>
+  <div class="small-4 columns">
+    <div class="header-logo">
+      <a href="#">
+        <img src="images/logo.png" class="logo" alt="For Tails Only"/>
+      </a>
+      <div class="distributor-info" ng-if="replicateOwner">
+        <div class="distributor-info-name">
+          {{ replicateOwner['first-name'] + ' ' + replicateOwner['last-name'] }}
+        </div>
+        <a href class="distributor-info-id">
+          <span class="">{{ replicateOwner['distributor-id'] }}</span>
+        </a>
+        <a href class="distributor-info-email">
+          <span class="">{{ replicateOwner['email']}}</span>
+        </a>
+      </div>
+    </div>
   </div>
-  <div class="medium-9 columns text-right">
+  <div class="small-8 columns text-right">
     <ul class="header-links separator-slash right">
       <li class='header-links-bowl icons-food-bowl'>
         <a href="#/shopping">
@@ -31,13 +44,6 @@
       </li>
     </ul>
 
-    <div class="row replicate-info"  ng-if="replicateOwner">
-      <ul>
-        <li>Sponsor Name: {{ replicateOwner['first-name'] + ' ' + replicateOwner['last-name'] }}</li>
-        <li>Sponsor Id: {{ replicateOwner['distributor-id'] }}</li>
-        <li>Email: {{ replicateOwner['email']}} </li>
-      </ul>
-    </div>
     <!--<div class='row collapse header-search right'>-->
       <!--<div class='small-5 columns'>-->
         <!--<select class="secondary-item no-margin-bottom">-->

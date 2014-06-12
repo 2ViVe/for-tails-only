@@ -38,4 +38,96 @@
       padding-right: rem-calc(5);
     }
   }
+
+  .header-logo{
+    position: relative;
+    .logo{
+      width:230px;
+    }
+    .distributor-info{
+      position:absolute;
+      z-index: 2;
+      top:10px;
+      left: 240px;
+      .distributor-info-name{
+        display: block;
+        position: absolute;
+        top:5px;
+        color: #F55C9F;
+        font-size: $medium-font-size;
+        text-transform:uppercase;
+        width:200px;
+        z-index: 9;
+      }
+      a{
+        position: absolute;
+        display: block;
+        width:25px;
+        height: 25px;
+        top:25px;
+        span{
+          display:none;
+        }
+        &.distributor-info-id{
+          background:url("/images/icons/header-id-1.png") 0 0 no-repeat;
+          background-size:25px 25px;
+          &:hover{
+            span{
+              position:absolute;
+              display:block;
+              top:30px;
+              left:-50%;
+              padding:5px 30px;
+              text-algin:center;
+              background:#333;
+              color:#fff;
+              border-radius:8px;
+              font-size:$small-font-size;
+            }
+            background:url("/images/icons/header-id-2.png") 0 0 no-repeat;
+            background-size:25px 25px;
+            text-decoration: none;
+          }
+        }
+        &.distributor-info-email{
+          left:35px;
+          background:url("/images/icons/header-email-1.png") 0 0 no-repeat;
+          background-size:25px 25px;
+          &:hover{
+            span{
+              position:absolute;
+              display:block;
+              top:30px;
+              left:-50%;
+              padding:5px 30px;
+              text-algin:center;
+              background:#333;
+              color:#fff;
+              border-radius:8px;
+              font-size:$small-font-size;
+            }
+            background:url("/images/icons/header-email-2.png") 0 0 no-repeat;
+            background-size:25px 25px;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    .top-arrow{
+      &:before{
+        position: absolute;
+        left:50%;
+        top:-5px;
+        z-index: 3;
+        content:'';
+        width: 0;
+        height: 0;
+        margin-left:-10px;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 5px solid #333;
+      }
+    }
+  }
+
 }
