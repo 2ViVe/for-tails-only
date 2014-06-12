@@ -15,8 +15,9 @@ angular
         templateUrl: 'views/party/invite.html',
         controller: 'PartyInviteController',
         resolve: {
-          partyInfo: ['Party', '$route', function(Party, $route) {
-            return Party.fetch($route.current.params.partyId);
+          event: ['Event', '$route', function(Event, $route) {
+            var event = new Event($route.current.params.partyId);
+            return event.fetch();
           }]
         }
       })
@@ -24,11 +25,11 @@ angular
         templateUrl: 'views/party/create.html',
         controller: 'PartyCreateController',
         resolve: {
-          templates: ['Party', function(Party) {
-            return Party.fetchTemplates();
+          templates: ['Events', function(Events) {
+            return Events.fetchTemplates();
           }],
-          type: ['Party', function(Party) {
-            return Party.fetchTypes().then(function(types) {
+          type: ['Events', function(Events) {
+            return Events.fetchTypes().then(function(types) {
               return types[0];
             });
           }],

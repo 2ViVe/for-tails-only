@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('fto/party')
-  .controller('PartyCreateController', ['$scope', '$modal', 'country', 'Party', 'type', 'templates', '$location',
-    function($scope, $modal, country, Party, type, templates, $location) {
+  .controller('PartyCreateController', ['$scope', '$modal', 'country', 'Event', 'type', 'templates', '$location',
+    function($scope, $modal, country, Event, type, templates, $location) {
       $scope.templates = templates;
       $scope.country = country;
       $scope.error = '';
@@ -51,9 +51,10 @@ angular.module('fto/party')
           $scope.data.endTime = $scope.time.endDate + 'T' + $scope.time.endTime + ':00.000Z';
         }
         $scope.data.templateId = templates[selectedTemplateIndex].id;
-        Party.create($scope.data)
-          .then(function(response) {
-            $location.path('/party/' + response.data.response.id + '/invite');
+        var event = new Event();
+        event.create($scope.data)
+          .then(function(event) {
+            $location.path('/party/' + event.data.id + '/invite');
           })
           .catch(function(response) {
             $scope.error = response.data.meta.error.message;

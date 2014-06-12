@@ -1,15 +1,15 @@
 'use strict';
 
 angular.module('fto/party')
-  .controller('PartyInviteController', ['$scope', 'Party', 'partyInfo', 'Validator', '$location',
-    function($scope, Party, partyInfo, Validator, $location) {
-      $scope.partyInfo = partyInfo;
+  .controller('PartyInviteController', ['$scope', 'event', 'Validator', '$location',
+    function($scope, event, Validator, $location) {
+      $scope.event = event.data;
 
-      $scope.subject = partyInfo.title;
-      $scope.message = partyInfo.message;
+      $scope.subject = event.data.title;
+      $scope.message = event.data.description;
       $scope.invitees = [];
       $scope.hasInvalidEmail = false;
-      $scope.totalCount = partyInfo.yesCount + partyInfo.noCount + partyInfo.maybeCount + partyInfo.noReplyCount;
+      $scope.totalCount = event.totalInviteesNumber();
 
       function isEmailNotExited(email) {
         var isNotExited = true;
@@ -46,9 +46,9 @@ angular.module('fto/party')
       };
 
       $scope.submit = function() {
-        Party.addInvitee(partyInfo.id, $scope.invitees, $scope.subject, $scope.message)
+        event.addInvitees($scope.invitees, $scope.subject, $scope.message)
           .then(function() {
-            $location.path('/party/' + partyInfo.id);
+            $location.path('/party/' + event.data.id);
           }).catch(function(error) {
             $scope.error = error.data.meta.error.message;
           });
