@@ -11,6 +11,15 @@ angular
   ])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
+      .when('/party', {
+        templateUrl: 'views/party/party-my.html',
+        controller: 'PartyLandingController',
+        resolve: {
+          events: ['Events', function(Events) {
+            return Events.fetchAll();
+          }]
+        }
+      })
       .when('/party/:partyId/invite', {
         templateUrl: 'views/party/invite.html',
         controller: 'PartyInviteController',
