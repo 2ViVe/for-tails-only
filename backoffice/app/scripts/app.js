@@ -10,7 +10,9 @@ angular.module('fto', [
   'mm.foundation.modal',
   'mm.foundation.accordion',
   'chieffancypants.loadingBar',
-  // apps
+  'angulartics',
+  'angulartics.google.analytics',
+
   'fto/signup',
   'fto/profile',
   'fto/taxon',
