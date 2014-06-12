@@ -2,8 +2,8 @@
 
 angular.module('fto')
   //for party-my page
-  .controller('PartyLandingController', ['$scope', 'events', '$route', '$window',
-    function($scope, events, $route, $window) {
+  .controller('PartyLandingController', ['$scope', 'events', '$route',
+    function($scope, events, $route) {
       var recentOutput = [],
         upcomingOutput = [],
         timeFormat = 'MMMM D,YYYY,h:mma',
@@ -26,7 +26,7 @@ angular.module('fto')
       }
 
       angular.forEach(events, function(event){
-        var output = {};
+        var output = angular.copy(event);
         output.startTime = moment(event.startTime).format(timeFormat);
         output.endTime = moment(event.endTime).format(timeFormat);
         output.address = [
