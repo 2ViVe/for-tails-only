@@ -95,7 +95,6 @@ angular.module('2ViVe')
           return $http.get('/api/v2/events', {
             transformResponse: camelCaselize
           }).then(function(response){
-              console.log(response.data.response);
               return response.data.response;
             });
         }

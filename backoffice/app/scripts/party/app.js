@@ -11,7 +11,7 @@ angular
   ])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
-      .when('/party', {
+      .when('/party/overview/:type', {
         templateUrl: 'views/party/party-my.html',
         controller: 'PartyLandingController',
         resolve: {
