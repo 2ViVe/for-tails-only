@@ -44,10 +44,7 @@ angular.module('2ViVe')
       Event.prototype.fetchInvitees = function() {
         var event = this;
         return $http.get('/api/v2/events/' + event.data.id + '/invitees', {
-          transformResponse: camelCaselize,
-          transformRequest: function(data) {
-            return angular.toJson(dashlize(data));
-          }
+          transformResponse: camelCaselize
         }).then(function(response) {
           event.invitees = response.data.response;
           return event;
