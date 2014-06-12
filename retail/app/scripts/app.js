@@ -10,6 +10,8 @@ angular.module('fto', [
   'mm.foundation.modal',
   'mm.foundation.accordion',
   'chieffancypants.loadingBar',
+  'angulartics',
+  'angulartics.google.analytics',
 
   'fto/signup',
   'fto/signin',

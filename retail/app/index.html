@@ -64,6 +64,8 @@
     <script src="bower_components/pikaday/pikaday.js"></script>
     <script src="bower_components/2ViVe/scripts/main.js"></script>
     <script src="bower_components/angular-cookie/angular-cookie.js"></script>
+    <script src="bower_components/jquery-waypoints/waypoints.js"></script>
+    <script src="bower_components/angulartics/src/angulartics.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -71,6 +73,7 @@
     <script src="bower_components/angular-mm-foundation/src/transition/transition.js"></script>
     <script src="bower_components/angular-mm-foundation/src/modal/modal.js"></script>
     <script src="bower_components/angular-mm-foundation/src/accordion/accordion.js"></script>
+    <script src="bower_components/angulartics/src/angulartics-ga.js"></script>
 
     <script src="bower_components/2ViVe/scripts/services/camelCaselize.js"></script>
     <script src="bower_components/2ViVe/scripts/services/address.js"></script>
@@ -92,7 +95,6 @@
 
     <script src="bower_components/2ViVe/scripts/filters/imageSize.js"></script>
     <script src="bower_components/2ViVe/scripts/filters/price.js"></script>
-
 
     <script src="bower_components/2ViVe/scripts/directives/creditCardExpiration.js"></script>
     <script src="bower_components/2ViVe/scripts/directives/requireWithValidator.js"></script>
@@ -165,5 +167,14 @@
     <script src="scripts/checkout/shippingModalController.js"></script>
     <script src="scripts/checkout/billingModalController.js"></script>
     <!-- endbuild -->
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-51874739-1', 'fortailsonly.com');
+    </script>
 </body>
 </html>
