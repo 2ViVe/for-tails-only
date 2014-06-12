@@ -11,7 +11,7 @@ angular
   ])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
-      .when('/pawty/:eventId/invitee/:inviteeid/rsvp/:response?', {
+      .when('/pawty/:eventId/invitee/:inviteeId/rsvp/:response?', {
         templateUrl: 'views/party/invitation.html',
         controller: 'PartyInvitationController',
         resolve: {
