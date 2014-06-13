@@ -13,12 +13,7 @@ angular.module('fto/party')
       $scope.response = function() {
         return event.getInviteeById(inviteeId).response;
       };
-      angular.forEach(templates, function(template) {
-        if (template.id === event.data.templateId) {
-          $scope.templateImageUrl = template.imageUrl;
-        }
-      });
-
+      $scope.templateImageUrl = event.getTemplateImageUrlFrom(templates);
 
       $scope.confirm = function(response) {
         $modal.open({
