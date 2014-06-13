@@ -44,32 +44,10 @@
   </div>
   <div class='row'>
     <div class='columns medium-6'>
-      <div class='party-panel' ng-repeat="responseType in responseTypes">
-        <h4>
-          {{responseType.name}}: {{event.data[responseType.countName]}}
-          <i class="fa fa-chevron-down right"></i>
-        </h4>
-        <div class='party-panel-con-bar' ng-if="event.data[responseType.countName] === 0">
-          <span><i class="fa fa-caret-right primary-color"></i> No Replies Yet</span>
-        </div>
-        <table width='100%' class='party-user-table'>
-          <tbody>
-          <tr ng-repeat="invitee in event.invitees | responseIs: responseType.type ">
-            <td>
-              <div class='party-user-table-info'>
-                <h5>
-                  {{invitee.firstName}}
-                  {{invitee.middleName}}
-                  {{invitee.lastName}}
-                  <br/>
-                  <small>{{invitee.email}}</small>
-                </h5>
-              </div>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
+      <div data-rsvp-panel
+           data-invitees="event.invitees"
+           data-count-object="event.data"
+           data-response-types="responseTypes"></div>
     </div>
     <div class='columns medium-6'>
       <div class='party-panel'>
