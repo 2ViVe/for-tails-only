@@ -52,83 +52,28 @@
       width:100%;
       border-left:1px solid $grey-border;
       padding-left:10px;
-      .distributor-info-name{
+      height:36px;
+      .distributor-info-photo{
         display: inline-block;
-        color: #F55C9F;
-        font-size: $base-font-size;
-        text-transform:uppercase;
-        vertical-align: middle;
-        height: 25px;
         margin-right:10px;
-        font-weight:bold;
-      }
-      a{
-        position: relative;
-        display: inline-block;
-        width:25px;
-        height: 25px;
-        margin-right:5px;
-        top:3px;
-        span{
-          display:none;
-        }
-        &.distributor-info-id{
-          background:url("/images/icons/header-id-1.png") 0 0 no-repeat;
-          background-size:25px 25px;
-          &:hover{
-            span{
-              position:absolute;
-              display:block;
-              top:30px;
-              left:-50%;
-              padding:5px 30px;
-              text-algin:center;
-              background:#333;
-              color:#fff;
-              border-radius:8px;
-              font-size:$small-font-size;
-            }
-            background:url("/images/icons/header-id-2.png") 0 0 no-repeat;
-            background-size:25px 25px;
-            text-decoration: none;
-          }
-        }
-        &.distributor-info-email{
-          background:url("/images/icons/header-email-1.png") 0 0 no-repeat;
-          background-size:25px 25px;
-          &:hover{
-            span{
-              position:absolute;
-              display:block;
-              top:30px;
-              left:-50%;
-              padding:5px 30px;
-              text-algin:center;
-              background:#333;
-              color:#fff;
-              border-radius:8px;
-              font-size:$small-font-size;
-            }
-            background:url("/images/icons/header-email-2.png") 0 0 no-repeat;
-            background-size:25px 25px;
-            text-decoration: none;
-          }
+        img{
+          vertical-align: baseline;
         }
       }
-    }
-    .top-arrow{
-      &:before{
-        position: absolute;
-        left:50%;
-        top:-5px;
-        z-index: 3;
-        content:'';
-        width: 0;
-        height: 0;
-        margin-left:-10px;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-bottom: 5px solid #333;
+      .distributor-info-text{
+        display:inline-block;
+        .distributor-info-name{
+          color: #F55C9F;
+          font-size: $base-font-size;
+          text-transform:uppercase;
+          font-weight:bold;
+          margin-bottom:0;
+        }
+        .distributor-info-detail{
+          font-size:$small-font-size;
+          color:$grey-darker;
+          margin-bottom:0;
+        }
       }
     }
   }

@@ -5,15 +5,13 @@
         <img src="images/logo.png" class="logo" alt="For Tails Only"/>
       </a>
       <div class="distributor-info" ng-if="replicateOwner">
-        <div class="distributor-info-name">
-          {{ replicateOwner['first-name'] + ' ' + replicateOwner['last-name'] }}
+        <div class="distributor-info-photo">
+          <img src="/images/profile-photo.png" />
         </div>
-        <a href class="distributor-info-id">
-          <span class="">{{ replicateOwner['distributor-id'] }}</span>
-        </a>
-        <a href class="distributor-info-email">
-          <span class="">{{ replicateOwner['email']}}</span>
-        </a>
+        <div class="distributor-info-text">
+          <p class="distributor-info-name">{{ replicateOwner['first-name'] + ' ' + replicateOwner['last-name'] }}</p>
+          <p class="distributor-info-detail"><span class="">{{ replicateOwner['distributor-id'] }}</span> / <span class="">{{ replicateOwner['email']}}</span></p>
+        </div>
       </div>
     </div>
   </div>
