@@ -30,6 +30,38 @@ angular
           }]
         }
       })
+      .when('/party/:eventId/edit', {
+        templateUrl: 'views/party/create.html',
+        controller: 'PartyEditController',
+        resolve: {
+          event: ['Event', '$route', function(Event, $route) {
+            var event = new Event($route.current.params.eventId);
+            return event.fetch();
+          }],
+          templates: ['Events', function(Events) {
+            return Events.fetchTemplates();
+          }],
+          type: ['Events', function(Events) {
+            return Events.fetchTypes().then(function(types) {
+              return types[0];
+            });
+          }],
+          country: ['Countries', 'Address', function(Countries, Address) {
+            return Countries.fetch().then(function(countries) {
+              var homeAddress = Address.create('home');
+              return homeAddress.fetch().then(function(address) {
+                var homeCountry = null;
+                angular.forEach(countries, function(country) {
+                  if (country.id === address.countryId) {
+                    homeCountry = country;
+                  }
+                });
+                return homeCountry;
+              });
+            });
+          }]
+        }
+      })
       .when('/party/create', {
         templateUrl: 'views/party/create.html',
         controller: 'PartyCreateController',
