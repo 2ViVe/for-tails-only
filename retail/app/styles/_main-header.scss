@@ -47,19 +47,28 @@
     .distributor-info{
       position:absolute;
       z-index: 2;
-      top:10px;
+      top:25px;
       left: 240px;
+      width:100%;
+      border-left:1px solid $grey-border;
+      padding-left:10px;
       .distributor-info-name{
         display: inline-block;
         color: #F55C9F;
         font-size: $base-font-size;
         text-transform:uppercase;
+        vertical-align: middle;
+        height: 25px;
+        margin-right:10px;
+        font-weight:bold;
       }
       a{
         position: relative;
         display: inline-block;
         width:25px;
         height: 25px;
+        margin-right:5px;
+        top:3px;
         span{
           display:none;
         }
