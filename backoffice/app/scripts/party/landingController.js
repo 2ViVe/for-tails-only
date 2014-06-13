@@ -4,10 +4,8 @@ angular.module('fto')
   //for party-my page
   .controller('PartyLandingController', ['$scope', 'events', '$route',
     function($scope, events, $route) {
-      console.log(events);
       var recentOutput = [],
         upcomingOutput = [],
-//        timeFormat = 'MMMM D,YYYY,h:mma',
         type = $route.current.params.type;
 
       function isRecent(endTime) {
