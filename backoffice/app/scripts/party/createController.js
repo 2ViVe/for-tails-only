@@ -44,29 +44,14 @@ angular.module('fto/party')
 
       $scope.save = function() {
         $scope.submitted = true;
-        if ($scope.time.startDate && $scope.time.startTime) {
-          $scope.data.startTime = $scope.time.startDate + 'T' + $scope.time.startTime + ':00.000Z';
-        }
-        if ($scope.time.startDate && $scope.time.startTime) {
-          $scope.data.endTime = $scope.time.endDate + 'T' + $scope.time.endTime + ':00.000Z';
-        }
         $scope.data.templateId = templates[selectedTemplateIndex].id;
         var event = new Event();
-        event.create($scope.data)
+        event.create($scope.data, $scope.time.startDate)
           .then(function(event) {
             $location.path('/party/' + event.data.id + '/invite');
           })
           .catch(function(response) {
             $scope.error = response.data.meta.error.message;
           });
-      };
-
-      $scope.partyCreateContact = function() {
-        $modal.open({
-          templateUrl: 'views/party/party-create-contact.html',
-          controller: 'ModalController',
-          windowClass: 'medium',
-          scope: $scope
-        });
       };
     }]);

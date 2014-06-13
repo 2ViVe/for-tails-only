@@ -8,17 +8,7 @@ angular.module('fto/party')
       $scope.error = '';
       $scope.submitted = false;
       $scope.data = event.data;
-      $scope.time = {};
-      var startTime = moment(event.data.startTime);
-      if (startTime.isValid()) {
-        $scope.time.startDate = startTime.format('YYYY-MM-DD');
-        $scope.time.startTime = startTime.format('HH:mm');
-      }
-      var endTime = moment(event.data.endTime);
-      if (endTime.isValid()) {
-        $scope.time.endDate = endTime.format('YYYY-MM-DD');
-        $scope.time.endTime = endTime.format('HH:mm');
-      }
+      $scope.time = event.getTime();
 
       $scope.times = [];
       for (var hour = 0; hour < 24; hour++) {
@@ -49,28 +39,13 @@ angular.module('fto/party')
 
       $scope.save = function() {
         $scope.submitted = true;
-        if ($scope.time.startDate && $scope.time.startTime) {
-          $scope.data.startTime = $scope.time.startDate + 'T' + $scope.time.startTime + ':00.000Z';
-        }
-        if ($scope.time.startDate && $scope.time.startTime) {
-          $scope.data.endTime = $scope.time.endDate + 'T' + $scope.time.endTime + ':00.000Z';
-        }
         $scope.data.templateId = templates[selectedTemplateIndex].id;
-        event.edit($scope.data)
+        event.edit($scope.data, $scope.time)
           .then(function(event) {
             $location.path('/party/' + event.data.id);
           })
           .catch(function(response) {
             $scope.error = response.data.meta.error.message;
           });
-      };
-
-      $scope.partyCreateContact = function() {
-        $modal.open({
-          templateUrl: 'views/party/party-create-contact.html',
-          controller: 'ModalController',
-          windowClass: 'medium',
-          scope: $scope
-        });
       };
     }]);
