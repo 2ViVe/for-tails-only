@@ -4,20 +4,20 @@
       <img src='/images/party/party-email-banner-1.jpg' alt='Your RSVP' class="party-email-banner-img" />
       <div class='party-email-banner-text'>
         <h2>
-          {{event.title}}
-          <small>{{event.startTime | date: 'medium'}}</small>
+          {{event.data.title}}
+          <small>{{event.data.startTime | date: 'medium'}}</small>
         </h2>
         <p>
-          {{event.locationName}}
+          {{event.data.locationName}}
           <br/>
-          {{event.address.zip}},
-          {{event.address.street}},
-          {{event.address.city}},
-          {{event.address.stateName}},
-          {{event.address.countryName}}
+          {{event.data.address.zip}},
+          {{event.data.address.street}},
+          {{event.data.address.city}},
+          {{event.data.address.stateName}},
+          {{event.data.address.countryName}}
         </p>
-        <div class='party-email-banner-anwser' ng-if="response !== 'NOREPLY'">
-          Your replay is {{response}}.
+        <div class='party-email-banner-anwser' ng-if="response() !== 'noreply'">
+          Your replay is {{response().toUpperCase()}}.
           <a class="small-font" ng-click="enableChangingReply()">Change Reply.</a><br/>
           <p class='party-email-banner-button' ng-if="isChangingReply">
             <a class='button small' ng-click="confirm('YES');">YES</a>
@@ -25,7 +25,7 @@
             <a class='button small' ng-click="confirm('NO')">NO</a>
           </p>
         </div>
-        <div class='party-email-banner-anwser' ng-if="$scope.response === 'NOREPLY'">
+        <div class='party-email-banner-anwser' ng-if="response() === 'noreply'">
           Will you attend?<br/>
           <p class='party-email-banner-button'>
             <a class='button small' ng-click="confirm('YES');">YES</a>
@@ -46,15 +46,15 @@
     <div class='columns medium-6'>
       <div class='party-panel' ng-repeat="responseType in responseTypes">
         <h4>
-          {{responseType.name}}: {{responseType.count}}
+          {{responseType.name}}: {{event.data[responseType.countName]}}
           <i class="fa fa-chevron-down right"></i>
         </h4>
-        <div class='party-panel-con-bar' ng-if="responseType.count === 0">
+        <div class='party-panel-con-bar' ng-if="event.data[responseType.countName] === 0">
           <span><i class="fa fa-caret-right primary-color"></i> No Replies Yet</span>
         </div>
         <table width='100%' class='party-user-table'>
           <tbody>
-          <tr ng-repeat="invitee in invitees | responseIs: responseType.type ">
+          <tr ng-repeat="invitee in event.invitees | responseIs: responseType.type ">
             <td>
               <div class='party-user-table-info'>
                 <h5>
@@ -62,7 +62,7 @@
                   {{invitee.middleName}}
                   {{invitee.lastName}}
                   <br/>
-                  <small>sjbolson13@gmail.com</small>
+                  <small>{{invitee.email}}</small>
                 </h5>
               </div>
             </td>
@@ -76,87 +76,37 @@
         <h4>RSVP History</h4>
         <table width='100%' class='party-user-table'>
           <tbody>
-          <tr>
+          <tr ng-repeat="invitee in event.invitees">
             <td>
-              <img class='party-user-table-img' src='/images/party/party-user-1.jpg' alt='[User Name]' />
               <div class='party-user-table-info'>
                 <h5>
-                  Shelly olson <small class="right">1 min ago</small>
+                  {{invitee.firstName}}
+                  {{invitee.middleName}}
+                  {{invitee.lastName}}
+                  <small class="right">{{invitee.updatedAt | readableTimestampFrom: 'now' }}</small>
                   <br/>
-                  <small>Change Reply to "YES"</small>
-                </h5>
-              </div>
-            </td>
-          </tr>
-          <tr class='odd'>
-            <td>
-              <img class='party-user-table-img' src='/images/party/party-user-1.jpg' alt='[User Name]' />
-              <div class='party-user-table-info'>
-                <h5>
-                  Shelly olson <small class="right">1 min ago</small>
-                  <br/>
-                  <small>Replied "MAYBE"</small>
-                </h5>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img class='party-user-table-img' src='/images/party/party-user-1.jpg' alt='[User Name]' />
-              <div class='party-user-table-info'>
-                <h5>
-                  Shelly olson <small class="right">1 min ago</small>
-                  <br/>
-                  <small>Change Reply to "YES"</small>
-                </h5>
-              </div>
-            </td>
-          </tr>
-          <tr class='odd'>
-            <td>
-              <img class='party-user-table-img' src='/images/party/party-user-1.jpg' alt='[User Name]' />
-              <div class='party-user-table-info'>
-                <h5>
-                  Shelly olson <small class="right">04/08/2014 23:22</small>
-                  <br/>
-                  <small>Replied "MAYBE" and comment "I am not sure, i will be go out..."</small>
-                </h5>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img class='party-user-table-img' src='/images/party/party-user-1.jpg' alt='[User Name]' />
-              <div class='party-user-table-info'>
-                <h5>
-                  Shelly olson <small class="right">04/08/2014 23:22</small>
-                  <br/>
-                  <small>Change Reply to "YES"</small>
-                </h5>
-              </div>
-            </td>
-          </tr>
-          <tr class='odd'>
-            <td>
-              <img class='party-user-table-img' src='/images/party/party-user-1.jpg' alt='[User Name]' />
-              <div class='party-user-table-info'>
-                <h5>
-                  Shelly olson <small class="right">04/08/2014 23:22</small>
-                  <br/>
-                  <small>Replied "MAYBE" and comment "I am not sure, i will be go out..."</small>
+                  <small ng-if="invitee.changed">
+                    Change Reply to "{{invitee.response}}"
+                  </small>
+                  <small ng-if="!invitee.changed">
+                    Replied "{{invitee.response}}"
+                  </small>
+                  <small ng-if="invitee.comment">
+                    and comment "{{invitee.comment}}"
+                  </small>
                 </h5>
               </div>
             </td>
           </tr>
           </tbody>
         </table>
-        <ul class="pagination right">
-          <li class="arrow unavailable"><a href=""><i class="fa fa-caret-left"></i></a></li>
-          <li class="current"><a href="">1</a></li>
-          <li><a href="">2</a></li>
-          <li><a href="">3</a></li>
-          <li class="arrow"><a href=""><i class="fa fa-caret-right"></i></a></li>
-        </ul>
+        <!--<ul class="pagination right">-->
+          <!--<li class="arrow unavailable"><a href=""><i class="fa fa-caret-left"></i></a></li>-->
+          <!--<li class="current"><a href="">1</a></li>-->
+          <!--<li><a href="">2</a></li>-->
+          <!--<li><a href="">3</a></li>-->
+          <!--<li class="arrow"><a href=""><i class="fa fa-caret-right"></i></a></li>-->
+        <!--</ul>-->
       </div>
     </div>
   </div>

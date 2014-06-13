@@ -5,33 +5,34 @@ angular.module('fto/party')
     function($scope, event, $modal, $route) {
       var inviteeId = $route.current.params.inviteeId;
 
-      $scope.event = event.data;
-      $scope.invitees = event.invitees;
+      $scope.event = event;
       $scope.isChangingReply = false;
       $scope.enableChangingReply = function() {
         $scope.isChangingReply = true;
       };
-      $scope.response = event.getInviteeById(inviteeId).response.toUpperCase();
+      $scope.response = function() {
+        return event.getInviteeById(inviteeId).response;
+      };
       $scope.responseTypes = [
         {
           name: 'YES',
           type: 'YES',
-          count: event.data.yesCount
+          countName: 'yesCount'
         },
         {
           name: 'MAYBE',
           type: 'MAYBE',
-          count: event.data.maybeCount
+          countName: 'maybeCount'
         },
         {
           name: 'NO',
           type: 'NO',
-          count: event.data.noCount
+          countName: 'noCount'
         },
         {
           name: 'NO REPLY YET',
           type: 'NOREPLY',
-          count: event.data.noReplyCount
+          countName: 'noReplyCount'
         }
       ];
 
@@ -44,12 +45,16 @@ angular.module('fto/party')
           resolve: {
             response: function() {
               return response;
+            },
+            event: function() {
+              return event;
+            },
+            inviteeId: function() {
+              return inviteeId;
             }
           }
-        }).result.then(function(data) {
-            $scope.response = data.response.toUpperCase();
+        }).result.then(function() {
             $scope.isChangingReply = false;
-            event.response(inviteeId, data.response, data.message);
           });
       };
     }]);
