@@ -33,9 +33,6 @@ angular.module('fto', [
       .when('/products', {
         templateUrl: 'views/products/products-index.html'
       })
-      .when('/party/party-my', {
-        templateUrl: 'views/party/party-my.html'
-      })
       .when('/party/party-none', {
         templateUrl: 'views/party/party-none.html'
       })
@@ -46,13 +43,6 @@ angular.module('fto', [
       .when('/party/party-details', {
         templateUrl: 'views/party/party-details.html',
         controller: 'PartyDetailsController'
-      })
-      .when('/party/party-view-invitation', {
-        templateUrl: 'views/party/party-view-invitation.html',
-        controller: 'PartyInvitationController'
-      })
-      .when('/party/party-view-invitation-closed', {
-        templateUrl: 'views/party/party-view-invitation-closed.html'
       })
       .otherwise({
         redirectTo: '/'
