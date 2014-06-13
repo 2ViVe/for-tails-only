@@ -3,8 +3,15 @@
 angular.module('fto/party')
   .controller('PartyInvitationController', ['$scope', 'event', '$modal', '$route',
     function($scope, event, $modal, $route) {
+      var inviteeId = $route.current.params.inviteeId;
+
       $scope.event = event.data;
       $scope.invitees = event.invitees;
+      $scope.isChangingReply = false;
+      $scope.enableChangingReply = function() {
+        $scope.isChangingReply = true;
+      };
+      $scope.response = event.getInviteeById(inviteeId).response.toUpperCase();
       $scope.responseTypes = [
         {
           name: 'YES',
@@ -40,7 +47,9 @@ angular.module('fto/party')
             }
           }
         }).result.then(function(data) {
-            event.response($route.current.params.inviteeId, data.response, data.message);
+            $scope.response = data.response.toUpperCase();
+            $scope.isChangingReply = false;
+            event.response(inviteeId, data.response, data.message);
           });
       };
     }]);

@@ -16,7 +16,16 @@
           {{event.address.stateName}},
           {{event.address.countryName}}
         </p>
-        <div class='party-email-banner-anwser'>
+        <div class='party-email-banner-anwser' ng-if="response !== 'NOREPLY'">
+          Your replay is {{response}}.
+          <a class="small-font" ng-click="enableChangingReply()">Change Reply.</a><br/>
+          <p class='party-email-banner-button' ng-if="isChangingReply">
+            <a class='button small' ng-click="confirm('YES');">YES</a>
+            <a class='button small' ng-click="confirm('MAYBE')">MAYBE</a>
+            <a class='button small' ng-click="confirm('NO')">NO</a>
+          </p>
+        </div>
+        <div class='party-email-banner-anwser' ng-if="$scope.response === 'NOREPLY'">
           Will you attend?<br/>
           <p class='party-email-banner-button'>
             <a class='button small' ng-click="confirm('YES');">YES</a>
