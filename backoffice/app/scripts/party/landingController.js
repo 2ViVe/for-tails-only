@@ -1,7 +1,6 @@
 'use strict';
 
 angular.module('fto')
-  //for party-my page
   .controller('PartyLandingController', ['$scope', 'events', '$route',
     function($scope, events, $route) {
       var recentOutput = [],

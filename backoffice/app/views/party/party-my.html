@@ -33,7 +33,7 @@
               <p><strong>{{party.title}}</strong></p>
               <p>{{party.startTime | date : 'medium'}} | {{party.endTime | date : 'medium'}}</p>
               <p>{{party.address.street}}  {{party.address.city}} {{party.address.stateName}} {{party.address.countryName}} {{party.address.zip}}</p>
-              <p>Host: {{party.hostName}} | <a href='/#/party/{{party.id}}/invite'>Invite Guests</a> | <a href='/#/party/{{party.id}}'>Edit</a> | <a href='#'>Delete</a></p>
+              <p>Host: {{party.hostName}} | <a href='/#/party/{{party.id}}/invite'>Invite Guests</a> | <a href='/#/party/{{party.id}}/edit'>Edit</a> | <a href='#'>Delete</a></p>
             </td>
             <td>
               <div class='party-list-members'>
