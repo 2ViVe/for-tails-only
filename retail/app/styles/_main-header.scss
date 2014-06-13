@@ -48,30 +48,35 @@
       position:absolute;
       z-index: 2;
       top:25px;
-      left: 240px;
+      left: 250px;
       width:100%;
       border-left:1px solid $grey-border;
-      padding-left:10px;
+      padding-left:20px;
       height:36px;
       .distributor-info-photo{
         display: inline-block;
         margin-right:10px;
         img{
-          vertical-align: baseline;
+          vertical-align: middle;
+          width:35px;
+          height:35px;
         }
       }
       .distributor-info-text{
         display:inline-block;
+        vertical-align: middle;
         .distributor-info-name{
           color: #F55C9F;
           font-size: $base-font-size;
           text-transform:uppercase;
           font-weight:bold;
           margin-bottom:0;
+          line-height: 1;
+          margin-top:2px;
         }
         .distributor-info-detail{
           font-size:$small-font-size;
-          color:$grey-darker;
+          color:$grey;
           margin-bottom:0;
         }
       }
