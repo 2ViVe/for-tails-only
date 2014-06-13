@@ -18,7 +18,7 @@
           </div>
     </div>
     <div class='small-12 medium-8 columns text-right'>
-      <a href='#' class='button small'>Create a Pawty</a>
+      <a href='/#/party/create' class='button small'>Create a Pawty</a>
     </div>
   </div>
   <div class='row'>
@@ -32,8 +32,8 @@
             <td class='party-list-info'>
               <p><strong>{{party.title}}</strong></p>
               <p>{{party.startTime}} | {{party.endTime}}</p>
-              <p>{{party.address}}</p>
-              <p>Host: <a href='#'>{{party.hostName}}</a> | <a href='#'>Invite Guests</a> | <a href='#'>Edit</a> | <a href='#'>Delete</a></p>
+              <p>{{party.address.street}}  {{party.address.city}} {{party.address.stateName}} {{party.address.countryName}} {{party.address.zip}}</p>
+              <p>Host: {{party.hostName}} | <a href='/#/party/{{party.id}}/invite'>Invite Guests</a> | <a href='/#/party/{{party.id}}'>Edit</a> | <a href='#'>Delete</a></p>
             </td>
             <td>
               <div class='party-list-members'>

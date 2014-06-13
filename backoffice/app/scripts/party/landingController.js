@@ -4,20 +4,17 @@ angular.module('fto')
   //for party-my page
   .controller('PartyLandingController', ['$scope', 'events', '$route',
     function($scope, events, $route) {
+      console.log(events);
       var recentOutput = [],
         upcomingOutput = [],
-        timeFormat = 'MMMM D,YYYY,h:mma',
+//        timeFormat = 'MMMM D,YYYY,h:mma',
         type = $route.current.params.type;
 
       function isRecent(endTime) {
         var endTimestamp = moment(endTime).unix(),
           nowTimestamp = moment().unix();
 
-        if (nowTimestamp > endTimestamp) {
-          return true;
-        } else {
-          return false;
-        }
+        return nowTimestamp > endTimestamp;
       }
 
       //change type to upcoming as default
@@ -26,20 +23,10 @@ angular.module('fto')
       }
 
       angular.forEach(events, function(event){
-        var output = angular.copy(event);
-        output.startTime = moment(event.startTime).format(timeFormat);
-        output.endTime = moment(event.endTime).format(timeFormat);
-        output.address = [
-          event.address.street,
-          event.address.city,
-          event.address.stateName,
-          event.address.countryName,
-          event.address.zip
-        ].join(' ');
         if ( isRecent(event.endTime) ) {
-          recentOutput.push(output);
+          recentOutput.push(event);
         } else {
-          upcomingOutput.push(output);
+          upcomingOutput.push(event);
         }
       });
 
