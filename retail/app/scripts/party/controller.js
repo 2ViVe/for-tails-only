@@ -13,29 +13,6 @@ angular.module('fto/party')
       $scope.response = function() {
         return event.getInviteeById(inviteeId).response;
       };
-      $scope.responseTypes = [
-        {
-          name: 'YES',
-          type: 'YES',
-          countName: 'yesCount'
-        },
-        {
-          name: 'MAYBE',
-          type: 'MAYBE',
-          countName: 'maybeCount'
-        },
-        {
-          name: 'NO',
-          type: 'NO',
-          countName: 'noCount'
-        },
-        {
-          name: 'NO REPLY YET',
-          type: 'NOREPLY',
-          countName: 'noReplyCount'
-        }
-      ];
-
 
       $scope.confirm = function(response) {
         $modal.open({
