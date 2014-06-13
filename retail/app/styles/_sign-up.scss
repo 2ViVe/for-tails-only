@@ -1,5 +1,30 @@
 .sign-up {
 
+  .agreement{
+    span{
+      vertical-align: top;
+      line-height: 1;
+      color: $grey-dark;
+    }
+  }
+
+  .security{
+    input{
+      width: 50%;
+      margin-right: 5px;
+      display:inline-block;
+    }
+    img{
+      display:inline-block;
+      vertical-align: middle;
+    }
+    a{
+      display:inline-block;
+      vertical-align: middle;
+      color:$grey-darker;
+    }
+  }
+
   .sign-up-step-bar{
     position:relative;
     width:805px;
