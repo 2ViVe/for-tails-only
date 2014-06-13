@@ -3,7 +3,8 @@
     <div class='small-12 columns party-email-banner'>
       <img src='/images/party/party-email-banner-1.jpg' alt='Your RSVP' class="party-email-banner-img" />
       <div class='party-email-banner-text'>
-        <h2>{{event.title}}
+        <h2>
+          {{event.title}}
           <small>{{event.startTime | date: 'medium'}}</small>
         </h2>
         <p>
@@ -34,40 +35,23 @@
   </div>
   <div class='row'>
     <div class='columns medium-6'>
-      <div class='party-panel'>
-        <h4>YES: 2 <i class="fa fa-chevron-down right"></i></h4>
+      <div class='party-panel' ng-repeat="responseType in responseTypes">
+        <h4>
+          {{responseType.name}}: {{responseType.count}}
+          <i class="fa fa-chevron-down right"></i>
+        </h4>
+        <div class='party-panel-con-bar' ng-if="responseType.count === 0">
+          <span><i class="fa fa-caret-right primary-color"></i> No Replies Yet</span>
+        </div>
         <table width='100%' class='party-user-table'>
           <tbody>
-          <tr>
+          <tr ng-repeat="invitee in invitees | responseIs: responseType.type ">
             <td>
-              <img class='party-user-table-img' src='/images/party/party-user-1.jpg' alt='[User Name]' />
               <div class='party-user-table-info'>
                 <h5>
-                  Shelly olson
-                  <br/>
-                  <small>sjbolson13@gmail.com</small>
-                </h5>
-              </div>
-            </td>
-          </tr>
-          <tr class='odd'>
-            <td>
-              <img class='party-user-table-img' src='/images/party/party-user-1.jpg' alt='[User Name]' />
-              <div class='party-user-table-info'>
-                <h5>
-                  Shelly olson
-                  <br/>
-                  <small>sjbolson13@gmail.com</small>
-                </h5>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img class='party-user-table-img' src='/images/party/party-user-1.jpg' alt='[User Name]' />
-              <div class='party-user-table-info'>
-                <h5>
-                  Shelly olson
+                  {{invitee.firstName}}
+                  {{invitee.middleName}}
+                  {{invitee.lastName}}
                   <br/>
                   <small>sjbolson13@gmail.com</small>
                 </h5>
@@ -76,18 +60,6 @@
           </tr>
           </tbody>
         </table>
-      </div>
-      <div class='party-panel'>
-        <h4>MAYBE: 0 <i class="fa fa-chevron-down right"></i></h4>
-        <div class='party-panel-con-bar'>
-          <span><i class="fa fa-caret-right primary-color"></i> No Replies Yet</span>
-        </div>
-      </div>
-      <div class='party-panel'>
-        <h4>NO: 0 <i class="fa fa-chevron-right right"></i></h4>
-      </div>
-      <div class='party-panel'>
-        <h4>NO REPLY YET: 0 <i class="fa fa-chevron-right right"></i></h4>
       </div>
     </div>
     <div class='columns medium-6'>

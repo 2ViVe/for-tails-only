@@ -16,6 +16,7 @@ angular.module('fto/signup')
         $scope.address.addType('billing');
 
         $scope.creditcard = {};
+        $scope.isProcessing = false;
 
         Registration.orderSummary(
           $scope.address.home.toJSON(),
@@ -32,6 +33,7 @@ angular.module('fto/signup')
 
         $scope.create = function() {
           $scope.paymentFailed = false;
+          $scope.isProcessing = true;
           $scope.submitted = true;
           if (this.step4.$valid) {
             $scope.address.billing.validate().then(function() {
@@ -46,6 +48,7 @@ angular.module('fto/signup')
                 lineItems,
                 $scope.address.website.toJSON())
                 .success(function(data) {
+                  $scope.isProcessing = false;
                   if (data.response.order.paymentState === 'failed') {
                     $scope.paymentFailed = true;
                     return;

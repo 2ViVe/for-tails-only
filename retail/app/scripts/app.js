@@ -35,16 +35,16 @@ angular.module('fto', [
         templateUrl: 'views/products/products-index.html'
       })
       .when('/handler-connect', {
-        templateUrl: 'views/sign-up/handler-connect.html'
+        templateUrl: 'views/handler/connect.html'
       })
       .when('/handler-connect-success', {
-        templateUrl: 'views/sign-up/handler-connect-success.html'
+        templateUrl: 'views/handler/connect-success.html'
       })
       .when('/handler-locate', {
-        templateUrl: 'views/sign-up/handler-locate.html'
+        templateUrl: 'views/handler/locate.html'
       })
       .when('/handler-locate-result', {
-        templateUrl: 'views/sign-up/handler-locate-result.html'
+        templateUrl: 'views/handler/locate-result.html'
       })
       .otherwise({
         redirectTo: '/'
