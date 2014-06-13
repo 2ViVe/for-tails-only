@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('fto/party')
-  .controller('PartyInvitationController', ['$scope', 'event', '$modal', '$route',
-    function($scope, event, $modal, $route) {
+  .controller('PartyInvitationController', ['$scope', 'event', '$modal', '$route', 'templates',
+    function($scope, event, $modal, $route, templates) {
       var inviteeId = $route.current.params.inviteeId;
 
       $scope.event = event;
@@ -13,6 +13,12 @@ angular.module('fto/party')
       $scope.response = function() {
         return event.getInviteeById(inviteeId).response;
       };
+      angular.forEach(templates, function(template) {
+        if (template.id === event.data.templateId) {
+          $scope.templateImageUrl = template.imageUrl;
+        }
+      });
+
 
       $scope.confirm = function(response) {
         $modal.open({

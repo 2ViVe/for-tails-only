@@ -15,6 +15,10 @@ angular
         templateUrl: 'views/party/invitation.html',
         controller: 'PartyInvitationController',
         resolve: {
+          'templates': ['Events',
+            function(Events) {
+              return Events.fetchTemplates();
+            }],
           'event': ['Event', '$route', '$q',
             function(Event, $route, $q) {
               var deferred = $q.defer();
