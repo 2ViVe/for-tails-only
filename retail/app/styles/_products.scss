@@ -364,6 +364,15 @@
       border:0;
     }
   }
+  .products-checkout-table-item {
+    .product-info {
+      .product-name {
+        font-size: rem-calc(14);
+        margin-bottom: 25px;
+        margin-top: 5px;
+      }
+    }
+  }
 }
 
 
