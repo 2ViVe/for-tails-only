@@ -50,21 +50,16 @@
       top:10px;
       left: 240px;
       .distributor-info-name{
-        display: block;
-        position: absolute;
-        top:5px;
+        display: inline-block;
         color: #F55C9F;
-        font-size: $medium-font-size;
+        font-size: $base-font-size;
         text-transform:uppercase;
-        width:200px;
-        z-index: 9;
       }
       a{
-        position: absolute;
-        display: block;
+        position: relative;
+        display: inline-block;
         width:25px;
         height: 25px;
-        top:25px;
         span{
           display:none;
         }
@@ -90,7 +85,6 @@
           }
         }
         &.distributor-info-email{
-          left:35px;
           background:url("/images/icons/header-email-1.png") 0 0 no-repeat;
           background-size:25px 25px;
           &:hover{
