@@ -62,7 +62,8 @@ angular.module('fto/signup')
                     });
                 });
             });
-
+          } else {
+            $scope.isProcessing = false;
           }
         };
       }]
