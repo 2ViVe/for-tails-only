@@ -17,23 +17,27 @@
         <div class='row block-margin-bottom'>
           <div class='small-3 columns'>
             <div class="party-blue-circle-s">
-              <p><strong>182</strong><br/><span>GOAL:40</span></p>
+              <p><strong>{{ party.yesCount + party.noCount + party.maybeCount + party.noReplyCount }}</strong>
+                <!--<span>GOAL:40</span>-->
+              </p>
               <h5>INVITED</h5>
             </div>
           </div>
           <div class='small-3 columns'>
             <div class="party-orange-circle-s">
-              <p class='icons-green-circle'><strong>182</strong><br/><span>GOAL:40</span></p>
+              <p class='icons-green-circle'><strong>{{ party.yesCount }}</strong>
+                <!--<span>GOAL:40</span>-->
+              </p>
               <h5>ATTENDING</h5>
             </div>
           </div>
-          <div class='small-3 columns'>
+          <div class='small-3 columns' ng-if="false">
             <div class="party-green-circle-s">
               <p class='icons-red-circle'><strong>182</strong><br/><span>GOAL:40</span></p>
               <h5>ORDERS</h5>
             </div>
           </div>
-          <div class='small-3 columns'>
+          <div class='small-3 columns' ng-if="false">
             <div class="party-pink-circle-s">
               <p class='icons-pink-circle'><strong>182</strong><br/><span>GOAL:$250</span></p>
               <h5>EARNINGS</h5>
@@ -41,7 +45,7 @@
           </div>
         </div>
         <div class='row'>
-          <div class='columns small-12'>
+          <div class='columns small-12' ng-if="false">
             <div class='party-price block-margin-bottom'>
               <ul class="row">
                 <li class="small-4 columns text-center">$49.95<span>STYLIST</span></li>
@@ -188,43 +192,13 @@
       </div>
       <h3 class="primary-color">RSVP <a href class="button right tiny">Manage Guest</a></h3>
 
-      <div data-accordian-party-panel
-           data-title="YES"
-           data-type="yes"
-           data-init-state="true"
-           data-count="party.yesCount"
+      <div data-rsvp-panel
            data-invitees="invitees"
-      ></div>
+           data-event="party"></div>
 
 
-      <div data-accordian-party-panel
-           data-title="MAYBE"
-           data-type="maybe"
-           data-init-state="false"
-           data-count="party.maybeCount"
-           data-invitees="invitees"
-        ></div>
-
-      <div data-accordian-party-panel
-           data-title="NO"
-           data-type="no"
-           data-init-state="false"
-           data-count="party.noCount"
-           data-invitees="invitees"
-        ></div>
-
-
-      <div data-accordian-party-panel
-           data-title="NO REPLY YET"
-           data-type="no"
-           data-init-state="false"
-           data-count="party.noReplyCount"
-           data-invitees="invitees"
-        ></div>
-
-
-      <h3 class="primary-color">RSVP History</h3>
-      <div class="party-panel">
+      <h3 class="primary-color" ng-if="false">RSVP History</h3>
+      <div class="party-panel" ng-if="false">
         <table width='100%' class='party-user-table'>
           <tbody>
           <tr>
@@ -263,7 +237,7 @@
           </tbody>
         </table>
       </div>
-      <p><a class="right small-font" href="">Show All</a></p>
+      <p ng-if="false"><a class="right small-font" href="">Show All</a></p>
     </div>
   </div>
 </div>
