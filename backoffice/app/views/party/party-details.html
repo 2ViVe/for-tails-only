@@ -17,16 +17,16 @@
         <div class='row block-margin-bottom'>
           <div class='small-3 columns'>
             <div class="party-blue-circle-s">
-              <p><strong>{{ party.yesCount + party.noCount + party.maybeCount + party.noReplyCount }}</strong>
-                <!--<span>GOAL:40</span>-->
+              <p><strong>{{ party.yesCount + party.noCount + party.maybeCount + party.noReplyCount }}</strong><br/>
+                <span>GOAL: {{ party.yesCount + party.noCount + party.maybeCount + party.noReplyCount }}</span>
               </p>
               <h5>INVITED</h5>
             </div>
           </div>
           <div class='small-3 columns'>
             <div class="party-orange-circle-s">
-              <p class='icons-green-circle'><strong>{{ party.yesCount }}</strong>
-                <!--<span>GOAL:40</span>-->
+              <p class='icons-green-circle'><strong>{{ party.yesCount }}</strong><br/>
+              <span>GOAL: {{ party.yesCount + party.noCount + party.maybeCount + party.noReplyCount }}</span>
               </p>
               <h5>ATTENDING</h5>
             </div>
@@ -209,7 +209,7 @@
                     {{ invitee.middleName }}
                     {{ invitee.lastName }} <small class="right">{{ invitee.updatedAt | readableTimestampFrom: 'now' }}</small>
                     <br/>
-                    <small>Changed Reply to "{{ invitees.response }}".</small>
+                    <small>Changed Reply to "{{ invitee.response }}".</small>
                   </h5>
                 </div>
               </td>
