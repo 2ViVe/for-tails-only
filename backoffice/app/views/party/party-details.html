@@ -197,43 +197,23 @@
            data-event="party"></div>
 
 
-      <h3 class="primary-color" ng-if="false">RSVP History</h3>
-      <div class="party-panel" ng-if="false">
+      <h3 class="primary-color">RSVP History</h3>
+      <div class="party-panel">
         <table width='100%' class='party-user-table'>
           <tbody>
-          <tr>
-            <td>
-              <div class='party-user-table-info party-user-table-info-noPho'>
-                <h5>
-                  Shelly olson <small class="right">1 min ago</small>
-                  <br/>
-                  <small>Changed Reply to "YES".</small>
-                </h5>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class='party-user-table-info party-user-table-info-noPho'>
-                <h5>
-                  Shelly olson <small class="right">1 min ago</small>
-                  <br/>
-                  <small>Changed Reply to "YES".</small>
-                </h5>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class='party-user-table-info party-user-table-info-noPho'>
-                <h5>
-                  Shelly olson <small class="right">1 min ago</small>
-                  <br/>
-                  <small>Changed Reply to "YES".</small>
-                </h5>
-              </div>
-            </td>
-          </tr>
+            <tr ng-repeat="invitee in invitees | responseIsNot: 'NOREPLY'">
+              <td>
+                <div class='party-user-table-info party-user-table-info-noPho'>
+                  <h5>
+                    {{ invitee.firstName }}
+                    {{ invitee.middleName }}
+                    {{ invitee.lastName }} <small class="right">{{ invitee.updatedAt | readableTimestampFrom: 'now' }}</small>
+                    <br/>
+                    <small>Changed Reply to "{{ invitees.response }}".</small>
+                  </h5>
+                </div>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
