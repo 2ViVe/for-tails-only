@@ -27,6 +27,7 @@ angular.module('fto')
         $scope.currentOptions[optionType] = option;
         $scope.variant = product.getVariantByOptions($scope.currentOptions);
         $scope.currentImage = $scope.variant.images[0];
+        $scope.currentImages = $scope.variant.images.length > 0 ? $scope.variant.images : product.data.images;
       };
 
       $scope.getOptionStyle = function(option) {
@@ -48,6 +49,7 @@ angular.module('fto')
       }
 
       $scope.currentImage = product.data.images[0];
+      $scope.currentImages = product.data.images;
 
       $scope.changeImage = function(image) {
         $scope.currentImage = image;
