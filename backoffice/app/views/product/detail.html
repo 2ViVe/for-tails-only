@@ -40,7 +40,9 @@
       <div class="product-panel"
            ng-repeat="(optionType, options) in allOptions"
            ng-hide="options.length < 2">
-        <h6>{{optionType}}</h6>
+        <h6>
+          {{optionType}}<span ng-if="option.presentationType === 'IMG'">: {{currentOptions[optionType].name}}</span>
+        </h6>
         <ul class="options">
           <li ng-repeat="option in options"
               ng-class="{current: currentOptions[optionType] === option}"
