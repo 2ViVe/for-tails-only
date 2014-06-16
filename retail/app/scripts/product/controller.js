@@ -26,6 +26,7 @@ angular.module('fto')
       $scope.changeOption = function(option, optionType) {
         $scope.currentOptions[optionType] = option;
         $scope.variant = product.getVariantByOptions($scope.currentOptions);
+        $scope.currentImage = $scope.variant.images[0];
       };
 
       $scope.getOptionStyle = function(option) {
