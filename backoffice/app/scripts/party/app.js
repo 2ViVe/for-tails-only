@@ -20,6 +20,9 @@ angular
           }]
         }
       })
+      .when('/party/overview', {
+        templateUrl: 'views/party/party-none.html'
+      })
       .when('/party/:partyId/invite', {
         templateUrl: 'views/party/invite.html',
         controller: 'PartyInviteController',

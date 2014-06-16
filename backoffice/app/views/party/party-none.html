@@ -18,7 +18,7 @@
           </div>
     </div>
     <div class='small-12 medium-8 columns text-right'>
-      <a href='#' class='button small'>Create a Pawty</a>
+      <a href='/#/party/create' class='button small'>Create a Pawty</a>
     </div>
   </div>
   <div class='row'>
@@ -42,13 +42,13 @@
             </li>
           </ul>
           <br/><br/>
-          <p class='text-center'><a href='#' class='button small'>Create a Pawty</a></p>
+          <p class='text-center'><a href='/#/party/create' class='button small'>Create a Pawty</a></p>
         </div>
     </div>
     <div class='columns medium-4'>
       <h4 class="primary-color">Pawty Calendar</h4>
-      <div class='party-calendar'>
-        <img ng-src='/images/party/calendar.png' />
+      <div data-calendar
+           data-selected-date="selectedDate">
       </div>
     </div>
   </div>
