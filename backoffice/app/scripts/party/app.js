@@ -12,7 +12,7 @@ angular
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/party/overview/:type', {
-        templateUrl: 'views/party/party-my.html',
+        templateUrl: 'views/party/overview.html',
         controller: 'PartyLandingController',
         resolve: {
           events: ['Events', function(Events) {
@@ -91,7 +91,7 @@ angular
         }
       })
       .when('/party/:partyId', {
-        templateUrl: 'views/party/party-details.html',
+        templateUrl: 'views/party/detail.html',
         controller: 'PartyDetailsController',
         resolve: {
           event: ['Event', '$route', function(Event, $route) {
