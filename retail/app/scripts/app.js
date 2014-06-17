@@ -27,7 +27,8 @@ angular.module('fto', [
   'fto/home',
   'fto/navigation',
   'fto/footer',
-  'fto/party'
+  'fto/party',
+  'fto/giftCode'
 ])
   .config(function($routeProvider) {
     $routeProvider
