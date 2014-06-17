@@ -10,7 +10,7 @@
       <p class="text-right">
         <a ng-href="#/party/{{party.id}}/invite" class="button tiny">Invite Guests</a>
         <a ng-href="#/party/{{party.id}}/edit" class="button tiny">Edit</a>
-        <a href class="button tiny">Delete</a>
+        <a href class="button tiny" ng-click="deleteInvites()">Delete</a>
       </p>
     </div>
   </div>
@@ -167,11 +167,11 @@
         <div class="party-details-info">
           <dl class="row">
             <dt class="small-4 columns">Date:</dt>
-            <dd class="small-8 columns">{{ party.startTime | date: 'medium' }}</dd>
+            <dd class="small-8 columns">{{ party.startTime }}</dd>
           </dl>
           <dl class="row">
             <dt class="small-4 columns">End:</dt>
-            <dd class="small-8 columns">{{ party.endTime | date: 'medium' }}</dd>
+            <dd class="small-8 columns">{{ party.endTime }}</dd>
           </dl>
           <dl class="row">
             <dt class="small-4 columns">Location:</dt>
