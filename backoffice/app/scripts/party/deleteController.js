@@ -2,7 +2,6 @@
 
 angular.module('fto/party')
   .controller('PartyDeleteController', ['$scope', 'event', '$modalInstance',function($scope, event, $modalInstance) {
-    debugger;
     $scope.event = event;
 
     $scope.removeEvent = function() {
