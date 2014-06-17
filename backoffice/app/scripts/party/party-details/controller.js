@@ -1,12 +1,13 @@
 'use strict';
 
 angular.module('fto')
-  .controller('PartyDetailsController', ['$scope', '$modal', 'event', '$location', '$q', '$timeout',
-    function($scope, $modal, event, $location, $q, $timeout) {
+  .controller('PartyDetailsController', ['$scope', '$modal', 'event', '$q', '$timeout',
+    function($scope, $modal, event, $q, $timeout) {
 
       $scope.event = event;
       $scope.party = event.data;
       $scope.invitees = event.invitees;
+
 
       $scope.deleteInvites = function() {
         var modalInstance = $modal.open({
@@ -26,7 +27,7 @@ angular.module('fto')
         });
 
         modalInstance.result.then(function onResult() {
-          $location.path('/party');
+
         }, function onCancel() {
           // do noting
         });
