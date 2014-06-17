@@ -44,6 +44,9 @@ angular.module('fto', [
         templateUrl: 'views/party/party-details.html',
         controller: 'PartyDetailsController'
       })
+      .when('/party/organization', {
+        templateUrl: 'views/organization.html',
+      })
       .otherwise({
         redirectTo: '/'
       });
