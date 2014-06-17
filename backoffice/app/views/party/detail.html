@@ -203,15 +203,28 @@
       <div class="party-panel">
         <table width='100%' class='party-user-table'>
           <tbody>
-            <tr ng-repeat="invitee in invitees | responseIsNot: 'NOREPLY'">
+            <tr ng-repeat="invitee in invitees">
               <td>
                 <div class='party-user-table-info party-user-table-info-noPho'>
                   <h5>
                     {{ invitee.firstName }}
                     {{ invitee.middleName }}
-                    {{ invitee.lastName }} <small class="right">{{ invitee.updatedAt | readableTimestampFrom: 'now' }}</small>
                     <br/>
-                    <small>Changed Reply to "{{ invitee.response }}".</small>
+                    <small ng-if="invitee.reply === 'noreply'">
+                      No reply yet.
+                    </small>
+                    <div ng-repeat="response in invitee.responses">
+                      <small class="right">{{response.createdAt | readableTimestampFrom: 'now' }}</small>
+                      <small ng-if="!$last">
+                        Change Reply to "{{response.reply}}"
+                      </small>
+                      <small ng-if="$last">
+                        Replied "{{response.reply}}"
+                      </small>
+                      <small ng-if="response.comment">
+                        and comment "{{response.comment}}"
+                      </small>
+                    </div>
                   </h5>
                 </div>
               </td>

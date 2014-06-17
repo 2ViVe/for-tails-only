@@ -8,12 +8,13 @@ angular.module('fto/party')
         message: ''
       };
       $scope.submit = function() {
-        $q.all([event.response(inviteeId, $scope.data.response, $scope.data.message),
-          event.fetch(),
-          event.fetchInvitees()
-        ]).then(function() {
-          $modalInstance.close();
-        });
+        event.response(inviteeId, $scope.data.response, $scope.data.message)
+          .then(function() {
+            $q.all([event.fetch(), event.fetchInvitees() ])
+              .then(function() {
+                $modalInstance.close();
+              });
+          });
       };
 
       $scope.cancel = function() {

@@ -61,17 +61,22 @@
                   {{invitee.firstName}}
                   {{invitee.middleName}}
                   {{invitee.lastName}}
-                  <small class="right">{{invitee.updatedAt | readableTimestampFrom: 'now' }}</small>
                   <br/>
-                  <small ng-if="invitee.changed">
-                    Change Reply to "{{invitee.response}}"
+                  <small ng-if="invitee.reply === 'noreply'">
+                    No reply yet.
                   </small>
-                  <small ng-if="!invitee.changed">
-                    Replied "{{invitee.response}}"
-                  </small>
-                  <small ng-if="invitee.comment">
-                    and comment "{{invitee.comment}}"
-                  </small>
+                  <div ng-repeat="response in invitee.responses">
+                    <small class="right">{{response.createdAt | readableTimestampFrom: 'now' }}</small>
+                    <small ng-if="!$last">
+                      Change Reply to "{{response.reply}}"
+                    </small>
+                    <small ng-if="$last">
+                      Replied "{{response.reply}}"
+                    </small>
+                    <small ng-if="response.comment">
+                      and comment "{{response.comment}}"
+                    </small>
+                  </div>
                 </h5>
               </div>
             </td>

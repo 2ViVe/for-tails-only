@@ -33,7 +33,7 @@ angular.module('fto/party')
 
       var inviteeId = $route.current.params.inviteeId;
       $scope.response = function() {
-        return event.getInviteeById(inviteeId).response;
+        return event.getInviteeById(inviteeId).reply;
       };
 
       var response = $route.current.params.response;
