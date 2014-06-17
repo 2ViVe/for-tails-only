@@ -6,7 +6,7 @@
                 <input type='text' ng-model="search" placeholder='Search...' class='secondary-item no-margin-bottom' dropdown-toggle="#drop-menu-search" />
               </div>
               <div class='small-2 columns'>
-                <a href='#' class='postfix button'><i class="fa fa-search"></i></a>
+                <a class='postfix button'><i class="fa fa-search"></i></a>
               </div>
               <ul id="drop-menu-search" class='f-dropdown party-panel-list'>
                 <li ng-repeat="choice in searchItems">
@@ -18,19 +18,19 @@
           </div>
     </div>
     <div class='small-12 medium-8 columns text-right'>
-      <a href='/#/party/create' class='button small'>Create a Pawty</a>
+      <a href='/#/party/create' class='button small'>Create a Paw-ty</a>
     </div>
   </div>
   <div class='row'>
     <div class='columns medium-8'>
-      <h4 ng-if="type === 'upcoming' " class="primary-color">Upcoming Pawty <a href='#/party/overview/recent' class='button small right'>Recent Pawties</a></h4>
-      <h4 ng-if="type === 'recent' " class="primary-color">Recent Pawty <a href='#/party/overview/upcoming' class='button small right'>Upcoming Pawties</a></h4>
+      <h4 ng-if="type === 'upcoming' " class="primary-color">Upcoming Paw-ty <a href='#/party/overview/recent' class='button small right'>Recent Paw-ties</a></h4>
+      <h4 ng-if="type === 'recent' " class="primary-color">Recent Paw-ty <a href='#/party/overview/upcoming' class='button small right'>Upcoming Paw-ties</a></h4>
       <table class='party-list' width='100%'>
         <tbody>
           <tr ng-repeat="party in parties | filter:search">
             <td class='party-list-photo'><img src='/images/party/pack-1.png' alt='[Pack Name]' /></td>
             <td class='party-list-info'>
-              <p><strong>{{party.title}}</strong></p>
+              <a ng-href="#/party/{{party.id}}"><strong>{{party.title}}</strong></a>
               <p>{{party.startTime | date : 'medium'}} | {{party.endTime | date : 'medium'}}</p>
               <p>{{party.address.street}}  {{party.address.city}} {{party.address.stateName}} {{party.address.countryName}} {{party.address.zip}}</p>
               <p>Host: {{party.hostName}} | <a href='/#/party/{{party.id}}/invite'>Invite Guests</a> | <a href='/#/party/{{party.id}}/edit'>Edit</a> | <a href='#'>Delete</a></p>
@@ -47,7 +47,7 @@
       <!--<ul class="pagination right"> <li class="arrow unavailable"><a href="">&laquo;</a></li> <li class="current"><a href="">1</a></li> <li><a href="">2</a></li> <li><a href="">3</a></li> <li><a href="">4</a></li> <li class="unavailable"><a href="">&hellip;</a></li> <li><a href="">12</a></li> <li><a href="">13</a></li> <li class="arrow"><a href="">&raquo;</a></li> </ul>-->
     </div>
     <div class='columns medium-4'>
-      <h4 class="primary-color">Pawty Calendar</h4>
+      <h4 class="primary-color">Paw-ty Calendar</h4>
       <div data-calendar
            data-selected-date="selectedDate">
       </div>

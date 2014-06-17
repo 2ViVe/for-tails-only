@@ -46,7 +46,7 @@ angular.module('fto/party')
         $scope.submitted = true;
         $scope.data.templateId = templates[selectedTemplateIndex].id;
         var event = new Event();
-        event.create($scope.data, $scope.time.startDate)
+        event.create($scope.data, $scope.time)
           .then(function(event) {
             $location.path('/party/' + event.data.id + '/invite');
           })

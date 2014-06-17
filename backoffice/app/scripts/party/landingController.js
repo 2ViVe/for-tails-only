@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('fto')
-  .controller('PartyLandingController', ['$scope', 'events', '$route',
-    function($scope, events, $route) {
+  .controller('PartyLandingController', ['$scope', 'events', '$route', '$window',
+    function($scope, events, $route, $window) {
       var recentOutput = [],
         upcomingOutput = [],
         type = $route.current.params.type;
@@ -12,6 +12,10 @@ angular.module('fto')
           nowTimestamp = moment().unix();
 
         return nowTimestamp > endTimestamp;
+      }
+
+      if (events.length === 0){
+        $window.location.href = '#/party/overview'
       }
 
       //change type to upcoming as default

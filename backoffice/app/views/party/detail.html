@@ -2,13 +2,15 @@
   <div class='row'>
     <div class="medium-6 columns">
       <ul class="breadcrumbs">
-        <li><a href="#">My Pawty</a></li>
-        <li class="current"><a href="#">2 Years Birthday</a></li>
+        <li><a href="#/party/overview/recent">My Paw-ty</a></li>
+        <li class="current">{{party.title}}</li>
       </ul>
     </div>
     <div class="medium-6 columns">
       <p class="text-right">
-        <a href class="button tiny">Invite Guests</a> <a href class="button tiny">Edit</a> <a href class="button tiny" ng-click="deleteInvites()">Delete</a>
+        <a ng-href="#/party/{{party.id}}/invite" class="button tiny">Invite Guests</a>
+        <a ng-href="#/party/{{party.id}}/edit" class="button tiny">Edit</a>
+        <a href class="button tiny" ng-click="deleteInvites()">Delete</a>
       </p>
     </div>
   </div>
@@ -17,8 +19,8 @@
         <div class='row block-margin-bottom'>
           <div class='small-3 columns'>
             <div class="party-blue-circle-s">
-              <p><strong>{{ party.yesCount + party.noCount + party.maybeCount + party.noReplyCount }}</strong><br/>
-                <span>GOAL: {{ party.yesCount + party.noCount + party.maybeCount + party.noReplyCount }}</span>
+              <p><strong>{{ event.totalInviteesNumber() }}</strong><br/>
+                <span>GOAL: 40</span>
               </p>
               <h5>INVITED</h5>
             </div>
@@ -26,7 +28,7 @@
           <div class='small-3 columns'>
             <div class="party-orange-circle-s">
               <p class='icons-green-circle'><strong>{{ party.yesCount }}</strong><br/>
-              <span>GOAL: {{ party.yesCount + party.noCount + party.maybeCount + party.noReplyCount }}</span>
+              <span>GOAL: 40</span>
               </p>
               <h5>ATTENDING</h5>
             </div>
@@ -57,7 +59,7 @@
         </div>
         <div class='row topbar title-margin-bottom' ng-if="false">
           <div class='small-12 medium-6 columns'>
-            <h4 class="primary-color">Pawty Orders</h4>
+            <h4 class="primary-color">Paw-ty Orders</h4>
           </div>
           <div class='small-12 medium-6 columns'>
             <div class='row collapse'>
@@ -180,12 +182,12 @@
             <dt class="small-4 columns">Host:</dt>
             <dd class="small-8 columns">{{ party.hostName }}</dd>
           </dl>
-          <dl class="row">
-            <dt class="small-12 columns">Invation URL:</dt>
-          </dl>
-          <dl class="row">
-            <dd class="small-12 columns"><a href>http://www.xxxxxx.com/xxxx</a></dd>
-          </dl>
+          <!--<dl class="row">-->
+            <!--<dt class="small-12 columns">Invation URL:</dt>-->
+          <!--</dl>-->
+          <!--<dl class="row">-->
+            <!--<dd class="small-12 columns"><a href>http://www.xxxxxx.com/xxxx</a></dd>-->
+          <!--</dl>-->
           <br/>
           <a href class="button secondary small">Copy</a>
         </div>

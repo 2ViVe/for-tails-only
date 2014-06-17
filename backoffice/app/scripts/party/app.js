@@ -12,13 +12,16 @@ angular
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/party/overview/:type', {
-        templateUrl: 'views/party/party-my.html',
+        templateUrl: 'views/party/overview.html',
         controller: 'PartyLandingController',
         resolve: {
           events: ['Events', function(Events) {
             return Events.fetchAll();
           }]
         }
+      })
+      .when('/party/overview', {
+        templateUrl: 'views/party/party-none.html'
       })
       .when('/party/:partyId/invite', {
         templateUrl: 'views/party/invite.html',
@@ -91,7 +94,7 @@ angular
         }
       })
       .when('/party/:partyId', {
-        templateUrl: 'views/party/party-details.html',
+        templateUrl: 'views/party/detail.html',
         controller: 'PartyDetailsController',
         resolve: {
           event: ['Event', '$route', function(Event, $route) {
