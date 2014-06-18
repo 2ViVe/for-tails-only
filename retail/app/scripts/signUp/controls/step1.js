@@ -14,6 +14,10 @@ angular.module('fto/signup')
 
 //        $scope.debug();
 
+        $scope.$watch('account.login', function(login) {
+          $scope.account.login = login ? login.toLowerCase() : login;
+        });
+
         function updateProducts(country) {
           Registration.getProducts(country.id)
             .success(function(data) {

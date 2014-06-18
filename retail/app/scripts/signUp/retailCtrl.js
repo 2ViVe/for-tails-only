@@ -12,6 +12,10 @@ angular.module('fto/signup')
       $scope.address = Address.createContainer()
         .addType('shipping');
 
+      $scope.$watch('account.login', function(login) {
+        $scope.account.login = login ? login.toLowerCase() : login;
+      });
+
       $scope.create = function() {
         $scope.errors = {};
         $scope.submitted = true;
