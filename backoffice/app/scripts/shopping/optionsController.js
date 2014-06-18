@@ -3,19 +3,30 @@
 angular.module('fto/shopping')
   .controller('ShoppingOptionsController', ['$scope', 'events', 'Shopping', '$location',
     function($scope, events, Shopping, $location) {
+      if (!events && events.length === 0) {
+        $location.path('/products/cats/cat-treats');
+        return;
+      }
+
       $scope.events = events;
       $scope.selectedEvent = events[0];
 
       $scope.shopForMySelf = function() {
-        Shopping.event = null;
-        $location.path(Shopping.pathAfterShoppingOptions ?
-          Shopping.pathAfterShoppingOptions : '/products/cats/cat-treats');
+        Shopping.removeOptionalField('eventId');
+        Shopping.update().then(function() {
+          $location.path(Shopping.pathAfterShoppingOptions ?
+            Shopping.pathAfterShoppingOptions : '/products/cats/cat-treats');
+        });
       };
 
       $scope.shopForPawTy = function() {
-        Shopping.event = $scope.selectedEvent;
-        $location.path(Shopping.pathAfterShoppingOptions ?
-          Shopping.pathAfterShoppingOptions : '/products/cats/cat-treats');
+        Shopping.addOptionalFields({
+          eventId: $scope.selectedEvent.id
+        });
+        Shopping.update().then(function() {
+          $location.path(Shopping.pathAfterShoppingOptions ?
+            Shopping.pathAfterShoppingOptions : '/products/cats/cat-treats');
+        });
       };
     }
   ]);
