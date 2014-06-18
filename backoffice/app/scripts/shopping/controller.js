@@ -5,10 +5,6 @@ angular.module('fto/shopping')
     function($scope, shopping, $timeout) {
       $scope.shopping = shopping;
 
-      $scope.update = function() {
-        shopping.update();
-      };
-
       $scope.updateItemQuantity = function(item) {
         var newQuantity = item.newQuantity;
         if (isNaN(newQuantity)) {
@@ -17,7 +13,7 @@ angular.module('fto/shopping')
         $timeout(function() {
           if (newQuantity === item.newQuantity) {
             item.quantity = newQuantity;
-            shopping.update();
+            shopping.updateItems();
           }
         }, 500);
       };
