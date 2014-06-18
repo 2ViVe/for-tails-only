@@ -7,6 +7,8 @@ angular.module('fto')
         limitStart,
         limitEnd;
 
+      $scope.featureProducts = featureProducts;
+      $scope.newProducts = newProducts;
       $scope.FPPageNum = Math.ceil(featureProducts.products.length / 5);
       $scope.FPPage = page = 1;
       limitStart = ( page - 1 ) * 5;
