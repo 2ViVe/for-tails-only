@@ -24,17 +24,25 @@
     <!-- endbuild -->
   </head>
   <body ng-app="fto">
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
     <div class='wrapper'>
-        <header class="main-header" ng-include="'views/main-header.html'"></header>
-        <nav class="main-navigation" ng-include="'views/main-navigation.html'"></nav>
+      <!--[if lt IE 9]>
+      <div class="row" ng-hide="hideTip">
+        <div class="columns medium-12">
+          <p class="alert-box error upgrade-alert">
+            You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+            <a ng-click="hideTip = true" class="close">&times;</a>
+          </p>
+        </div>
+      </div>
+      <![endif]-->
 
-        <!-- Add your site or application content here -->
-        <div class="main-container" ng-view=""></div>
+      <header class="main-header" ng-include="'views/main-header.html'"></header>
+      <nav class="main-navigation" ng-include="'views/main-navigation.html'"></nav>
 
-        <footer class="main-footer" ng-include="'views/main-footer.html'"></footer>
+      <!-- Add your site or application content here -->
+      <div class="main-container" ng-view=""></div>
+
+      <footer class="main-footer" ng-include="'views/main-footer.html'"></footer>
     </div>
 
     <!--[if lt IE 9]>
