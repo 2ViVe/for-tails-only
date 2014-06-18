@@ -1,12 +1,25 @@
 'use strict';
 
 angular.module('fto/shopping')
-  .controller('ShoppingController', ['$scope', 'shopping',
-    function($scope, shopping) {
+  .controller('ShoppingController', ['$scope', 'shopping', '$timeout',
+    function($scope, shopping, $timeout) {
       $scope.shopping = shopping;
 
       $scope.update = function() {
         shopping.update();
+      };
+
+      $scope.updateItemQuantity = function(item) {
+        var newQuantity = item.newQuantity;
+        if (isNaN(newQuantity)) {
+          return;
+        }
+        $timeout(function() {
+          if (newQuantity === item.newQuantity) {
+            item.quantity = newQuantity;
+            shopping.update();
+          }
+        }, 500);
       };
 
       $scope.remove = function(item) {

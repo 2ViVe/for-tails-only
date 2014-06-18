@@ -53,7 +53,10 @@
               </div>
             </td>
             <td class='text-center'>
-              <input type="number" ng-model="item.quantity" />
+              <input type="number"
+                     ng-model="item.newQuantity"
+                     ng-init="item.newQuantity = item.quantity"
+                     ng-change="updateItemQuantity(item)" />
             </td>
             <td class='primary-color text-center'>
               {{item.retailPrice | price}}
