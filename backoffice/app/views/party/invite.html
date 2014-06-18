@@ -15,7 +15,10 @@
         <tbody>
         <tr>
           <td  class="party-list-textarea" colspan="4">
-            <textarea ng-model="inviteesToBeAdded" cols="30" rows="6" placeholder="Enter email address here, please commas to seperate e-mail address (for tails invitation list)"></textarea>
+            <textarea ng-model="inviteesToBeAdded"
+                      cols="30"
+                      rows="6"
+                      placeholder="Enter email address here, please use a comma to separate each e-mail address."></textarea>
             <small class="error" ng-show="hasInvalidEmail">
               There is invalid email, please correct.
             </small>
@@ -74,7 +77,7 @@
         {{error}}
       </div>
 
-      <button class="small" ng-click="submit()">Submit & Send</button>
+      <button class="small" ng-click="submit()">Send</button>
       <button class="secondary small">Cancel</button>
     </div>
     <div class='columns medium-4'>
@@ -85,8 +88,8 @@
           <small>TOTAL INVITED</small>
         </div>
         <h6>GOAL: INVITE 40</h6>
-        <p>Invite 40+ Guests to increase the number of party attendees to maximize your Style Rewards.</p>
-        <a href="#">View Guest RSVPs</a>
+        <p>Invite 40+ Guests to increase the number of party attendees to maximize your rewards.</p>
+        <a href="#/party/{{event.id}}">View Guest RSVPs</a>
       </div>
     </div>
   </div>

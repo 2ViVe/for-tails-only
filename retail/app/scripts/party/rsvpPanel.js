@@ -30,7 +30,7 @@ angular
             countName: 'noCount'
           },
           {
-            name: 'NO REPLY YET',
+            name: 'NOT YET REPLIED',
             type: 'NOREPLY',
             countName: 'noReplyCount'
           }

@@ -179,7 +179,7 @@
           </dl>
           <br/>
           <dl class="row">
-            <dt class="small-4 columns">Host:</dt>
+            <dt class="small-4 columns">Host(ess):</dt>
             <dd class="small-8 columns">{{ party.hostName }}</dd>
           </dl>
           <!--<dl class="row">-->
@@ -211,7 +211,7 @@
                     {{ invitee.middleName }}
                     <br/>
                     <small ng-if="invitee.reply === 'noreply'">
-                      No reply yet.
+                      Not yet replied.
                     </small>
                     <div ng-repeat="response in invitee.responses">
                       <small class="right">{{response.createdAt | readableTimestampFrom: 'now' }}</small>
@@ -222,7 +222,7 @@
                         Replied "{{response.reply}}"
                       </small>
                       <small ng-if="response.comment">
-                        and comment "{{response.comment}}"
+                        and commented "{{response.comment}}"
                       </small>
                     </div>
                   </h5>
