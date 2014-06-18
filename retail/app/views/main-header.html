@@ -35,6 +35,11 @@
       <li ng-if="user.isLogin">
         <a ng-href="#/report/order">Orders</a>
       </li>
+      <li ng-if="user.data.roleCode === 'R'">
+        <a href="#/gift-codes">
+          Gift Codes
+        </a>
+      </li>
       <li ng-if="user.isLogin && user.data.roleCode === 'D'">
         <a ng-href="{{backOfficeUrl}}">Back Office</a>
       </li>
