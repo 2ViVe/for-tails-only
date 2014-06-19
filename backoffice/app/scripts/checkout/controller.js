@@ -87,7 +87,7 @@ angular
 
         var selectedShippingMethodId = $scope.selectedShippingMethod ? $scope.selectedShippingMethod.id : null;
 
-        order.create($scope.selectedPaymentMethod.id, selectedShippingMethodId, $scope.creditcard)
+        order.create($scope.selectedPaymentMethod.id, selectedShippingMethodId, $scope.creditcard, $scope.orderId)
           .success(function(data) {
             $scope.placingOrder = false;
             $scope.orderId = data.response.orderId;
