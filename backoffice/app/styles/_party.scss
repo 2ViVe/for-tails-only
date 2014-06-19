@@ -211,8 +211,9 @@
     margin:20px auto;
     width:165px;
     height: 165px;
-    background: url("/images/party/party-pink-circle.png") 50% 50% no-repeat;
+    background: url("/images/party/party-pink-circle.png") no-repeat;
     text-align: center;
+    background-size: 100%;
     strong{
       display:block;
       font-size:46px;

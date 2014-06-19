@@ -34,7 +34,7 @@
           <th width="25%"></th>
         </tr>
         <tr ng-if="invitees.length === 0">
-          <td colspan="3" class="text-center">
+          <td colspan="4" class="text-center">
             Please add Guest
           </td>
         </tr>
@@ -77,7 +77,7 @@
         {{error}}
       </div>
 
-      <button class="small" ng-click="submit()">Send</button>
+      <button class="small" ng-disabled="invitees.length === 0" ng-click="submit()">Send</button>
       <button class="secondary small">Cancel</button>
     </div>
     <div class='columns medium-4'>
