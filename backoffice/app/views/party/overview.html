@@ -37,7 +37,9 @@
             </td>
             <td>
               <div class='party-list-members'>
-                <strong class='primary-color'>{{party.yesCount}}</strong>
+                <strong class='primary-color'>
+                  {{party.yesCount + party.noCount + party.maybeCount}}
+                </strong>
                 <small>INVITED</small>
               </div>
             </td>
