@@ -188,11 +188,14 @@
           <!--<dl class="row">-->
             <!--<dd class="small-12 columns"><a href>http://www.xxxxxx.com/xxxx</a></dd>-->
           <!--</dl>-->
-          <br/>
-          <a href class="button secondary small">Copy</a>
+          <!--<br/>-->
+          <!--<a href class="button secondary small">Copy</a>-->
         </div>
       </div>
-      <h3 class="primary-color">RSVP <a href class="button right tiny">Manage Guest</a></h3>
+      <h3 class="primary-color">
+        RSVP
+        <!--<a class="button right tiny">Manage Guest</a>-->
+      </h3>
 
       <div data-rsvp-panel
            data-invitees="invitees"
@@ -207,8 +210,12 @@
               <td>
                 <div class='party-user-table-info party-user-table-info-noPho'>
                   <h5>
-                    {{ invitee.firstName }}
-                    {{ invitee.middleName }}
+                    <span class="base-font">
+                      {{invitee.firstName}}
+                      {{invitee.middleName}}
+                      {{invitee.lastName}}
+                      ({{invitee.email}})
+                    </span>
                     <br/>
                     <small ng-if="invitee.reply === 'noreply'">
                       Not yet replied.
