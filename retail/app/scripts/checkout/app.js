@@ -19,7 +19,7 @@ angular
           order: ['Shopping', 'Order', '$location',
             function(Shopping, Order, $location) {
               return Shopping.fetch().then(function(shopping) {
-                return Order.checkout(shopping.items)
+                return Order.checkout(shopping)
                   .catch(function() {
                     $location.path('/signin');
                   });
