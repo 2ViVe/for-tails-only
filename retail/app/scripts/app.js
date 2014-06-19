@@ -24,12 +24,12 @@ angular.module('fto', [
   'fto/report',
   'fto/shopping',
   'fto/checkout',
+  'fto/handler',
   'fto/home',
   'fto/navigation',
   'fto/footer',
   'fto/party',
-  'fto/giftCode',
-  'fto/handler'
+  'fto/giftCode'
 ])
   .config(function($routeProvider) {
     $routeProvider
