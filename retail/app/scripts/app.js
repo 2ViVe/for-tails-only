@@ -28,7 +28,8 @@ angular.module('fto', [
   'fto/navigation',
   'fto/footer',
   'fto/party',
-  'fto/giftCode'
+  'fto/giftCode',
+  'fto/handler'
 ])
   .config(function($routeProvider) {
     $routeProvider
@@ -40,12 +41,6 @@ angular.module('fto', [
       })
       .when('/handler-connect-success', {
         templateUrl: 'views/handler/connect-success.html'
-      })
-      .when('/handler-locate', {
-        templateUrl: 'views/handler/locate.html'
-      })
-      .when('/handler-locate-result', {
-        templateUrl: 'views/handler/locate-result.html'
       })
       .otherwise({
         redirectTo: '/'

@@ -15,7 +15,7 @@
   <div class="medium-12 columns">
     <table width='100%' class='products-checkout-table handler-locate-table'>
       <tbody>
-        <tr>
+        <tr ng-repeat='handler in handlers'>
           <td class="handler-locate-table-radio"><input type="radio" name="radio1" /></td>
           <td class='prodcuts-checkout-table-img'>
             <img src="/images/locate-img.png" alt='handler name' />
@@ -25,55 +25,13 @@
               <div class='product-info'>
                 <h6 class='product-name'>
                   <a>
-                    Handler Name
+                    {{handler.firstName}} {{handler.lastName}}
                   </a>
                 </h6>
-                <p class='product-option'><strong>City:</strong> New York</p>
-                <p class='product-option'><strong>State:</strong> New York</p>
-                <p class='product-option'><strong>Email:</strong> yesmail@studio.com</p>
-                <p class='product-option'><strong>Phone:</strong> 12345678</p>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="handler-locate-table-radio"><input type="radio" name="radio1" /></td>
-          <td class='prodcuts-checkout-table-img'>
-            <img src="/images/locate-img.png" alt='handler name' />
-          </td>
-          <td>
-            <div class='products-checkout-table-item'>
-              <div class='product-info'>
-                <h6 class='product-name'>
-                  <a>
-                    Handler Name
-                  </a>
-                </h6>
-                <p class='product-option'><strong>City:</strong> New York</p>
-                <p class='product-option'><strong>State:</strong> New York</p>
-                <p class='product-option'><strong>Email:</strong> yesmail@studio.com</p>
-                <p class='product-option'><strong>Phone:</strong> 12345678</p>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="handler-locate-table-radio"><input type="radio" name="radio1" /></td>
-          <td class='prodcuts-checkout-table-img'>
-            <img src="/images/locate-img.png" alt='handler name' />
-          </td>
-          <td>
-            <div class='products-checkout-table-item'>
-              <div class='product-info'>
-                <h6 class='product-name'>
-                  <a>
-                    Handler Name
-                  </a>
-                </h6>
-                <p class='product-option'><strong>City:</strong> New York</p>
-                <p class='product-option'><strong>State:</strong> New York</p>
-                <p class='product-option'><strong>Email:</strong> yesmail@studio.com</p>
-                <p class='product-option'><strong>Phone:</strong> 12345678</p>
+                <p class='product-option'><strong>City:</strong> {{handler.address.city}}</p>
+                <p class='product-option'><strong>State:</strong> {{handler.address.state}}</p>
+                <!--<p class='product-option'><strong>Email:</strong> yesmail@studio.com</p>-->
+                <!--<p class='product-option'><strong>Phone:</strong> 12345678</p>-->
               </div>
             </div>
           </td>
