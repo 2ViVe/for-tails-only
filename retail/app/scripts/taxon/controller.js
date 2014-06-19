@@ -18,8 +18,4 @@ angular.module('2ViVe')
         .then(function(data) {
           $scope.products = data.products;
         });
-    }])
-  .controller('MarketingMaterialsController', ['$scope', 'products',
-    function($scope, products) {
-      $scope.products = products.products;
     }]);

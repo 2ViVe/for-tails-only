@@ -12,7 +12,7 @@ angular.module('fto/shopping')
       $scope.selectedEvent = events[0];
 
       $scope.shopForMySelf = function() {
-        Shopping.removeOptionalField('eventId');
+        Shopping.removeOptionalField('eventCode');
         Shopping.update().then(function() {
           $location.path(Shopping.pathAfterShoppingOptions ?
             Shopping.pathAfterShoppingOptions : '/products/cats/cat-treats');
@@ -21,7 +21,7 @@ angular.module('fto/shopping')
 
       $scope.shopForPawTy = function() {
         Shopping.addOptionalFields({
-          eventId: $scope.selectedEvent.id
+          eventCode: $scope.selectedEvent.id
         });
         Shopping.update().then(function() {
           $location.path(Shopping.pathAfterShoppingOptions ?

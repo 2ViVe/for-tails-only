@@ -58,9 +58,13 @@
             <td>
               <div class='party-user-table-info'>
                 <h5>
-                  {{invitee.firstName}}
-                  {{invitee.middleName}}
-                  {{invitee.lastName}}
+                  <span class="base-font">
+                    {{invitee.firstName}}
+                    {{invitee.middleName}}
+                    {{invitee.lastName}}
+                    ({{invitee.email}})
+                  </span>
+
                   <br/>
                   <small ng-if="invitee.reply === 'noreply'">
                     No reply yet.

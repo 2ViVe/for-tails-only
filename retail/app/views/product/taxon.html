@@ -37,12 +37,25 @@
     <div class='medium-10 columns'>
       <ul class='products-list medium-block-grid-4'>
         <li ng-repeat="product in products | orderBy: 'position'">
-          <div class="product-img">
+          <div class="product-img"
+               ng-class="{'coming-soon': product.isComingSoon, 'out-of-stock': product.isOutOfStock && !product.isComingSoon}">
             <span></span>
             <img ng-src="{{product.images[0] | imageSize:'list_thumb' }}" />
-            <a ng-href="#/product/{{product.id}}" class="button small" style="">VIEW DETAIL</a>
+            <a ng-href="#/product/{{product.id}}"
+               class="button small"
+               ng-if="!product.isComingSoon && !product.isOutOfStock">
+              VIEW DETAIL
+            </a>
           </div>
-          <p class='product-name'><a ng-href="#/product/{{product.id}}">{{product.name}}</a></p>
+          <p class='product-name'>
+            <a ng-href="#/product/{{product.id}}"
+               ng-if="!product.isComingSoon && !product.isOutOfStock">
+              {{product.name}}
+            </a>
+            <span ng-if="product.isComingSoon || product.isOutOfStock">
+              {{product.name}}
+            </span>
+          </p>
           <p class='product-price'>{{product.price | price}}</p>
           <!--<button class='button tiny'>ADD TO CART</button>-->
         </li>

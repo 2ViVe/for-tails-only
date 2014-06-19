@@ -2,7 +2,7 @@
   <div class='row'>
     <div class="medium-6 columns">
       <ul class="breadcrumbs">
-        <li><a href="#/party/overview/recent">My Paw-ty</a></li>
+        <li><a href="#/party/overview/upcoming">My Paw-ty</a></li>
         <li class="current">{{party.title}}</li>
       </ul>
     </div>
@@ -33,15 +33,23 @@
               <h5>ATTENDING</h5>
             </div>
           </div>
-          <div class='small-3 columns' ng-if="false">
+          <div class='small-3 columns'>
             <div class="party-green-circle-s">
-              <p class='icons-red-circle'><strong>182</strong><br/><span>GOAL:40</span></p>
+              <p class='icons-red-circle'>
+                <strong>0</strong>
+                <br/>
+                <span>GOAL:40</span>
+              </p>
               <h5>ORDERS</h5>
             </div>
           </div>
-          <div class='small-3 columns' ng-if="false">
+          <div class='small-3 columns'>
             <div class="party-pink-circle-s">
-              <p class='icons-pink-circle'><strong>182</strong><br/><span>GOAL:$250</span></p>
+              <p class='icons-pink-circle'>
+                <strong>0</strong>
+                <br/>
+                <span>GOAL:$250</span>
+              </p>
               <h5>EARNINGS</h5>
             </div>
           </div>
@@ -188,16 +196,18 @@
           <!--<dl class="row">-->
             <!--<dd class="small-12 columns"><a href>http://www.xxxxxx.com/xxxx</a></dd>-->
           <!--</dl>-->
-          <br/>
-          <a href class="button secondary small">Copy</a>
+          <!--<br/>-->
+          <!--<a href class="button secondary small">Copy</a>-->
         </div>
       </div>
-      <h3 class="primary-color">RSVP <a href class="button right tiny">Manage Guest</a></h3>
+      <h3 class="primary-color">
+        RSVP
+        <!--<a class="button right tiny">Manage Guest</a>-->
+      </h3>
 
       <div data-rsvp-panel
            data-invitees="invitees"
            data-event="party"></div>
-
 
       <h3 class="primary-color">RSVP History</h3>
       <div class="party-panel">
@@ -207,8 +217,12 @@
               <td>
                 <div class='party-user-table-info party-user-table-info-noPho'>
                   <h5>
-                    {{ invitee.firstName }}
-                    {{ invitee.middleName }}
+                    <span class="base-font">
+                      {{invitee.firstName}}
+                      {{invitee.middleName}}
+                      {{invitee.lastName}}
+                      ({{invitee.email}})
+                    </span>
                     <br/>
                     <small ng-if="invitee.reply === 'noreply'">
                       Not yet replied.

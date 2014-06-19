@@ -19,7 +19,7 @@ angular
           order: ['Shopping', 'Order',
             function(Shopping, Order) {
               return Shopping.fetch().then(function(shopping) {
-                return Order.checkout(shopping.items);
+                return Order.checkout(shopping);
               });
             }]
         }

@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('fto')
-  .controller('HomeController', ['$scope', 'Products' , 'Shopping', '$modal', 'featureProducts','newProducts',
-    function($scope, Products, Shopping, $modal, featureProducts, newProducts) {
+  .controller('HomeController', ['$scope', 'featureProducts','newProducts',
+    function($scope, featureProducts, newProducts) {
       var page,
         limitStart,
         limitEnd;

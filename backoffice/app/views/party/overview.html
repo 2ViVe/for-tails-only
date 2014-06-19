@@ -23,8 +23,23 @@
   </div>
   <div class='row'>
     <div class='columns medium-8'>
-      <h4 ng-if="type === 'upcoming' " class="primary-color">Upcoming Paw-ty <a href='#/party/overview/recent' class='button small right'>Recent Paw-ties</a></h4>
-      <h4 ng-if="type === 'recent' " class="primary-color">Recent Paw-ty <a href='#/party/overview/upcoming' class='button small right'>Upcoming Paw-ties</a></h4>
+
+      <a ng-href="#/party/overview/{{type === 'upcoming' ? 'recent' : 'upcoming'}}"
+         ng-class="{'party-switcher-upcoming': type === 'recent', 'party-switcher-recent': type === 'upcoming'}"
+         class='right'>
+          <span class="right">
+            Recent Paw-ties
+          </span>
+        Upcoming Paw-ties
+      </a>
+
+      <h4 ng-if="type === 'upcoming' " class="primary-color">
+        Upcoming Paw-ty
+      </h4>
+      <h4 ng-if="type === 'recent' " class="primary-color">
+        Recent Paw-ty
+      </h4>
+
       <table class='party-list' width='100%'>
         <tbody>
           <tr ng-repeat="party in parties | filter:search">
@@ -37,7 +52,9 @@
             </td>
             <td>
               <div class='party-list-members'>
-                <strong class='primary-color'>{{party.yesCount}}</strong>
+                <strong class='primary-color'>
+                  {{party.yesCount + party.noCount + party.maybeCount}}
+                </strong>
                 <small>INVITED</small>
               </div>
             </td>
