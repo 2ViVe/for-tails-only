@@ -249,6 +249,25 @@
       border:1px solid $grey-border;
       //        display:table-cell;  this attr will unable the position attr
       height:220px;
+
+      &.out-of-stock:before, &.coming-soon:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 20px;
+        height: 104px;
+        width: 38px;
+      }
+
+      &.out-of-stock:before {
+        background: image-url('out-of-stock.png');
+      }
+
+      &.coming-soon:before {
+        background: image-url('coming-soon.png');
+      }
+
       img{
         display:inline-block;
         max-height: 216px;

@@ -38,8 +38,4 @@ angular.module('2ViVe')
             });
         });
       };
-    }])
-  .controller('MarketingMaterialsController', ['$scope', 'products',
-    function($scope, products) {
-      $scope.products = products.products;
     }]);
