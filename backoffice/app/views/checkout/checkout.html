@@ -1,246 +1,252 @@
 <div class='products' ng-hide="isSucceed">
+<div class='row'>
+  <div class='small-12 columns'>
+    <h2>REVIEW & PLACE ORDER</h2>
+  </div>
+</div>
+<div class='row' ng-if="isFailed">
+  <div class='small-12 columns'>
+    <div data-alert class="alert-box error">
+      {{failedMessage}}
+    </div>
+  </div>
+</div>
+<div class='row products-checkout'>
+<!-- products-checkout-info start -->
+<div class='medium-7 columns products-checkout-info'>
+  <div ng-show="showShipping">
+    <h3>SHIPPING INFO</h3>
+    <h4>Shipping Method</h4>
+    <div class='row'>
+      <div class='small-8 end columns'>
+        <label class='formRadioLabel' ng-repeat="shippingMethod in order.data.availableShippingMethods">
+          <input type='radio'
+                 ng-model="$parent.selectedShippingMethod"
+                 ng-value="shippingMethod"
+                 ng-change="changeShippingMethod($parent.selectedShippingMethod)"
+                 name='paymentOption' />
+          {{shippingMethod.name}}
+        </label>
+      </div>
+    </div>
+    <h4>SHIP TO</h4>
+    <div class='row'>
+      <div class='small-12 columns'>
+        <ul class="vcard">
+          <li class="locality">
+            {{order.data.shippingAddress.firstName}}
+            {{order.data.shippingAddress.m}}
+            {{order.data.shippingAddress.lastName}}
+          </li>
+          <li class="locality">
+            {{order.data.shippingAddress.street}},
+            {{order.data.shippingAddress.city}},
+            {{order.data.shippingAddress.state}},
+            {{order.data.shippingAddress.country}},
+            {{order.data.shippingAddress.zip}}
+          </li>
+          <li class="locality">Phone: {{order.data.shippingAddress.phone}}</li>
+          <li class="locality">
+            <a ng-show="order.data.shippingAddressChangeable"
+               ng-click="editShippingAddress()"
+               class="button tiny">
+              <i class="fa fa-pencil-square-o"></i> Edit
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <span class='separator-line'></span>
+  </div>
+
+  <h3>PAYMENT INFO</h3>
+  <h4>Payment Method</h4>
+  <div class="row">
+    <div class='medium-8 end columns'>
+      <label class='formRadioLabel' ng-repeat="paymentMethod in order.data.availablePaymentMethods">
+        <input type='radio'
+               ng-model="$parent.selectedPaymentMethod"
+               ng-value="paymentMethod" />
+        {{paymentMethod.name}}
+      </label>
+    </div>
+  </div>
+  <form name="creditCardForm">
+    <div class='row' ng-show="selectedPaymentMethod.isCreditcard">
+      <div class='medium-4 columns'>
+        <label class="required" for="card-number">Credit Card Number</label>
+      </div>
+      <div class='medium-4 columns'>
+        <input type='text'
+               ng-required="selectedPaymentMethod.isCreditcard"
+               id="card-number"
+               name="cardNumber"
+               ng-model="creditcard.number" />
+        <small class="error" ng-show="submitted && creditCardForm.cardNumber.$error.required">
+          This information is required.
+        </small>
+      </div>
+      <div class='medium-4 columns'><img src="images/creditCard.jpg" alt='' /></div>
+    </div>
+
+    <div class='row' data-credit-card-expiration ng-show="selectedPaymentMethod.isCreditcard">
+      <div class='medium-4 columns'>
+        <label class="required" for="expiration-month">Expiration Date</label>
+      </div>
+      <div class='small-4 columns text-left'>
+        <select id="expiration-month"
+                name="expirationMonth"
+                class="medium"
+                ng-required="selectedPaymentMethod.isCreditcard"
+                ng-model="creditcard.expirationMonth"
+                ng-options="month for month in expirationMonths">
+          <option value="">Month</option>
+        </select>
+        <small class="error" ng-show="submitted && creditCardForm.expirationMonth.$error.required">
+          This information is required.
+        </small>
+      </div>
+      <div class='small-4 columns text-left'>
+        <label class='hide'></label>
+        <select id="expiration-year"
+                name="expirationYear"
+                class="medium"
+                ng-required="selectedPaymentMethod.isCreditcard"
+                ng-model="creditcard.expirationYear"
+                ng-options="year for year in expirationYears">
+          <option value="">Year</option>
+        </select>
+        <small class="error" ng-show="submitted && creditCardForm.expirationYear.$error.required">
+          This information is required.
+        </small>
+      </div>
+    </div>
+
+    <div class='row' ng-show="selectedPaymentMethod.isCreditcard">
+      <div class='medium-4 columns'>
+        <label class="required" for="cvv">Card Code</label>
+      </div>
+      <div class='medium-4 end columns'>
+        <input type='text'
+               id="cvv"
+               name="cvv"
+               required
+               ng-model="creditcard.cvv"/>
+        <small class="error signUpInputW" ng-show="submitted && creditCardForm.cvv.$error.required">
+          This information is required.
+        </small>
+      </div>
+    </div>
+  </form>
+
+  <span class='separator-line'></span>
+  <h3>BILL TO</h3>
   <div class='row'>
     <div class='small-12 columns'>
-      <h2>REVIEW & PLACE ORDER</h2>
+      <ul class="vcard">
+        <li class="locality">
+          {{order.data.billingAddress.firstName}}
+          {{order.data.billingAddress.m}}
+          {{order.data.billingAddress.lastName}}
+        </li>
+        <li class="locality">
+          {{order.data.billingAddress.street}},
+          {{order.data.billingAddress.city}},
+          {{order.data.billingAddress.state}},
+          {{order.data.billingAddress.country}},
+          {{order.data.billingAddress.zip}}
+        </li>
+        <li class="locality">Phone: {{order.data.billingAddress.phone}}</li>
+        <li class="locality">
+          <a ng-click="editBillingAddress()"
+             class="button tiny">
+            <i class="fa fa-pencil-square-o"></i> Edit
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
-  <div class='row' ng-if="isFailed">
-    <div class='small-12 columns'>
-      <div data-alert class="alert-box error">
-        {{failedMessage}}
-      </div>
+  <span class='separator-line'></span>
+  <h3>Gift Card</h3>
+  <!--<h4 class='cPrimary'>Promotions & Rewards <span class='unimportant-text'>e-Gift Card</span></h4>-->
+  <div class='row product-checkout-coupon'>
+    <div class='small-3 columns'>
+      <label for="gift-card-code">Gift Card Code:</label>
+    </div>
+    <div class='small-7 columns end'>
+      <input id="gift-card-code" type='text' />
+    </div>
+    <div class='small-3 columns'>
+      <label for="gift-card-pin">Gift Card Pin:</label>
+    </div>
+    <div class='small-7 columns'>
+      <input id="gift-card-pin" type='text' class="no-margin-bottom" />
+    </div>
+    <div class='medium-2 columns end'>
+      <a href='#' class='button small'>Apply</a>
     </div>
   </div>
-  <div class='row products-checkout'>
-    <!-- products-checkout-info start -->
-    <div class='medium-7 columns products-checkout-info'>
-      <div ng-show="showShipping">
-        <h3>SHIPPING INFO</h3>
-        <h4>Shipping Method</h4>
-        <div class='row'>
-          <div class='small-8 end columns'>
-            <label class='formRadioLabel' ng-repeat="shippingMethod in order.data.availableShippingMethods">
-              <input type='radio'
-                     ng-model="$parent.selectedShippingMethod"
-                     ng-value="shippingMethod"
-                     ng-change="changeShippingMethod($parent.selectedShippingMethod)"
-                     name='paymentOption' />
-              {{shippingMethod.name}}
-            </label>
-          </div>
-        </div>
-        <h4>SHIP TO</h4>
-        <div class='row'>
-          <div class='small-12 columns'>
-            <ul class="vcard">
-              <li class="locality">
-                {{order.data.shippingAddress.firstName}}
-                {{order.data.shippingAddress.m}}
-                {{order.data.shippingAddress.lastName}}
-              </li>
-              <li class="locality">
-                {{order.data.shippingAddress.street}},
-                {{order.data.shippingAddress.city}},
-                {{order.data.shippingAddress.state}},
-                {{order.data.shippingAddress.country}},
-                {{order.data.shippingAddress.zip}}
-              </li>
-              <li class="locality">Phone: {{order.data.shippingAddress.phone}}</li>
-              <li class="locality">
-                <a ng-show="order.data.shippingAddressChangeable"
-                   ng-click="editShippingAddress()"
-                   class="button tiny">
-                  <i class="fa fa-pencil-square-o"></i> Edit
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <span class='separator-line'></span>
-      </div>
-
-      <h3>PAYMENT INFO</h3>
-      <h4>Payment Method</h4>
-      <div class="row">
-        <div class='medium-8 end columns'>
-          <label class='formRadioLabel' ng-repeat="paymentMethod in order.data.availablePaymentMethods">
-            <input type='radio'
-                   ng-model="$parent.selectedPaymentMethod"
-                   ng-value="paymentMethod" />
-            {{paymentMethod.name}}
-          </label>
-        </div>
-      </div>
-      <form name="creditCardForm">
-        <div class='row' ng-show="selectedPaymentMethod.isCreditcard">
-          <div class='medium-4 columns'>
-            <label class="required" for="card-number">Credit Card Number</label>
-          </div>
-          <div class='medium-4 columns'>
-            <input type='text'
-                   ng-required="selectedPaymentMethod.isCreditcard"
-                   id="card-number"
-                   name="cardNumber"
-                   ng-model="creditcard.number" />
-            <small class="error" ng-show="submitted && creditCardForm.cardNumber.$error.required">
-              This information is required.
-            </small>
-          </div>
-          <div class='medium-4 columns'><img src="images/creditCard.jpg" alt='' /></div>
-        </div>
-
-        <div class='row' data-credit-card-expiration ng-show="selectedPaymentMethod.isCreditcard">
-          <div class='medium-4 columns'>
-            <label class="required" for="expiration-month">Expiration Date</label>
-          </div>
-          <div class='small-4 columns text-left'>
-            <select id="expiration-month"
-                    name="expirationMonth"
-                    class="medium"
-                    ng-required="selectedPaymentMethod.isCreditcard"
-                    ng-model="creditcard.expirationMonth"
-                    ng-options="month for month in expirationMonths">
-              <option value="">Month</option>
-            </select>
-            <small class="error" ng-show="submitted && creditCardForm.expirationMonth.$error.required">
-              This information is required.
-            </small>
-          </div>
-          <div class='small-4 columns text-left'>
-            <label class='hide'></label>
-            <select id="expiration-year"
-                    name="expirationYear"
-                    class="medium"
-                    ng-required="selectedPaymentMethod.isCreditcard"
-                    ng-model="creditcard.expirationYear"
-                    ng-options="year for year in expirationYears">
-              <option value="">Year</option>
-            </select>
-            <small class="error" ng-show="submitted && creditCardForm.expirationYear.$error.required">
-              This information is required.
-            </small>
-          </div>
-        </div>
-
-        <div class='row' ng-show="selectedPaymentMethod.isCreditcard">
-          <div class='medium-4 columns'>
-            <label class="required" for="cvv">Card Code</label>
-          </div>
-          <div class='medium-4 end columns'>
-            <input type='text'
-                   id="cvv"
-                   name="cvv"
-                   required
-                   ng-model="creditcard.cvv"/>
-            <small class="error signUpInputW" ng-show="submitted && creditCardForm.cvv.$error.required">
-              This information is required.
-            </small>
-          </div>
-        </div>
-      </form>
-
-      <span class='separator-line'></span>
-      <h3>BILL TO</h3>
-      <div class='row'>
-        <div class='small-12 columns'>
-          <ul class="vcard">
-            <li class="locality">
-              {{order.data.billingAddress.firstName}}
-              {{order.data.billingAddress.m}}
-              {{order.data.billingAddress.lastName}}
-            </li>
-            <li class="locality">
-              {{order.data.billingAddress.street}},
-              {{order.data.billingAddress.city}},
-              {{order.data.billingAddress.state}},
-              {{order.data.billingAddress.country}},
-              {{order.data.billingAddress.zip}}
-            </li>
-            <li class="locality">Phone: {{order.data.billingAddress.phone}}</li>
-            <li class="locality">
-              <a ng-click="editBillingAddress()"
-                 class="button tiny">
-                <i class="fa fa-pencil-square-o"></i> Edit
+  <!--<h3><label class='right'><input type='checkbox' /> ON</label>GIFT OPTION</h3>-->
+  <!--<div class='row products-checkout-giftOpt'>-->
+  <!--<div class='small-12 columns'>-->
+  <!--<textarea placeholder='Add a gift message. Max250 characters'></textarea>-->
+  <!--<p class='text-right'>249/250</p>-->
+  <!--</div>-->
+  <!--</div>-->
+</div>
+<!-- products-checkout-info end -->
+<!-- products-checkout-cart start -->
+<div class='medium-5 columns products-checkout-cart'>
+  <h3>CART</h3>
+  <table width='100%' class='products-checkout-table'>
+    <tbody>
+    <tr ng-repeat="lineItem in order.data.lineItems">
+      <td class='prodcuts-checkout-table-img'>
+        <img ng-src="{{lineItem.imageUrl | imageSize: 'small'}}" alt='Product name' />
+      </td>
+      <td>
+        <div class='products-checkout-table-item'>
+          <div class='product-info'>
+            <h6 class='product-name'>
+              <a ng-href="#/product/{{lineItem.productId}}">
+                {{lineItem.productName}}
               </a>
-            </li>
-          </ul>
+            </h6>
+            <p class='product-id'>{{lineItem.sku}}</p>
+            <!--<p class='product-size'><span>SIZE: S</span><span>COLOR: BLACK</span></p>-->
+            <p class='product-option'>Quantity: {{lineItem.quantity}}</p>
+            <p class='product-option'>
+              {{lineItem.quantity * lineItem.price | price}}
+            </p>
+          </div>
         </div>
-      </div>
-      <span class='separator-line'></span>
-      <!--<h3>Coupon & Gift Card</h3>-->
-      <!--<h4 class='cPrimary'>Promotions & Rewards <span class='unimportant-text'>e-Gift Card</span></h4>-->
-      <!--<div class='row product-checkout-coupon'>-->
-        <!--<div class='small-5 columns no-columns-padding'>-->
-          <!--<label>Enter Promo or Rewwards Code:</label>-->
-        <!--</div>-->
-        <!--<div class='small-5 columns no-columns-padding'>-->
-          <!--<input type='text' />-->
-        <!--</div>-->
-        <!--<div class='medium-2 columns no-columns-padding'>-->
-          <!--<a href='#' class='button small'>Apply</a>-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--<h3><label class='right'><input type='checkbox' /> ON</label>GIFT OPTION</h3>-->
-      <!--<div class='row products-checkout-giftOpt'>-->
-        <!--<div class='small-12 columns no-columns-padding no-columns-padding-right'>-->
-          <!--<textarea placeholder='Add a gift message. Max250 characters'></textarea>-->
-          <!--<p class='text-right'>249/250</p>-->
-        <!--</div>-->
-      <!--</div>-->
-    </div>
-    <!-- products-checkout-info end -->
-    <!-- products-checkout-cart start -->
-    <div class='medium-5 columns products-checkout-cart'>
-      <h3>CART</h3>
-      <table width='100%' class='products-checkout-table'>
-        <tbody>
-        <tr ng-repeat="lineItem in order.data.lineItems">
-          <td class='prodcuts-checkout-table-img'>
-            <img ng-src="{{lineItem.imageUrl | imageSize: 'small'}}" alt='Product name' />
-          </td>
-          <td>
-            <div class='products-checkout-table-item'>
-              <div class='product-info'>
-                <h6 class='product-name'>
-                  <a ng-href="#/product/{{lineItem.productId}}">
-                    {{lineItem.productName}}
-                  </a>
-                </h6>
-                <p class='product-id'>{{lineItem.sku}}</p>
-                <!--<p class='product-size'><span>SIZE: S</span><span>COLOR: BLACK</span></p>-->
-                <p class='product-option'>Quantity: {{lineItem.quantity}}</p>
-                <p class='product-option'>
-                  {{lineItem.quantity * lineItem.price | price}}
-                </p>
-              </div>
-            </div>
-          </td>
-        </tr>
-        </tbody>
-        <tfoot>
-        <tr>
-          <th colspan="2">
-            <div class='row'>
-              <div class='small-12 columns text-right check-out-foot'>
-                <p>Updated Subtotal: {{order.data.itemTotal | price}} </p>
-                <p ng-repeat="adjustment in order.data.adjustments">
-                  {{adjustment.label}}: {{adjustment.amount | price}}
-                </p>
-                <strong class='price-total'>Total Price: {{totalPrice() | price}} </strong>
-                <!--<small><i>You save $0.00 and eam 0.00 PCV on this order.</i></small>-->
-              </div>
-            </div>
-          </th>
-        </tr>
-        </tfoot>
-      </table>
-      <div class='row'>
-        <div class='small-12 columns'>
-          <button ng-click="placeOrder()" ng-disabled="placingOrder" class='full-width'>PLACE ORDER</button>
+      </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <th colspan="2">
+        <div class='row'>
+          <div class='small-12 columns text-right check-out-foot'>
+            <p>Updated Subtotal: {{order.data.itemTotal | price}} </p>
+            <p ng-repeat="adjustment in order.data.adjustments">
+              {{adjustment.label}}: {{adjustment.amount | price}}
+            </p>
+            <strong class='price-total'>Total Price: {{totalPrice() | price}} </strong>
+            <!--<small><i>You save $0.00 and eam 0.00 PCV on this order.</i></small>-->
+          </div>
         </div>
-      </div>
+      </th>
+    </tr>
+    </tfoot>
+  </table>
+  <div class='row'>
+    <div class='small-12 columns'>
+      <button ng-click="placeOrder()" ng-disabled="placingOrder" class='full-width'>PLACE ORDER</button>
     </div>
-    <!-- products-checkout-cart end -->
   </div>
+</div>
+<!-- products-checkout-cart end -->
+</div>
 </div>
 <div ng-include="'views/checkout/success.html'" ng-if="isSucceed"></div>
