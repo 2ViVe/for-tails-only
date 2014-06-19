@@ -22,5 +22,17 @@ angular
             return Products.getByCatalog('NP');
           }]
         }
+      })
+      .when('/:owner', {
+        templateUrl: 'views/home.html',
+        controller: 'HomeController',
+        resolve: {
+          'featureProducts': ['Products', function(Products) {
+            return Products.getByCatalog('FP');
+          }],
+          'newProducts' :['Products', function(Products) {
+            return Products.getByCatalog('NP');
+          }]
+        }
       });
   }]);

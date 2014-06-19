@@ -1,11 +1,17 @@
 'use strict';
 
 angular.module('fto')
-  .controller('HomeController', ['$scope', 'featureProducts','newProducts',
-    function($scope, featureProducts, newProducts) {
+  .controller('HomeController', ['$scope', 'featureProducts','newProducts', 'LocalStorage', '$location',
+    function($scope, featureProducts, newProducts, LocalStorage, $location) {
       var page,
         limitStart,
         limitEnd;
+
+
+      var owner = LocalStorage.getReplicateOwner();
+      if (owner) {
+        $location.path('/' + owner.login);
+      }
 
       $scope.featureProducts = featureProducts;
       $scope.newProducts = newProducts;
