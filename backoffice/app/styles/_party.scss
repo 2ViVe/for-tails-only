@@ -479,4 +479,27 @@ table.party-list{
   }
 }
 
+.party-switcher-upcoming,
+.party-switcher-recent {
+  height: 24px;
+  width: 252px;
+  color: white;
+  font-size: $small-font-size;
+  font-weight: normal;
+  padding: 6px 10px;
+  margin-top: 7px;
+
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.party-switcher-recent {
+  background: image-url('party/switcher-1.png');
+}
+
+.party-switcher-upcoming {
+  background: image-url('party/switcher-2.png');
+}
 
