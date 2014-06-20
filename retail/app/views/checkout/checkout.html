@@ -59,43 +59,43 @@
         <span class='separator-line'></span>
       </div>
 
-      <!--<h3>Gift Card</h3>-->
-      <!--&lt;!&ndash;<h4 class='cPrimary'>Promotions & Rewards <span class='unimportant-text'>e-Gift Card</span></h4>&ndash;&gt;-->
-      <!--<div ng-if="giftcard.error">-->
-        <!--<span class="error">{{ giftcard.error }}</span>-->
-      <!--</div>-->
-      <!--<div class='row product-checkout-coupon'>-->
-        <!--<div class="row">-->
-          <!--<div class='small-3 columns'>-->
-            <!--<label for="gift-card-code">Gift Card Code:</label>-->
-          <!--</div>-->
-          <!--<div class='small-7 columns end' ng-if="!giftcard.active">-->
-            <!--<input id="gift-card-code" type='text' ng-model="giftcard.code" />-->
-          <!--</div>-->
-          <!--<div class='small-9 columns end' ng-if="giftcard.active">-->
-            <!--<label>{{ giftcard.code }}</label>-->
-          <!--</div>-->
-        <!--</div>-->
+      <h3>Gift Card</h3>
+      <!--<h4 class='cPrimary'>Promotions & Rewards <span class='unimportant-text'>e-Gift Card</span></h4>-->
+      <div ng-if="giftcard.error">
+        <span class="error">{{ giftcard.error }}</span>
+      </div>
+      <div class='row product-checkout-coupon'>
+        <div class="row">
+          <div class='small-3 columns'>
+            <label for="gift-card-code">Gift Card Code:</label>
+          </div>
+          <div class='small-7 columns end' ng-if="!giftcard.active">
+            <input id="gift-card-code" type='text' ng-model="giftcard.code" />
+          </div>
+          <div class='small-9 columns end' ng-if="giftcard.active">
+            <label>{{ giftcard.code }}</label>
+          </div>
+        </div>
 
-        <!--<div class="row">-->
-          <!--<div class='small-3 columns'>-->
-            <!--<label for="gift-card-pin">Gift Card Pin:</label>-->
-          <!--</div>-->
-          <!--<div class='small-7 columns' ng-if="!giftcard.active">-->
-            <!--<input id="gift-card-pin" type='text' class="no-margin-bottom" ng-model="giftcard.pin"/>-->
-          <!--</div>-->
-          <!--<div class='small-7 columns' ng-if="giftcard.active">-->
-            <!--<label>{{ giftcard.pin }}</label>-->
-          <!--</div>-->
-          <!--<div class='medium-2 columns end' ng-if="!giftcard.active">-->
-            <!--<button class='small' ng-click="applyGiftCard()">Apply</button>-->
-          <!--</div>-->
-          <!--<div class='medium-2 columns end' ng-if="giftcard.active">-->
-            <!--<button class='small' ng-click="deleteGiftCard()">Delete</button>-->
-          <!--</div>-->
-        <!--</div>-->
+        <div class="row">
+          <div class='small-3 columns'>
+            <label for="gift-card-pin">Gift Card Pin:</label>
+          </div>
+          <div class='small-7 columns' ng-if="!giftcard.active">
+            <input id="gift-card-pin" type='text' class="no-margin-bottom" ng-model="giftcard.pin"/>
+          </div>
+          <div class='small-7 columns' ng-if="giftcard.active">
+            <label>{{ giftcard.pin }}</label>
+          </div>
+          <div class='medium-2 columns end' ng-if="!giftcard.active">
+            <button class='small' ng-click="applyGiftCard()">Apply</button>
+          </div>
+          <div class='medium-2 columns end' ng-if="giftcard.active">
+            <button class='small' ng-click="deleteGiftCard()">Delete</button>
+          </div>
+        </div>
 
-      <!--</div>-->
+      </div>
       <!--<h3><label class='right'><input type='checkbox' /> ON</label>GIFT OPTION</h3>-->
       <!--<div class='row products-checkout-giftOpt'>-->
       <!--<div class='small-12 columns'>-->
@@ -103,7 +103,7 @@
       <!--<p class='text-right'>249/250</p>-->
       <!--</div>-->
       <!--</div>-->
-      <!--<span class='separator-line'></span>-->
+      <span class='separator-line'></span>
 
       <h3>PAYMENT INFO</h3>
       <h4>Payment Method</h4>
