@@ -35,4 +35,10 @@ angular.module('fto/party')
       invitee.isNodify = !invitee.isNodify;
     };
 
+    $scope.toggleAllEmail = function(isToAll) {
+      angular.forEach(event.invitees, function(invitee) {
+        invitee.isNodify = isToAll;
+      });
+    };
+
   }]);
