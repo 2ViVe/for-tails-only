@@ -61,44 +61,8 @@
 
   <h3>PAYMENT INFO</h3>
 
-  <h3>Gift Card</h3>
-  <!--<h4 class='cPrimary'>Promotions & Rewards <span class='unimportant-text'>e-Gift Card</span></h4>-->
-  <div ng-if="giftcard.error">
-    <span class="error">{{ giftcard.error }}</span>
-  </div>
-  <div class='row product-checkout-coupon'>
-    <div class='small-3 columns'>
-      <label for="gift-card-code">Gift Card Code:</label>
-    </div>
-    <div class='small-7 columns end' ng-if="!giftcard.active">
-      <input id="gift-card-code" type='text' ng-model="giftcard.code" />
-    </div>
-    <div class='small-7 columns end' ng-if="giftcard.active">
-      {{ giftcard.code }}
-    </div>
-    <div class='small-3 columns'>
-      <label for="gift-card-pin">Gift Card Pin:</label>
-    </div>
-    <div class='small-7 columns' ng-if="!giftcard.active">
-      <input id="gift-card-pin" type='text' class="no-margin-bottom" ng-model="giftcard.pin"/>
-    </div>
-    <div class='small-7 columns' ng-if="giftcard.active">
-      <span class="no-margin-bottom">{{ giftcard.pin }}</span>
-    </div>
-
-
-    <div class='medium-2 columns end' ng-if="!giftcard.active">
-      <a href class='button small' ng-click="applyGiftCard()">Apply</a>
-    </div>
-    <div class='medium-2 columns end' ng-if="giftcard.active">
-      <a href class='button small' ng-click="deleteGiftCard()">Delete</a>
-    </div>
-  </div>
-
-  <span class='separator-line'></span>
-
   <h4>Payment Method</h4>
-  <div class="row">
+  <div class="row" ng-show="order.data.availablePaymentMethods.length > 1">
     <div class='medium-8 end columns'>
       <label class='formRadioLabel' ng-repeat="paymentMethod in order.data.availablePaymentMethods">
         <input type='radio'
@@ -177,6 +141,43 @@
   </form>
 
   <span class='separator-line'></span>
+
+  <h3>Gift Card</h3>
+  <!--<h4 class='cPrimary'>Promotions & Rewards <span class='unimportant-text'>e-Gift Card</span></h4>-->
+  <div ng-if="giftcard.error">
+    <span class="error">{{ giftcard.error }}</span>
+  </div>
+  <div class='row product-checkout-coupon'>
+    <div class='small-3 columns'>
+      <label for="gift-card-code">Gift Card Code:</label>
+    </div>
+    <div class='small-7 columns end' ng-if="!giftcard.active">
+      <input id="gift-card-code" type='text' ng-model="giftcard.code" />
+    </div>
+    <div class='small-7 columns end' ng-if="giftcard.active">
+      {{ giftcard.code }}
+    </div>
+    <div class='small-3 columns'>
+      <label for="gift-card-pin">Gift Card Pin:</label>
+    </div>
+    <div class='small-7 columns' ng-if="!giftcard.active">
+      <input id="gift-card-pin" type='text' class="no-margin-bottom" ng-model="giftcard.pin"/>
+    </div>
+    <div class='small-7 columns' ng-if="giftcard.active">
+      <span class="no-margin-bottom">{{ giftcard.pin }}</span>
+    </div>
+
+
+    <div class='medium-2 columns end' ng-if="!giftcard.active">
+      <a href class='button small' ng-click="applyGiftCard()">Apply</a>
+    </div>
+    <div class='medium-2 columns end' ng-if="giftcard.active">
+      <a href class='button small' ng-click="deleteGiftCard()">Delete</a>
+    </div>
+  </div>
+
+  <span class='separator-line'></span>
+
   <h3>BILL TO</h3>
   <div class='row'>
     <div class='small-12 columns'>
@@ -203,7 +204,6 @@
       </ul>
     </div>
   </div>
-
 
   <!--<h3><label class='right'><input type='checkbox' /> ON</label>GIFT OPTION</h3>-->
   <!--<div class='row products-checkout-giftOpt'>-->
