@@ -11,7 +11,8 @@
   <div class='row products-detail'>
     <!-- products-detail-photo start -->
     <div class='medium-6 columns products-detail-photo'>
-      <div class="detail-image">
+      <div class="detail-image"
+           ng-class="{'out-of-stock': variant.isOutOfStock && !variant.isComingSoon, 'coming-soon': variant.isComingSoon}">
         <img class="zoom-image" ng-src="{{currentImage}}" alt="{{product.name}}"/>
       </div>
 
@@ -69,7 +70,9 @@
 
       <div class='product-panel'>
         <!--<a href='#' class='button small'>ADD TO WISHLIST</a>-->
-        <button ng-click="addToCart()" class='small'>ADD TO CART</button>
+        <button ng-disabled="variant.isComingSoon || variant.isOutOfStock"
+                ng-click="addToCart()"
+                class='small'>ADD TO CART</button>
       </div>
 
 

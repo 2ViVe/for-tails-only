@@ -18,7 +18,25 @@
     }
   }
 
+  .products-detail-photo .detail-image {
+    &.out-of-stock:before, &.coming-soon:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 40px;
+      height: 104px;
+      width: 38px;
+    }
 
+    &.out-of-stock:before {
+      background: image-url('out-of-stock.png');
+    }
+
+    &.coming-soon:before {
+      background: image-url('coming-soon.png');
+    }
+  }
 
   .products-cart-item{
     .pack-img{
@@ -393,44 +411,3 @@
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
