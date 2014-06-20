@@ -204,6 +204,19 @@
   }
 }
 
+.success-tips {
+  border: 1px solid $grey-border;
+  padding-top: 20px;
+  a {
+    color: $grey-darker;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
 .party-invite-info{
   border:1px solid $grey-border;
   .party-pink-circle{
