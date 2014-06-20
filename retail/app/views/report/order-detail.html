@@ -1,3 +1,7 @@
+<h2 class="large-font">
+  Order Detail
+  <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
+</h2>
 <div class="row title">
   <h6 class="columns small-12 primary-color">
     Order Information
@@ -40,6 +44,11 @@
 
   <p class="columns small-5 end">
     Shipping State: {{order.shipmentState}}
+  </p>
+</div>
+<div class="row">
+  <p class="columns small-5 end">
+    Shipping Tracking Number: {{order.shippingTrackingNumber}}
   </p>
 </div>
 <div class="row title">
@@ -152,4 +161,3 @@
     </table>
   </div>
 </div>
-<a class="close-reveal-modal" ng-click="cancel()">&#215;</a>

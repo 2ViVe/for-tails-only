@@ -37,6 +37,10 @@ angular.module('fto/party')
         }
       };
 
+      $scope.cancel = function() {
+        $location.path('/party/' + event.data.id);
+      };
+
       $scope.save = function() {
         $scope.submitted = true;
         $scope.data.templateId = templates[selectedTemplateIndex].id;
