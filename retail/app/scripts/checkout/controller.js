@@ -2,13 +2,14 @@
 
 angular
   .module('fto/checkout')
-  .controller('CheckoutController', ['$scope', 'order', 'Shopping', '$modal',
-    function($scope, order, Shopping, $modal) {
+  .controller('CheckoutController', ['$scope', 'order', 'Shopping', '$modal', '$http',
+    function($scope, order, Shopping, $modal, $http) {
       if (order === undefined) {
         return;
       }
 
       $scope.creditcard = {};
+      $scope.giftcard = {};
       $scope.placingOrder = false;
       $scope.isSucceed = false;
       $scope.isFailed = false;
@@ -83,7 +84,7 @@ angular
         if (!$scope.selectedPaymentMethod.isCreditcard) {
           $scope.creditcard = null;
         }
-        order.create($scope.selectedPaymentMethod.id, $scope.selectedShippingMethod.id, $scope.creditcard, $scope.orderId)
+        order.create($scope.selectedPaymentMethod.id, $scope.selectedShippingMethod.id, $scope.creditcard, $scope.orderId, $scope.giftcard.active ? $scope.giftcard : null)
           .success(function(data) {
             $scope.placingOrder = false;
             $scope.orderId = data.response.orderId;
@@ -103,6 +104,28 @@ angular
             $scope.failedMessage = data.meta.error.message;
           });
       };
+
+      $scope.deleteGiftCard = function() {
+        $scope.giftcard = {};
+      };
+
+      $scope.applyGiftCard = function() {
+        function getGiftCardInfo(code, pin) {
+          return $http.get('/api/v2/giftcards/' + code + '?pin=' + pin).then(function(resp) {
+            return resp.data.response;
+          });
+        }
+
+        getGiftCardInfo($scope.giftcard.code, $scope.giftcard.pin)
+          .then(function(giftcard) {
+            delete $scope.giftcard.error;
+            angular.extend($scope.giftcard, giftcard);
+          }, function(resp) {
+            $scope.giftcard.error = resp.data.meta.error.message;
+          });
+      };
+
+
     }
   ]
 );
