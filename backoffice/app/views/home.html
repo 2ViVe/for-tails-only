@@ -66,7 +66,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="order in orders">
+        <tr ng-repeat="order in orders | limitTo: 3">
           <td>{{ order.number }}</td>
           <td>{{ order.orderDate | date:'medium' }}</td>
           <td class="text-right">{{ order.total | price }}</td>
