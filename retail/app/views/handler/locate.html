@@ -62,7 +62,7 @@
       <table width='100%' class='products-checkout-table handler-locate-table'>
         <tbody>
         <tr ng-repeat='handler in results'>
-          <td class="handler-locate-table-radio"><input type="radio" name="radio1" /></td>
+          <td class="handler-locate-table-radio"><input ng-click="changeHandler(handler)" type="radio" name="radio1" /></td>
           <td class='prodcuts-checkout-table-img'>
             <img src="/images/locate-img.png" alt='handler name' />
           </td>
@@ -88,7 +88,7 @@
   </div>
   <div class="row">
     <div class="small-12 columns">
-      <p class="text-right no-margin-bottom"><a href="" class="button tiny">Connect</a> <a href="" class="button secondary tiny">Cancel</a></p>
+      <p class="text-right no-margin-bottom"><a href="" ng-click="connect()" class="button tiny">Connect</a> <a href="" class="button secondary tiny">Cancel</a></p>
     </div>
   </div>
 </div>

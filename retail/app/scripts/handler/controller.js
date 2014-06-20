@@ -8,5 +8,15 @@ angular.module('2ViVe')
       });
 
     };
+    $scope.changeHandler = function(handler){
+      $scope.targetHandler = handler;
+    };
+
+    $scope.connect = function(){
+      if ($scope.targetHandler !== '') {
+        $location.path('/' + $scope.targetHandler.login);
+      }
+    };
     $scope.results = [];
+    $scope.targetHandler = '';
   }]);
