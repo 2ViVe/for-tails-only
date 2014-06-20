@@ -12,6 +12,16 @@
 
     <div ng-if="!isEditing">
       <div class="row profile-item">
+        <div class="small-3 columns">Avatar</div>
+        <div class="small-3 columns">
+          <img src="/images/profile-photo.jpg" class="profile-photo" />
+        </div>
+        <div class="small-2 end columns">
+          <button class="small">Select a picture</button>
+        </div>
+      </div>
+
+      <div class="row profile-item">
         <div class="small-3 columns">User Name</div>
         <div class="small-3 end columns">{{ profile.login }}</div>
       </div>
