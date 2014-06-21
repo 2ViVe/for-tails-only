@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('fto/shopping')
-  .controller('ShoppingController', ['$scope', 'shopping', '$timeout',
-    function($scope, shopping, $timeout) {
+  .controller('ShoppingController', ['$scope', 'shopping', '$timeout', '$location',
+    function($scope, shopping, $timeout, $location) {
       $scope.shopping = shopping;
 
       $scope.updateItemQuantity = function(item) {
@@ -33,7 +33,7 @@ angular.module('fto/shopping')
       };
 
       $scope.checkout = function() {
-        shopping.checkout();
+        $location.path('/shopping-options');
       };
 
       $scope.empty = function() {

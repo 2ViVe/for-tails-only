@@ -151,9 +151,17 @@ ul {
   height:rem-calc(30);
   line-height: rem-calc(30);
 }
+
 select.secondary-item{
   padding-top:6px;
+  -webkit-appearance:menulist !important;
+  @media screen and (-webkit-min-device-pixel-ratio:0){
+    &{
+      padding-top:0;
+    }
+  }
 }
+
 .secondary-item:-moz-input-placeholder{
   color:#fff !important;
 }
