@@ -16,8 +16,7 @@ angular
         controller: 'ShoppingOptionsController',
         resolve: {
           events: ['Events', 'LocalStorage', function(Events, LocalStorage) {
-//            return Events.fetchByUserId(LocalStorage.getReplicateOwner()['user-id']);
-            return Events.fetchAll();
+            return Events.fetchByUserId(LocalStorage.getReplicateOwner()['user-id']);
           }]
         }
       })
