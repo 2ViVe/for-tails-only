@@ -49,7 +49,7 @@
         <form novalidate name="emailForm">
           <div class="row">
             <div class="large-6 columns">
-              <label class="required" for="recipient-name">Recipient's Name:</label>
+              <label class="required" for="recipient-name">To:</label>
               <input type="text"
                      id="recipient-name"
                      required
@@ -75,8 +75,8 @@
             </div>
           </div>
           <div class="row">
-            <div class="large-6 columns">
-              <label class="required" for="name-from">Your Name:</label>
+            <div class="large-6 end columns">
+              <label class="required" for="name-from">From:</label>
               <input type="text"
                      id="name-from"
                      required
@@ -86,20 +86,20 @@
                 This field is required.
               </small>
             </div>
-            <div class="large-6 columns">
-              <label class="required" for="email-from">Your Email:</label>
-              <input type="email"
-                     id="email-from"
-                     required
-                     name="emailFrom"
-                     ng-model="emailInfo.emailFrom"/>
-              <small ng-show="submitted && emailForm.emailFrom.$error.required" class="error">
-                This field is required.
-              </small>
-              <small ng-show="submitted && emailForm.emailFrom.$error.email" class="error">
-                Email is invalid.
-              </small>
-            </div>
+            <!--<div class="large-6 columns">-->
+              <!--<label class="required" for="email-from">Your Email:</label>-->
+              <!--<input type="email"-->
+                     <!--id="email-from"-->
+                     <!--required-->
+                     <!--name="emailFrom"-->
+                     <!--ng-model="emailInfo.emailFrom"/>-->
+              <!--<small ng-show="submitted && emailForm.emailFrom.$error.required" class="error">-->
+                <!--This field is required.-->
+              <!--</small>-->
+              <!--<small ng-show="submitted && emailForm.emailFrom.$error.email" class="error">-->
+                <!--Email is invalid.-->
+              <!--</small>-->
+            <!--</div>-->
           </div>
           <div class="row">
             <div class="large-12 columns">
