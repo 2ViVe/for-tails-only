@@ -3,11 +3,9 @@
 angular.module('fto/shopping')
   .controller('ShoppingOptionsController', ['$scope', 'events', 'Shopping', '$location', 'User', 'LocalStorage',
     function($scope, events, Shopping, $location, User, LocalStorage) {
-      User.fetch(function() {
-        if (!User.isLogin) {
-          LocalStorage.pathAfterLogin('/shopping-options');
-          $location.path('/signin');
-        }
+      User.fetch().catch(function() {
+        LocalStorage.setPathAfterLogin('/shopping-options');
+        $location.path('/signin');
       });
 
       if (!events && events.length === 0) {
