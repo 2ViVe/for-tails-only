@@ -7,7 +7,8 @@ angular.module('fto/shopping')
 
       $scope.updateItemQuantity = function(item) {
         var newQuantity = item.newQuantity;
-        if (isNaN(newQuantity)) {
+        if (isNaN(newQuantity) || newQuantity <= 0) {
+          item.newQuantity = item.quantity;
           return;
         }
         $timeout(function() {
