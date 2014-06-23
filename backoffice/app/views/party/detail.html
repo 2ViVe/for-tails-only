@@ -80,6 +80,7 @@
           </div>
         </div>
       </div>
+
       <table class="party-list block-margin-bottom unimportant-text">
         <thead>
           <tr class="table-title-bg">
@@ -91,6 +92,11 @@
           </tr>
         </thead>
         <tbody>
+          <tr ng-if="event.orders.length === 0">
+            <td colspan="5" class="text-center">
+              No order yet.
+            </td>
+          </tr>
           <tr ng-repeat="order in event.orders">
             <td><a ng-click="openDetail(order);">{{ order.number }}</a></td>
             <td>{{ order.orderDate | date: 'short' }}</td>
