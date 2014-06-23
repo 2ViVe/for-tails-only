@@ -46,7 +46,7 @@
         <div class='small-3 columns'>
           <div class="party-pink-circle-s">
             <p class='icons-pink-circle'>
-              <strong>{{ event.ordersTotal()}}</strong>
+              <strong>{{ event.ordersItemTotal() | price: 'with out currency'}}</strong>
               <br/>
               <span>GOAL: 250</span>
             </p>
