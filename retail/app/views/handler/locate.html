@@ -2,12 +2,12 @@
   <form class="" name="" novalidate>
     <div class='row'>
       <div class='medium-12 columns'>
-        <h2>Locate a Handler</h2>
+        <h2>HANDLER SEARCH</h2>
       </div>
     </div>
     <div class="row">
       <p class="register-customer small-12 columns medium-font">
-        New you can locate an independent handler that is near you!
+        Please search for your Handler below.
       </p>
     </div>
     <div class='row'>
@@ -60,12 +60,19 @@
   <div class="row">
     <div class="medium-12 columns">
       <table width='100%' class='products-checkout-table handler-locate-table'>
+        <thead>
+          <th></th>
+          <th>Name</th>
+          <th>Id</th>
+          <th>City</th>
+          <th>State</th>
+        </thead>
         <tbody>
         <tr ng-repeat='handler in results'>
           <td class="handler-locate-table-radio"><input ng-click="changeHandler(handler)" type="radio" name="radio1" /></td>
-          <td class='prodcuts-checkout-table-img'>
-            <img src="/images/locate-img.png" alt='handler name' />
-          </td>
+          <!--<td class='prodcuts-checkout-table-img'>-->
+          <!--&lt;!&ndash;<img src="/images/locate-img.png" alt='handler name' />&ndash;&gt;-->
+          <!--</td>-->
           <td>
             <div class='products-checkout-table-item'>
               <div class='product-info'>
@@ -74,21 +81,54 @@
                     {{handler.address.firstName}} {{handler.address.lastName}}
                   </a>
                 </h6>
-                <p class='product-option'><strong>City:</strong> {{handler.address.city}}</p>
-                <p class='product-option'><strong>State:</strong> {{handler.address.state}}</p>
-                <!--<p class='product-option'><strong>Email:</strong> yesmail@studio.com</p>-->
-                <!--<p class='product-option'><strong>Phone:</strong> 12345678</p>-->
+                <!--<p class='product-option'><strong>Sponsor ID:</strong> {{handler.distributorId}}</p>-->
+                <!--<p class='product-option'><strong>City:</strong> {{handler.address.city}}</p>-->
+                <!--<p class='product-option'><strong>State:</strong> {{handler.address.state}}</p>-->
               </div>
             </div>
           </td>
+          <td>
+            <p class='product-option'>{{handler.distributorId}}</p>
+          </td>
+          <td>
+            <p class='product-option'>{{handler.address.city}}</p>
+          </td>
+          <td>
+            <p class='product-option'>{{handler.address.state}}</p>
+          </td>
         </tr>
+        <!--<tr ng-repeat='handler in results'>-->
+          <!--<td class="handler-locate-table-radio"><input ng-click="changeHandler(handler)" type="radio" name="radio1" /></td>-->
+          <!--&lt;!&ndash;<td class='prodcuts-checkout-table-img'>&ndash;&gt;-->
+            <!--&lt;!&ndash;&lt;!&ndash;<img src="/images/locate-img.png" alt='handler name' />&ndash;&gt;&ndash;&gt;-->
+          <!--&lt;!&ndash;</td>&ndash;&gt;-->
+          <!--<td>-->
+            <!--<div class='products-checkout-table-item'>-->
+              <!--<div class='product-info'>-->
+                <!--<h6 class='product-name'>-->
+                  <!--<a>-->
+                    <!--{{handler.address.firstName}} {{handler.address.lastName}}-->
+                  <!--</a>-->
+                <!--</h6>-->
+                <!--<p class='product-option'><strong>Sponsor ID:</strong> {{handler.distributorId}}</p>-->
+                <!--<p class='product-option'><strong>City:</strong> {{handler.address.city}}</p>-->
+                <!--<p class='product-option'><strong>State:</strong> {{handler.address.state}}</p>-->
+                <!--&lt;!&ndash;<p class='product-option'><strong>Email:</strong> yesmail@studio.com</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p class='product-option'><strong>Phone:</strong> 12345678</p>&ndash;&gt;-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</td>-->
+        <!--</tr>-->
         </tbody>
       </table>
     </div>
   </div>
-  <div class="row">
+  <div class="row" ng-if="targetHandler !== ''">
     <div class="small-12 columns">
-      <p class="text-right no-margin-bottom"><a href="" ng-click="connect()" class="button tiny">Connect</a> <a href="" class="button secondary tiny">Cancel</a></p>
+      <p class="text-right no-margin-bottom">
+        <a ng-click="connect()" class="button tiny">Connect</a>
+        <a href="#/" class="button secondary tiny">Cancel</a>
+      </p>
     </div>
   </div>
 </div>
