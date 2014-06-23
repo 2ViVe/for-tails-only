@@ -86,7 +86,7 @@
           <tr class="table-title-bg">
             <th width="120">Order</th>
             <th width="130">Date</th>
-            <th width="100">Order Total</th>
+            <th width="100">Items Total</th>
             <th>Customer</th>
             <th width="80">Status</th>
           </tr>
@@ -100,7 +100,7 @@
           <tr ng-repeat="order in event.orders">
             <td><a ng-click="openDetail(order);">{{ order.number }}</a></td>
             <td>{{ order.orderDate | date: 'short' }}</td>
-            <td class="text-right">{{ order.total | price }}</td>
+            <td class="text-right">{{ order.itemTotal | price }}</td>
             <td>
               {{ order.shippingAddress.firstName }}
               {{ order.shippingAddress.m }}
