@@ -19,21 +19,17 @@ angular
             function(Events) {
               return Events.fetchTemplates();
             }],
-          'event': ['Event', '$route', '$q',
-            function(Event, $route, $q) {
-              var deferred = $q.defer();
-
+          'event': ['Event', '$route',
+            function(Event, $route) {
               var id = $route.current.params.eventId;
               var event = new Event(id);
-              $q.all([event.fetch(), event.fetchInvitees()])
+              return event.fetch()
                 .then(function() {
-                  deferred.resolve(event);
+                  return event.fetchInvitees();
                 })
-                .catch(function(error) {
-                  deferred.reject(error);
+                .then(function() {
+                  return event;
                 });
-
-              return deferred.promise;
             }]
         }
       });

@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('fto/party')
-  .controller('PartyDeleteController', ['$scope', 'event', '$modalInstance', '$location', function($scope, event, $modalInstance, $location) {
+  .controller('PartyDeleteController', ['$scope', 'event', '$modalInstance', '$location',
+    function($scope, event, $modalInstance, $location) {
     $scope.event = event;
     $scope.notification = {};
 

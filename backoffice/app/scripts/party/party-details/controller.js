@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fto')
+angular.module('fto/party')
   .controller('PartyDetailsController', ['$scope', '$modal', 'event', '$q', '$timeout',
     function($scope, $modal, event, $q, $timeout) {
 
@@ -10,7 +10,7 @@ angular.module('fto')
 
 
       $scope.deleteInvites = function() {
-        var modalInstance = $modal.open({
+        $modal.open({
           templateUrl: 'views/party/party-delete-modal.html',
           controller: 'PartyDeleteController',
           windowClass: 'medium',
@@ -25,20 +25,18 @@ angular.module('fto')
             }
           }
         });
-
-        modalInstance.result.then(function onResult() {
-
-        }, function onCancel() {
-          // do noting
-        });
       };
 
-      $scope.orderDetails = function() {
+      $scope.openDetail = function(order) {
         $modal.open({
           templateUrl: 'views/party/party-order-details.html',
-          controller: 'ModalController',
+          controller: 'PartyDetailsModalController',
           windowClass: 'medium',
-          scope: $scope
+          resolve: {
+            order: function() {
+              return order;
+            }
+          }
         });
       };
     }]);
