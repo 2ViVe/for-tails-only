@@ -11,6 +11,18 @@
     </header>
 
     <div ng-if="!isEditing">
+
+      <div class="row profile-item profile-photo">
+        <div class="small-3 columns">Avatar</div>
+        <div class="small-3 columns">
+          <img src="/images/profile-photo.jpg" class="profile-photo" />
+        </div>
+        <div class="small-3 end columns">
+          <button class="small" ng-click="getFile()">Select a picture</button>
+          <input type="file" ng-model="file"  ng-change="changeFile(this)" name="avatar" id="file" class="hide"/>
+        </div>
+      </div>
+
       <div class="row profile-item">
         <div class="small-3 columns">User Name</div>
         <div class="small-3 end columns">{{ profile.login }}</div>
