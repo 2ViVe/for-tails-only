@@ -12,7 +12,7 @@
           <tr>
             <th width="50%" class='cPrimary'>Order ID: <span>{{successInfo.orderId}}</span></th>
             <th class='cPrimary'><a ng-href="/api/v2/orders/pdf-invoice?ids={{successInfo.orderId}}" class='button tiny right'>Print</a>
-              Status: <span>{{successInfo.status}}</span>
+              Status: <span>{{successInfo.state}}</span>
             </th>
           </tr>
         </thead>
@@ -25,10 +25,11 @@
                 {{order.data.shippingAddress.m}}
                 {{order.data.shippingAddress.lastName}}
               </span></p>
+              <p ng-show="showShipping">Shipping Method: <span class='cLessImportant'>{{selectedShippingMethod.name}}</span></p>
               <!--<p>Type: <span class='cLessImportant'>Renewal Fees</span></p>-->
             </td>
             <td>
-              <p ng-show="showShipping">Shipping Method: <span class='cLessImportant'>{{selectedShippingMethod.name}}</span></p>
+              <p>Payment Status: <span class='cLessImportant'>{{successInfo.paymentState}}</span></p>
               <p>Payment Date: <span class='cLessImportant'>{{successInfo.paymentDate | date: 'medium'}}</span></p>
               <p>Payment Method: <span class='cLessImportant'>{{selectedPaymentMethod.name}}</span></p>
             </td>
