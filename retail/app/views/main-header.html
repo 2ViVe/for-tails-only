@@ -30,7 +30,12 @@
         <a href="#/signup">Join The Pack</a>
       </li>
       <li ng-if="user.isLogin">
-        <a href="#/account">Hello {{user.data.name}}</a>
+        <a href="#/account">
+          Hello {{user.data.name}}
+        </a>
+        <span ng-if="user.data.roleCode === 'D'">
+          ({{user.data.distributorId}})
+        </span>
       </li>
       <li ng-if="user.isLogin">
         <a ng-href="#/report/order">Orders</a>
