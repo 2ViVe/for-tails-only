@@ -25,7 +25,7 @@
               <!--Type: <span class='unimportant-text'>Renewal Fees</span>-->
             </td>
             <td>
-              Shipping Method: <span class='unimportant-text'>{{ order.shippingMethod.name }}</span>
+              Shipping Method: <span class='unimportant-text'>{{ shippingMethod.name }}</span>
               <br/>
               Payment Date: <span class='unimportant-text'>{{ order.paymentDate | date: 'medium' }}</span>
               <!--<br/>-->
@@ -120,7 +120,7 @@
                 <div class='small-12 columns text-right check-out-foot'>
                   <p>Updated Subtotal: {{order.itemTotal | price}} </p>
                   <!--<p>Balance: $22.00 </p>-->
-                  <p ng-repeat="adjustment in order.data.adjustments">
+                  <p ng-repeat="adjustment in order.adjustments">
                     {{adjustment.label}}: {{adjustment.amount | price}}
                   </p>
                   <strong class='price-total'>Total Price: {{totalPrice() | price}} </strong>
