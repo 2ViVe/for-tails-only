@@ -78,7 +78,7 @@
             <th>Item</th>
             <th width='60'>Quantity</th>
             <!--<th width="100" class='text-center'>Retail Price</th>-->
-            <th width="60" class='text-center'>PCV</th>
+            <th width="130" class='text-center'>Qualification Vol</th>
             <th width="100" class='text-center'>Price</th>
             <th width="100" class='text-center'>Total Price</th>
           </tr>
@@ -87,7 +87,7 @@
           <tr ng-repeat="lineItem in order.lineItems">
             <td>
               <div class='products-cart-item'>
-                <img ng-src="{{lineItem.imageUrl}}" alt='{{lineItem.productName}}' class='pack-img' />
+                <img ng-src="{{lineItem.imageUrl | imageSize: 'small'}}" alt='{{lineItem.productName}}' class='pack-img' />
                 <div class='product-info'>
                   <h6 class='product-name'>
                     <a ng-href="#/product/{{lineItem.productId}}">{{lineItem.productName}}</a>
@@ -103,7 +103,7 @@
               {{lineItem.quantity}}
             </td>
             <td class='primary-color text-right'>
-              {{lineItem.qualifictionVolume | price}}
+              {{lineItem.qualifictionVolume}}
             </td>
             <td class='text-right'>
               {{lineItem.price | price}}
