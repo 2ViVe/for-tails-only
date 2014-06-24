@@ -14,5 +14,5 @@ angular
       .when('/find-handler', {
         templateUrl: 'views/handler/locate.html',
         controller: 'handlerController'
-      })
+      });
   }]);
