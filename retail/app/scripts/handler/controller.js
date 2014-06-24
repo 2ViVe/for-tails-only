@@ -21,6 +21,11 @@ angular.module('2ViVe')
         window.location.href = '/' + $scope.targetHandler.login;
       }
     };
+
+    $scope.direct = function(handler){
+      window.location.href = '/' + handler.login;
+    };
+
     $scope.results = [];
     $scope.targetHandler = '';
   }]);
