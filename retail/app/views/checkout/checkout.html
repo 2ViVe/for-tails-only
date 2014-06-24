@@ -129,10 +129,12 @@
       <span class='separator-line'></span>
 
       <h3>PAYMENT INFO</h3>
-      <h4 ng-show="order.data.availablePaymentMethods.length > 1" ng-if="totalPrice() != 0">Payment Method</h4>
-      <div class="row" ng-show="order.data.availablePaymentMethods.length > 1" ng-if="totalPrice() != 0">
+      <h4 ng-if="totalPrice() != 0 && order.data.availablePaymentMethods.length > 1">
+        Payment Method
+      </h4>
+      <div class="row" ng-if="totalPrice() != 0 && order.data.availablePaymentMethods.length > 1">
         <div class='medium-8 end columns'>
-          <label class='formRadioLabel' ng-repeat="paymentMethod in order.data.availablePaymentMethods" ng-if="paymentMethod.name != 'gift card'">
+          <label class='formRadioLabel' ng-repeat="paymentMethod in order.data.availablePaymentMethods">
             <input type='radio'
                    ng-model="$parent.selectedPaymentMethod"
                    ng-value="paymentMethod" />&nbsp;&nbsp;
