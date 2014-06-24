@@ -66,7 +66,7 @@ angular
             total : $scope.giftcard.balance;
         }
 
-        $scope.selectedPaymentMethod.isCreditcard = !($scope.giftcard.used === total);
+        $scope.selectedPaymentMethod.isCreditcard = ($scope.giftcard.used !== total);
 
         return total - ($scope.giftcard.used || 0);
       };
