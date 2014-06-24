@@ -6,7 +6,7 @@ angular.module('2ViVe')
       Handlers.fetch($scope.microchipId, $scope.firstName, $scope.lastName).then(function(results){
         $scope.results = results;
         $scope.errorMessage = '';
-        if (results.length == 0){
+        if (results.length === 0){
           $scope.errorMessage = 'Handler Not Found';
         }
       });
