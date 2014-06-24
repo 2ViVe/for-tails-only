@@ -54,7 +54,6 @@ angular
 
       $scope.totalPrice = function() {
         var adjustments = 0;
-        var giftcardAmount = 0;
         var total;
         angular.forEach(order.data.adjustments, function(adjustment) {
           adjustments += adjustment.amount;
@@ -66,6 +65,8 @@ angular
           $scope.giftcard.used = $scope.giftcard.balance > total ?
             total : $scope.giftcard.balance;
         }
+
+        $scope.selectedPaymentMethod.isCreditcard = ($scope.giftcard.used === total);
 
         return total - ($scope.giftcard.used || 0);
       };
