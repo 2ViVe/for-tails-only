@@ -54,7 +54,6 @@ angular
 
       $scope.totalPrice = function() {
         var adjustments = 0;
-        var giftcardAmount = 0;
         var total;
         angular.forEach(order.data.adjustments, function(adjustment) {
           adjustments += adjustment.amount;
