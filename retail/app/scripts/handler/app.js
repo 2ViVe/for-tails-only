@@ -11,18 +11,8 @@ angular
   ])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
-      .when('/handler-locate', {
+      .when('/find-handler', {
         templateUrl: 'views/handler/locate.html',
         controller: 'handlerController'
       })
-      .when('/handler-locate-result', {
-        templateUrl: 'views/handler/locate-result.html',
-        controller: 'handlerResultController',
-        resolve: {
-          'handlers': ['Handlers', '$location', function(Handlers,$location) {
-            var params = $location.search();
-            return Handlers.fetch(params.microchipId, params.firstName, params.lastName);
-          }]
-        }
-      });
   }]);
