@@ -24,7 +24,7 @@
                  ng-model="$parent.selectedShippingMethod"
                  ng-value="shippingMethod"
                  ng-change="changeShippingMethod($parent.selectedShippingMethod)"
-                 name='paymentOption' />
+                 name='paymentOption' />&nbsp;&nbsp;
           {{shippingMethod.name}}
         </label>
       </div>
@@ -138,7 +138,7 @@
         <input type='radio'
                ng-model="$parent.selectedPaymentMethod"
                ng-value="paymentMethod"
-               />
+               />&nbsp;&nbsp;
         {{paymentMethod.name}}
       </label>
     </div>
