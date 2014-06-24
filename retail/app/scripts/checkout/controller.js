@@ -53,10 +53,20 @@ angular
 
       $scope.totalPrice = function() {
         var adjustments = 0;
+        var giftcardAmount = 0;
+        var total;
         angular.forEach(order.data.adjustments, function(adjustment) {
           adjustments += adjustment.amount;
         });
-        return adjustments + order.data.itemTotal;
+
+        total = adjustments + order.data.itemTotal;
+
+        if ($scope.giftcard.balance) {
+          $scope.giftcard.used = $scope.giftcard.balance > total ?
+            total : $scope.giftcard.balance;
+        }
+
+        return total - ($scope.giftcard.used || 0);
       };
 
       $scope.changeShippingMethod = function(selectedShippingMethod) {

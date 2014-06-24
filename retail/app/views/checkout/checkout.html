@@ -84,14 +84,37 @@
           <div class='small-7 columns' ng-if="!giftcard.active">
             <input id="gift-card-pin" type='text' class="no-margin-bottom" ng-model="giftcard.pin"/>
           </div>
-          <div class='small-7 columns' ng-if="giftcard.active">
+          <div class='small-9 columns' ng-if="giftcard.active">
             <label>{{ giftcard.pin }}</label>
           </div>
           <div class='medium-2 columns end' ng-if="!giftcard.active">
             <button class='small' ng-click="applyGiftCard()">Apply</button>
           </div>
+        </div>
+
+        <div class="row" ng-if="giftcard.active">
+          <div class='small-3 columns'>
+            <label>Amount:</label>
+          </div>
+
+          <div class='small-9 columns end' >
+            <label>{{ giftcard.amount | price }}</label>
+          </div>
+        </div>
+
+        <div class="row" ng-if="giftcard.active">
+          <div class='small-3 columns'>
+            <label>Balance:</label>
+          </div>
+
+          <div class='small-6 columns end'>
+            <label>{{ giftcard.balance | price }}
+              <span ng-if="giftcard.used">- {{ giftcard.used }}</span>
+            </label>
+          </div>
+
           <div class='medium-2 columns end' ng-if="giftcard.active">
-            <button class='small' ng-click="deleteGiftCard()">Delete</button>
+            <button class='small' ng-click="deleteGiftCard()">Remove</button>
           </div>
         </div>
 
@@ -106,18 +129,19 @@
       <span class='separator-line'></span>
 
       <h3>PAYMENT INFO</h3>
-      <h4 ng-show="order.data.availablePaymentMethods.length > 1">Payment Method</h4>
-      <div class="row" ng-show="order.data.availablePaymentMethods.length > 1">
+      <h4 ng-show="order.data.availablePaymentMethods.length > 1" ng-if="totalPrice() != 0">Payment Method</h4>
+      <div class="row" ng-show="order.data.availablePaymentMethods.length > 1" ng-if="totalPrice() != 0">
         <div class='medium-8 end columns'>
-          <label class='formRadioLabel' ng-repeat="paymentMethod in order.data.availablePaymentMethods">
+          <label class='formRadioLabel' ng-repeat="paymentMethod in order.data.availablePaymentMethods" ng-if="paymentMethod.name != 'gift card'">
             <input type='radio'
                    ng-model="$parent.selectedPaymentMethod"
-                   ng-value="paymentMethod" />
+                   ng-value="paymentMethod"
+              />
             {{paymentMethod.name}}
           </label>
         </div>
       </div>
-      <form name="creditCardForm">
+      <form name="creditCardForm" ng-if="totalPrice() != 0">
         <div class='row' ng-show="selectedPaymentMethod.isCreditcard">
           <div class='medium-4 columns'>
             <label class="required" for="card-number">Credit Card Number</label>
@@ -252,6 +276,7 @@
                 <p ng-repeat="adjustment in order.data.adjustments">
                   {{adjustment.label}}: {{adjustment.amount | price}}
                 </p>
+                <p ng-if="giftcard.balance">Gift Card: -{{ giftcard.used | price }} </p>
                 <strong class='price-total'>Total Price: {{totalPrice() | price}} </strong>
                 <!--<small><i>You save $0.00 and eam 0.00 PCV on this order.</i></small>-->
               </div>
