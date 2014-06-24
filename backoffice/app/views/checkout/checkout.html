@@ -59,12 +59,12 @@
     <span class='separator-line'></span>
   </div>
 
-  <h3>Gift Card</h3>
+  <h3 ng-if="false">Gift Card</h3>
   <!--<h4 class='cPrimary'>Promotions & Rewards <span class='unimportant-text'>e-Gift Card</span></h4>-->
   <div ng-if="giftcard.error">
     <span class="error">{{ giftcard.error }}</span>
   </div>
-  <div class='row product-checkout-coupon'>
+  <div class='row product-checkout-coupon' ng-if="false">
     <div class="row">
       <div class='small-3 columns'>
         <label for="gift-card-code">Gift Card Code:</label>
@@ -130,7 +130,6 @@
   <span class='separator-line'></span>
 
   <h3>PAYMENT INFO</h3>
-
   <h4 ng-if="totalPrice() != 0 && order.data.availablePaymentMethods.length > 1">
     Payment Method
   </h4>
