@@ -5,6 +5,10 @@ angular.module('2ViVe')
     $scope.submit = function(){
       Handlers.fetch($scope.microchipId, $scope.firstName, $scope.lastName).then(function(results){
         $scope.results = results;
+        $scope.errorMessage = '';
+        if (results.length == 0){
+          $scope.errorMessage = 'Handler Not Found';
+        }
       });
 
     };
@@ -14,7 +18,7 @@ angular.module('2ViVe')
 
     $scope.connect = function(){
       if ($scope.targetHandler !== '') {
-        $location.path('/' + $scope.targetHandler.login);
+        window.location.href = '/' + $scope.targetHandler.login;
       }
     };
     $scope.results = [];
