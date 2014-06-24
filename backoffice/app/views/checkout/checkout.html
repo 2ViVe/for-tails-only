@@ -109,7 +109,7 @@
 
       <div class='small-6 columns end'>
         <label>{{ giftcard.balance | price }}
-          <span ng-if="giftcard.used">- {{ giftcard.used }}</span>
+          <span ng-if="giftcard.used">- {{ giftcard.used | price }}</span>
         </label>
       </div>
 
