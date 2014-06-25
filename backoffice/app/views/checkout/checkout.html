@@ -145,7 +145,7 @@
       </label>
     </div>
   </div>
-  <form name="creditCardForm" ng-if="totalPrice() != 0">
+  <form name="creditCardForm" ng-show="totalPrice() != 0">
     <div class='row' ng-show="selectedPaymentMethod.isCreditcard">
       <div class='medium-4 columns'>
         <label class="required" for="card-number">Credit Card Number</label>
