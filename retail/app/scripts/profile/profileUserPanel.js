@@ -3,7 +3,8 @@
 (function() {
 
   angular.module('2ViVe')
-    .controller('profileInfoPanelCtrl', ['$scope', 'User', '$http', '$q', 'LocalStorage', '$location', function($scope, User, $http, $q, LocalStorage, $location) {
+    .controller('profileInfoPanelCtrl', ['$scope', 'User', '$http', '$q', 'LocalStorage', '$location', '$document',
+    function($scope, User, $http, $q, LocalStorage, $location, $document) {
       $scope.isEditing = false;
       $scope.isLoading = true;
       $scope.submitted = false;
@@ -96,6 +97,18 @@
           })
           .catch(respErrHandler);
       };
+
+      //upload avatar
+      $scope.getFile = function(){
+        $document[0].getElementById('file').click();
+      };
+
+      $scope.changeFile = function(e){
+//        angular.element(this).target.;
+        console.log(e.target.files)
+        console.log($scope.file);
+      }
+
     }])
     .directive('profileInfoPanel', function() {
       return {
