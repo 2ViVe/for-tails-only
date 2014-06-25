@@ -16,10 +16,12 @@
 
   li {
     height: auto;
+    width: 100%;
   }
 
   .next-theme {
     background: image-url('party/next-theme.png');
+    left: 20px;
   }
 
   .previous-theme {

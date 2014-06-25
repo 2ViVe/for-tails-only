@@ -126,6 +126,7 @@
                   <p ng-repeat="adjustment in order.data.adjustments">
                     {{adjustment.label}}: {{adjustment.amount | price}}
                   </p>
+                  <p ng-if="giftcard.balance">Gift Card: -{{ giftcard.used | price }} </p>
                   <strong class='price-total'>Total Price: {{totalPrice() | price}} </strong>
                   <!--<small><i>You save $0.00 and eam 0.00 PCV on this order.</i></small>-->
                 </div>

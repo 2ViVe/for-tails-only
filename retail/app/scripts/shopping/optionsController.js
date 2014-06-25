@@ -8,8 +8,8 @@ angular.module('fto/shopping')
         $location.path('/signin');
       });
 
-      if (!events && events.length === 0) {
-        $location.path('/products/cats/cat-treats');
+      if (!events || events.length === 0) {
+        $location.path('/checkout');
         return;
       }
 
