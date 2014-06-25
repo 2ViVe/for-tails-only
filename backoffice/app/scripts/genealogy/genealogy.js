@@ -10,12 +10,13 @@ angular.module('2ViVe')
         var genealogy = this;
         return $http.get('/api/v2/genealogy/unilevel/path', {
           transformResponse: camelCaseLize,
+          cache: true,
           params: {
             'from': distributorId
           }
         }).then(function(response) {
-          var path = response.data.response.path;
-          genealogy.path = path && path.length > 0 ? path.split('-') : undefined;
+          var path = response.data.response.path.toString();
+          genealogy.path = path.split('-').reverse();
           return genealogy;
         });
       };
@@ -24,6 +25,7 @@ angular.module('2ViVe')
         var genealogy = this;
         return $http.get('/api/v2/genealogy/unilevel', {
           transformResponse: camelCaseLize,
+          cache: true,
           params: {
             'distributor-id': distributorId
           }

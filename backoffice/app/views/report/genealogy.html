@@ -3,14 +3,9 @@
     <div class="row collapse">
       <div class="columns medium-8">
         <ul class="genealogy-path">
-          <li ng-if="genealogy.path.length > 0">
-            <a ng-click="changeRootDistributor(genealogy.data.id)">{{genealogy.data.id}}</a>
-          </li>
-          <li ng-if="!genealogy.path">
-            {{genealogy.data.id}}
-          </li>
           <li ng-repeat="distributorId in genealogy.path">
-            <a ng-click="changeRootDistributor(distributorId)">{{distributorId}}</a>
+            <a ng-if="!$last" ng-click="changeRootDistributor(distributorId)">{{distributorId}}</a>
+            <span ng-if="$last">{{distributorId}}</span>
           </li>
         </ul>
       </div>
