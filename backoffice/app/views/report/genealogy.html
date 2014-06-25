@@ -47,10 +47,10 @@
 
       <div class="row">
         <div class="columns medium-12">
-          <ul class="medium-block-grid-{{genealogy.data.children.length}}">
+          <ul class="medium-block-grid-{{(genealogy.data.children | pagination: currentPage:numberPerPage).length}}">
             <li class="distributor"
-                ng-repeat="distributor in genealogy.data.children | pagination"
-                ng-click="changeRootDistributor(distributor.id)">
+                ng-repeat="distributor in genealogy.data.children | pagination: currentPage:numberPerPage"
+                ng-click="changeRootDistributor(distributor.id, distributor.childrenSize)">
               <div class="name">
                 {{distributor.id}}
                 <span class="unimportant-text">({{distributor.childrenSize}})</span>
@@ -90,17 +90,9 @@
 
     <div class="row">
       <div class="columns medium-12 genealogy-pagination">
-        <ul class="pagination">
-          <li class="arrow unavailable"><a href="">&laquo;</a></li>
-          <li class="current"><a href="">1</a></li>
-          <li><a href="">2</a></li>
-          <li><a href="">3</a></li>
-          <li><a href="">4</a></li>
-          <li class="unavailable"><a href="">&hellip;</a></li>
-          <li><a href="">12</a></li>
-          <li><a href="">13</a></li>
-          <li class="arrow"><a href="">&raquo;</a></li>
-        </ul>
+        <vive-pagination data-current-page="currentPage"
+                         data-total="genealogy.data.children.length"
+                         data-number-per-page="numberPerPage"></vive-pagination>
       </div>
     </div>
 
