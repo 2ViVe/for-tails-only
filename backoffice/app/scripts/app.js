@@ -26,7 +26,8 @@ angular.module('fto', [
   'fto/party',
   'fto/giftCode',
   'fto/tools',
-  'fto/footer'
+  'fto/footer',
+  'fto/genealogy'
 ])
   .config(function($routeProvider) {
     $routeProvider
