@@ -103,12 +103,6 @@
         $document[0].getElementById('file').click();
       };
 
-      $scope.changeFile = function(e){
-//        angular.element(this).target.;
-        console.log(e.target.files)
-        console.log($scope.file);
-      }
-
     }])
     .directive('profileInfoPanel', function() {
       return {
@@ -121,7 +115,30 @@
           
         }
       };
-    });
+    })
+    .directive('fileread', ['Avatar', function(Avatar) {
+      return {
+        restrict: 'A',
+        scope: {
+          fileread: '='
+        },
+        link: function (scope, element) {
+          element.bind('change', function (changeEvent) {
+            scope.$apply(function () {
+              var fileread = changeEvent.target.files;
+              if(fileread.length === 0){
+                return;
+              }
+              Avatar.upload(fileread[0]).then(function(result){
+                console.log(result);
+                //reflash avator
+
+              });
+            });
+          });
+        }
+      };
+    }]);
 
 })();
 
