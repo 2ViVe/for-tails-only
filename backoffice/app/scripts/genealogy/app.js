@@ -18,7 +18,8 @@ angular
         resolve: {
           genealogy: ['Genealogy', function(Genealogy) {
             var genealogy = new Genealogy();
-            return genealogy.fetchUniLevels()
+            return genealogy
+              .fetchUniLevels()
               .then(function() {
                 return genealogy.fetchPath(genealogy.data.id);
               }).then(function() {

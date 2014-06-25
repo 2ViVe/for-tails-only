@@ -3,7 +3,8 @@
 angular.module('2ViVe')
   .factory('Genealogy', ['$http', 'CamelCaseLize',
     function($http, camelCaseLize) {
-      var Genealogy = function() {};
+      var Genealogy = function() {
+      };
 
       Genealogy.prototype.fetchPath = function(distributorId) {
         var genealogy = this;
@@ -13,7 +14,8 @@ angular.module('2ViVe')
             'from': distributorId
           }
         }).then(function(response) {
-          genealogy.path = response.data.response.path.split('-');
+          var path = response.data.response.path;
+          genealogy.path = path && path.length > 0 ? path.split('-') : undefined;
           return genealogy;
         });
       };
