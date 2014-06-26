@@ -9,7 +9,12 @@ angular
         nextSlide: '=',
         previousSlide: '=',
         goToSlide: '=',
-        refresh: '='
+        refresh: '=',
+        slideWidth: '@',
+        minSlides: '@',
+        maxSlides: '@',
+        pager: '@',
+        controls: '@'
       },
       link: function(scope, element) {
         function initSlider() {
@@ -18,18 +23,24 @@ angular
               slider.reloadSlider();
             }
             else {
-              slider = angular.element(element).find('ul').bxSlider({
-                slideWidth: 194,
-                minSlides: 2,
-                maxSlides: 5,
-                pager: false,
-                controls: false
-              });
+              slider = angular.element(element).find('ul').bxSlider(options);
             }
           });
         }
 
         var slider;
+        var optionKeys = ['slideWidth', 'minSlides', 'maxSlides', 'pager', 'controls'];
+        var options = {};
+        angular.forEach(optionKeys, function(key) {
+          var optionValue = scope[key];
+          if (optionValue === 'true') {
+            options[key] = true;
+          } else if (optionValue === 'false') {
+            options[key] = false;
+          } else {
+            options[key] = optionValue;
+          }
+        });
         scope.nextSlide = function() {
           slider.goToNextSlide();
         };
