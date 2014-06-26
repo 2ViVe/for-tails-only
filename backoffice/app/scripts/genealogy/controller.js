@@ -19,6 +19,19 @@ angular
           });
       };
 
+      $scope.search = function() {
+        if (!$scope.searchId) {
+          return;
+        }
+        genealogy
+          .fetchUniLevels($scope.searchId)
+          .then(function() {
+            genealogy.fetchPath($scope.searchId);
+            $scope.currentPage = 1;
+            $scope.refreshSlider();
+          });
+      };
+
       $scope.currentPage = 1;
     }
   ]);
