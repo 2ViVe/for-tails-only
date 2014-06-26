@@ -22,40 +22,42 @@ $rank-5-border: #F397BD;
     padding-top: 25px;
     padding-bottom: 25px;
 
-    &:before {
-      content: "";
-      display: block;
+    .rank-icon {
       margin: 0 auto;
       height: 60px;
       width: 60px;
       border: 4px solid #A9D6EC;
       background: #5E9FBD image-url("icons/dog-hand.png") no-repeat 7px;
       border-radius: 30px;
-    }
 
-    &.rank-1:before {
-      background: $rank-1-color;
-      border-color: $rank-1-border;
-    }
+      &.has-child {
+        cursor: pointer;
+      }
 
-    &.rank-2:before {
-      background: $rank-2-color;
-      border-color: $rank-2-border;
-    }
+      &.rank-1 {
+        background: $rank-1-color;
+        border-color: $rank-1-border;
+      }
 
-    &.rank-3:before {
-      background: $rank-3-color;
-      border-color: $rank-3-border;
-    }
+      &.rank-2 {
+        background: $rank-2-color;
+        border-color: $rank-2-border;
+      }
 
-    &.rank-4:before {
-      background: $rank-4-color;
-      border-color: $rank-4-border;
-    }
+      &.rank-3 {
+        background: $rank-3-color;
+        border-color: $rank-3-border;
+      }
 
-    &.rank-5:before {
-      background: $rank-5-color;
-      border-color: $rank-5-border;
+      &.rank-4 {
+        background: $rank-4-color;
+        border-color: $rank-4-border;
+      }
+
+      &.rank-5 {
+        background: $rank-5-color;
+        border-color: $rank-5-border;
+      }
     }
 
     .name {
