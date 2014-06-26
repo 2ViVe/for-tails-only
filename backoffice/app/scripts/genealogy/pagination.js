@@ -15,7 +15,10 @@ angular.module('2ViVe')
       scope: {
         numberPerPage: '=',
         currentPage: '=',
-        total: '='
+        total: '=',
+        onNextPage: '=',
+        onPreviousPage: '=',
+        onGoToPage: '='
       },
       controller: ['$scope', function($scope) {
         function calculatePage(total) {
@@ -31,17 +34,20 @@ angular.module('2ViVe')
 
         $scope.goTo = function(page) {
           $scope.currentPage = page;
+          $scope.onGoToPage(page);
         };
 
         $scope.previousPage = function() {
           if ($scope.currentPage > 1) {
             $scope.currentPage--;
+            $scope.onPreviousPage();
           }
         };
 
         $scope.nextPage = function() {
           if ($scope.currentPage < $scope.pageNumber) {
             $scope.currentPage++;
+            $scope.onNextPage();
           }
         };
       }]

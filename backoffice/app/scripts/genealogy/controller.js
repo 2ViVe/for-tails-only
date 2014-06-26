@@ -20,5 +20,6 @@ angular
 
       $scope.currentPage = 1;
       $scope.numberPerPage = 5;
+
     }
   ]);

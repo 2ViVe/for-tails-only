@@ -42,19 +42,23 @@
 
       <div class="row">
         <div class="columns medium-12">
-          <ul class="medium-block-grid-{{(genealogy.data.children | pagination: currentPage:numberPerPage).length}}">
-            <li class="distributor"
-                ng-repeat="distributor in genealogy.data.children | pagination: currentPage:numberPerPage"
-                ng-click="changeRootDistributor(distributor.id, distributor.childrenSize)">
-              <div class="name">
-                {{distributor.id}}
-                <span class="unimportant-text">({{distributor.childrenSize}})</span>
-              </div>
-              <div class="sponsor-id">
-                {{distributor.id}}
-              </div>
-            </li>
-          </ul>
+          <vive-slider data-next-slide="nextSlide"
+                       data-go-to-slide="goToSlide"
+                       data-previous-slide="previousSlide">
+            <ul>
+              <li class="distributor"
+                  ng-repeat="distributor in genealogy.data.children"
+                  ng-click="changeRootDistributor(distributor.id, distributor.childrenSize)">
+                <div class="name">
+                  {{distributor.id}}
+                  <span class="unimportant-text">({{distributor.childrenSize}})</span>
+                </div>
+                <div class="sponsor-id">
+                  {{distributor.id}}
+                </div>
+              </li>
+            </ul>
+          </vive-slider>
         </div>
       </div>
     </div>
@@ -87,6 +91,9 @@
       <div class="columns medium-12 genealogy-pagination">
         <vive-pagination data-current-page="currentPage"
                          data-total="genealogy.data.children.length"
+                         data-on-next-page="nextSlide"
+                         data-on-previous-page="previousSlide"
+                         data-on-go-to-page="goToSlide"
                          data-number-per-page="numberPerPage"></vive-pagination>
       </div>
     </div>
