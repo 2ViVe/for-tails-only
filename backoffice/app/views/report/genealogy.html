@@ -100,8 +100,9 @@
 
     <div class="row">
       <div class="columns medium-12 genealogy-pagination">
-        <vive-pagination data-current-page="currentPage"
+        <vive-pagination data-start-page="first"
                          data-total="genealogy.data.children.length"
+                         data-refresh="refreshPagination"
                          data-on-next-page="nextSlide"
                          data-on-previous-page="previousSlide"
                          data-on-go-to-page="goToSlide"

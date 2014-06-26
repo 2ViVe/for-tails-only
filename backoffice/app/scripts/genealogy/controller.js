@@ -11,7 +11,7 @@ angular
           .fetchUniLevels(distributorId)
           .then(function() {
             genealogy.fetchPath(distributorId);
-            $scope.currentPage = 1;
+            $scope.refreshPagination(genealogy.data.children.length);
             $scope.refreshSlider();
           });
       };
@@ -24,11 +24,9 @@ angular
           .fetchUniLevels($scope.searchId)
           .then(function() {
             genealogy.fetchPath($scope.searchId);
-            $scope.currentPage = 1;
+            $scope.refreshPagination(genealogy.data.children.length);
             $scope.refreshSlider();
           });
       };
-
-      $scope.currentPage = 1;
     }
   ]);
