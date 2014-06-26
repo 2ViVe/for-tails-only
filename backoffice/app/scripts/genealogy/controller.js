@@ -15,11 +15,10 @@ angular
           .then(function() {
             genealogy.fetchPath(distributorId);
             $scope.currentPage = 1;
+            $scope.refreshSlider();
           });
       };
 
       $scope.currentPage = 1;
-      $scope.numberPerPage = 5;
-
     }
   ]);
