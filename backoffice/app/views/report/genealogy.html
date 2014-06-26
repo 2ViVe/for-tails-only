@@ -30,7 +30,7 @@
       <div class="row">
         <div class="columns medium-12">
           <div class="distributor">
-            <div class="rank-icon"></div>
+            <div class="rank-icon disable"></div>
             <div class="name">
               {{genealogy.data.userName}}
               <span class="unimportant-text">({{genealogy.data.childrenSize}})</span>
@@ -56,8 +56,8 @@
             <ul>
               <li class="distributor"
                   ng-repeat="distributor in genealogy.data.children">
-                <div class="rank-icon" ng-class="{'has-child': distributor.childrenSize > 0}"
-                     ng-click="changeRootDistributor(distributor.id, distributor.childrenSize)">
+                <div class="rank-icon"
+                     ng-click="changeRootDistributor(distributor.id)">
                 </div>
                 <div class="name">
                   {{distributor.id}}

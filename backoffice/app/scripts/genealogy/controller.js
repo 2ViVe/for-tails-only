@@ -6,10 +6,7 @@ angular
     function($scope, genealogy) {
       $scope.genealogy = genealogy;
 
-      $scope.changeRootDistributor = function(distributorId, childrenSize) {
-        if (childrenSize === 0) {
-          return;
-        }
+      $scope.changeRootDistributor = function(distributorId) {
         genealogy
           .fetchUniLevels(distributorId)
           .then(function() {

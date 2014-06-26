@@ -29,9 +29,10 @@ $rank-5-border: #F397BD;
       border: 4px solid #A9D6EC;
       background: #5E9FBD image-url("icons/dog-hand.png") no-repeat 7px;
       border-radius: 30px;
+      cursor: pointer;
 
-      &.has-child {
-        cursor: pointer;
+      &.disable {
+        cursor: default;
       }
 
       &.rank-1 {
