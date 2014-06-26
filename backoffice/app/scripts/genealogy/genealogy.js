@@ -23,6 +23,9 @@ angular.module('2ViVe')
 
       Genealogy.prototype.fetchUniLevels = function(distributorId) {
         var genealogy = this;
+        if (genealogy.rootId && genealogy.rootId.toString() === distributorId.toString()) {
+          distributorId = undefined;
+        }
         return $http.get('/api/v2/genealogy/unilevel', {
           transformResponse: camelCaseLize,
           cache: true,
@@ -30,7 +33,11 @@ angular.module('2ViVe')
             'distributor-id': distributorId
           }
         }).then(function(response) {
-          genealogy.data = response.data.response;
+          var data = response.data.response;
+          if (!distributorId) {
+            genealogy.rootId = data.id;
+          }
+          genealogy.data = data;
           return genealogy;
         });
       };
