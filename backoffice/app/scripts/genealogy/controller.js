@@ -2,31 +2,34 @@
 
 angular
   .module('fto/genealogy')
-  .controller('GenealogyController', ['$scope', 'genealogy',
-    function($scope, genealogy) {
-      $scope.genealogy = genealogy;
-
-      $scope.changeRootDistributor = function(distributorId) {
+  .controller('GenealogyController', ['$scope', 'genealogy', '$timeout',
+    function($scope, genealogy, $timeout) {
+      function refresh(distributorId) {
         genealogy
           .fetchUniLevels(distributorId)
           .then(function() {
-            genealogy.fetchPath(distributorId);
-            $scope.refreshPagination(genealogy.data.children.length);
             $scope.refreshSlider();
+            $scope.refreshPagination(genealogy.data.children.length);
+
+            genealogy.fetchPath(distributorId)
+              .then(function() {
+                $scope.refreshPath();
+                $timeout(function() {
+                  $scope.refreshPathPagination(genealogy.path.length);
+                }, 0);
+              });
           });
-      };
+      }
+
+      $scope.genealogy = genealogy;
+
+      $scope.changeRootDistributor = refresh;
 
       $scope.search = function() {
         if (!$scope.searchId) {
           return;
         }
-        genealogy
-          .fetchUniLevels($scope.searchId)
-          .then(function() {
-            genealogy.fetchPath($scope.searchId);
-            $scope.refreshPagination(genealogy.data.children.length);
-            $scope.refreshSlider();
-          });
+        refresh($scope.searchId);
       };
     }
   ]);

@@ -1,13 +1,38 @@
 <div class="row">
   <div class="columns medium-12">
     <div class="row collapse">
-      <div class="columns medium-8">
-        <ul class="genealogy-path">
-          <li ng-repeat="distributorId in genealogy.path">
-            <a ng-if="!$last" ng-click="changeRootDistributor(distributorId)">{{distributorId}}</a>
-            <span ng-if="$last">{{distributorId}}</span>
-          </li>
-        </ul>
+      <div class="columns medium-7">
+        <div class="genealogy-path">
+          <vive-slider data-next-slide="nextPath"
+                       data-infinite-loop="false"
+                       data-go-to-slide="goToPath"
+                       data-refresh="refreshPath"
+                       data-slide-width="80"
+                       data-min-slides="1"
+                       data-max-slides="7"
+                       data-pager="false"
+                       data-controls="false"
+                       data-previous-slide="previousPath">
+            <ul>
+              <li ng-repeat="distributorId in genealogy.path" ng-class="{'last': $last, 'first': $first}">
+                <a ng-if="!$last" ng-click="changeRootDistributor(distributorId)">{{distributorId}}</a>
+                <span ng-if="$last">{{distributorId}}</span>
+              </li>
+            </ul>
+          </vive-slider>
+        </div>
+      </div>
+      <div class="columns medium-1">
+        <div class="genealogy-path-navigator">
+          <vive-pagination data-start-page="last"
+                           data-total="genealogy.path.length"
+                           data-refresh="refreshPathPagination"
+                           data-on-next-page="nextPath"
+                           data-hide-page-number="true"
+                           data-on-previous-page="previousPath"
+                           data-on-go-to-page="goToPath"
+                           data-number-per-page="7"></vive-pagination>
+        </div>
       </div>
       <div class="columns medium-3">
         <input type="text"
@@ -79,7 +104,7 @@
         <div class="columns medium-10 medium-offset-1 end">
           <ul class="medium-block-grid-5">
             <li class="rank-1">
-              Indenpent Handler
+              Independent Handler
             </li>
             <li class="rank-2">
               Executive Handler

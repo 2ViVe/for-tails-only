@@ -116,25 +116,35 @@ $rank-5-border: #F397BD;
   }
 }
 
+.genealogy-path-navigator .pagination {
+  margin-top: 5px;
+
+  a {
+    line-height: 16px;
+    padding: 0 6px 3px;
+  }
+}
+
 .genealogy-path {
   @include clearfix;
   margin-bottom: 20px;
+  margin-top: 4px;
+
+  .bx-wrapper {
+    margin-left: 0 !important;
+  }
 
   li {
-    float: left;
-
-    &:first-child:before {
+    &.first:before {
       display: none;
       content: "";
     }
 
     &:before {
       content: "\003E";
-      padding-left: 8px;
-      padding-right: 2px;
     }
 
-    &:last-child {
+    &.last {
       color: $primary-color;
     }
 
