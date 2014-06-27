@@ -23,6 +23,7 @@ angular.module('fto', [
   'fto/report',
   'fto/checkout',
   'fto/home',
+  'fto/organization',
   'fto/party',
   'fto/giftCode',
   'fto/tools',
@@ -43,9 +44,6 @@ angular.module('fto', [
       .when('/party/party-details', {
         templateUrl: 'views/party/party-details.html',
         controller: 'PartyDetailsController'
-      })
-      .when('/organization', {
-        templateUrl: 'views/organization.html',
       })
       .otherwise({
         redirectTo: '/'
