@@ -11,7 +11,8 @@ angular.module('fto')
     'URL_FOR_RETAIL_DEMO_SITE': 'www',
     'URL_FOR_BACK_OFFICE_DEMO_SITE': 'backoffice',
     'DEFAULT_ROLE_CODE': 'R',
-    'CURRENCY_SYMBOL': '$'
+    'CURRENCY_SYMBOL': '$',
+    'COMPANY_CODE': 'FTO'
   })
   .config(['$httpProvider', function($httpProvider) {
     $httpProvider.interceptors.push('BackOfficeInterceptor');

@@ -17,6 +17,10 @@ angular
         resolve: {
           orders: ['Order', function(Order) {
             return Order.recent(0, 3);
+          }],
+          summary: ['BusinessSummary', function(BusinessSummary) {
+            var businessSummary = new BusinessSummary();
+            return businessSummary.fetch();
           }]
         }
       });

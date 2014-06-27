@@ -6,5 +6,6 @@
   "protocol": "http",
   "livereload": "35730",
   "optimizationLevel": 3,
-  "testPort": "9007"
+  "testPort": "9007",
+  "bowerExclude": ["bower_components/foundation/css/foundation.css", "bower_components/bxslider-4/jquery.bxslider.css"]
 }
