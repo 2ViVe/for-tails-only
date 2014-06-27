@@ -12,12 +12,9 @@ angular
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/organization', {
-        templateUrl: 'views/organization.html',
+        templateUrl: 'views/organization/organization.html',
         controller: 'OrganizationController',
         resolve: {
-//          allOrder: ['Organization', function(Organization) {
-//            return Organization.fetch();
-//          }],
           date : ['Organization', function(Organization){
             return Organization.getDate();
           }]
