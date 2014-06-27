@@ -24,7 +24,7 @@
       </div>
       <div class="columns medium-1">
         <div class="genealogy-path-navigator">
-          <vive-pagination ng-if="genealogy.path.length > 7"
+          <vive-pagination ng-show="genealogy.path.length > 7"
                            data-start-page="last"
                            data-total="genealogy.path.length"
                            data-refresh="refreshPathPagination"
