@@ -15,8 +15,11 @@ angular
         templateUrl: 'views/organization.html',
         controller: 'OrganizationController',
         resolve: {
-          unilevel: ['Organization', function(Organization) {
-            return Organization.fetch();
+//          allOrder: ['Organization', function(Organization) {
+//            return Organization.fetch();
+//          }],
+          date : ['Organization', function(Organization){
+            return Organization.getDate();
           }]
         }
       });
