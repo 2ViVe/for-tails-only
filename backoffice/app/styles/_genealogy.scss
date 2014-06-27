@@ -148,12 +148,12 @@ $rank-5-border: #F397BD;
   }
 
   li {
-    &.first:before {
+    &.last:after {
       display: none;
       content: "";
     }
 
-    &:before {
+    &:after {
       content: "\003E";
     }
 
