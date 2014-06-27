@@ -17,6 +17,10 @@
       color: $primary-color;
       height: rem-calc(77);
       width: 100%;
+
+      &.team-volume {
+        padding-top: 2px;
+      }
     }
     h3 {
       border-top: 3px solid $primary-color;

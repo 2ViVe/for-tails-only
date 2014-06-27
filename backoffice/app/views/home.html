@@ -11,10 +11,13 @@
     </div>
     <div class='small-3 columns'>
       <div class='home-performance-item'>
-        <div class='home-performance-itemInner icons-home-performance-central'>
-          <!--{{summary.}}-->
+        <div class='team-volume home-performance-itemInner small-font icons-home-performance-central'>
+          LV1: {{summary.currentTeamVolumes['level-1']}}<br/>
+          LV2: {{summary.currentTeamVolumes['level-2']}}<br/>
+          LV3: {{summary.currentTeamVolumes['level-3']}}<br/>
+          LV4: {{summary.currentTeamVolumes['level-4']}}
         </div>
-        <h3>Central Team Volume</h3>
+        <h3>Current Team Volume</h3>
       </div>
     </div>
     <div class='small-3 columns'>
@@ -48,10 +51,14 @@
       </li>
       <li>
         <div class='home-handlers-data-r'>
-          <small>Volume Qualified Personally<br/>Sponsored Handlers</small>
-          <strong>
-            {{summary.volumeQualifiedPersonallySponsoredHandlers ? summary.volumeQualifiedPersonallySponsoredHandlers : '--'}}
-          </strong>
+          <small>Active Team<br/>Handlers</small>
+          <div>
+            Level 1: {{summary.activeTeamHandlers['level-1']}};
+            Level 2: {{summary.activeTeamHandlers['level-2']}};
+            <br/>
+            Level 3: {{summary.activeTeamHandlers['level-3']}};
+            Level 4: {{summary.activeTeamHandlers['level-4']}}.
+          </div>
         </div>
       </li>
       <li>
