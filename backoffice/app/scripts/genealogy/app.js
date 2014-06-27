@@ -17,7 +17,14 @@ angular
         controller: 'GenealogyController',
         resolve: {
           genealogy: ['Genealogy', function(Genealogy) {
-            var genealogy = new Genealogy();
+            var genealogy = new Genealogy({
+              '': 0,
+              '50': 1,
+              '60': 2,
+              '70': 3,
+              '80': 4,
+              '90':5
+            });
             return genealogy
               .fetchUniLevels()
               .then(function() {

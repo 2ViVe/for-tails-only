@@ -1,3 +1,6 @@
+$rank-0-color: #9AB6B1;
+$rank-0-border: #D2E9E5;
+
 $rank-1-color: #9AB6B1;
 $rank-1-border: #D2E9E5;
 
@@ -26,8 +29,8 @@ $rank-5-border: #F397BD;
       margin: 0 auto;
       height: 60px;
       width: 60px;
-      border: 4px solid #A9D6EC;
-      background: #5E9FBD image-url("icons/dog-hand.png") no-repeat 7px;
+      border: 4px solid $rank-0-border;
+      background: $rank-0-color image-url("icons/dog-hand.png") no-repeat 7px;
       border-radius: 30px;
       cursor: pointer;
 
@@ -35,28 +38,33 @@ $rank-5-border: #F397BD;
         cursor: default;
       }
 
+      &.rank-0 {
+        background-color: $rank-0-color;
+        border-color: $rank-0-border;
+      }
+
       &.rank-1 {
-        background: $rank-1-color;
+        background-color: $rank-1-color;
         border-color: $rank-1-border;
       }
 
       &.rank-2 {
-        background: $rank-2-color;
+        background-color: $rank-2-color;
         border-color: $rank-2-border;
       }
 
       &.rank-3 {
-        background: $rank-3-color;
+        background-color: $rank-3-color;
         border-color: $rank-3-border;
       }
 
       &.rank-4 {
-        background: $rank-4-color;
+        background-color: $rank-4-color;
         border-color: $rank-4-border;
       }
 
       &.rank-5 {
-        background: $rank-5-color;
+        background-color: $rank-5-color;
         border-color: $rank-5-border;
       }
     }
@@ -89,28 +97,33 @@ $rank-5-border: #F397BD;
       margin: 0 auto 10px;
     }
 
+    &.rank-0:before {
+      background-color: $rank-0-color;
+      border-color: $rank-0-border;
+    }
+
     &.rank-1:before {
-      background: $rank-1-color;
+      background-color: $rank-1-color;
       border-color: $rank-1-border;
     }
 
     &.rank-2:before {
-      background: $rank-2-color;
+      background-color: $rank-2-color;
       border-color: $rank-2-border;
     }
 
     &.rank-3:before {
-      background: $rank-3-color;
+      background-color: $rank-3-color;
       border-color: $rank-3-border;
     }
 
     &.rank-4:before {
-      background: $rank-4-color;
+      background-color: $rank-4-color;
       border-color: $rank-4-border;
     }
 
     &.rank-5:before {
-      background: $rank-5-color;
+      background-color: $rank-5-color;
       border-color: $rank-5-border;
     }
   }

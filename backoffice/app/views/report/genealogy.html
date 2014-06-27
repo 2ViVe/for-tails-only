@@ -55,7 +55,7 @@
       <div class="row">
         <div class="columns medium-12">
           <div class="distributor">
-            <div class="rank-icon disable"></div>
+            <div class="rank-icon disable rank-{{genealogy.data.displayRank}}"></div>
             <div class="name">
               {{genealogy.data.userName}}
               <span class="unimportant-text">({{genealogy.data.childrenSize}})</span>
@@ -82,7 +82,7 @@
             <ul>
               <li class="distributor"
                   ng-repeat="distributor in genealogy.data.children">
-                <div class="rank-icon"
+                <div class="rank-icon rank-{{distributor.displayRank}}"
                      ng-click="changeRootDistributor(distributor.id)">
                 </div>
                 <div class="name">
@@ -102,7 +102,10 @@
     <div class="genealogy-tips">
       <div class="row">
         <div class="columns medium-10 medium-offset-1 end">
-          <ul class="medium-block-grid-5">
+          <ul class="medium-block-grid-6">
+            <li class="rank-0">
+              None
+            </li>
             <li class="rank-1">
               Independent Handler
             </li>
