@@ -3,25 +3,33 @@
   <div class='row'>
     <div class='small-3 columns'>
       <div class='home-performance-item'>
-        <div class='home-performance-itemInner icons-home-performance-personal'>--</div>
+        <div class='home-performance-itemInner icons-home-performance-personal'>
+          {{summary.personalVolume}}
+        </div>
         <h3>Personal Volume</h3>
       </div>
     </div>
     <div class='small-3 columns'>
       <div class='home-performance-item'>
-        <div class='home-performance-itemInner icons-home-performance-central'>--</div>
+        <div class='home-performance-itemInner icons-home-performance-central'>
+          <!--{{summary.}}-->
+        </div>
         <h3>Central Team Volume</h3>
       </div>
     </div>
     <div class='small-3 columns'>
       <div class='home-performance-item'>
-        <div class='home-performance-itemInner icons-home-performance-pv'>--</div>
+        <div class='home-performance-itemInner icons-home-performance-pv'>
+          {{summary.3MonthPv}}
+        </div>
         <h3>3 Month PV</h3>
       </div>
     </div>
     <div class='small-3 columns'>
       <div class='home-performance-item'>
-        <div class='home-performance-itemInner icons-home-performance-date'>--</div>
+        <div class='home-performance-itemInner icons-home-performance-date'>
+          {{summary.activeUntilDate | date: 'small'}}
+        </div>
         <h3>Active-Until Date</h3>
       </div>
     </div>
@@ -33,19 +41,25 @@
       <li>
         <div class='home-handlers-data-y'>
           <small>Active Personally<br/>Sponsored Handlers</small>
-          <strong>--</strong>
+          <strong>
+            {{summary.activePersonallySponsoredHandlers}}
+          </strong>
         </div>
       </li>
       <li>
         <div class='home-handlers-data-r'>
           <small>Volume Qualified Personally<br/>Sponsored Handlers</small>
-          <strong>--</strong>
+          <strong>
+            {{summary.volumeQualifiedPersonallySponsoredHandlers ? summary.volumeQualifiedPersonallySponsoredHandlers : '--'}}
+          </strong>
         </div>
       </li>
       <li>
         <div class='home-handlers-data-g'>
           <small>New Personally<br/>Sponsored Handlers</small>
-          <strong>--</strong>
+          <strong>
+            {{summary.newPersonallySponsoredHandlers}}
+          </strong>
         </div>
       </li>
     </ul>
