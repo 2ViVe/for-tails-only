@@ -18,7 +18,7 @@
           {{event.data.address.countryName}}
         </p>
         <div class='party-email-banner-anwser' ng-if="response() !== 'noreply'">
-          Your replay is {{response().toUpperCase()}}.
+          Your reply is {{response().toUpperCase()}}.
           <a class="small-font" ng-click="enableChangingReply()">Change Reply.</a><br/>
           <p class='party-email-banner-button' ng-if="isChangingReply">
             <a class='button small' ng-click="confirm('YES');">YES</a>
