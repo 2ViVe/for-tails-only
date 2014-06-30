@@ -55,12 +55,16 @@
         </div>
       </div>
       <div class='row'>
-        <div class='columns small-12' ng-if="false">
+        <div class='columns small-12'>
           <div class='party-price block-margin-bottom'>
             <ul class="row">
-              <li class="small-4 columns text-center">$49.95<span>STYLIST</span></li>
-              <li class="small-4 columns text-center">$42.12<span>RETAIL</span></li>
-              <li class="small-4 columns text-center">$36.12<span>PCV</span><small>0 half off item(s)</small></li>
+              <li class="small-12 columns text-center">
+                {{rewords | price}}
+                <span>Hostess Rewards</span>
+                <small ng-if="rewordsPercentage">
+                  {{rewordsPercentage}} in Paw Perks
+                </small>
+              </li>
             </ul>
           </div>
         </div>

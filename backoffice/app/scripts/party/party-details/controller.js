@@ -8,6 +8,19 @@ angular.module('fto/party')
       $scope.party = event.data;
       $scope.invitees = event.invitees;
 
+      $scope.rewords = 0;
+      $scope.rewordsPercentage = undefined;
+      var ordersItemTotal = event.ordersItemTotal();
+      if (ordersItemTotal >= 200 && ordersItemTotal < 500) {
+        $scope.rewords = ordersItemTotal * 0.1;
+        $scope.rewordsPercentage = '10%';
+      } else if (ordersItemTotal >= 500 && ordersItemTotal < 750) {
+        $scope.rewords = ordersItemTotal * 0.15;
+        $scope.rewordsPercentage = '15%';
+      } else if (ordersItemTotal >= 750) {
+        $scope.rewords = ordersItemTotal * 0.2;
+        $scope.rewordsPercentage = '20%';
+      }
 
       $scope.deleteInvites = function() {
         $modal.open({
