@@ -11,14 +11,13 @@ angular.module('2ViVe')
       Organization.getCount($scope.date, $scope.isShowOrderList)
         .then(function(count){
           $scope.count = count;
-          $scope.refreshPagination(count);
         });
     };
 
-    $scope.gotoPage = function(page){
-//      console.log(page);
+    $scope.goToPage = function(page){
       $scope.curpage = page;
       updateOrder();
+      $scope.refreshPagination($scope.count);
     };
 
     $scope.isShowOrderList = false;
@@ -37,8 +36,8 @@ angular.module('2ViVe')
       $scope.selectMonth = date[$scope.selectYear][date[$scope.selectYear].length - 1];
       $scope.date = $scope.selectYear + $scope.selectMonth;
       $scope.months = date[$scope.selectYear];
-
       updateOrder();
+      $scope.selectMonth = $scope.selectMonth.substr(0,2);
     } catch (error) {
       $scope.selectYear = null;
       $scope.selectMonth = null;

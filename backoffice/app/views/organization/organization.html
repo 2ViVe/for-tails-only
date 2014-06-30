@@ -58,20 +58,23 @@
         <td>{{order.qualificationVolume}}</td>
         <td>{{order.dualteamVolume}}</td>
         <td>{{order.rank}}</td>
-        <td>{{order.state}}</td>
+        <td>{{order['countryIso']}}</td>
       </tr>
       </tbody>
     </table>
   </div>
 </div>
-<div class="row">
-  <div class="columns small-12" ng-if="orders.length!==0">
+<div class="row" ng-if="orders.length!==0">
+  <div class="columns small-2">
+    <p>20 of 25</p>
+  </div>
+  <div class="columns small-10" ng-if="orders.length!==0">
     <vive-pagination data-start-page="first"
                      data-total="count"
                      data-refresh="refreshPagination"
-                     data-on-next-page="gotoPage"
-                     data-on-previous-page="gotoPage"
-                     data-on-go-to-page="gotoPage"
+                     data-on-next-page="goToPage"
+                     data-on-previous-page="goToPage"
+                     data-on-go-to-page="goToPage"
                      data-number-per-page="25"></vive-pagination>
   </div>
 </div>
