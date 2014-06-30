@@ -24,7 +24,7 @@ angular.module('2ViVe')
 
     $scope.goToPage = function(page){
       $scope.curpage = page;
-      $scope.offset = ($scope.curpage - 1) * 25;
+      $scope.offset = ($scope.curpage - 1) * 25 + 1;
       updateOrder();
     };
 
