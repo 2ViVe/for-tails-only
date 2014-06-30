@@ -9,15 +9,15 @@
   <div class="small-12 columns">
     <div class="row collapse">
       <div class="small-3 columns">
-        <input type="text" ng-model='distributorId' class="secondary-item no-margin-bottom" placeholder="Search by Distributor ID...">
+        <!--<input type="text" ng-model='distributorId' class="secondary-item no-margin-bottom" placeholder="Search by Distributor ID...">-->
       </div>
       <div class="small-1 columns">
-        <a ng-click="updateOrder()" class='postfix button'><i class="fa fa-search"></i></a>
+        <!--<a ng-click="updateOrder()" class='postfix button'><i class="fa fa-search"></i></a>-->
       </div>
       <div class="small-2 columns">
         <label>&nbsp;&nbsp;<input ng-model='isShowOrderList' ng-change="updateOrder()" type="checkbox" />&nbsp;Show order list</label>
       </div>
-      <div class="small-2 small-offset-2 columns">
+      <div class="small-2 small-offset-6 columns">
         <select ng-model="selectYear" ng-change="getMonth()" class="secondary-item no-margin-bottom">
           <option disabled ng-selected="true">Select Year</option>
           <option ng-repeat='year in years'>{{year}}</option>
@@ -33,7 +33,7 @@
   </div>
 </div>
 <div class="row"><div class='small-12 columns'><hr/></div></div>
-<div class="row">
+<div class="row" ng-if="orders.length !==0">
   <div class="columns small-12">
     <table width="100%">
       <thead>
@@ -51,7 +51,7 @@
       <tbody>
       <!--<tr ng-repeat="order in orders">-->
       <tr ng-repeat='order in orders'>
-        <td><a ng-click='changeDistributorId(order.distributorId)'>{{order.distributorId}}</a></td>
+        <td><a>{{order.distributorId}}</a></td>
         <td>{{order.distributorName}}</td>
         <td>{{order.level}}</td>
         <td>{{order.orderCount}}</td>
@@ -65,9 +65,9 @@
   </div>
 </div>
 <div class="row">
-  <div class="columns small-12">
+  <div class="columns small-12" ng-if="orders.length!==0">
     <vive-pagination data-start-page="first"
-                     data-total="200"
+                     data-total="count"
                      data-refresh="refreshPagination"
                      data-on-next-page="gotoPage"
                      data-on-previous-page="gotoPage"
