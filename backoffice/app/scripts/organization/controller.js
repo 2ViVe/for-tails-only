@@ -2,24 +2,32 @@
 
 angular.module('2ViVe')
   .controller('OrganizationController', ['$scope', 'Organization', 'date', function($scope, Organization, date) {
-    var updateOrder = $scope.updateOrder = function(){
+
+    var updateOrder = $scope.updateOrder = function(reflash){
       Organization.fetch($scope.date, $scope.isShowOrderList, $scope.distributorId, $scope.curpage)
         .then(function(orders){
           $scope.orders = orders;
-        });
-
-      Organization.getCount($scope.date, $scope.isShowOrderList)
-        .then(function(count){
-          $scope.count = count;
+        })
+        .then(function(){
+          Organization.getCount($scope.date, $scope.isShowOrderList)
+            .then(function(count){
+              $scope.count = count;
+            })
+            .then(function(){
+              if (reflash){
+                $scope.curpage = 1;
+                $scope.refreshPagination($scope.count);
+              }
+            });
         });
     };
 
     $scope.goToPage = function(page){
       $scope.curpage = page;
       updateOrder();
-      $scope.refreshPagination($scope.count);
     };
 
+    $scope.curpage = 1;
     $scope.isShowOrderList = false;
     $scope.distributorId = null;
     $scope.orders = [];
@@ -33,10 +41,10 @@ angular.module('2ViVe')
 
     try {
       $scope.selectYear = $scope.years[$scope.years.length - 1];
-      $scope.selectMonth = date[$scope.selectYear][date[$scope.selectYear].length - 1];
+      $scope.selectMonth = date[$scope.selectYear][0];
       $scope.date = $scope.selectYear + $scope.selectMonth;
       $scope.months = date[$scope.selectYear];
-      updateOrder();
+      updateOrder(true);
       $scope.selectMonth = $scope.selectMonth.substr(0,2);
     } catch (error) {
       $scope.selectYear = null;
@@ -45,12 +53,12 @@ angular.module('2ViVe')
 
     $scope.updateDate = function(){
       $scope.date = $scope.selectYear + $scope.selectMonth + '01' ;
-      updateOrder();
+      updateOrder(true);
     };
 
     $scope.changeDistributorId = function(id){
       $scope.distributorId = id;
-      updateOrder();
+      updateOrder(true);
     };
 
   }]);

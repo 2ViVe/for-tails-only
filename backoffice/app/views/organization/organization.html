@@ -64,11 +64,11 @@
     </table>
   </div>
 </div>
-<div class="row" ng-if="orders.length!==0">
+<div class="row" ng-show="orders.length!==0">
   <div class="columns small-2">
-    <p>20 of 25</p>
+    <p class="organization-count">{{ curpage * 25 }} of {{count}}</p>
   </div>
-  <div class="columns small-10" ng-if="orders.length!==0">
+  <div class="columns small-10">
     <vive-pagination data-start-page="first"
                      data-total="count"
                      data-refresh="refreshPagination"
