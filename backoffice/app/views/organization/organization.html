@@ -51,7 +51,7 @@
       <tbody>
       <!--<tr ng-repeat="order in orders">-->
       <tr ng-repeat='order in orders'>
-        <td><a>{{order.distributorId}}</a></td>
+        <td>{{order.distributorId}}</td>
         <td>{{order.distributorName}}</td>
         <td>{{order.level}}</td>
         <td>{{order.orderCount}}</td>
@@ -66,7 +66,7 @@
 </div>
 <div class="row" ng-show="orders.length!==0">
   <div class="columns small-2">
-    <p class="organization-count">{{ curpage * 25 }} of {{count}}</p>
+    <p class="organization-count">{{ (curpage * 25 > count) ? count : curpage * 25  }} of {{count}}</p>
   </div>
   <div class="columns small-10">
     <vive-pagination data-start-page="first"

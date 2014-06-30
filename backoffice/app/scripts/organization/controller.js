@@ -4,7 +4,7 @@ angular.module('2ViVe')
   .controller('OrganizationController', ['$scope', 'Organization', 'date', function($scope, Organization, date) {
 
     var updateOrder = $scope.updateOrder = function(reflash){
-      Organization.fetch($scope.date, $scope.isShowOrderList, $scope.distributorId, $scope.curpage)
+      Organization.fetch($scope.date, $scope.isShowOrderList, $scope.distributorId, $scope.offset)
         .then(function(orders){
           $scope.orders = orders;
         })
@@ -24,6 +24,7 @@ angular.module('2ViVe')
 
     $scope.goToPage = function(page){
       $scope.curpage = page;
+      $scope.offset = ($scope.curpage - 1) * 25;
       updateOrder();
     };
 
