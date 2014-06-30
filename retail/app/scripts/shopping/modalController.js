@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('fto/shopping')
-  .controller('ShoppingModalController', ['$scope', 'shopping', '$modalInstance', '$timeout',
-    function($scope, shopping, $modalInstance, $timeout) {
+  .controller('ShoppingModalController', ['$scope', 'shopping', '$modalInstance', '$timeout', '$location',
+    function($scope, shopping, $modalInstance, $timeout, $location) {
       $scope.shopping = shopping;
 
       $scope.updateItemQuantity = function(item) {
@@ -43,7 +43,7 @@ angular.module('fto/shopping')
 
       $scope.checkout = function() {
         $modalInstance.dismiss('cancel');
-        shopping.checkout();
+        $location.path('/shopping-options');
       };
 
       $scope.cancel = function() {
