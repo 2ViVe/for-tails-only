@@ -1,13 +1,33 @@
 'use strict';
 
 angular.module('2ViVe')
-  .controller('OrganizationController', ['$scope', 'Organization', 'date', function($scope, Organization, date) {
+  .controller('OrganizationController', ['$scope', 'organization', function($scope, organization) {
+    organization.getDate().then(function(date){
+      $scope.curpage = 1;
+      $scope.isShowOrderList = false;
+      $scope.distributorId = null;
+      $scope.orders = [];
+
+      $scope.years = Object.keys(date);
+      $scope.months = date[$scope.selectYear];
+      $scope.selectYear = $scope.years[$scope.years.length - 1];
+      $scope.selectMonth = date[$scope.selectYear][0];
+      $scope.date = $scope.selectYear + $scope.selectMonth;
+      $scope.months = date[$scope.selectYear];
+      updateOrder(true);
+      $scope.selectMonth = $scope.selectMonth.substr(0,2);
+    })
+      .catch(function(error){
+        $scope.selectYear = null;
+        $scope.selectMonth = null;
+      });
+
     var updateOrder = $scope.updateOrder = function(reflash){
       if (reflash) {
         $scope.offset = 0;
         $scope.curpage = 1;
       }
-      return Organization.fetch($scope.date, $scope.isShowOrderList, $scope.distributorId, $scope.offset)
+      return organization.fetch($scope.date, $scope.isShowOrderList, $scope.distributorId, $scope.offset)
         .then(function(orders){
           $scope.orders = orders;
         })
@@ -15,7 +35,7 @@ angular.module('2ViVe')
           if ( $scope.distributorId ){
             return 1;
           }
-          return Organization.getCount($scope.date, $scope.isShowOrderList)
+          return organization.getCount($scope.date, $scope.isShowOrderList)
         })
         .then(function(count){
           $scope.count = count;
@@ -31,29 +51,9 @@ angular.module('2ViVe')
       updateOrder();
     };
 
-    $scope.curpage = 1;
-    $scope.isShowOrderList = false;
-    $scope.distributorId = null;
-    $scope.orders = [];
-
-    $scope.years = Object.keys(date);
-    $scope.months = date[$scope.selectYear];
-
     $scope.getMonth = function(){
       $scope.months = date[$scope.selectYear];
     };
-
-    try {
-      $scope.selectYear = $scope.years[$scope.years.length - 1];
-      $scope.selectMonth = date[$scope.selectYear][0];
-      $scope.date = $scope.selectYear + $scope.selectMonth;
-      $scope.months = date[$scope.selectYear];
-      updateOrder(true);
-      $scope.selectMonth = $scope.selectMonth.substr(0,2);
-    } catch (error) {
-      $scope.selectYear = null;
-      $scope.selectMonth = null;
-    }
 
     $scope.updateDate = function(){
       $scope.date = $scope.selectYear + $scope.selectMonth + '01' ;

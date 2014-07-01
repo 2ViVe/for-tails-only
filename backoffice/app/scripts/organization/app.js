@@ -15,8 +15,8 @@ angular
         templateUrl: 'views/organization/organization.html',
         controller: 'OrganizationController',
         resolve: {
-          date : ['Organization', function(Organization){
-            return Organization.getDate();
+          organization : ['Organization', function(Organization){
+            return new Organization();
           }]
         }
       });
