@@ -21,6 +21,9 @@ angular
           summary: ['BusinessSummary', function(BusinessSummary) {
             var businessSummary = new BusinessSummary();
             return businessSummary.fetch();
+          }],
+          user: ['User', function(User) {
+            return User.fetch();
           }]
         }
       });

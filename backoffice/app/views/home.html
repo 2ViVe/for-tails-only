@@ -31,7 +31,7 @@
     <div class='small-3 columns'>
       <div class='home-performance-item'>
         <div class='home-performance-itemInner icons-home-performance-date'>
-          {{summary.activeUntilDate}}
+          {{user.nextRenewalDate | date: 'yyyy-MM-dd'}}
         </div>
         <h3>Active-Until Date</h3>
       </div>
