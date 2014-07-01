@@ -3,6 +3,10 @@
 angular.module('2ViVe')
   .controller('OrganizationController', ['$scope', 'Organization', 'date', function($scope, Organization, date) {
     var updateOrder = $scope.updateOrder = function(reflash){
+      if (reflash) {
+        $scope.offset = 0;
+        $scope.curpage = 1;
+      }
       return Organization.fetch($scope.date, $scope.isShowOrderList, $scope.distributorId, $scope.offset)
         .then(function(orders){
           $scope.orders = orders;
@@ -16,7 +20,6 @@ angular.module('2ViVe')
         .then(function(count){
           $scope.count = count;
           if (reflash){
-            $scope.curpage = 1;
             $scope.refreshPagination($scope.count);
           }
         });
