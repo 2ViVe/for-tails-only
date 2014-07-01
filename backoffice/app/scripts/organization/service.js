@@ -9,58 +9,43 @@ angular.module('2ViVe')
             return this.searchByDistributorId(date, isShowOrderList, distributorId, page);
           }
 
-          var params = {};
-          params.date = date;
-
-          if (isShowOrderList){
-            params.orders_only = 1;
-          }
-
-          if (page){
-            params.offset = page;
-          }
-
           return $http.get('/api/v2/reports/organizations/unilevel', {
             transformResponse: camelCaselize,
-            params : params
+            params : {
+              date : date,
+              orders_only : isShowOrderList ? 1 : undefined,
+              offset : page || undefined
+            }
           }).then(function(response) {
               return response.data.response;
             });
         },
 
         getCount : function(date, isShowOrderList){
-          var params = {};
-          params.date = date;
-
-          if (isShowOrderList){
-            params.orders_only = 1;
-          }
 
           return $http.get('/api/v2/reports/organizations/counts/unilevel', {
             transformResponse: camelCaselize,
-            params : params
+            params : {
+              date : date,
+              orders_only : isShowOrderList ? 1 : undefined,
+            }
           }).then(function(response) {
               return response.data.response.count;
             });
         },
 
         searchByDistributorId: function(date, isShowOrderList, distributorId, page){
-          var params = {};
-          params.date = date;
-
-          if (isShowOrderList){
-            params.orders_only = 1;
-          }
-
-          if (page){
-            params.offset = page;
-          }
-
           return $http.get('/api/v2/reports/organizations/unilevel/' + distributorId, {
             transformResponse: camelCaselize,
-            params : params
+            params : {
+              date : date,
+              orders_only : isShowOrderList ? 1 : undefined,
+              offset : page || undefined
+            }
           }).then(function(response){
-              return response.data.response;
+              var data = [];
+              data.push(response.data.response);
+              return data;
             });
         },
         getDate: function(){

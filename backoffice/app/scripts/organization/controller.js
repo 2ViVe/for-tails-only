@@ -2,23 +2,23 @@
 
 angular.module('2ViVe')
   .controller('OrganizationController', ['$scope', 'Organization', 'date', function($scope, Organization, date) {
-
     var updateOrder = $scope.updateOrder = function(reflash){
-      Organization.fetch($scope.date, $scope.isShowOrderList, $scope.distributorId, $scope.offset)
+      return Organization.fetch($scope.date, $scope.isShowOrderList, $scope.distributorId, $scope.offset)
         .then(function(orders){
           $scope.orders = orders;
         })
         .then(function(){
-          Organization.getCount($scope.date, $scope.isShowOrderList)
-            .then(function(count){
-              $scope.count = count;
-            })
-            .then(function(){
-              if (reflash){
-                $scope.curpage = 1;
-                $scope.refreshPagination($scope.count);
-              }
-            });
+          if ( $scope.distributorId ){
+            return 1;
+          }
+          return Organization.getCount($scope.date, $scope.isShowOrderList)
+        })
+        .then(function(count){
+          $scope.count = count;
+          if (reflash){
+            $scope.curpage = 1;
+            $scope.refreshPagination($scope.count);
+          }
         });
     };
 
@@ -56,10 +56,4 @@ angular.module('2ViVe')
       $scope.date = $scope.selectYear + $scope.selectMonth + '01' ;
       updateOrder(true);
     };
-
-    $scope.changeDistributorId = function(id){
-      $scope.distributorId = id;
-      updateOrder(true);
-    };
-
   }]);
