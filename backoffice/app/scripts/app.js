@@ -9,6 +9,7 @@ angular.module('fto', [
   'ui.utils',
   'mm.foundation.modal',
   'mm.foundation.accordion',
+  'mm.foundation.tooltip',
   'chieffancypants.loadingBar',
   'angulartics',
   'angulartics.google.analytics',
