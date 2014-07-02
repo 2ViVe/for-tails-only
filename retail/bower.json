@@ -1,5 +1,5 @@
 {
-  "name": "miioon",
+  "name": "FTO",
   "version": "0.0.0",
   "dependencies": {
     "angular": "1.2.6",
@@ -17,7 +17,7 @@
     "angular-mm-foundation": "*",
     "2ViVe": "git@github.com:2ViVe/frontend-modules.git#master",
     "moment": "~2.6.0",
-    "pikaday": "~1.2.0",
+    "pikaday": "git@github.com:zation/Pikaday.git#master",
     "angular-cookie": "~4.0.0",
     "angulartics": "~0.15.18"
   },
