@@ -132,7 +132,22 @@
 
 .party-calendar{
   //reset the pickday pluging style
+  .pika-lendar {
+    width: auto;
+    margin: 0;
+    float: none;
+  }
+
+  .tooltip {
+    text-align: left;
+
+    a {
+      color: white;
+    }
+  }
+
   .pika-single{
+    z-index: 99;
     border-color: $grey-border;
     padding:2px;
     width:100%;
