@@ -14,7 +14,7 @@
     "angular-ui-utils": "bower",
     "angular-loading-bar": "~0.4.0",
     "font-awesome": "~4.0.3",
-    "angular-mm-foundation": "*",
+    "angular-mm-foundation": "git@github.com:zation/angular-foundation.git#master",
     "2ViVe": "git@github.com:2ViVe/frontend-modules.git#master",
     "moment": "~2.6.0",
     "pikaday": "git@github.com:zation/Pikaday.git#master",
