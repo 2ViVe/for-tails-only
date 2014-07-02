@@ -58,12 +58,15 @@
         <div class="columns medium-12">
           <div class="distributor">
             <div class="rank-icon disable rank-{{genealogy.data.displayRank}}"></div>
-            <div class="name">
-              {{genealogy.data.userName}}
-              <span class="unimportant-text">({{genealogy.data.childrenSize}})</span>
+            <div class="name"
+                 tooltip-placement="right"
+                 tooltip-html-unsafe="{{distributorExtraInfo()}}">
+              {{genealogy.data.firstName}}
+              {{genealogy.data.lastName}}
             </div>
             <div class="sponsor-id">
               {{genealogy.data.id}}
+              <span class="unimportant-text">({{genealogy.data.childrenSize}})</span>
             </div>
           </div>
         </div>
@@ -88,11 +91,12 @@
                      ng-click="changeRootDistributor(distributor.id)">
                 </div>
                 <div class="name">
-                  {{distributor.id}}
-                  <span class="unimportant-text">({{distributor.childrenSize}})</span>
+                  {{distributor.firstName}}
+                  {{distributor.lastName}}
                 </div>
                 <div class="sponsor-id">
                   {{distributor.id}}
+                  <span class="unimportant-text">({{distributor.childrenSize}})</span>
                 </div>
               </li>
             </ul>

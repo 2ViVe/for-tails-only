@@ -70,8 +70,12 @@ $rank-5-border: #F397BD;
     }
 
     .name {
-      padding-top: 5px;
-      padding-bottom: 5px;
+      cursor: pointer;
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding: 5px;
       font-weight: bold;
     }
   }

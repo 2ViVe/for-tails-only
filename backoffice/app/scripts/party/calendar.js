@@ -15,7 +15,7 @@ angular.module('2ViVe')
           field: angular.element(element).find('.calendar-field')[0],
           container: angular.element(element)[0],
           bound: false,
-          selectable: false,
+          isSelectable: false,
           onDraw: function() {
             var remarks = scope.remarks;
             var year = picker.calendars[0].year;
