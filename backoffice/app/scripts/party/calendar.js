@@ -23,10 +23,10 @@ angular.module('2ViVe')
             if (remarks && remarks[year] && remarks[year][month]) {
               var dayRemarks = remarks[year][month];
               angular.forEach(dayRemarks, function(remark, day) {
-                $compile(angular.element(picker.el).find('td[data-day="' + day + '"]')
+                $compile(angular.element(picker.el).find('td[data-day="' + day + '"] button')
                   .addClass(remark.class)
-                  .attr('tooltip-append-to-body', 'true')
-                  .attr('tooltip-trigger', 'click')
+                  .attr('tooltip-append-to-body', remark.appendToBody)
+                  .attr('tooltip-trigger', remark.trigger)
                   .attr(remark.type, remark.content))(scope);
               });
             }

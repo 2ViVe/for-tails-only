@@ -24,7 +24,9 @@ angular.module('fto')
           $scope.remarks[startTime.year()][startTime.month()][startTime.date()] = {
             class: 'has-event',
             content: content,
-            type: 'tooltip-html-unsafe'
+            type: 'tooltip-html-unsafe',
+            appendToBody: 'false',
+            trigger: 'click'
           };
         } else {
           var remark = $scope.remarks[startTime.year()][startTime.month()][startTime.date()];
