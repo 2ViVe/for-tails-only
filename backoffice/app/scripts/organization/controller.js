@@ -7,7 +7,7 @@ angular.module('2ViVe')
       $scope.isShowOrderList = false;
       $scope.distributorId = null;
       $scope.orders = [];
-
+      $scope.dateArr = date;
       $scope.years = Object.keys(date);
       $scope.months = date[$scope.selectYear];
       $scope.selectYear = $scope.years[$scope.years.length - 1];
@@ -52,7 +52,7 @@ angular.module('2ViVe')
     };
 
     $scope.getMonth = function(){
-      $scope.months = date[$scope.selectYear];
+      $scope.months = $scope.dateArr[$scope.selectYear];
     };
 
     $scope.updateDate = function(){
