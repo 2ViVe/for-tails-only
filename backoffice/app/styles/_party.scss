@@ -132,6 +132,12 @@
 
 .party-calendar{
   //reset the pickday pluging style
+  .pika-lendar {
+    width: auto;
+    margin: 0;
+    float: none;
+  }
+
   .pika-single{
     z-index: 99;
     border-color: $grey-border;
