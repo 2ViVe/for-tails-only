@@ -15,10 +15,11 @@ angular.module('2ViVe')
           field: angular.element(element).find('.calendar-field')[0],
           container: angular.element(element)[0],
           bound: false,
+          selectable: false,
           onDraw: function() {
             var remarks = scope.remarks;
-            var year = picker._y;
-            var month = picker._m;
+            var year = picker.calendars[0].year;
+            var month = picker.calendars[0].month;
             if (remarks && remarks[year] && remarks[year][month]) {
               var dayRemarks = remarks[year][month];
               angular.forEach(dayRemarks, function(remark, day) {
@@ -31,16 +32,6 @@ angular.module('2ViVe')
             }
           }
         });
-
-        var removeEvent = function(el, e, callback, capture) {
-          if (!!window.addEventListener) {
-            el.removeEventListener(e, callback, !!capture);
-          } else {
-            el.detachEvent('on' + e, callback);
-          }
-        };
-
-        removeEvent(picker.el, 'mousedown', picker._onMouseDown, true);
       }
     };
   }]);
