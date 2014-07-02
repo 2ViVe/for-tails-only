@@ -59,4 +59,8 @@ angular.module('2ViVe')
       $scope.date = $scope.selectYear + $scope.selectMonth + '01' ;
       updateOrder(true);
     };
+
+    $scope.parseFloat = function(value){
+      return parseFloat(value);
+    }
   }]);

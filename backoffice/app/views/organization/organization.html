@@ -40,13 +40,13 @@
       <tr>
         <th>Distributor ID</th>
         <th>Name</th>
+        <th>Role Code</th>
         <th>Level</th>
         <th>Orders</th>
         <th>Qualification Volume</th>
         <th>Commission Volume</th>
         <th>Rank</th>
         <th>Country</th>
-        <th>Role Code</th>
       </tr>
       </thead>
       <tbody>
@@ -54,13 +54,13 @@
       <tr ng-repeat='order in orders'>
         <td>{{order.distributorId}}</td>
         <td>{{order.distributorName}}</td>
+        <td>{{order.roleCode}}</td>
         <td>{{order.level}}</td>
         <td>{{order.orderCount}}</td>
-        <td>{{order.qualificationVolume}}</td>
-        <td>{{order.unilevelVolume}}</td>
+        <td>{{parseFloat(order.qualificationVolume).toFixed(2)}}</td>
+        <td>{{parseFloat(order.unilevelVolume).toFixed(2)}}</td>
         <td>{{order.rank}}</td>
-        <td>{{order['countryIso']}}</td>
-        <td>{{order.roleCode}}</td>
+        <td>{{order.countryIso}}</td>
       </tr>
       </tbody>
     </table>
