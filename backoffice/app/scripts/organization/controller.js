@@ -35,7 +35,7 @@ angular.module('2ViVe')
           if ( $scope.distributorId ){
             return 1;
           }
-          return organization.getCount($scope.date, $scope.isShowOrderList)
+          return organization.getCount($scope.date, $scope.isShowOrderList);
         })
         .then(function(count){
           $scope.count = count;

@@ -12,9 +12,9 @@ angular.module('2ViVe')
         return $http.get('/api/v2/reports/organizations/unilevel', {
           transformResponse: camelCaselize,
           params : {
-            date : date,
-            orders_only : isShowOrderList ? 1 : undefined,
-            offset : page || undefined
+            'date' : date,
+            'orders_only' : isShowOrderList ? 1 : undefined,
+            'offset' : page || undefined
           }
         }).then(function(response) {
             return response.data.response;
@@ -25,8 +25,8 @@ angular.module('2ViVe')
         return $http.get('/api/v2/reports/organizations/counts/unilevel', {
           transformResponse: camelCaselize,
           params : {
-            date : date,
-            orders_only : isShowOrderList ? 1 : undefined,
+            'date' : date,
+            'orders_only' : isShowOrderList ? 1 : undefined,
           }
         }).then(function(response) {
             return response.data.response.count;
@@ -37,9 +37,9 @@ angular.module('2ViVe')
         return $http.get('/api/v2/reports/organizations/unilevel/' + distributorId, {
           transformResponse: camelCaselize,
           params : {
-            date : date,
-            orders_only : isShowOrderList ? 1 : undefined,
-            offset : page || undefined
+            'date' : date,
+            'orders_only' : isShowOrderList ? 1 : undefined,
+            'offset' : page || undefined
           }
         }).then(function(response){
             var data = [];
