@@ -32,7 +32,7 @@ angular
           info.push('Username: ' + genealogy.data.userName);
         }
         if (genealogy.data.renewelDate) {
-          info.push('Renewel Date: ' + genealogy.data.renewelDate);
+          info.push('Renewal Date: ' + genealogy.data.renewelDate);
         }
         return info.join('<br>');
       };
