@@ -2,15 +2,11 @@
 $icons-sprite-dimensions: true;
 @include all-icons-sprites;
 
+[class^="icons-"],
+[class*=" icons-"] {
+  display: inline-block;
+}
 
 .icons-food-bowl{
 	padding-left:30px;
-}
-
-.icons-blog, .icons-rss, .icons-facebook, .icons-pinterest{
-  display:inline-block;
-}
-
-.icons-home-performance-personal,.icons-home-performance-central,.icons-home-performance-pv,.icons-home-performance-date{
-
 }

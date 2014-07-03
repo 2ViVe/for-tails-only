@@ -7,13 +7,13 @@
     color: $primary-color;
   }
   .home-performance-item {
-    padding: rem-calc(15) rem-calc(10) rem-calc(10) rem-calc(10);
-    background: #fff;
+    padding: rem-calc(15) rem-calc(10) rem-calc(10);
+    background: #ffffff;
     .home-performance-itemInner {
-      padding-left: rem-calc(90);
+      padding-left: 45px;
       padding-top: rem-calc(35);
-      margin: rem-calc(10) rem-calc(10) rem-calc(20) rem-calc(10);
-      font-size: rem-calc(18);
+      margin: rem-calc(10) rem-calc(10) rem-calc(20);
+      font-size: $large-font-size;
       color: $primary-color;
       height: rem-calc(77);
       width: 100%;
@@ -23,11 +23,17 @@
       }
     }
     h3 {
+      [class^="icons-"],
+      [class*=" icons-"] {
+        float: left;
+        margin-right: 15px;
+      }
+
+      padding-top: 10px;
       border-top: 3px solid $primary-color;
-      height: rem-calc(40);
-      line-height: rem-calc(40);
+      height: 60px;
       color: $grey-darker;
-      font-size: rem-calc(16);
+      font-size: $medium-font-size;
       margin-bottom: 0;
     }
   }
