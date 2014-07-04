@@ -15,6 +15,9 @@ angular.module('fto/header', ['2ViVe'])
       };
 
       $scope.search = function() {
-        $location.path('/search/' + $scope.productName);
+        var productName = $scope.productName;
+        if (productName.length > 2) {
+          $location.path('/search/' + productName);
+        }
       };
     }]);

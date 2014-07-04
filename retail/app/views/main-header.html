@@ -64,8 +64,11 @@
       <!--</div>-->
       <div class='small-4 small-offset-7 columns'>
         <input type='text'
-               ng-model="productName"
+               ng-model="$parent.productName"
                placeholder='Fetch...'
+               tooltip-trigger="focus"
+               tooltip-placement="bottom"
+               tooltip="At least 3 characters"
                class="secondary-item no-margin-bottom" />
       </div>
       <div class='small-1 columns'>
