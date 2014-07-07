@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('2ViVe')
-  .controller('handlerController', ['$scope', '$location', 'Handlers', function($scope, $location, Handlers) {
+  .controller('handlerController', ['$scope', '$location', 'Handlers', 'Registration.Countries', function($scope, $location, Handlers, Countries) {
     $scope.submit = function(){
-      Handlers.fetch($scope.microchipId, $scope.firstName, $scope.lastName).then(function(results){
+      Handlers.fetch($scope.microchipId, $scope.firstName, $scope.lastName, $scope.zipCode, $scope.stateId).then(function(results){
         $scope.results = results;
         $scope.errorMessage = '';
         if (results.length === 0){
@@ -24,6 +24,18 @@ angular.module('2ViVe')
 
     $scope.direct = function(handler){
       window.location.href = '/' + handler.login;
+    };
+
+    Countries.fetch().then(function(countries) {
+      $scope.countries = countries.data;
+    });
+
+    $scope.changeState = function(){
+      $scope.states = $scope.country.states;
+    };
+
+    $scope.selectState = function(){
+      $scope.stateId = $scope.state ? $scope.state.id : null;
     };
 
     $scope.results = [];
