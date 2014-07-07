@@ -17,7 +17,7 @@ angular.module('2ViVe')
       updateOrder(true);
       $scope.selectMonth = $scope.selectMonth.substr(0,2);
     })
-      .catch(function(error){
+      .catch(function(){
         $scope.selectYear = null;
         $scope.selectMonth = null;
       });
@@ -62,5 +62,5 @@ angular.module('2ViVe')
 
     $scope.parseFloat = function(value){
       return parseFloat(value);
-    }
+    };
   }]);
