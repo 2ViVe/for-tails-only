@@ -45,5 +45,12 @@ angular
         }
         refresh($scope.searchId);
       };
+
+      $scope.back = function() {
+        var path = genealogy.path;
+        if (path.length > 1) {
+          refresh(path[path.length - 2]);
+        }
+      };
     }
   ]);

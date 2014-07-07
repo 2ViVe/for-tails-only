@@ -24,5 +24,17 @@ angular
             return Taxons.fetch();
           }]
         }
+      })
+      .when('/search/:query', {
+        controller: 'SearchController',
+        templateUrl: 'views/product/search.html',
+        resolve: {
+          'data': ['Products', '$route',
+            function(Products, $route) {
+              return Products.fetch({
+                q: $route.current.params.query
+              });
+            }]
+        }
       });
   }]);
