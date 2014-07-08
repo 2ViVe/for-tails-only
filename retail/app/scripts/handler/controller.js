@@ -27,12 +27,9 @@ angular.module('2ViVe')
     };
 
     Countries.fetch().then(function(countries) {
-      $scope.countries = countries.data;
-    });
-
-    $scope.changeState = function(){
+      $scope.country = countries.data[0];
       $scope.states = $scope.country.states;
-    };
+    });
 
     $scope.selectState = function(){
       $scope.stateId = $scope.state ? $scope.state.id : null;
