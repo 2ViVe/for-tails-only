@@ -14,5 +14,5 @@ angular.module('fto/product')
 
       $scope.data = data;
       $scope.query = $route.current.params.query;
-      $scope.limit = 20;
+      $scope.limit = 25;
     }]);
