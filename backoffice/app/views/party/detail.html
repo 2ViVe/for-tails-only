@@ -58,12 +58,16 @@
         <div class='columns small-12'>
           <div class='party-price block-margin-bottom'>
             <ul class="row">
-              <li class="small-12 columns text-center">
+              <li class="small-6 columns text-center">
                 {{rewords | price}}
                 <span>Hostess Rewards</span>
                 <small ng-if="rewordsPercentage">
                   {{rewordsPercentage}} in Paw Perks
                 </small>
+              </li>
+              <li class="small-6 columns text-center">
+                {{event.data.orderCloseTime | date: 'medium'}}
+                <span>Order Close Date</span>
               </li>
             </ul>
           </div>
