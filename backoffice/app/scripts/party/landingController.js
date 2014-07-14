@@ -7,8 +7,8 @@ angular.module('fto')
         upcomingOutput = [],
         type = $route.current.params.type;
 
-      function isRecent(endTime) {
-        return moment(endTime).isBefore(new Date());
+      function isRecent(startTime) {
+        return moment(startTime).isBefore(new Date());
       }
 
       function handleRemarks(event) {
@@ -46,7 +46,7 @@ angular.module('fto')
       $scope.remarks = {};
 
       angular.forEach(events, function(event) {
-        if (isRecent(event.endTime)) {
+        if (isRecent(event.startTime)) {
           recentOutput.push(event);
         } else {
           upcomingOutput.push(event);
