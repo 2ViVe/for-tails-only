@@ -48,7 +48,7 @@ angular.module('fto')
       });
 
       $rootScope.$on('$routeChangeError', function(event, current, previous, rejection) {
-        if (rejection.goTo) {
+        if (rejection && rejection.goTo) {
           $location.path(rejection.goTo);
         } else {
           $location.path('/');
