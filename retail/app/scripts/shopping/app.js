@@ -21,7 +21,10 @@ angular
 
               var replicateOwner = LocalStorage.getReplicateOwner();
               var userId = replicateOwner ? replicateOwner['user-id'] : undefined;
-              Events.fetchByUserId(userId, true).then(function(events) {
+              Events.fetchAll({
+                userId: userId,
+                isActive: true
+              }).then(function(events) {
                 if (!events || events.length === 0) {
                   defer.reject({
                     goTo: '/checkout'

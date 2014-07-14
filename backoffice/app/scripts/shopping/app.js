@@ -19,7 +19,9 @@ angular
             function(Events, LocalStorage, $q) {
               var defer = $q.defer();
 
-              Events.fetchAll(true).then(function(events) {
+              Events.fetchAll({
+                isActive: true
+              }).then(function(events) {
                 if (!events || events.length === 0) {
                   defer.reject({
                     goTo: '/products/cats/cat-treats'

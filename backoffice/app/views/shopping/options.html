@@ -24,7 +24,7 @@
         <div class="medium-4">
           <select class="secondary-item no-margin-bottom"
                   ng-model="selectedEvent"
-                  ng-options="event as event.title + ' - ' + (event.startTime | date: 'medium') for event in events| isActive">
+                  ng-options="event as event.title + ' - ' + (event.startTime | date: 'medium') for event in events">
           </select>
         </div>
       </div>
