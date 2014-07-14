@@ -16,7 +16,7 @@ angular
         controller: 'PartyLandingController',
         resolve: {
           events: ['Events', function(Events) {
-            return Events.fetchAll();
+            return Events.fetchAll(true);
           }]
         }
       })
