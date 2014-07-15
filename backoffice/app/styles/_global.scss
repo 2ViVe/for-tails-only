@@ -317,7 +317,13 @@ select.secondary-item{
 .row.collapse > .column, .row.collapse > .columns {
   padding-right: 2px;
 }
-
+.text-clear-btn,.text-clear-btn:hover{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 14px;
+  color: #FFF;
+}
 
 
 
