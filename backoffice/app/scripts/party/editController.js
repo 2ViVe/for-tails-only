@@ -9,6 +9,8 @@ angular.module('fto/party')
       $scope.submitted = false;
       $scope.data = event.data;
       $scope.time = event.getTime();
+      $scope.isEditing = true;
+      $scope.isStarted = event.isStarted();
 
       $scope.times = [];
       for (var hour = 0; hour < 24; hour++) {
