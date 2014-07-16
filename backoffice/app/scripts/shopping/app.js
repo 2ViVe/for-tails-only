@@ -28,6 +28,10 @@ angular
                   });
                 }
                 defer.resolve(events);
+              }).catch(function() {
+                defer.reject({
+                  goTo: '/products/cats/cat-treats'
+                });
               });
 
               return defer.promise;

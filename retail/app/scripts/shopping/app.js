@@ -31,6 +31,10 @@ angular
                   });
                 }
                 defer.resolve(events);
+              }).catch(function() {
+                defer.reject({
+                  goTo: '/checkout'
+                });
               });
 
               return defer.promise;
