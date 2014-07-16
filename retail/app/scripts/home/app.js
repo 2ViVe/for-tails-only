@@ -27,6 +27,9 @@ angular
         templateUrl: 'views/home.html',
         controller: 'HomeController',
         resolve: {
+          replicateInfo: ['$http', '$route', function($http, $route) {
+            $http.get('/' + $route.current.params.owner);
+          }],
           'featureProducts': ['Products', function(Products) {
             return Products.getByCatalog('FP');
           }],

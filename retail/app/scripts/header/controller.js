@@ -6,7 +6,11 @@ angular.module('fto/header', ['2ViVe'])
       $scope.user = User;
       $scope.shopping = Shopping;
       $scope.backOfficeUrl = UrlHandler.backOfficeUrl();
-      $scope.replicateOwner = LocalStorage.getReplicateOwner();
+      $scope.$watch(function() {
+        return LocalStorage.getReplicateOwner();
+      }, function(replicateOwner) {
+        $scope.replicateOwner = replicateOwner;
+      });
 
       $scope.logout = function() {
         User.logout().success(function() {
