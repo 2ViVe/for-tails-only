@@ -3,7 +3,7 @@
 angular.module('fto')
   .controller('PartyLandingController', ['$scope', 'events', '$route', '$location',
     function($scope, events, $route, $location) {
-      var type = $route.current.params.type;
+      var period = $route.current.params.period;
 
       function handleRemarks(event) {
         var startTime = moment(event.startTime);
@@ -32,9 +32,9 @@ angular.module('fto')
         $location.path('/party/overview');
       }
 
-      //change type to upcoming as default
-      if (type !== 'upcoming' && type !== 'recent') {
-        type = 'upcoming';
+      //change period to upcoming as default
+      if (period !== 'upcoming' && period !== 'recent') {
+        period = 'upcoming';
       }
 
       $scope.remarks = {};
@@ -43,6 +43,6 @@ angular.module('fto')
 
       $scope.parties = events;
 
-      $scope.type = type;
+      $scope.period = period;
 
     }]);
