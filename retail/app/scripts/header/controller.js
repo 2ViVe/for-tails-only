@@ -7,7 +7,10 @@ angular.module('fto/header', ['2ViVe'])
       $scope.shopping = Shopping;
       $scope.backOfficeUrl = UrlHandler.backOfficeUrl();
       $scope.$watch(function() {
-        return LocalStorage.getReplicateOwner().login;
+        if (LocalStorage.getReplicateOwner()) {
+          return LocalStorage.getReplicateOwner().login;
+        }
+        return null;
       }, function() {
         $scope.replicateOwner = LocalStorage.getReplicateOwner();
       });
