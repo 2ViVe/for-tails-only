@@ -173,10 +173,26 @@
           </th>
         </tr>
         </thead>
-        <tbody>
-        <tr ng-repeat="product in products">
+        <tbody ng-repeat="product in products">
+        <tr ng-repeat="variant in product.variants">
           <td>
-
+            <img ng-src="{{variant.images[0] | imageSize: 'small' }}"/>
+            {{product.name}}
+            <span ng-repeat="option in variant.options">
+              {{option.presentationValue}}
+            </span>
+          </td>
+          <td>
+            {{variant.sku}}
+          </td>
+          <td>
+            {{variant.price | price}}
+          </td>
+          <td>
+            <input type="number"
+                   class="no-margin-bottom"
+                   ng-model="variant.quantity"
+                   ng-change="updateItemQuantity(variant)"/>
           </td>
         </tr>
         </tbody>
