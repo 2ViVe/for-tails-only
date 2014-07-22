@@ -50,7 +50,6 @@ angular.module('fto', [
         resolve: {
           'replicateOwner': ['$http', '$route',
             function($http, $route) {
-              console.log($route.current);
               var newOwner = $route.current.params.owner;
               return $http.get('/' + newOwner);
             }],
