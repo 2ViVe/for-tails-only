@@ -29,22 +29,5 @@ angular
               }
             }]
         }
-      })
-      .when('/:owner', {
-        templateUrl: 'views/home.html',
-        controller: 'HomeController',
-        resolve: {
-          'replicateOwner': ['$http', '$route',
-            function($http, $route) {
-              var newOwner = $route.current.params.owner;
-              return $http.get('/' + newOwner);
-            }],
-          'featureProducts': ['Products', function(Products) {
-            return Products.getByCatalog('FP');
-          }],
-          'newProducts': ['Products', function(Products) {
-            return Products.getByCatalog('NP');
-          }]
-        }
       });
   }]);

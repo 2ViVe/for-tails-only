@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="columns medium-8">
+    <h2>AUTOSHIP</h2>
+  </div>
+  <div class="columns medium-4">
+    <button class="right">New AutoShip Order</button>
+  </div>
+</div>
+<div class="row">
+
+</div>
+<div class="row">
+  <div class="columns medium-12">
+    <table>
+      <thead>
+      <tr>
+        <th>
+          Order Number
+        </th>
+        <th>
+          State
+        </th>
+        <th>
+          AutoShip Date
+        </th>
+        <th>
+          Total Amount
+        </th>
+        <th>
+          Total PV
+        </th>
+        <th>
+          Next AutoShip Date
+        </th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-if="!autoShips.data || autoShips.data.length === 0">
+        <td colspan="7" class="text-center">
+          No record found.
+        </td>
+      </tr>
+      <tr ng-repeat="autoShip in autoShips.data">
+        <td>
+          {{autoShip.id}}
+        </td>
+        <td>
+          {{autoShip.state}}
+        </td>
+        <td>
+          {{autoShip.autoshipDay}}
+        </td>
+        <td>
+          {{autoShip.total | price}}
+        </td>
+        <td>
+          {{autoShip.qualifictionVolume}}
+        </td>
+        <td>
+          {{autoShip.nextAutoshipDate}}
+        </td>
+        <td>
+          <button class="tiny">View</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

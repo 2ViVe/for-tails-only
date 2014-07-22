@@ -30,7 +30,8 @@ angular.module('fto', [
   'fto/navigation',
   'fto/footer',
   'fto/party',
-  'fto/giftCode'
+  'fto/giftCode',
+  'fto/autoship'
 ])
   .config(function($routeProvider) {
     $routeProvider
@@ -42,6 +43,24 @@ angular.module('fto', [
       })
       .when('/handler-connect-success', {
         templateUrl: 'views/handler/connect-success.html'
+      })
+      .when('/:owner', {
+        templateUrl: 'views/home.html',
+        controller: 'HomeController',
+        resolve: {
+          'replicateOwner': ['$http', '$route',
+            function($http, $route) {
+              console.log($route.current);
+              var newOwner = $route.current.params.owner;
+              return $http.get('/' + newOwner);
+            }],
+          'featureProducts': ['Products', function(Products) {
+            return Products.getByCatalog('FP');
+          }],
+          'newProducts': ['Products', function(Products) {
+            return Products.getByCatalog('NP');
+          }]
+        }
       })
       .otherwise({
         redirectTo: '/'
