@@ -19,6 +19,10 @@ angular
         year: 2014
       };
 
+      $scope.updateItemQuantity = function(variant) {
+
+      };
+
       $scope.submit = function() {
         $scope.error = null;
 
@@ -29,7 +33,9 @@ angular
             products: function() {
               return $scope.products;
             },
-            autoShip: function() {
+            autoShip: ['$q', function($q) {
+              var deferred = $q.defer();
+
               var autoShip = new AutoShip();
               var autoShipItems = [];
               angular.forEach($scope.products, function(product) {
@@ -43,13 +49,19 @@ angular
                 });
               });
               autoShip.address = $scope.address;
-              return autoShip.orderSummary(autoShipItems,
+              autoShip.orderSummary(autoShipItems,
                 $scope.address.shipping,
                 $scope.shippingMethod.id)
+                .then(function() {
+                  deferred.resolve(autoShip);
+                })
                 .catch(function(response) {
                   $scope.error = response.data.meta.error.message;
+                  deferred.reject();
                 });
-            }
+
+              return deferred.promise;
+            }]
           }
         });
       };

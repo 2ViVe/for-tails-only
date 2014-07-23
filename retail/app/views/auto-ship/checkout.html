@@ -18,30 +18,47 @@
           </th>
         </tr>
         </thead>
-        <tbody ng-repeat="product in products">
-        <tr ng-repeat="variant in product.variants">
+        <tbody>
+        <tr ng-repeat="item in order.autoshipItems">
           <td>
-            <img ng-src="{{variant.images[0]}}"/>
-            {{product.name}}
-            <span ng-repeat="option in variant.options">
-              {{option.presentationValue}}
-            </span>
+            <img ng-src="{{item.imageUrl | imageSize: 'small' }}"/>
+            {{item.productName}}
           </td>
           <td>
-            {{variant.sku}}
+            {{item.sku}}
           </td>
           <td>
-            {{variant.price | price}}
+            {{item.price | price}}
           </td>
           <td>
-            {{}}
+            {{item.quantity}}
           </td>
         </tr>
         </tbody>
+        <tfoot>
+        <tr>
+          <td class="text-right" colspan="4">
+            <p>Updated Subtotal: {{order.itemTotal | price}} </p>
+            <p ng-repeat="adjustment in order.adjustments">
+              {{adjustment.label}}: {{adjustment.amount | price}}
+            </p>
+            <strong>Total Price: {{order.total | price}} </strong>
+          </td>
+        </tr>
+        </tfoot>
       </table>
     </div>
   </div>
 
   <div data-creditcard-panel
        data-creditcard="creditcard"></div>
+
+  <div class="row">
+    <div class="columns medium-2">
+      <button>Checkout</button>
+    </div>
+    <div class="columns medium-2 end">
+      <button>Cancel</button>
+    </div>
+  </div>
 </form>

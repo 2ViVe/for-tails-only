@@ -2,10 +2,9 @@
 
 angular
   .module('fto/autoship')
-  .controller('AutoShipsController', ['$scope', 'autoShip', 'products',
-    function($scope, autoShip, products) {
+  .controller('AutoShipCheckoutController', ['$scope', 'autoShip',
+    function($scope, autoShip) {
 
-      $scope.products = products;
       $scope.order = autoShip.orderSummary;
 
     }
