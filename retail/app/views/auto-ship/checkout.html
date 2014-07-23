@@ -50,13 +50,31 @@
     </div>
   </div>
 
-  <div data-creditcard-panel
-       data-creditcard="creditcard"></div>
+  <div class="row">
+    <div class="columns medium-12">
+      <h6>
+        PAYMENT METHODS
+      </h6>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns medium-12">
+      <label ng-repeat="paymentMethod in paymentMethods">
+        <input type='radio' ng-model="$parent.autoShip.paymentMethod" ng-value="paymentMethod" />
+        {{paymentMethod.name}}
+      </label>
+    </div>
+  </div>
+
+  <div ng-if="autoShip.paymentMethod.isCreditcard"
+       data-creditcard-panel
+       data-submitted="submitted"
+       data-creditcard="autoShip.creditcard"></div>
 
   <div class="row">
     <div class="columns medium-12">
-      <button class="right">Cancel</button>
-      <button class="right">Checkout</button>
+      <button class="right" ng-click="cancel()">Cancel</button>
+      <button class="right" ng-click="checkout()">Checkout</button>
     </div>
   </div>
 </form>

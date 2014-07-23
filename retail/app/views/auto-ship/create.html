@@ -18,7 +18,7 @@
       <label class="required inline" for="date">Autoship Date</label>
     </div>
     <div class="columns medium-2 end">
-      <select name="date" id="date" ng-model="autoshipDay">
+      <select name="date" id="date" ng-model="autoShip.autoShipDay">
         <option value="7">7th</option>
         <option value="21">21th</option>
       </select>
@@ -29,7 +29,7 @@
       <label class="required inline" for="month">Starting Month/Year</label>
     </div>
     <div class="columns medium-2">
-      <select name="month" id="month" ng-model="startDate.month">
+      <select name="month" id="month" ng-model="autoShip.startDate.month">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -45,7 +45,7 @@
       </select>
     </div>
     <div class="columns medium-2 end">
-      <select name="year" id="year" ng-model="startDate.year">
+      <select name="year" id="year" ng-model="autoShip.startDate.year">
         <option value="2014">2014</option>
         <option value="2015">2015</option>
       </select>
@@ -63,18 +63,18 @@
     <div class='medium-12 columns'>
       <ul>
         <li class="locality">
-          {{address.shipping.firstName}}
-          {{address.shipping.m}}
-          {{address.shipping.lastName}}
+          {{autoShip.address.shipping.firstName}}
+          {{autoShip.address.shipping.m}}
+          {{autoShip.address.shipping.lastName}}
         </li>
         <li class="locality">
-          {{address.shipping.street}},
-          {{address.shipping.city}},
-          {{address.shipping.state.name}},
-          {{address.shipping.country.name}},
-          {{address.shipping.zip}}
+          {{autoShip.address.shipping.street}},
+          {{autoShip.address.shipping.city}},
+          {{autoShip.address.shipping.state.name}},
+          {{autoShip.address.shipping.country.name}},
+          {{autoShip.address.shipping.zip}}
         </li>
-        <li class="locality">Phone: {{address.shipping.phone}}</li>
+        <li class="locality">Phone: {{autoShip.address.shipping.phone}}</li>
       </ul>
     </div>
   </div>
@@ -105,7 +105,7 @@
       <select name="shippingMethod"
               id="shipping-method"
               ng-options="shippingMethod as shippingMethod.name for shippingMethod in shippingMethods"
-              ng-model="shippingMethod"></select>
+              ng-model="autoShip.shippingMethod"></select>
     </div>
   </div>
 
@@ -120,18 +120,18 @@
     <div class='medium-12 columns'>
       <ul>
         <li class="locality">
-          {{address.billing.firstName}}
-          {{address.billing.m}}
-          {{address.billing.lastName}}
+          {{autoShip.address.billing.firstName}}
+          {{autoShip.address.billing.m}}
+          {{autoShip.address.billing.lastName}}
         </li>
         <li class="locality">
-          {{address.billing.street}},
-          {{address.billing.city}},
-          {{address.billing.state.name}},
-          {{address.billing.country.name}},
-          {{address.billing.zip}}
+          {{autoShip.address.billing.street}},
+          {{autoShip.address.billing.city}},
+          {{autoShip.address.billing.state.name}},
+          {{autoShip.address.billing.country.name}},
+          {{autoShip.address.billing.zip}}
         </li>
-        <li class="locality">Phone: {{address.billing.phone}}</li>
+        <li class="locality">Phone: {{autoShip.address.billing.phone}}</li>
       </ul>
     </div>
   </div>
