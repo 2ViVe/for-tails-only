@@ -1,0 +1,47 @@
+<form name="paymentForm" novalidate>
+  <div class="row">
+    <div class="columns medium-12">
+      <table>
+        <thead>
+        <tr>
+          <th>
+            Item
+          </th>
+          <th>
+            SKU
+          </th>
+          <th>
+            Price
+          </th>
+          <th>
+            Autoship Quantity
+          </th>
+        </tr>
+        </thead>
+        <tbody ng-repeat="product in products">
+        <tr ng-repeat="variant in product.variants">
+          <td>
+            <img ng-src="{{variant.images[0]}}"/>
+            {{product.name}}
+            <span ng-repeat="option in variant.options">
+              {{option.presentationValue}}
+            </span>
+          </td>
+          <td>
+            {{variant.sku}}
+          </td>
+          <td>
+            {{variant.price | price}}
+          </td>
+          <td>
+            {{}}
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div data-creditcard-panel
+       data-creditcard="creditcard"></div>
+</form>

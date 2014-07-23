@@ -200,6 +200,14 @@
     </div>
   </div>
 
+  <div class="row" ng-if="error">
+    <div class="columns medium-12">
+      <div class="alert-box error">
+        {{error}}
+      </div>
+    </div>
+  </div>
+
   <div class="row">
     <div class="columns medium-12">
       <button type="submit">Submit</button>
