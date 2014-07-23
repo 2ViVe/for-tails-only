@@ -62,6 +62,7 @@
         </td>
         <td>
           <button ng-click="showDetails(autoShip)" class="tiny">View</button>
+          <button ng-show="autoShip.state !== 'cancelled'" ng-click="cancel(autoShip)" class="tiny">Cancel</button>
         </td>
       </tr>
       </tbody>
