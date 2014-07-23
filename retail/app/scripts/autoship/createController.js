@@ -19,10 +19,6 @@ angular
         year: 2014
       };
 
-      $scope.updateItemQuantity = function(variant) {
-
-      };
-
       $scope.submit = function() {
         $scope.error = null;
 

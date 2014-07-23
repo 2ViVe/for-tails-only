@@ -24,21 +24,28 @@ button,
   color:#F64F99;
 }
 
-form {
+.button,
+button {
+  &[disabled],
+  &.disabled {
+    background-color: $grey-darker;
 
-  .button,
-  button {
-    &[disabled],
-    &.disabled {
+    &:hover,
+    &:focus {
       background-color: $grey-darker;
-
-      &:hover,
-      &:focus {
-        background-color: $grey-darker;
-      }
     }
   }
 
+  &.right {
+    margin-right: 10px;
+
+    &:first-child {
+      margin-right: 0;
+    }
+  }
+}
+
+form {
   .title {
     margin-top: 20px;
     margin-bottom: 10px;
