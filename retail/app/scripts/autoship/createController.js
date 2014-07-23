@@ -6,6 +6,7 @@ angular
     function($scope, autoShips, address, $modal, AutoShip, $location) {
 
       var autoShip = new AutoShip();
+      autoShip.roleCode = '';
       autoShip.address = address;
       autoShip.autoShipDay = 7;
       autoShip.startDate = {
