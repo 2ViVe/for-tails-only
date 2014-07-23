@@ -16,7 +16,10 @@ angular
         $scope.submitted = true;
 
         if (this.paymentForm.$valid) {
-          autoShip.create();
+          autoShip.create()
+            .then(function() {
+              $modalInstance.close();
+            });
         }
       };
 

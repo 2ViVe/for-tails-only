@@ -2,8 +2,8 @@
 
 angular
   .module('fto/autoship')
-  .controller('AutoShipCreateController', ['$scope', 'autoShips', 'address', '$modal', 'AutoShip',
-    function($scope, autoShips, address, $modal, AutoShip) {
+  .controller('AutoShipCreateController', ['$scope', 'autoShips', 'address', '$modal', 'AutoShip', '$location',
+    function($scope, autoShips, address, $modal, AutoShip, $location) {
 
       var autoShip = new AutoShip();
       autoShip.address = address;
@@ -52,7 +52,7 @@ angular
                 });
               });
               autoShip.autoShipItems = autoShipItems;
-              autoShip.orderSummary()
+              autoShip.fetchOrderSummary()
                 .then(function() {
                   deferred.resolve(autoShip);
                 })
@@ -64,6 +64,8 @@ angular
               return deferred.promise;
             }]
           }
+        }).result.then(function() {
+            $location.path('/autoship');
         });
       };
 
