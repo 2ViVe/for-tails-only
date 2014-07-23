@@ -22,6 +22,24 @@ angular
 
       $scope.products = autoShips.products;
 
+      $scope.editShippingAddress = function() {
+        $modal.open({
+          templateUrl: 'views/checkout/shipping-address.html',
+          controller: 'ShippingModalController'
+        }).result.then(function(shippingAddress) {
+            shippingAddress.extendDataTo(autoShip.address.shipping);
+          });
+      };
+
+      $scope.editBillingAddress = function() {
+        $modal.open({
+          templateUrl: 'views/checkout/billing-address.html',
+          controller: 'BillingModalController'
+        }).result.then(function(billingAddress) {
+            billingAddress.extendDataTo(autoShip.address.billing);
+          });
+      };
+
       $scope.submit = function() {
         $scope.error = null;
 
@@ -67,7 +85,7 @@ angular
           }
         }).result.then(function() {
             $location.path('/autoship');
-        });
+          });
       };
 
     }
