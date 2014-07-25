@@ -30,7 +30,8 @@ angular.module('fto', [
   'fto/tools',
   'fto/footer',
   'fto/genealogy',
-  'fto/commission'
+  'fto/commission',
+  'fto/autoship'
 ])
   .config(function($routeProvider) {
     $routeProvider

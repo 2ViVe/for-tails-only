@@ -43,6 +43,9 @@
       <li ng-if="user.isLogin">
         <a ng-href="#/report/order">Orders</a>
       </li>
+      <li ng-if="user.isLogin">
+        <a href="#/autoship">AutoShip Order</a>
+      </li>
       <li ng-if="user.data.roleCode === 'R'">
         <a href="#/gift-codes">
           Gift Codes

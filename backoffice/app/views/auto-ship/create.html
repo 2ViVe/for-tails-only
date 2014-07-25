@@ -13,18 +13,17 @@
       </h4>
     </div>
   </div>
-  <!--<div class="row">-->
-    <!--<div class="columns medium-2">-->
-      <!--<label class="required inline" for="role-code">Autoship For</label>-->
-    <!--</div>-->
-    <!--<div class="columns medium-2 end">-->
-      <!--<select name="roleCode" id="role-code" ng-model="autoShip.roleCode">-->
-        <!--<option value="">Self</option>-->
-        <!--<option value="R">Customer</option>-->
-        <!--<option value="D">Handler</option>-->
-      <!--</select>-->
-    <!--</div>-->
-  <!--</div>-->
+  <div class="row">
+    <div class="columns medium-2">
+      <label class="required inline" for="role-code">Autoship For</label>
+    </div>
+    <div class="columns medium-2 end">
+      <select name="roleCode" id="role-code" ng-init="autoShip.roleCode = 'D'" ng-model="autoShip.roleCode">
+        <option value="D">My Self</option>
+        <option value="R">Retail Customer</option>
+      </select>
+    </div>
+  </div>
   <div class="row">
     <div class="columns medium-2">
       <label class="required inline" for="date">Autoship Date</label>
