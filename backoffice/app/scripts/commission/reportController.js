@@ -1,12 +1,13 @@
 'use strict';
 
 angular.module('2ViVe')
-  .controller('OrganizationController', ['$scope', 'organization', function($scope, organization) {
-    organization.getDate().then(function(date){
+  .controller('CommissionReportController', ['$scope', 'commission', function($scope, commission) {
+    $scope.commissionTypes = commission.type;
+
+    commission.getDate().then(function(date){
       $scope.curpage = 1;
-      $scope.isShowOrderList = false;
+      $scope.selectType = $scope.commissionTypes[0];
       $scope.distributorId = null;
-      $scope.orders = [];
       $scope.dateArr = date;
       $scope.years = Object.keys(date);
       $scope.months = date[$scope.selectYear];
@@ -14,7 +15,7 @@ angular.module('2ViVe')
       $scope.selectMonth = date[$scope.selectYear][0];
       $scope.date = $scope.selectYear + $scope.selectMonth;
       $scope.months = date[$scope.selectYear];
-      updateOrder(true);
+      updateReport(true);
       $scope.selectMonth = $scope.selectMonth.substr(0,2);
     })
       .catch(function(){
@@ -22,19 +23,17 @@ angular.module('2ViVe')
         $scope.selectMonth = null;
       });
 
-    var updateOrder = $scope.updateOrder = function(reflash){
+    var updateReport = $scope.updateReport = function(reflash){
       if (reflash) {
         $scope.offset = 0;
         $scope.curpage = 1;
       }
-      return organization.fetch($scope.date, $scope.isShowOrderList, $scope.distributorId, $scope.offset)
+      return commission.fetch($scope.date, $scope.selectType.code, $scope.offset)
         .then(function(result){
-          $scope.orders = result.rows;
-          if($scope.distributorId){
-            $scope.count = 1;
-          } else {
-            $scope.count = result.meta.count;
-          }
+          $scope.names = result.data.names;
+          $scope.values = result.data.values;
+          $scope.count = result.meta.count;
+          $scope.overview = result.overview;
         })
         .then(function(){
           if (reflash){
@@ -46,24 +45,19 @@ angular.module('2ViVe')
     $scope.goToPage = function(page){
       $scope.curpage = page;
       $scope.offset = ($scope.curpage - 1) * 25 + 1;
-      updateOrder();
+      updateReport();
     };
 
-    $scope.getMonth = function(){
-      $scope.months = $scope.dateArr[$scope.selectYear];
+    $scope.updateType = function(){
+      console.log($scope.selectType);
+      updateReport(true);
     };
 
     $scope.updateDate = function(){
       $scope.date = $scope.selectYear + $scope.selectMonth + '01' ;
-      updateOrder(true);
+      updateReport(true);
     };
 
-    $scope.parseFloat = function(value){
-      return parseFloat(value);
-    };
 
-    $scope.clearDistributorId = function(){
-      $scope.distributorId = null;
-      updateOrder(true);
-    };
+
   }]);

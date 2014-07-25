@@ -1,0 +1,228 @@
+<form novalidate name="form" ng-submit="submit()">
+
+  <div class="row">
+    <div class="columns medium-12">
+      <h2>NEW AUTOSHIP ORDER</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns medium-12">
+      <h4 class="primary-color no-margin-bottom">
+        Autoship Setting
+      </h4>
+    </div>
+  </div>
+  <!--<div class="row">-->
+    <!--<div class="columns medium-2">-->
+      <!--<label class="required inline" for="role-code">Autoship For</label>-->
+    <!--</div>-->
+    <!--<div class="columns medium-2 end">-->
+      <!--<select name="roleCode" id="role-code" ng-model="autoShip.roleCode">-->
+        <!--<option value="">Self</option>-->
+        <!--<option value="R">Customer</option>-->
+        <!--<option value="D">Handler</option>-->
+      <!--</select>-->
+    <!--</div>-->
+  <!--</div>-->
+  <div class="row">
+    <div class="columns medium-2">
+      <label class="required inline" for="date">Autoship Date</label>
+    </div>
+    <div class="columns medium-2 end">
+      <select name="date" id="date" ng-model="autoShip.autoShipDay">
+        <option value="7">7th</option>
+        <option value="21">21th</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns medium-2">
+      <label class="required inline" for="month">Starting Month/Year</label>
+    </div>
+    <div class="columns medium-2">
+      <select name="month" id="month" ng-model="autoShip.startDate.month">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+      </select>
+    </div>
+    <div class="columns medium-2 end">
+      <select name="year" id="year" ng-model="autoShip.startDate.year">
+        <option value="2014">2014</option>
+        <option value="2015">2015</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns medium-12">
+      <h4 class="primary-color no-margin-bottom">
+        Shipping Address
+      </h4>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='medium-12 columns'>
+      <ul>
+        <li class="locality">
+          {{autoShip.address.shipping.firstName}}
+          {{autoShip.address.shipping.m}}
+          {{autoShip.address.shipping.lastName}}
+        </li>
+        <li class="locality">
+          {{autoShip.address.shipping.street}},
+          {{autoShip.address.shipping.city}},
+          {{autoShip.address.shipping.state.name}},
+          {{autoShip.address.shipping.country.name}},
+          {{autoShip.address.shipping.zip}}
+        </li>
+        <li class="locality">Phone: {{autoShip.address.shipping.phone}}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns medium-12">
+      <p>
+        <button ng-click="editShippingAddress()"
+                class="tiny">
+          <i class="fa fa-pencil-square-o"></i>
+          Edit
+        </button>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns medium-12">
+      <h4 class="primary-color no-margin-bottom">
+        Shipping Method
+      </h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns medium-2">
+      <label for="shipping-method" class="required inline">Shipping Method</label>
+    </div>
+    <div class="columns medium-4 end">
+      <select name="shippingMethod"
+              id="shipping-method"
+              ng-options="shippingMethod as shippingMethod.name for shippingMethod in shippingMethods"
+              ng-model="autoShip.shippingMethod"></select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns medium-12">
+      <h4 class="primary-color no-margin-bottom">
+        Billing Address
+      </h4>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='medium-12 columns'>
+      <ul>
+        <li class="locality">
+          {{autoShip.address.billing.firstName}}
+          {{autoShip.address.billing.m}}
+          {{autoShip.address.billing.lastName}}
+        </li>
+        <li class="locality">
+          {{autoShip.address.billing.street}},
+          {{autoShip.address.billing.city}},
+          {{autoShip.address.billing.state.name}},
+          {{autoShip.address.billing.country.name}},
+          {{autoShip.address.billing.zip}}
+        </li>
+        <li class="locality">Phone: {{autoShip.address.billing.phone}}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns medium-12">
+      <p>
+        <button ng-click="editBillingAddress()"
+                class="tiny">
+          <i class="fa fa-pencil-square-o"></i>
+          Edit
+        </button>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns medium-12">
+      <h4 class="primary-color no-margin-bottom">
+        Products
+      </h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns medium-12">
+      <table>
+        <thead>
+        <tr>
+          <th>
+            Item
+          </th>
+          <th>
+            SKU
+          </th>
+          <th>
+            Price
+          </th>
+          <th>
+            Autoship Quantity
+          </th>
+        </tr>
+        </thead>
+        <tbody ng-repeat="product in products">
+        <tr ng-repeat="variant in product.variants">
+          <td>
+            <img ng-src="{{variant.images[0] | imageSize: 'small' }}"/>
+            {{product.name}}
+            <span ng-repeat="option in variant.options">
+              {{option.presentationValue}}
+            </span>
+          </td>
+          <td>
+            {{variant.sku}}
+          </td>
+          <td>
+            {{variant.price | price}}
+          </td>
+          <td>
+            <input type="number"
+                   class="no-margin-bottom"
+                   ng-change="updateItemQuantity(variant)"
+                   ng-model="variant.newQuantity"/>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row" ng-if="error">
+    <div class="columns medium-12">
+      <div class="alert-box error">
+        {{error}}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns medium-12">
+      <button class="right" type="submit">Submit</button>
+    </div>
+  </div>
+</form>

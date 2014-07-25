@@ -29,7 +29,9 @@ angular.module('fto', [
   'fto/giftCode',
   'fto/tools',
   'fto/footer',
-  'fto/genealogy'
+  'fto/genealogy',
+  'fto/commission',
+  'fto/autoship'
 ])
   .config(function($routeProvider) {
     $routeProvider
