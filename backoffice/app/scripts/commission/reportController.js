@@ -56,7 +56,7 @@ angular.module('2ViVe')
     $scope.updateDate = function(){
       $scope.date = $scope.selectYear + $scope.selectMonth + '01' ;
       updateReport(true);
-    }
+    };
 
 
 

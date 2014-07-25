@@ -30,11 +30,11 @@ angular.module('2ViVe')
       return organization.fetch($scope.date, $scope.isShowOrderList, $scope.distributorId, $scope.offset)
         .then(function(result){
           $scope.orders = result.rows;
-            if($scope.distributorId){
-              $scope.count = 1;
-            } else {
-              $scope.count = result.meta.count;
-            }
+          if($scope.distributorId){
+            $scope.count = 1;
+          } else {
+            $scope.count = result.meta.count;
+          }
         })
         .then(function(){
           if (reflash){
