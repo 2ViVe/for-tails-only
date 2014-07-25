@@ -1,0 +1,80 @@
+<form name="paymentForm" novalidate>
+  <div class="row">
+    <div class="columns medium-12">
+      <table>
+        <thead>
+        <tr>
+          <th>
+            Item
+          </th>
+          <th>
+            SKU
+          </th>
+          <th>
+            Price
+          </th>
+          <th>
+            Autoship Quantity
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in order.autoshipItems">
+          <td>
+            <img ng-src="{{item.imageUrl | imageSize: 'small' }}"/>
+            {{item.productName}}
+          </td>
+          <td>
+            {{item.sku}}
+          </td>
+          <td>
+            {{item.price | price}}
+          </td>
+          <td>
+            {{item.quantity}}
+          </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td class="text-right" colspan="4">
+            <p>Updated Subtotal: {{order.itemTotal | price}} </p>
+            <p ng-repeat="adjustment in order.adjustments">
+              {{adjustment.label}}: {{adjustment.amount | price}}
+            </p>
+            <strong>Total Price: {{order.total | price}} </strong>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns medium-12">
+      <h6>
+        PAYMENT METHODS
+      </h6>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns medium-12">
+      <label ng-repeat="paymentMethod in paymentMethods">
+        <input type='radio' ng-model="$parent.autoShip.paymentMethod" ng-value="paymentMethod" />
+        {{paymentMethod.name}}
+      </label>
+    </div>
+  </div>
+
+  <div ng-if="autoShip.paymentMethod.isCreditcard"
+       data-creditcard-panel
+       data-submitted="submitted"
+       data-creditcard="autoShip.creditcard"></div>
+
+  <div class="row">
+    <div class="columns medium-12">
+      <button class="right" ng-click="cancel()">Cancel</button>
+      <button class="right" ng-click="checkout()">Checkout</button>
+    </div>
+  </div>
+</form>

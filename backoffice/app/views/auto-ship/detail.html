@@ -1,0 +1,125 @@
+<div class="row">
+  <div class="columns medium-12">
+    <h4>
+      Order Detail
+    </h4>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns medium-12">
+    <h5 class="primary-color no-margin-bottom">
+      Shipping Address
+    </h5>
+  </div>
+</div>
+<div class="row">
+  <div class="columns medium-12">
+    <ul>
+      <li class="locality">
+        {{autoShip.shippingAddress.firstName}}
+        {{autoShip.shippingAddress.m}}
+        {{autoShip.shippingAddress.lastName}}
+      </li>
+      <li class="locality">
+        {{autoShip.shippingAddress.street}},
+        {{autoShip.shippingAddress.city}},
+        {{autoShip.shippingAddress.state}},
+        {{autoShip.shippingAddress.country}},
+        {{autoShip.shippingAddress.zip}}
+      </li>
+      <li class="locality">Phone: {{autoShip.shippingAddress.phone}}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns medium-12">
+    <h5 class="primary-color no-margin-bottom">
+      Billing Address
+    </h5>
+  </div>
+</div>
+<div class='row'>
+  <div class='medium-12 columns'>
+    <ul>
+      <li class="locality">
+        {{autoShip.billingAddress.firstName}}
+        {{autoShip.billingAddress.m}}
+        {{autoShip.billingAddress.lastName}}
+      </li>
+      <li class="locality">
+        {{autoShip.billingAddress.street}},
+        {{autoShip.billingAddress.city}},
+        {{autoShip.billingAddress.state}},
+        {{autoShip.billingAddress.country}},
+        {{autoShip.billingAddress.zip}}
+      </li>
+      <li class="locality">Phone: {{autoShip.billingAddress.phone}}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns medium-12">
+    <h5 class="primary-color no-margin-bottom">
+      Products
+    </h5>
+  </div>
+</div>
+<div class="row">
+  <div class="columns medium-12">
+    <table>
+      <thead>
+      <tr>
+        <th>
+          Item
+        </th>
+        <th>
+          SKU
+        </th>
+        <th>
+          Price
+        </th>
+        <th>
+          Autoship Quantity
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="item in autoShip.autoshipItems">
+        <td>
+          <img ng-src="{{item.imageUrl | imageSize: 'small' }}"/>
+          {{item.productName}}
+        </td>
+        <td>
+          {{item.sku}}
+        </td>
+        <td>
+          {{item.price | price}}
+        </td>
+        <td>
+          {{item.quantity}}
+        </td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+        <td class="text-right" colspan="4">
+          <p>Updated Subtotal: {{autoShip.itemTotal | price}} </p>
+          <p ng-repeat="adjustment in autoShip.adjustments">
+            {{adjustment.label}}: {{adjustment.amount | price}}
+          </p>
+          <strong>Total Price: {{autoShip.total | price}} </strong>
+        </td>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns medium-12">
+    <button class="right" ng-click="close()">Close</button>
+  </div>
+</div>
