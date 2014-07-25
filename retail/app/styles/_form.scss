@@ -2,6 +2,24 @@
 
 button,
 .button {
+  &[disabled],
+  &.disabled {
+    background-color: $grey-darker;
+
+    &:hover,
+    &:focus {
+      background-color: $grey-darker;
+    }
+  }
+
+  &.right {
+    margin-right: 10px;
+
+    &:first-child {
+      margin-right: 0;
+    }
+  }
+
   &.tertiary {
     background-color: $grey-darker;
 
@@ -22,27 +40,6 @@ button,
 .required:after {
   content: " *";
   color:#F64F99;
-}
-
-.button,
-button {
-  &[disabled],
-  &.disabled {
-    background-color: $grey-darker;
-
-    &:hover,
-    &:focus {
-      background-color: $grey-darker;
-    }
-  }
-
-  &.right {
-    margin-right: 10px;
-
-    &:first-child {
-      margin-right: 0;
-    }
-  }
 }
 
 form {

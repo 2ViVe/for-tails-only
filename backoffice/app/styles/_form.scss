@@ -2,6 +2,24 @@
 
 button,
 .button {
+  &[disabled],
+  &.disabled {
+    background-color: $grey-darker;
+
+    &:hover,
+    &:focus {
+      background-color: $grey-darker;
+    }
+  }
+
+  &.right {
+    margin-right: 10px;
+
+    &:first-child {
+      margin-right: 0;
+    }
+  }
+
   &.tertiary {
     background-color: $grey-darker;
 
@@ -25,19 +43,6 @@ button,
 }
 
 form {
-
-  .button,
-  button {
-    &[disabled],
-    &.disabled {
-      background-color: $grey-darker;
-
-      &:hover,
-      &:focus {
-        background-color: $grey-darker;
-      }
-    }
-  }
 
   .title {
     margin-top: 20px;
