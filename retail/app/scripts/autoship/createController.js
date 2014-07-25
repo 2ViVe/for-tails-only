@@ -22,6 +22,16 @@ angular
 
       $scope.products = autoShips.products;
 
+      $scope.updateItemQuantity = function(item) {
+        var newQuantity = item.newQuantity;
+        if (isNaN(newQuantity) || newQuantity < 0) {
+          item.newQuantity = item.quantity;
+        } else {
+          item.newQuantity = parseInt(newQuantity);
+          item.quantity = item.newQuantity;
+        }
+      };
+
       $scope.editShippingAddress = function() {
         $modal.open({
           templateUrl: 'views/checkout/shipping-address.html',

@@ -203,7 +203,8 @@
           <td>
             <input type="number"
                    class="no-margin-bottom"
-                   ng-model="variant.quantity"/>
+                   ng-change="updateItemQuantity(variant)"
+                   ng-model="variant.newQuantity"/>
           </td>
         </tr>
         </tbody>
