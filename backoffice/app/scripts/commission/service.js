@@ -39,5 +39,16 @@ angular.module('2ViVe')
         });
       };
 
+      Commission.prototype.fetchRank = function(date){
+        return $http.get('/api/v2/commissions/ranks', {
+          transformResponse: camelCaselize,
+          params : {
+            'date' : date
+          }
+        }).then(function(response) {
+          return response.data.response;
+        });
+      };
+
       return Commission;
     }]);

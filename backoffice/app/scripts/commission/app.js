@@ -19,5 +19,9 @@ angular
             return new Commission().fetchType();
           }]
         }
+      })
+      .when('/commission/rank', {
+        templateUrl: 'views/commission/rank.html',
+        controller: 'CommissionRankController'
       });
   }]);
