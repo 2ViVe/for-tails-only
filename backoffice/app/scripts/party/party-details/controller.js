@@ -11,15 +11,18 @@ angular.module('fto/party')
       $scope.rewords = 0;
       $scope.rewordsPercentage = undefined;
       var ordersItemTotal = event.ordersItemTotal();
-      if (ordersItemTotal >= 200 && ordersItemTotal < 500) {
-        $scope.rewords = ordersItemTotal * 0.1;
-        $scope.rewordsPercentage = '10%';
-      } else if (ordersItemTotal >= 500 && ordersItemTotal < 750) {
-        $scope.rewords = ordersItemTotal * 0.15;
-        $scope.rewordsPercentage = '15%';
-      } else if (ordersItemTotal >= 750) {
-        $scope.rewords = ordersItemTotal * 0.2;
-        $scope.rewordsPercentage = '20%';
+      if (ordersItemTotal >= 200 && ordersItemTotal < 299) {
+        $scope.rewords = 15;
+      } else if (ordersItemTotal >= 300 && ordersItemTotal < 399) {
+        $scope.rewords = 25;
+      } else if (ordersItemTotal >= 400 && ordersItemTotal < 499) {
+        $scope.rewords = 45;
+      } else if (ordersItemTotal >= 500 && ordersItemTotal < 799) {
+        $scope.rewords = 60;
+      } else if (ordersItemTotal >= 800 && ordersItemTotal < 999) {
+        $scope.rewords = 90;
+      } else if (ordersItemTotal >= 1000) {
+        $scope.rewords = 115;
       }
 
       $scope.deleteInvites = function() {
