@@ -4,6 +4,7 @@ angular.module('2ViVe')
   .controller('OrganizationController', ['$scope', 'organization', function($scope, organization) {
     organization.getDate().then(function(date){
       $scope.offset = 0;
+      $scope.limit = 25;
       $scope.isShowOrderList = false;
       $scope.distributorId = null;
       $scope.orders = [];
