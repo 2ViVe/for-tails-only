@@ -3,7 +3,7 @@
 angular.module('2ViVe')
   .controller('OrganizationController', ['$scope', 'organization', function($scope, organization) {
     organization.getDate().then(function(date){
-      $scope.curpage = 1;
+      $scope.offset = 0;
       $scope.isShowOrderList = false;
       $scope.distributorId = null;
       $scope.orders = [];
@@ -23,11 +23,7 @@ angular.module('2ViVe')
       });
 
     var updateOrder = $scope.updateOrder = function(reflash){
-      if (reflash) {
-        $scope.offset = 0;
-        $scope.curpage = 1;
-      }
-      return organization.fetch($scope.date, $scope.isShowOrderList, $scope.distributorId, $scope.offset)
+      return organization.fetch($scope.date, $scope.isShowOrderList, $scope.distributorId, $scope.offset, $scope.limit)
         .then(function(result){
           $scope.orders = result.rows;
           if($scope.distributorId){
@@ -43,9 +39,9 @@ angular.module('2ViVe')
         });
     };
 
-    $scope.goToPage = function(page){
-      $scope.curpage = page;
-      $scope.offset = ($scope.curpage - 1) * 25 + 1;
+    $scope.goToPage = function(offset, limit){
+      $scope.offset = offset;
+      $scope.limit = limit;
       updateOrder();
     };
 

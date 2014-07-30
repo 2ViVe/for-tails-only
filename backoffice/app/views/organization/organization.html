@@ -69,7 +69,7 @@
 </div>
 <div class="row" ng-show="count > 25">
   <div class="columns small-2">
-    <p class="organization-count">{{ (curpage * 25 > count) ? count : curpage * 25  }} of {{count}}</p>
+    <p class="organization-count">{{ ((offset + limit)  > count) ? count : (offset + limit)  }} of {{count}}</p>
   </div>
   <div class="columns small-10">
     <vive-pagination data-start-page="first"
@@ -78,7 +78,8 @@
                      data-on-next-page="goToPage"
                      data-on-previous-page="goToPage"
                      data-on-go-to-page="goToPage"
-                     data-number-per-page="25"></vive-pagination>
+                     data-number-per-page="25"
+                     data-limit-arr=[10,25,100]></vive-pagination>
   </div>
 </div>
 <div class="row" ng-if="!orders.length">
