@@ -26,13 +26,14 @@ angular.module('2ViVe')
         });
       };
 
-      Commission.prototype.fetch = function(date, typeCode, offset){
+      Commission.prototype.fetch = function(date, typeCode, offset, limit){
         return $http.get('/api/v2/commissions/monthly', {
           transformResponse: camelCaselize,
           params : {
             'date' : date,
             'type-code' : typeCode,
-            'offset' : offset || undefined
+            'offset' : offset || undefined,
+            'limit' : limit || undefined
           }
         }).then(function(response) {
           return response.data.response;

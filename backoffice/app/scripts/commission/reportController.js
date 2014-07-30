@@ -5,7 +5,8 @@ angular.module('2ViVe')
     $scope.commissionTypes = commission.type;
 
     commission.getDate().then(function(date){
-      $scope.curpage = 1;
+      $scope.offset = 0;
+      $scope.limit = 25;
       $scope.selectType = $scope.commissionTypes[0];
       $scope.distributorId = null;
       $scope.dateArr = date;
@@ -24,10 +25,6 @@ angular.module('2ViVe')
       });
 
     var updateReport = $scope.updateReport = function(reflash){
-      if (reflash) {
-        $scope.offset = 0;
-        $scope.curpage = 1;
-      }
       return commission.fetch($scope.date, $scope.selectType.code, $scope.offset)
         .then(function(result){
           $scope.names = result.data.names;
@@ -42,14 +39,13 @@ angular.module('2ViVe')
         });
     };
 
-    $scope.goToPage = function(page){
-      $scope.curpage = page;
-      $scope.offset = ($scope.curpage - 1) * 25 + 1;
+    $scope.goToPage = function(offset, limit){
+      $scope.offset = offset;
+      $scope.limit = limit;
       updateReport();
     };
 
     $scope.updateType = function(){
-      console.log($scope.selectType);
       updateReport(true);
     };
 
