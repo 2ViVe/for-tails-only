@@ -7,11 +7,17 @@
       <div class="distributor-info" ng-if="replicateOwner">
         <div class="distributor-info-photo">
           <img src="/images/profile-photo.png" />
-          <!--<img ng-src={{replicateOwner['profile-image-url']}} />-->
         </div>
         <div class="distributor-info-text">
-          <p class="distributor-info-name">{{ replicateOwner['first-name'] + ' ' + replicateOwner['last-name'] }}</p>
-          <p class="distributor-info-detail"><span class="">{{ replicateOwner['distributor-id'] }}</span><span class="">{{ replicateOwner['email']}}</span></p>
+          <p class="distributor-info-name">
+            {{ replicateOwner['first-name'] + ' ' + replicateOwner['last-name'] }}
+            ({{ replicateOwner['distributor-id'] }})
+          </p>
+          <p class="distributor-info-detail">
+            Microchip ID: {{ replicateOwner['customer-id'] }}
+            <br/>
+            {{ replicateOwner['email']}}
+          </p>
         </div>
       </div>
     </div>
