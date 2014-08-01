@@ -31,7 +31,8 @@ angular.module('fto', [
   'fto/footer',
   'fto/genealogy',
   'fto/commission',
-  'fto/autoship'
+  'fto/autoship',
+  '2ViVe/report'
 ])
   .config(function($routeProvider) {
     $routeProvider

@@ -1,0 +1,93 @@
+<div class="row">
+  <div class="columns medium-12">
+    <h2>
+      Customers Orders
+    </h2>
+  </div>
+</div>
+<div class="row">
+  <div class="columns medium-12">
+    <table>
+      <thead>
+      <tr>
+        <th>
+          Id
+        </th>
+        <th>
+          Name
+        </th>
+        <th>
+          Order Number
+        </th>
+        <th>
+          Order Date
+        </th>
+        <th class="text-right">
+          Item Total
+        </th>
+        <th class="text-right">
+          Adjustment Total
+        </th>
+        <th class="text-right">
+          Order Total
+        </th>
+        <th>
+          State
+        </th>
+        <th class="text-right">
+          QV
+        </th>
+        <th class="text-right">
+          CV
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="order in customers.orders">
+        <td>
+          {{order.distributorId}}
+        </td>
+        <td>
+          {{order.firstName}}&nbsp;{{order.lastName}}
+        </td>
+        <td>
+          {{order.orderNumber}}
+        </td>
+        <td>
+          {{order.orderDate | date: 'yyyy-MM-dd'}}
+        </td>
+        <td class="text-right">
+          {{order.itemTotal | price}}
+        </td>
+        <td class="text-right">
+          {{order.adjustmentTotal | price}}
+        </td>
+        <td class="text-right">
+          {{order.orderTotal | price}}
+        </td>
+        <td>
+          {{order.paymentState}}
+        </td>
+        <td class="text-right">
+          {{order.qv}}
+        </td>
+        <td class="text-right">
+          {{order.cv}}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="columns medium-12">
+    <vive-pagination data-start-page="first"
+                     data-total="customers.orders.pagination.count"
+                     data-refresh="refreshPagination"
+                     data-on-next-page="goToPage"
+                     data-on-previous-page="goToPage"
+                     data-on-go-to-page="goToPage"
+                     data-number-per-page="25"
+                     data-available-number-per-page="10,25,100"></vive-pagination>
+  </div>
+</div>
