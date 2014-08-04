@@ -7,12 +7,13 @@ angular.module('2ViVe')
 
       Customers.prototype = {
 
-        fetchOrders: function(offset, limit) {
+        fetchOrders: function(offset, limit, distributorId) {
           var customers = this;
           return $http.get('/api/v2/customers/orders', {
             params: {
               offset: offset,
-              limit: limit
+              limit: limit,
+              'distributor-id': distributorId
             },
             transformResponse: camelCaselize
           }).then(function(response) {
