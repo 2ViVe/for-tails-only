@@ -59,15 +59,22 @@ angular.module('2ViVe')
       };
 
     }])
-  .controller('nextRankModelController', ['$scope', 'nextRankDetails',
-    function($scope, nextRankDetails) {
+  .controller('nextRankModelController', ['$scope', 'nextRankDetails', '$modalInstance',
+    function($scope, nextRankDetails, $modalInstance) {
       $scope.input = {};
       $scope.input.nextRankDetails = nextRankDetails.requirements;
+
+      $scope.cancel = function() {
+        $modalInstance.dismiss('cancel');
+      };
     }])
-  .controller('detailModelController', ['$scope', 'details', '$modal',
-    function($scope, details, $modal) {
+  .controller('detailModelController', ['$scope', 'details', '$modal', '$modalInstance',
+    function($scope, details, $modal, $modalInstance) {
       $scope.input = {};
       $scope.input.details = details;
+      $scope.cancel = function() {
+        $modalInstance.dismiss('cancel');
+      };
       $scope.input.viewDetail = function(id) {
         $modal.open({
           templateUrl: 'views/report/order-detail.html',
