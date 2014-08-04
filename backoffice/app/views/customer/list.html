@@ -38,7 +38,9 @@
           {{customer.distributorId}}
         </td>
         <td>
-          {{customer.firstName}}&nbsp;{{customer.lastName}}
+          <a ng-click="showOrder(customer)">
+            {{customer.firstName}}&nbsp;{{customer.lastName}}
+          </a>
         </td>
         <td>
           {{customer.country}}
