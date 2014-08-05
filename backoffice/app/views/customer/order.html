@@ -1,7 +1,28 @@
-<div class="row">
-  <div class="columns medium-12">
+<div class="row" ng-show="!isDetail">
+  <div class="columns medium-8">
     <h2>
       Customers Orders
+    </h2>
+  </div>
+  <div class="columns medium-4" ng-hide="isDetail">
+    <div class="row collapse">
+      <div class="small-10 columns">
+        <input type="text"
+               ng-model="distributorId"
+               class="secondary-item no-margin-bottom"
+               placeholder="Search by Distributor ID...">
+        <a class="text-clear-btn" ng-show="!!distributorId" ng-click="clearDistributorId()">X</a>
+      </div>
+      <div class="small-2 columns">
+        <a ng-click="updateOrderAndRefreshPagination()" class="postfix button"><i class="fa fa-search"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" ng-show="isDetail">
+  <div class="columns medium-12">
+    <h2>
+      Customer Orders for {{name}}
     </h2>
   </div>
 </div>
@@ -43,6 +64,11 @@
       </tr>
       </thead>
       <tbody>
+      <tr>
+        <td colspan="10" class="text-center" ng-if="customers.orders.length === 0">
+          No record found.
+        </td>
+      </tr>
       <tr ng-repeat="order in customers.orders">
         <td>
           {{order.distributorId}}
@@ -89,5 +115,10 @@
                      data-on-go-to-page="goToPage"
                      data-number-per-page="25"
                      data-available-number-per-page="10,25,100"></vive-pagination>
+  </div>
+</div>
+<div class="row" ng-show="isDetail">
+  <div class="columns medium-12">
+    <button class="right" ng-click="close()">Close</button>
   </div>
 </div>

@@ -59,12 +59,21 @@
           <div class='party-price block-margin-bottom'>
             <ul class="row">
               <li class="small-6 columns text-center">
-                {{rewords | price}}
                 <span>Hostess Rewards</span>
+                <div class="row">
+                  <div class="small-6 columns medium-font">
+                    Hostess Credits<br/>
+                    {{rewords | price}}
+                  </div>
+                  <div class="small-6 columns medium-font">
+                    Half Price Items<br/>
+                    {{halfPriceItems}}
+                  </div>
+                </div>
               </li>
               <li class="small-6 columns text-center">
-                {{event.data.orderCloseTime | date: 'medium'}}
                 <span>Order Close Date</span>
+                {{event.data.orderCloseTime | date: 'medium'}}
               </li>
             </ul>
           </div>
