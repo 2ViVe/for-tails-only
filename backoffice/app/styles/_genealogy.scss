@@ -19,11 +19,11 @@ $rank-5-border: #F397BD;
 .genealogy-panel {
   background: #F6F8F8;
   border-bottom: 1px solid #EBEDED;
+  padding-bottom: 20px;
 
   .distributor {
     text-align: center;
     padding-top: 25px;
-    padding-bottom: 25px;
 
     .rank-icon {
       margin: 0 auto;
@@ -66,6 +66,26 @@ $rank-5-border: #F397BD;
       &.rank-5 {
         background-color: $rank-5-color;
         border-color: $rank-5-border;
+      }
+    }
+
+    hr {
+      visibility: hidden;
+      margin: 0;
+    }
+
+    .info {
+      display: inline-block;
+      text-align: left;
+
+      table {
+        background: none;
+        margin-bottom: 0;
+
+        td {
+          border-bottom: 0;
+          padding: 0 5px;
+        }
       }
     }
 

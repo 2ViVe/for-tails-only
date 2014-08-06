@@ -63,16 +63,33 @@
               {{genealogy.data.firstName}}
               {{genealogy.data.lastName}}
             </div>
-            <div class="sponsor-id">
-              {{genealogy.data.id}}
-              <span class="unimportant-text">({{genealogy.data.childrenSize}})</span>
+            <hr/>
+
+            <div class="info">
+              <table>
+                <tr>
+                  <td>ID:</td>
+                  <td>{{genealogy.data.id}}</td>
+                </tr>
+                <tr>
+                  <td>Handlers:</td>
+                  <td>{{genealogy.data.childrenSize}}</td>
+                </tr>
+                <tr>
+                  <td>Customers:</td>
+                  <td>{{genealogy.data.retailChildrenSize}}</td>
+                </tr>
+                <tr>
+                  <td>Username:</td>
+                  <td>{{genealogy.data.userName}}</td>
+                </tr>
+                <tr ng-if="genealogy.data.renewelDate">
+                  <td>Renewal Date:</td>
+                  <td>{{genealogy.data.renewelDate}}</td>
+                </tr>
+              </table>
             </div>
-            <div>
-              Username: {{genealogy.data.userName}}
-            </div>
-            <div ng-if="genealogy.data.renewelDate">
-              Renewal Date: {{genealogy.data.renewelDate}}
-            </div>
+
           </div>
         </div>
       </div>
