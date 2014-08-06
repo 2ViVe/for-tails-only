@@ -100,7 +100,7 @@
 
       $scope.refreshImage = function(imageUrl){
         $scope.profile.imageUrl = imageUrl;
-      }
+      };
 
     }])
     .directive('profileInfoPanel', function() {

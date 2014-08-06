@@ -14,10 +14,13 @@
       <div class="row profile-item profile-photo">
         <div class="small-3 columns">Avatar</div>
         <div class="small-3 columns">
-          <img src="/images/profile-photo.jpg" class="profile-photo" />
+          <img ng-src="{{profile.imageUrl}}" class="profile-photo" />
         </div>
-        <div class="small-9 columns">
-          <button class="small">Select a picture</button>
+        <div class="small-3 end columns">
+          <vive-file-reader data-on-uploaded="refreshImage">
+            <button class="small">Select a picture</button>
+            <input type="file" name="avatar" id="file" class="hide" />
+          </vive-file-reader>
         </div>
       </div>
 
