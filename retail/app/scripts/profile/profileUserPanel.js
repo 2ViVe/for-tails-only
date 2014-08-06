@@ -98,11 +98,6 @@
           .catch(respErrHandler);
       };
 
-      //upload avatar
-      $scope.getFile = function(){
-        $document[0].getElementById('file').click();
-      };
-
     }])
     .directive('profileInfoPanel', function() {
       return {
@@ -112,29 +107,30 @@
         controller: 'profileInfoPanelCtrl',
         scope: {},
         link: function() {
-          
+
         }
       };
     })
-    .directive('fileread', ['Avatar', function(Avatar) {
+    .directive('viveFileReader', ['Avatar', function(Avatar) {
       return {
-        restrict: 'A',
+        restrict: 'E',
         scope: {
-          fileread: '='
+          onUploaded: '='
         },
         link: function (scope, element) {
-          element.bind('change', function (changeEvent) {
-            scope.$apply(function () {
-              var fileread = changeEvent.target.files;
-              if(fileread.length === 0){
-                return;
-              }
-              Avatar.upload(fileread[0]).then(function(result){
-                console.log(result);
-                //reflash avator
+          var $element = angular.element(element),
+            $fileInput = $element.find('input');
 
-              });
-            });
+          $element.find('button').on('click', function() {
+            $fileInput.click();
+          });
+
+          $fileInput.on('change', function(changeEvent) {
+            var file = changeEvent.target.files;
+            if (file.length === 0) {
+              return;
+            }
+            Avatar.upload(file[0]).then(scope.onUploaded);
           });
         }
       };
