@@ -63,7 +63,7 @@
               {{genealogy.data.firstName}}
               {{genealogy.data.lastName}}
             </div>
-            <hr/>
+            <br/>
 
             <div class="info">
               <table>
@@ -107,6 +107,19 @@
                        data-controls="false"
                        data-previous-slide="previousSlide">
             <ul>
+              <li class="distributor"
+                  ng-show="genealogy.data.retailChildrenSize >= 0"
+                  ng-click="showRetails()">
+                <div class="rank-icon rank-0">
+                </div>
+                <div class="name">
+                  Customers: {{genealogy.data.retailChildrenSize}}
+                </div>
+                <br/>
+                <a>
+                  Click to show details.
+                </a>
+              </li>
               <li class="distributor"
                   ng-repeat="distributor in genealogy.data.children">
                 <div class="rank-icon rank-{{distributor.displayRank}}"
