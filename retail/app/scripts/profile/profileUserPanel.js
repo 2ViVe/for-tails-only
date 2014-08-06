@@ -98,6 +98,10 @@
           .catch(respErrHandler);
       };
 
+      $scope.refreshImage = function(imageUrl){
+        $scope.profile.imageUrl = imageUrl;
+      }
+
     }])
     .directive('profileInfoPanel', function() {
       return {
@@ -130,7 +134,9 @@
             if (file.length === 0) {
               return;
             }
-            Avatar.upload(file[0]).then(scope.onUploaded);
+            Avatar.upload(file[0]).then(function(reslut){
+              scope.onUploaded(reslut.data.response['image-url']);
+            });
           });
         }
       };
