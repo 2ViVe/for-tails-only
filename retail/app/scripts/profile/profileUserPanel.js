@@ -3,8 +3,8 @@
 (function() {
 
   angular.module('2ViVe')
-    .controller('profileInfoPanelCtrl', ['$scope', 'User', '$http', '$q', 'LocalStorage', '$location', '$document',
-    function($scope, User, $http, $q, LocalStorage, $location, $document) {
+    .controller('profileInfoPanelCtrl', ['$scope', 'User', '$http', '$q', 'LocalStorage', '$location',
+    function($scope, User, $http, $q, LocalStorage, $location) {
       $scope.isEditing = false;
       $scope.isLoading = true;
       $scope.submitted = false;
