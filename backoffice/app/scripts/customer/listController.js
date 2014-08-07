@@ -21,18 +21,15 @@ angular
             customers: function() {
               return customers.fetchOrders(undefined, undefined, customer.distributorId);
             },
-            name: function() {
-              return customer.firstName + ' ' + customer.lastName;
+            customer: function() {
+              return customer;
             }
           }
         });
       };
 
       $scope.goToPage = function(page, offset, limit) {
-        customers.fetch(offset, limit)
-          .then(function() {
-            $scope.refreshPagination(customers.orders.pagination.count);
-          });
+        customers.fetch(offset, limit);
       };
     }
   ]

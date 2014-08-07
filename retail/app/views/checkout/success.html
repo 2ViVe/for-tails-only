@@ -11,7 +11,10 @@
         <thead>
           <tr>
             <th width="50%" class='cPrimary'>Order ID: <span>{{successInfo.orderId}}</span></th>
-            <th class='cPrimary'><a ng-href="/api/v2/orders/pdf-invoice?ids={{successInfo.orderId}}" class='button tiny right'>Print</a>
+            <th class='cPrimary'>
+              <a ng-href="/api/v2/orders/pdf-invoice?ids={{successInfo.orderId}}"
+                 target="_blank"
+                 class='button tiny right'>Print</a>
               Status: <span>{{successInfo.state}}</span>
             </th>
           </tr>
