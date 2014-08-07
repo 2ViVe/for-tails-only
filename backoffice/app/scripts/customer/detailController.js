@@ -2,18 +2,18 @@
 
 angular
   .module('2ViVe/report')
-  .controller('CustomerDetailController', ['$scope', 'customers', '$modalInstance', 'name',
-    function($scope, customers, $modalInstance, name) {
+  .controller('CustomerDetailController', ['$scope', 'customers', '$modalInstance', 'customer',
+    function($scope, customers, $modalInstance, customer) {
       $scope.customers = customers;
+      $scope.customer = customer;
       $scope.isDetail = true;
-      $scope.name = name;
 
       $scope.close = function() {
         $modalInstance.dismiss('cancel');
       };
 
       $scope.goToPage = function(page, offset, limit) {
-        customers.fetchOrders(offset, limit)
+        customers.fetchOrders(offset, limit, customer.distributorId)
           .then(function() {
             $scope.refreshPagination(customers.orders.pagination.count);
           });

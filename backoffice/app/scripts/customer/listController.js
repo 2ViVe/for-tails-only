@@ -21,8 +21,8 @@ angular
             customers: function() {
               return customers.fetchOrders(undefined, undefined, customer.distributorId);
             },
-            name: function() {
-              return customer.firstName + ' ' + customer.lastName;
+            customer: function() {
+              return customer;
             }
           }
         });
