@@ -29,10 +29,7 @@ angular
       };
 
       $scope.goToPage = function(page, offset, limit) {
-        customers.fetch(offset, limit)
-          .then(function() {
-            $scope.refreshPagination(customers.orders.pagination.count);
-          });
+        customers.fetch(offset, limit);
       };
     }
   ]

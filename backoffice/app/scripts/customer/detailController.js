@@ -13,10 +13,7 @@ angular
       };
 
       $scope.goToPage = function(page, offset, limit) {
-        customers.fetchOrders(offset, limit, customer.distributorId)
-          .then(function() {
-            $scope.refreshPagination(customers.orders.pagination.count);
-          });
+        customers.fetchOrders(offset, limit, customer.distributorId);
       };
     }
   ]
