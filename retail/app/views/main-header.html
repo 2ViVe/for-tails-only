@@ -6,7 +6,7 @@
       </a>
       <div class="distributor-info" ng-if="replicateOwner">
         <div class="distributor-info-photo">
-          <img src="/images/profile-photo.png" />
+          <img ng-src="{{replicateOwner['profile-image-url']}}" />
         </div>
         <div class="distributor-info-text">
           <p class="distributor-info-name">

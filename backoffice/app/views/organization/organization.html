@@ -13,10 +13,10 @@
         <a class="text-clear-btn" ng-show="!!distributorId" ng-click="clearDistributorId()">X</a>
       </div>
       <div class="small-1 columns">
-        <a ng-click="updateOrder(true)" class='postfix button'><i class="fa fa-search"></i></a>
+        <a ng-click="updateOrderAndRefreshPagination()" class='postfix button'><i class="fa fa-search"></i></a>
       </div>
       <div class="small-2 columns">
-        <label>&nbsp;&nbsp;<input ng-model='isShowOrderList' ng-change="updateOrder(true)" type="checkbox" />&nbsp;Orders Only</label>
+        <label>&nbsp;&nbsp;<input ng-model='isShowOrderList' ng-change="updateOrderAndRefreshPagination()" type="checkbox" />&nbsp;Orders Only</label>
       </div>
       <div class="small-2 small-offset-2 columns">
         <select ng-model="selectYear" ng-change="getMonth()" class="secondary-item no-margin-bottom">
@@ -68,17 +68,15 @@
   </div>
 </div>
 <div class="row" ng-show="count > 25">
-  <div class="columns small-2">
-    <p class="organization-count">{{ (curpage * 25 > count) ? count : curpage * 25  }} of {{count}}</p>
-  </div>
-  <div class="columns small-10">
+  <div class="columns small-12">
     <vive-pagination data-start-page="first"
                      data-total="count"
                      data-refresh="refreshPagination"
                      data-on-next-page="goToPage"
                      data-on-previous-page="goToPage"
                      data-on-go-to-page="goToPage"
-                     data-number-per-page="25"></vive-pagination>
+                     data-number-per-page="25"
+                     data-available-number-per-page="10,25,100"></vive-pagination>
   </div>
 </div>
 <div class="row" ng-if="!orders.length">

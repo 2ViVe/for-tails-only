@@ -48,14 +48,18 @@ angular.module('fto/party')
 
       $scope.save = function() {
         $scope.submitted = true;
-        $scope.data.templateId = templates[selectedTemplateIndex].id;
-        var event = new Event();
-        event.create($scope.data, $scope.time)
-          .then(function(event) {
-            $location.path('/party/' + event.data.id + '/invite');
-          })
-          .catch(function(response) {
-            $scope.error = response.data.meta.error.message;
-          });
+
+        if ($scope.form.$valid) {
+          $scope.data.templateId = templates[selectedTemplateIndex].id;
+          var event = new Event();
+          event.create($scope.data, $scope.time)
+            .then(function(event) {
+              $location.path('/party/' + event.data.id + '/invite');
+            })
+            .catch(function(response) {
+              $scope.error = response.data.meta.error.message;
+            });
+        }
+
       };
     }]);

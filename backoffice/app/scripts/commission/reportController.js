@@ -2,10 +2,10 @@
 
 angular.module('2ViVe')
   .controller('CommissionReportController', ['$scope', 'commission', function($scope, commission) {
+    var _numberPerPage = 25;
     $scope.commissionTypes = commission.type;
 
     commission.getDate().then(function(date){
-      $scope.curpage = 1;
       $scope.selectType = $scope.commissionTypes[0];
       $scope.distributorId = null;
       $scope.dateArr = date;
@@ -15,7 +15,7 @@ angular.module('2ViVe')
       $scope.selectMonth = date[$scope.selectYear][0];
       $scope.date = $scope.selectYear + $scope.selectMonth;
       $scope.months = date[$scope.selectYear];
-      updateReport(true);
+      $scope.updateReportAndRefreshPagination();
       $scope.selectMonth = $scope.selectMonth.substr(0,2);
     })
       .catch(function(){
@@ -23,39 +23,48 @@ angular.module('2ViVe')
         $scope.selectMonth = null;
       });
 
-    var updateReport = $scope.updateReport = function(reflash){
-      if (reflash) {
-        $scope.offset = 0;
-        $scope.curpage = 1;
+    var updateReport = function(offset, numberPerPage){
+      if (numberPerPage) {
+        _numberPerPage = numberPerPage;
       }
-      return commission.fetch($scope.date, $scope.selectType.code, $scope.offset)
+      return commission.fetch($scope.date, $scope.selectType.code, offset, _numberPerPage)
         .then(function(result){
-          $scope.names = result.data.names;
-          $scope.values = result.data.values;
+          var deletedArr = deleteOrder(result.data.names, result.data.values);
+          $scope.names = deletedArr.names;
+          $scope.values = deletedArr.values;
           $scope.count = result.meta.count;
           $scope.overview = result.overview;
-        })
-        .then(function(){
-          if (reflash){
-            $scope.refreshPagination($scope.count);
-          }
         });
     };
 
-    $scope.goToPage = function(page){
-      $scope.curpage = page;
-      $scope.offset = ($scope.curpage - 1) * 25 + 1;
-      updateReport();
+    function deleteOrder(names, values){
+      var index = names.indexOf('Orders');
+      names.splice(index, 1);
+      var newValues = [];
+      values.forEach(function(value){
+        value.splice(index, 1);
+        newValues.push(value);
+      });
+      return {
+        names: names,
+        values: newValues
+      };
+    }
+
+    $scope.updateReportAndRefreshPagination = function() {
+      updateReport(0)
+        .then(function() {
+          $scope.refreshPagination($scope.count);
+        });
     };
 
-    $scope.updateType = function(){
-      console.log($scope.selectType);
-      updateReport(true);
+    $scope.goToPage = function(page, offset, limit){
+      updateReport(offset, limit);
     };
 
     $scope.updateDate = function(){
       $scope.date = $scope.selectYear + $scope.selectMonth + '01' ;
-      updateReport(true);
+      $scope.updateReportAndRefreshPagination();
     };
 
 

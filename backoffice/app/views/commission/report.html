@@ -21,7 +21,7 @@
                 </select>
             </div>
             <div class="small-2 columns">
-                <select ng-model="selectType" ng-options='commissionType.name for commissionType in commissionTypes' ng-change="updateType()" class="secondary-item no-margin-bottom">
+                <select ng-model="selectType" ng-options='commissionType.name for commissionType in commissionTypes' ng-change="updateReportAndRefreshPagination()" class="secondary-item no-margin-bottom">
                     <option disabled ng-selected="true">Select Type</option>
                 </select>
             </div>
@@ -76,10 +76,7 @@
     </div>
 </div>
 <div class="row" ng-show="count > 25">
-    <div class="columns small-2">
-        <p class="organization-count">{{ (curpage * 25 > count) ? count : curpage * 25  }} of {{count}}</p>
-    </div>
-    <div class="columns small-10">
+    <div class="columns small-12">
         <vive-pagination data-start-page="first"
                          data-total="count"
                          data-refresh="refreshPagination"
