@@ -6,13 +6,6 @@ angular
     function($scope, customers, $modal) {
       $scope.customers = customers;
 
-      $scope.contactInformation = function(customer) {
-        return 'Zip Code: ' + customer.zipCode + '<br>' +
-          'Address: ' + customer.address + '<br>' +
-          'Phone: ' + customer.phone + '<br>' +
-          'Email: ' + customer.email + '<br>';
-      };
-
       $scope.showOrder = function(customer) {
         $modal.open({
           templateUrl: 'views/customer/order.html',
