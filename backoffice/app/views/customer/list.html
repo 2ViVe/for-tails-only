@@ -17,13 +17,10 @@
           Name
         </th>
         <th>
-          Country
+          Email
         </th>
         <th>
-          State
-        </th>
-        <th>
-          City
+          Phone
         </th>
         <th>
           Enrollment Date
@@ -43,20 +40,17 @@
           </a>
         </td>
         <td>
-          {{customer.country}}
+          {{customer.email}}
         </td>
         <td>
-          {{customer.state}}
-        </td>
-        <td>
-          {{customer.city}}
+          {{customer.phone}}
         </td>
         <td>
           {{customer.enrollmentDate | date: 'yyyy-MM-dd'}}
         </td>
         <td>
-          <a tooltip-html-unsafe="{{contactInformation(customer)}}"
-             tooltip-placement="bottom">Contact Information</a>
+          <a tooltip="{{customer.address}}, {{customer.city}}, {{customer.state}}, {{customer.country}}, {{customer.zipCode}}"
+             tooltip-placement="bottom">Address Information</a>
         </td>
       </tr>
       </tbody>
