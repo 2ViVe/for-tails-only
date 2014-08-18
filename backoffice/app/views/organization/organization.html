@@ -44,9 +44,12 @@
         <th>Role Code</th>
         <th>Level</th>
         <th>Orders</th>
-        <th>Qualification Volume</th>
-        <th>Commission Volume</th>
-        <th>Rank</th>
+        <th>QV</th>
+        <th>CV</th>
+        <th>PV</th>
+        <th>TV</th>
+        <th>OV</th>
+        <th>PS</th>
         <th>Country</th>
       </tr>
       </thead>
@@ -60,7 +63,10 @@
         <td>{{order.orderCount}}</td>
         <td>{{parseFloat(order.qualificationVolume).toFixed(2)}}</td>
         <td>{{parseFloat(order.unilevelVolume).toFixed(2)}}</td>
-        <td>{{order.rank}}</td>
+        <td>{{parseFloat(order.personalVolume).toFixed(2)}}</td>
+        <td>{{parseFloat(order.teamVolume).toFixed(2)}}</td>
+        <td>{{parseFloat(order.groupVolume).toFixed(2)}}</td>
+        <td>{{order.personalSale}}</td>
         <td>{{order.countryIso}}</td>
       </tr>
       </tbody>
@@ -83,6 +89,9 @@
   <div class="panel giftcode-placeholder-panel columns small-12 text-center">
     No record found
   </div>
+</div>
+<div class="row">
+<div class="columns small-12"><p>QV : Qualification Volume, CV : Commission Volume, PV : Personal Volume, TV : Team Volume, OV : Organizational Volume, PS : Personal Sale.</p></div>
 </div>
 
 
