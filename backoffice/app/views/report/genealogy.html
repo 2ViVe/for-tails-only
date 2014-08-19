@@ -62,6 +62,7 @@
             <div class="name" ng-click="back()">
               {{genealogy.data.firstName}}
               {{genealogy.data.lastName}}
+              <span class="unimportant-text small-font" ng-if="genealogy.data.status === 6">Terminated</span>
             </div>
             <br/>
 
@@ -128,8 +129,9 @@
                 <div class="name" ng-click="changeRootDistributor(distributor.id)">
                   {{distributor.firstName}}
                   {{distributor.lastName}}
+                  <span class="unimportant-text small-font" ng-if="distributor.status === 6">Terminated</span>
                 </div>
-                <div class="sponsor-id">
+                <div>
                   {{distributor.id}}
                   <span class="unimportant-text">({{distributor.childrenSize}})</span>
                 </div>
