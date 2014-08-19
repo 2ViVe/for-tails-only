@@ -1,5 +1,5 @@
 'use strict';
-angular.module('miioon/signup')
+angular.module('fto/signup')
   .controller('RetailSignUpController', ['$scope', '$location', 'Address', 'Registration', 'User', 'Shopping',
     function($scope, $location, Address, Registration, User, Shopping) {
       $scope.submitted = false;
