@@ -4,7 +4,7 @@ angular.module('fto/signup')
   .directive('signUpStep4', [function() {
     return {
       restrict: 'C',
-      controller: ['$scope', 'Registration', 'User', function($scope, Registration, User) {
+      controller: ['$scope', 'Registration', 'User', 'Shopping', function($scope, Registration, User, Shopping) {
 
         var lineItems = [
           {
@@ -58,7 +58,13 @@ angular.module('fto/signup')
 
                   User.login($scope.account.login, $scope.account.password)
                     .success(function() {
-                      User.fetch();
+                      User.fetch().then(function() {
+                        if (Shopping.items) {
+                          Shopping.mergeItems();
+                        } else {
+                          Shopping.fetch();
+                        }
+                      });
                     });
                 });
             });
