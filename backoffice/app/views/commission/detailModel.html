@@ -37,7 +37,7 @@
             <tbody>
             <tr ng-repeat="order in input.details.orderNumbers">
                 <td>{{order}}</td>
-                <td><a ng-click="input.viewDetail(order.substr(-5))">view</a></td>
+                <td><a ng-click="input.viewDetail(order)">view</a></td>
             </tr>
             </tbody>
         </table>
@@ -163,7 +163,7 @@
             <tbody>
             <tr ng-repeat="order in input.details.personallySponsoredRetailCustomerOrderNumbers">
                 <td>{{order}}</td>
-                <td><a ng-click="input.viewDetail(order.substr(-5))">view</a></td>
+                <td><a ng-click="input.viewDetail(order)">view</a></td>
             </tr>
             </tbody>
         </table>
@@ -183,7 +183,7 @@
             <tbody>
             <tr ng-repeat="order in input.details.personallySponsoredDistributorOrderNumbers">
                 <td>{{order}}</td>
-                <td><a ng-click="input.viewDetail(order.substr(-5))">view</a></td>
+                <td><a ng-click="input.viewDetail(order)">view</a></td>
             </tr>
             </tbody>
         </table>
