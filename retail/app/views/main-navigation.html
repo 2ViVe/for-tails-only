@@ -24,7 +24,7 @@
         GIFT CERTIFICATE
       </a>
     </li>
-    <li ng-repeat="taxon in taxons">
+    <li ng-repeat="taxon in taxons | orderBy: 'position' ">
       <a ng-href="#/products/{{taxon.permalink}}">
         {{taxon.name}}
       </a>
