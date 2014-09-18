@@ -15,10 +15,44 @@ angular
       $scope.isFailed = false;
       $scope.orderId = null;
       $scope.showShipping = true;
+      $scope.isOtherCoupon = false;
+      $scope.couponCode = '';
+      var confirmedCouponCode = null;
 
       $scope.selectedShippingMethod = order.currentShippingMethod();
       $scope.selectedPaymentMethod = order.data.availablePaymentMethods[0];
       $scope.order = order;
+
+      $scope.applyCoupon = function() {
+        var coupons = null;
+        if ($scope.isOtherCoupon) {
+          coupons = [
+            {
+              code: $scope.otherCouponCode
+            }
+          ];
+        } else if ($scope.couponCode !== '') {
+          coupons = [
+            {
+              code: $scope.couponCode
+            }
+          ];
+        }
+        order.checkout(order.shopping, coupons)
+          .then(function() {
+            confirmedCouponCode = $scope.isOtherCoupon ? $scope.otherCouponCode : $scope.couponCode;
+            $scope.couponError = null;
+          })
+          .catch(function(reponse) {
+            confirmedCouponCode = null;
+            $scope.couponError = reponse.data.meta.error.message;
+          });
+      };
+
+      $scope.changeCoupon = function(coupon) {
+        $scope.couponCode = coupon.code;
+        $scope.isOtherCoupon = false;
+      };
 
       $scope.editShippingAddress = function() {
         $modal.open({
@@ -66,7 +100,8 @@ angular
         }
 
         $scope.selectedPaymentMethod.isCreditcard = ($scope.giftcard.used !== total);
-        return total - ($scope.giftcard.used || 0);
+        total = total - ($scope.giftcard.used || 0);
+        return total > 0 ? total : 0;
       };
 
       $scope.changeShippingMethod = function(selectedShippingMethod) {
@@ -94,7 +129,14 @@ angular
         if (!$scope.selectedPaymentMethod.isCreditcard) {
           $scope.creditcard = null;
         }
-        order.create($scope.selectedPaymentMethod.id, $scope.selectedShippingMethod.id, $scope.creditcard, $scope.orderId, $scope.giftcard.active ? $scope.giftcard : null)
+        order.create($scope.selectedPaymentMethod.id,
+          $scope.selectedShippingMethod.id,
+          $scope.creditcard,
+          $scope.orderId,
+          $scope.giftcard.active ? $scope.giftcard : null,
+          confirmedCouponCode ? [{
+            'code': confirmedCouponCode
+          }] : null)
           .success(function(data) {
             $scope.placingOrder = false;
             $scope.orderId = data.response.orderId;
