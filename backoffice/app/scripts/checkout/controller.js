@@ -43,6 +43,8 @@ angular
           .then(function() {
             confirmedCouponCode = $scope.isOtherCoupon ? $scope.otherCouponCode : $scope.couponCode;
             $scope.couponError = null;
+            $scope.selectedShippingMethod = order.currentShippingMethod();
+            $scope.selectedPaymentMethod = order.data.availablePaymentMethods[0];
           })
           .catch(function(reponse) {
             confirmedCouponCode = null;

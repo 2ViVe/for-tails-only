@@ -71,7 +71,7 @@
                  ng-model="couponCode"
                  ng-value="''"
                  ng-click="isOtherCoupon = false;"
-                 name="coupon" />
+                 name="coupon" />&nbsp;
           No Coupon
         </label>
         <label ng-repeat="coupon in order.data.availableCoupons" ng-if="coupon.active">
@@ -79,14 +79,14 @@
                  name="coupon"
                  ng-value="coupon.code"
                  ng-model="couponCode"
-                 ng-click="changeCoupon(coupon);" />
+                 ng-click="changeCoupon(coupon);" />&nbsp;
           {{coupon.code}}: <b>{{coupon.description}}</b>
         </label>
         <label>
           <input type="radio"
                  ng-model="isOtherCoupon"
                  ng-value="true"
-                 name="coupon" />
+                 name="coupon" />&nbsp;
           Other Coupon:
         </label>
         <input type="text"
