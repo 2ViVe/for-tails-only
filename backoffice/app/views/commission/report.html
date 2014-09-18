@@ -36,7 +36,7 @@
         </h4>
     </div>
 </div>
-<div class="row">
+<div class="row" ng-show="type !== 'total'">
     <div class="small-12 columns">
         <div class="columns small-12">
             <table width="100%" style="text-align: right">
@@ -52,7 +52,25 @@
         </div>
     </div>
 </div>
-<div class="row">
+<div class="row" ng-show="type === 'total'">
+    <div class="small-12 columns">
+        <div class="columns small-12">
+            <table width="100%" style="text-align: right">
+                <tbody>
+                    <tr>
+                        <th>name</th>
+                        <th>total</th>
+                    </tr>
+                    <tr ng-repeat="item in total">
+                        <td>{{item.name}}</td>
+                        <td>{{item.total}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row" ng-show="type !== 'total'">
     <div class="columns medium-12">
         <h4>
             Report

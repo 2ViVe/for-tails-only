@@ -1,9 +1,14 @@
 'use strict';
 
 angular.module('2ViVe')
-  .controller('CommissionReportController', ['$scope', 'commission', function($scope, commission) {
+  .controller('CommissionReportController', ['$scope', 'commission', 'User', function($scope, commission, User) {
     var _numberPerPage = 25;
     $scope.commissionTypes = commission.type;
+    $scope.commissionTypes.push({
+      name:'Total',
+      code:'Total',
+      period:'monthly'
+    });
 
     commission.getDate().then(function(date){
       $scope.selectType = $scope.commissionTypes[0];
@@ -52,8 +57,14 @@ angular.module('2ViVe')
     }
 
     $scope.updateReportAndRefreshPagination = function() {
+      if ($scope.selectType.name === 'Total') {
+        $scope.type = 'total';
+        $scope.selectTotal();
+        return;
+      };
       updateReport(0)
         .then(function() {
+          $scope.type = null;
           $scope.refreshPagination($scope.count);
         });
     };
@@ -67,6 +78,10 @@ angular.module('2ViVe')
       $scope.updateReportAndRefreshPagination();
     };
 
-
-
+    $scope.selectTotal = function(){
+      commission.fetchTotal($scope.date, User.data.distributorId)
+        .then(function(result){
+          $scope.total = result;
+        });
+    }
   }]);
