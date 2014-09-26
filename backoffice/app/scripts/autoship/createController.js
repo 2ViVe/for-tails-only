@@ -79,7 +79,8 @@ angular
                   if (variant.quantity && variant.quantity > 0) {
                     autoShipItems.push({
                       variantId: variant.id,
-                      quantity: variant.quantity
+                      quantity: variant.quantity,
+                      roleCode: autoShip.roleCode === '' ? undefined : autoShip.roleCode
                     });
                   }
                 });
