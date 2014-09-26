@@ -21,6 +21,16 @@ angular
           });
       }
 
+      $scope.totalActive = function() {
+        var result = 0;
+        angular.forEach(genealogy.data.children, function(distributor) {
+          if (distributor.paidRank >=50) {
+            result++;
+          }
+        });
+        return result;
+      };
+
       $scope.genealogy = genealogy;
 
       $scope.changeRootDistributor = refresh;
