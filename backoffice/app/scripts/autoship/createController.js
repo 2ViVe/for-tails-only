@@ -14,6 +14,10 @@ angular
         year: 2014
       };
       $scope.autoShip = autoShip;
+      $scope.autoShips = autoShips;
+      $scope.refreshProducts = function() {
+        autoShips.fetchProducts(autoShip.roleCode);
+      };
       autoShips.fetchShippingMethods(address.shipping.country.id, address.shipping.state.id)
         .then(function() {
           $scope.shippingMethods = autoShips.shippingMethods;
@@ -64,13 +68,13 @@ angular
                 });
             },
             products: function() {
-              return $scope.products;
+              return autoShips.products;
             },
             autoShip: ['$q', function($q) {
               var deferred = $q.defer();
 
               var autoShipItems = [];
-              angular.forEach($scope.products, function(product) {
+              angular.forEach(autoShips.products, function(product) {
                 angular.forEach(product.variants, function(variant) {
                   if (variant.quantity && variant.quantity > 0) {
                     autoShipItems.push({
