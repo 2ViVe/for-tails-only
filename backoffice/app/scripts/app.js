@@ -27,7 +27,6 @@ angular.module('fto', [
   'fto/organization',
   'fto/party',
   'fto/giftCode',
-  'fto/tools',
   'fto/footer',
   'fto/genealogy',
   'fto/commission',
