@@ -18,7 +18,7 @@
       <label class="required inline" for="role-code">Autoship For</label>
     </div>
     <div class="columns medium-2 end">
-      <select name="roleCode" id="role-code" ng-init="autoShip.roleCode = 'D'" ng-model="autoShip.roleCode">
+      <select name="roleCode" ng-change="refreshProducts()" id="role-code" ng-init="autoShip.roleCode = 'D'" ng-model="autoShip.roleCode">
         <option value="D">My Self</option>
         <option value="R">Retail Customer</option>
       </select>
@@ -184,7 +184,7 @@
           </th>
         </tr>
         </thead>
-        <tbody ng-repeat="product in products">
+        <tbody ng-repeat="product in autoShips.products">
         <tr ng-repeat="variant in product.variants">
           <td>
             <img ng-src="{{variant.images[0] | imageSize: 'small' }}"/>

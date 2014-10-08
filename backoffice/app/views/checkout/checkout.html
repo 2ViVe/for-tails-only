@@ -59,6 +59,48 @@
     <span class='separator-line'></span>
   </div>
 
+  <h3>Coupon</h3>
+  <div ng-if="couponError">
+    <span class="error">{{ couponError }}</span>
+  </div>
+  <div class='row product-checkout-coupon'>
+    <div class="row">
+      <div class='small-10 columns'>
+        <label>
+          <input type="radio"
+                 ng-model="couponCode"
+                 ng-value="''"
+                 ng-click="isOtherCoupon = false;"
+                 name="coupon" />&nbsp;
+          No Coupon
+        </label>
+        <label ng-repeat="coupon in order.data.availableCoupons" ng-if="coupon.active">
+          <input type="radio"
+                 name="coupon"
+                 ng-value="coupon.code"
+                 ng-model="couponCode"
+                 ng-click="changeCoupon(coupon);" />&nbsp;
+          {{coupon.code}}: <b>{{coupon.description}}</b>
+        </label>
+        <label>
+          <input type="radio"
+                 ng-model="isOtherCoupon"
+                 ng-value="true"
+                 name="coupon" />&nbsp;
+          Other Coupon:
+        </label>
+        <input type="text"
+               ng-disabled="!isOtherCoupon"
+               ng-model="otherCouponCode"/>
+      </div>
+      <div class="small-2 columns">
+        <button class='small' ng-click="applyCoupon()">Apply</button>
+      </div>
+    </div>
+  </div>
+
+  <span class='separator-line'></span>
+
   <h3>Gift Card</h3>
   <!--<h4 class='cPrimary'>Promotions & Rewards <span class='unimportant-text'>e-Gift Card</span></h4>-->
   <div ng-if="giftcard.error">
