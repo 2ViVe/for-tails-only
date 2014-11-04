@@ -19,7 +19,8 @@ angular
       $scope.couponCode = '';
       var confirmedCouponCode = null;
 
-      $scope.selectedShippingMethod = order.currentShippingMethod();
+      // $scope.selectedShippingMethod = order.currentShippingMethod();
+      $scope.selectedShippingMethod = order.data.availableShippingMethods[1];
       $scope.selectedPaymentMethod = order.data.availablePaymentMethods[0];
       $scope.order = order;
 
